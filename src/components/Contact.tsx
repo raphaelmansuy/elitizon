@@ -90,27 +90,27 @@ export default function Contact() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-neutral-50 to-secondary-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -right-40 w-80 h-80 bg-blue-200 rounded-full opacity-30 animate-float"></div>
-        <div className="absolute bottom-1/4 -left-40 w-80 h-80 bg-indigo-200 rounded-full opacity-30 animate-float" style={{animationDelay: '3s'}}></div>
+        <div className="absolute top-1/4 -right-40 w-80 h-80 bg-secondary-200 rounded-full opacity-30 animate-float"></div>
+        <div className="absolute bottom-1/4 -left-40 w-80 h-80 bg-primary-200 rounded-full opacity-30 animate-float" style={{animationDelay: '3s'}}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4 bg-gradient-to-r from-primary-700 to-secondary-600 bg-clip-text text-transparent">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-primary-600 max-w-3xl mx-auto">
             Get in touch with our experts to discuss your data engineering, ML, or AI project requirements
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="glass-card rounded-2xl p-8 animate-fade-in-up animation-delay-300">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-gradient">Send us a message</h3>
+          <div className="glass-card rounded-2xl p-8 animate-fade-in-up animation-delay-300 bg-white/80 backdrop-blur-sm border border-white/20">
+            <h3 className="text-2xl font-bold text-primary-900 mb-6 bg-gradient-to-r from-primary-700 to-secondary-600 bg-clip-text text-transparent">Send us a message</h3>
             
             {isSubmitted && (
               <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg animate-fade-in-up">
@@ -125,7 +125,7 @@ export default function Contact() {
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-primary-700 mb-2">
                   Full Name *
                 </label>
                 <input
@@ -135,10 +135,10 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 focus-outline hover-lift ${
+                  className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus-outline hover-lift ${
                     errors.name 
-                      ? 'border-red-300 focus:ring-red-500 bg-red-50' 
-                      : 'border-gray-300 focus:ring-blue-500 focus:border-transparent'
+                      ? 'border-secondary-300 focus:ring-secondary-500 bg-secondary-50' 
+                      : 'border-primary-300 focus:ring-secondary-500 focus:border-transparent'
                   }`}
                   placeholder="Your full name"
                 />

@@ -2,38 +2,46 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white pt-20 relative overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-700 to-slate-800 text-white pt-20 relative overflow-hidden">
       {/* Background particles effect */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -inset-10 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse-slow"></div>
-          <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse-slow animation-delay-2000"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-indigo-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse-slow animation-delay-4000"></div>
+        <div className="absolute -inset-10 opacity-15">
+          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-pink-600 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+          <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+          {/* Brand Logo/Name */}
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-light tracking-wider text-white/90 mb-2">
+              ELITIZON
+            </h2>
+            <div className="w-24 h-0.5 bg-gradient-to-r from-pink-600 to-pink-400 mx-auto"></div>
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Transform Your Business with
-            <span className="block text-gradient-blue mt-2">
+            <span className="block bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mt-2">
               Expert AI Solutions
             </span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-4xl mx-auto animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+          <p className="text-xl md:text-2xl mb-8 text-white/80 max-w-4xl mx-auto font-light leading-relaxed">
             ELITIZON delivers cutting-edge consulting in Data Engineering, Machine Learning, 
             and Generative AI. Based in Hong Kong with Europe&apos;s finest experts.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link 
               href="/contact" 
-              className="bg-cyan-500 hover:bg-cyan-400 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 btn-hover-effect shadow-lg hover:shadow-2xl"
+              className="bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-pink-500/20"
             >
               Start Your Project
             </Link>
             <Link 
               href="/services" 
-              className="border-2 border-white hover:bg-white hover:text-blue-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 glass-effect hover:glass-effect-hover shadow-lg"
+              className="border-2 border-white/20 backdrop-blur-sm bg-white/10 hover:bg-white hover:text-slate-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Explore Services
             </Link>
@@ -41,20 +49,20 @@ export default function Hero() {
         </div>
       </div>
       
-      {/* Floating cards showing key metrics */}
+      {/* Statistics cards */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="glass-effect rounded-xl p-6 text-center card-hover animate-slide-in-right" style={{animationDelay: '0.6s'}}>
-            <div className="text-3xl font-bold text-gradient-blue mb-2">50+</div>
-            <div className="text-blue-100 font-medium">Expert Consultants</div>
+          <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105">
+            <div className="text-3xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-2">50+</div>
+            <div className="text-white/80 font-medium">Expert Consultants</div>
           </div>
-          <div className="glass-effect rounded-xl p-6 text-center card-hover animate-slide-in-right" style={{animationDelay: '0.8s'}}>
-            <div className="text-3xl font-bold text-gradient-blue mb-2">100+</div>
-            <div className="text-blue-100 font-medium">Projects Delivered</div>
+          <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105">
+            <div className="text-3xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-2">100+</div>
+            <div className="text-white/80 font-medium">Projects Delivered</div>
           </div>
-          <div className="glass-effect rounded-xl p-6 text-center card-hover animate-slide-in-right" style={{animationDelay: '1.0s'}}>
-            <div className="text-3xl font-bold text-gradient-blue mb-2">15+</div>
-            <div className="text-blue-100 font-medium">Countries Served</div>
+          <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105">
+            <div className="text-3xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-2">15+</div>
+            <div className="text-white/80 font-medium">Countries Served</div>
           </div>
         </div>
       </div>

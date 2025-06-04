@@ -77,7 +77,7 @@ export default function AboutPage() {
               <p className="text-lg text-gray-600 mb-6">
                 To empower businesses across Asia-Pacific with world-class data engineering, 
                 machine learning, and AI solutions by combining the strategic advantages of 
-                Hong Kong's business hub with the technical excellence of Europe's finest consultants.
+                Hong Kong&apos;s business hub with the technical excellence of Europe&apos;s finest consultants.
               </p>
               <p className="text-lg text-gray-600">
                 We believe that the fusion of Eastern business acumen and Western technical innovation 
@@ -185,7 +185,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">Curated Expert Network</h3>
-                    <p className="text-gray-600">Access to Europe's finest freelance specialists, carefully vetted for excellence</p>
+                    <p className="text-gray-600">Access to Europe&apos;s finest freelance specialists, carefully vetted for excellence</p>
                   </div>
                 </div>
                 
@@ -218,7 +218,7 @@ export default function AboutPage() {
             <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-6">Ready to Work Together?</h3>
               <p className="mb-6">
-                Let's discuss how we can help transform your business with our expertise 
+                Let&apos;s discuss how we can help transform your business with our expertise 
                 in data engineering, machine learning, and AI.
               </p>
               <div className="space-y-4">

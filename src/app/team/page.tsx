@@ -209,7 +209,7 @@ export default function TeamPage() {
           </h2>
           <p className="text-xl text-blue-100 mb-8">
             Are you a top-tier data engineer, ML engineer, or AI specialist based in Europe? 
-            We're always looking for exceptional talent to join our curated network.
+            We&apos;re always looking for exceptional talent to join our curated network.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
