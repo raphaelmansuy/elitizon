@@ -81,13 +81,13 @@ export default function TeamPage() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-20">
+      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Meet Our Expert Team
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-slate-100 max-w-4xl mx-auto">
               A curated network of the finest data, AI, and technology experts across Europe, 
               led by experienced professionals in Hong Kong
             </p>
@@ -99,8 +99,8 @@ export default function TeamPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Leadership Team</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Leadership Team</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Our leadership combines deep technical expertise with strategic business acumen
             </p>
           </div>
@@ -108,24 +108,24 @@ export default function TeamPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {leadership.map((leader, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow p-8 text-center">
-                <div className="w-32 h-32 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold">
+                <div className="w-32 h-32 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold">
                   {leader.name.split(' ').map(n => n[0]).join('')}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{leader.name}</h3>
-                <p className="text-blue-600 font-semibold mb-2">{leader.role}</p>
-                <p className="text-gray-500 text-sm mb-4">📍 {leader.location}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{leader.name}</h3>
+                <p className="text-pink-600 font-semibold mb-2">{leader.role}</p>
+                <p className="text-slate-500 text-sm mb-4">📍 {leader.location}</p>
                 
                 <div className="mb-4">
                   <div className="flex flex-wrap justify-center gap-2">
                     {leader.expertise.map((skill, idx) => (
-                      <span key={idx} className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">
+                      <span key={idx} className="px-2 py-1 bg-pink-100 text-pink-800 rounded text-xs">
                         {skill}
                       </span>
                     ))}
                   </div>
                 </div>
                 
-                <p className="text-gray-600 text-sm">{leader.bio}</p>
+                <p className="text-slate-600 text-sm">{leader.bio}</p>
               </div>
             ))}
           </div>
@@ -133,11 +133,11 @@ export default function TeamPage() {
       </section>
 
       {/* Expert Network */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our European Expert Network</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our European Expert Network</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               45+ carefully selected specialists across Europe, ready to tackle your most challenging projects
             </p>
           </div>
@@ -146,17 +146,17 @@ export default function TeamPage() {
             {expertiseAreas.map((area, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg p-8">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-gray-900">{area.area}</h3>
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
+                  <h3 className="text-xl font-bold text-slate-900">{area.area}</h3>
+                  <span className="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-semibold">
                     {area.experts} experts
                   </span>
                 </div>
                 
                 <div className="mb-4">
-                  <h4 className="font-semibold text-gray-700 mb-2">Locations:</h4>
+                  <h4 className="font-semibold text-slate-700 mb-2">Locations:</h4>
                   <div className="flex flex-wrap gap-2">
                     {area.locations.map((location, idx) => (
-                      <span key={idx} className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-sm">
+                      <span key={idx} className="px-2 py-1 bg-slate-100 text-slate-700 rounded text-sm">
                         {location}
                       </span>
                     ))}
@@ -164,10 +164,10 @@ export default function TeamPage() {
                 </div>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-700 mb-2">Key Skills:</h4>
+                  <h4 className="font-semibold text-slate-700 mb-2">Key Skills:</h4>
                   <div className="flex flex-wrap gap-2">
                     {area.skills.map((skill, idx) => (
-                      <span key={idx} className="px-2 py-1 bg-green-100 text-green-800 rounded text-sm">
+                      <span key={idx} className="px-2 py-1 bg-pink-100 text-pink-800 rounded text-sm">
                         {skill}
                       </span>
                     ))}
@@ -183,8 +183,8 @@ export default function TeamPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How We Work</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">How We Work</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Our distributed team model ensures you get the right expertise at the right time
             </p>
           </div>
@@ -193,8 +193,8 @@ export default function TeamPage() {
             {benefits.map((benefit, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-3">{benefit.title}</h3>
+                <p className="text-slate-600">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -202,25 +202,25 @@ export default function TeamPage() {
       </section>
 
       {/* Join Our Team */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-600">
+      <section className="py-20 bg-gradient-to-r from-slate-600 to-slate-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Join Our Expert Network
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-slate-100 mb-8">
             Are you a top-tier data engineer, ML engineer, or AI specialist based in Europe? 
             We&apos;re always looking for exceptional talent to join our curated network.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/contact" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="bg-pink-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-pink-700 transition-colors"
             >
               Apply to Join
             </Link>
             <Link 
               href="/services" 
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-slate-600 transition-colors"
             >
               View Our Work
             </Link>
@@ -229,24 +229,24 @@ export default function TeamPage() {
       </section>
 
       {/* Statistics */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">45+</div>
-              <div className="text-gray-600">Expert Consultants</div>
+              <div className="text-4xl font-bold text-pink-600 mb-2">45+</div>
+              <div className="text-slate-600">Expert Consultants</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-green-600 mb-2">12</div>
-              <div className="text-gray-600">European Countries</div>
+              <div className="text-4xl font-bold text-pink-600 mb-2">12</div>
+              <div className="text-slate-600">European Countries</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-purple-600 mb-2">100+</div>
-              <div className="text-gray-600">Projects Completed</div>
+              <div className="text-4xl font-bold text-pink-600 mb-2">100+</div>
+              <div className="text-slate-600">Projects Completed</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-indigo-600 mb-2">98%</div>
-              <div className="text-gray-600">Client Satisfaction</div>
+              <div className="text-4xl font-bold text-pink-600 mb-2">98%</div>
+              <div className="text-slate-600">Client Satisfaction</div>
             </div>
           </div>
         </div>

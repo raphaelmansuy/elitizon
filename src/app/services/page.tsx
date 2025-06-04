@@ -30,7 +30,7 @@ export default function ServicesPage() {
       ],
       technologies: ["Apache Airflow", "dbt", "Apache Spark", "Kafka", "Snowflake", "BigQuery", "Redshift", "Python", "SQL"],
       icon: "🏗️",
-      color: "from-green-500 to-emerald-600"
+      color: "from-pink-500 to-pink-600"
     },
     {
       title: "Machine Learning",
@@ -60,7 +60,7 @@ export default function ServicesPage() {
       ],
       technologies: ["TensorFlow", "PyTorch", "Scikit-learn", "MLflow", "Kubeflow", "Docker", "Kubernetes", "Python", "R"],
       icon: "🤖",
-      color: "from-blue-500 to-cyan-600"
+      color: "from-slate-500 to-slate-600"
     },
     {
       title: "Generative AI & AI Agents",
@@ -90,20 +90,20 @@ export default function ServicesPage() {
       ],
       technologies: ["OpenAI GPT", "Anthropic Claude", "LangChain", "Hugging Face", "Pinecone", "Chroma", "FastAPI", "Streamlit"],
       icon: "✨",
-      color: "from-purple-500 to-pink-600"
+      color: "from-pink-500 to-pink-600"
     }
   ]
 
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-20">
+      <section className="bg-gradient-to-br from-slate-900 via-slate-700 to-slate-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Our Consulting Services
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto">
               Expert solutions in Data Engineering, Machine Learning, and Generative AI 
               that drive innovation and business growth
             </p>
@@ -119,17 +119,17 @@ export default function ServicesPage() {
               <div key={index} className={`${index % 2 === 1 ? 'lg:flex-row-reverse' : ''} lg:flex lg:items-center lg:gap-16`}>
                 <div className="lg:w-1/2 mb-12 lg:mb-0">
                   <div className="text-6xl mb-6">{service.icon}</div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
                     {service.title}
                   </h2>
-                  <h3 className="text-xl text-blue-600 mb-6">{service.hero}</h3>
-                  <p className="text-lg text-gray-600 mb-8">{service.description}</p>
+                  <h3 className="text-xl text-pink-600 mb-6">{service.hero}</h3>
+                  <p className="text-lg text-slate-600 mb-8">{service.description}</p>
                   
                   <div className="mb-8">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-4">Technologies We Use:</h4>
+                    <h4 className="text-lg font-semibold text-slate-900 mb-4">Technologies We Use:</h4>
                     <div className="flex flex-wrap gap-2">
                       {service.technologies.map((tech, idx) => (
-                        <span key={idx} className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
+                        <span key={idx} className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm">
                           {tech}
                         </span>
                       ))}
@@ -146,12 +146,12 @@ export default function ServicesPage() {
                 
                 <div className="lg:w-1/2">
                   <div className="bg-white rounded-2xl shadow-xl p-8">
-                    <h4 className="text-2xl font-bold text-gray-900 mb-6">What We Deliver</h4>
+                    <h4 className="text-2xl font-bold text-slate-900 mb-6">What We Deliver</h4>
                     <div className="space-y-6">
                       {service.detailedFeatures.map((feature, idx) => (
-                        <div key={idx} className="border-l-4 border-blue-500 pl-6">
-                          <h5 className="font-semibold text-gray-900 mb-2">{feature.name}</h5>
-                          <p className="text-gray-600">{feature.description}</p>
+                        <div key={idx} className="border-l-4 border-pink-500 pl-6">
+                          <h5 className="font-semibold text-slate-900 mb-2">{feature.name}</h5>
+                          <p className="text-slate-600">{feature.description}</p>
                         </div>
                       ))}
                     </div>
@@ -164,24 +164,24 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-600 py-20">
+      <section className="bg-gradient-to-r from-slate-600 to-slate-700 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-white/80 mb-8">
             Let&apos;s discuss how our expertise can help you achieve your goals
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/contact" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="bg-pink-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-pink-700 transition-colors"
             >
               Start Your Project
             </Link>
             <Link 
               href="/about" 
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-slate-700 transition-colors"
             >
               Learn About Us
             </Link>

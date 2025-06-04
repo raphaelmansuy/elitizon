@@ -91,21 +91,21 @@ export default function ContactPage() {
 
   if (submitted) {
     return (
-      <div className="pt-16 min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="pt-16 min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="max-w-md mx-auto text-center">
           <div className="bg-white rounded-2xl shadow-xl p-8">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Thank You!</h2>
-            <p className="text-gray-600 mb-6">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">Thank You!</h2>
+            <p className="text-slate-600 mb-6">
               Your message has been sent successfully. We&apos;ll get back to you within 24 hours.
             </p>
             <button 
               onClick={() => setSubmitted(false)}
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="bg-pink-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-pink-700 transition-colors"
             >
               Send Another Message
             </button>
@@ -118,13 +118,13 @@ export default function ContactPage() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-20">
+      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Get in Touch
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-slate-100 max-w-4xl mx-auto">
               Ready to transform your business with expert data engineering, ML, and AI solutions? 
               Let&apos;s start the conversation.
             </p>
@@ -133,17 +133,17 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-xl p-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8">Tell Us About Your Project</h2>
+                <h2 className="text-3xl font-bold text-slate-900 mb-8">Tell Us About Your Project</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
                         Full Name *
                       </label>
                       <input
@@ -153,13 +153,13 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors"
                         placeholder="Your full name"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
                         Email Address *
                       </label>
                       <input
@@ -169,14 +169,14 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors"
                         placeholder="your.email@company.com"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">
                       Company
                     </label>
                     <input
@@ -185,14 +185,14 @@ export default function ContactPage() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors"
                       placeholder="Your company name"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="service" className="block text-sm font-medium text-slate-700 mb-2">
                         Service of Interest
                       </label>
                       <select
@@ -200,7 +200,7 @@ export default function ContactPage() {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors"
                       >
                         <option value="">Select a service</option>
                         <option value="data-engineering">Data Engineering</option>
@@ -212,7 +212,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="budget" className="block text-sm font-medium text-slate-700 mb-2">
                         Project Budget Range
                       </label>
                       <select
@@ -220,7 +220,7 @@ export default function ContactPage() {
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors"
                       >
                         <option value="">Select budget range</option>
                         <option value="under-50k">Under $50,000</option>
@@ -234,7 +234,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="timeline" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="timeline" className="block text-sm font-medium text-slate-700 mb-2">
                       Preferred Timeline
                     </label>
                     <select
@@ -242,7 +242,7 @@ export default function ContactPage() {
                       name="timeline"
                       value={formData.timeline}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors"
                     >
                       <option value="">Select timeline</option>
                       <option value="asap">ASAP</option>
@@ -254,7 +254,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
                       Project Details *
                     </label>
                     <textarea
@@ -264,7 +264,7 @@ export default function ContactPage() {
                       rows={6}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors"
                       placeholder="Tell us about your project requirements, challenges, and goals..."
                     />
                   </div>
@@ -272,7 +272,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-pink-600 to-pink-700 text-white px-6 py-4 rounded-lg font-semibold hover:from-pink-700 hover:to-pink-800 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
@@ -285,47 +285,47 @@ export default function ContactPage() {
               {/* Office Locations */}
               {offices.map((office, index) => (
                 <div key={index} className="bg-white rounded-2xl shadow-xl p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{office.title}</h3>
-                  <p className="text-gray-600 mb-3">{office.address}</p>
-                  <p className="text-sm text-gray-500 mb-4">{office.description}</p>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{office.title}</h3>
+                  <p className="text-slate-600 mb-3">{office.address}</p>
+                  <p className="text-sm text-slate-500 mb-4">{office.description}</p>
                   <div className="space-y-2">
                     <div className="flex items-center text-sm">
-                      <span className="text-gray-500 mr-2">📧</span>
-                      <a href={`mailto:${office.contact.email}`} className="text-blue-600 hover:underline">
+                      <span className="text-slate-500 mr-2">📧</span>
+                      <a href={`mailto:${office.contact.email}`} className="text-pink-600 hover:underline">
                         {office.contact.email}
                       </a>
                     </div>
                     <div className="flex items-center text-sm">
-                      <span className="text-gray-500 mr-2">📞</span>
-                      <span className="text-gray-600">{office.contact.phone}</span>
+                      <span className="text-slate-500 mr-2">📞</span>
+                      <span className="text-slate-600">{office.contact.phone}</span>
                     </div>
                   </div>
                 </div>
               ))}
 
               {/* Quick Info */}
-              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl shadow-xl p-6 text-white">
+              <div className="bg-gradient-to-r from-slate-600 to-slate-800 rounded-2xl shadow-xl p-6 text-white">
                 <h3 className="text-xl font-bold mb-4">Quick Info</h3>
                 <div className="space-y-3">
                   <div className="flex items-center">
                     <span className="mr-3">⏰</span>
                     <div>
                       <div className="font-semibold">Response Time</div>
-                      <div className="text-blue-100 text-sm">Within 24 hours</div>
+                      <div className="text-slate-100 text-sm">Within 24 hours</div>
                     </div>
                   </div>
                   <div className="flex items-center">
                     <span className="mr-3">💼</span>
                     <div>
                       <div className="font-semibold">Free Consultation</div>
-                      <div className="text-blue-100 text-sm">30-minute strategy call</div>
+                      <div className="text-slate-100 text-sm">30-minute strategy call</div>
                     </div>
                   </div>
                   <div className="flex items-center">
                     <span className="mr-3">🌏</span>
                     <div>
                       <div className="font-semibold">Global Reach</div>
-                      <div className="text-blue-100 text-sm">Hong Kong + Europe</div>
+                      <div className="text-slate-100 text-sm">Hong Kong + Europe</div>
                     </div>
                   </div>
                 </div>
@@ -339,17 +339,17 @@ export default function ContactPage() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-xl text-slate-600">
               Common questions about our services and approach
             </p>
           </div>
           
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
-                <p className="text-gray-600">{faq.answer}</p>
+              <div key={index} className="bg-slate-50 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-slate-900 mb-3">{faq.question}</h3>
+                <p className="text-slate-600">{faq.answer}</p>
               </div>
             ))}
           </div>
