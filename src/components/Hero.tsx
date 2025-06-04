@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -21,51 +21,58 @@ export default function Hero() {
             </h2>
             <div className="w-24 h-0.5 bg-gradient-to-r from-pink-600 to-pink-400 mx-auto"></div>
           </div>
-          
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             Transform Your Business with
             <span className="block bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mt-2">
               Expert AI Solutions
             </span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/80 max-w-4xl mx-auto font-light leading-relaxed">
-            ELITIZON delivers cutting-edge consulting in Data Engineering, Machine Learning, 
-            and Generative AI. Based in Hong Kong with Europe&apos;s finest experts.
+          <p className="text-xl md:text-2xl mb-10 text-white/90 max-w-4xl mx-auto font-light leading-relaxed">
+            ELITIZON delivers cutting-edge consulting in Data Engineering,
+            Machine Learning, and Generative AI. Based in Hong Kong with
+            Europe&apos;s finest experts.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link 
-              href="/contact" 
-              className="bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-pink-500/20"
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <Link
+              href="/contact"
+              className="bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-pink-500/20 hover:shadow-pink-500/25"
             >
               Start Your Project
             </Link>
-            <Link 
-              href="/services" 
-              className="border-2 border-white/20 backdrop-blur-sm bg-white/10 hover:bg-white hover:text-slate-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+            <Link
+              href="/services"
+              className="border-2 border-white/30 backdrop-blur-sm bg-white/10 hover:bg-white hover:text-slate-700 text-white px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               Explore Services
             </Link>
           </div>
         </div>
       </div>
-      
+
       {/* Statistics cards */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105">
-            <div className="text-3xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-2">50+</div>
-            <div className="text-white/80 font-medium">Expert Consultants</div>
+          <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-8 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 hover:shadow-xl group">
+            <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
+              50+
+            </div>
+            <div className="text-white/90 font-medium text-lg">Expert Consultants</div>
           </div>
-          <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105">
-            <div className="text-3xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-2">100+</div>
-            <div className="text-white/80 font-medium">Projects Delivered</div>
+          <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-8 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 hover:shadow-xl group">
+            <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
+              100+
+            </div>
+            <div className="text-white/90 font-medium text-lg">Projects Delivered</div>
           </div>
-          <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-6 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105">
-            <div className="text-3xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-2">15+</div>
-            <div className="text-white/80 font-medium">Countries Served</div>
+          <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-8 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 hover:shadow-xl group">
+            <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
+              15+
+            </div>
+            <div className="text-white/90 font-medium text-lg">Countries Served</div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -73,6 +73,69 @@ body {
   font-weight: 400;
 }
 
+/* Enhanced Animations for UX - with fallback visibility */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(245, 101, 101, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(245, 101, 101, 0.6);
+  }
+}
+
+/* Improved animation classes with fallback */
+.animate-fade-in-up {
+  opacity: 1; /* Fallback to visible */
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Ensure content is always visible */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  
+  .animate-float {
+    animation: none;
+  }
+  
+  .animate-pulse-glow {
+    animation: none;
+  }
+}
+
 /* Modern Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -117,17 +180,6 @@ a:focus {
   outline: 2px solid var(--primary-500);
   outline-offset: 2px;
   border-radius: 8px;
-}
-
-/* Modern Selection Styles */
-::selection {
-  background-color: var(--primary-200);
-  color: var(--primary-900);
-}
-
-::-moz-selection {
-  background-color: var(--primary-200);
-  color: var(--primary-900);
 }
 
 /* Smooth Transitions */

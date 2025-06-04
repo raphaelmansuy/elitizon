@@ -1,63 +1,68 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    service: '',
-    budget: '',
-    timeline: '',
-    message: ''
-  })
+    name: "",
+    email: "",
+    company: "",
+    service: "",
+    budget: "",
+    timeline: "",
+    message: "",
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
+    e.preventDefault();
+    setIsSubmitting(true);
+
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setIsSubmitting(false)
-    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    console.log("Form submitted:", formData);
+    setSubmitted(true);
+    setIsSubmitting(false);
+
     // Reset form after a delay
     setTimeout(() => {
       setFormData({
-        name: '',
-        email: '',
-        company: '',
-        service: '',
-        budget: '',
-        timeline: '',
-        message: ''
-      })
-      setSubmitted(false)
-    }, 3000)
-  }
+        name: "",
+        email: "",
+        company: "",
+        service: "",
+        budget: "",
+        timeline: "",
+        message: "",
+      });
+      setSubmitted(false);
+    }, 3000);
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const offices = [
     {
       title: "Hong Kong Headquarters",
       address: "Central Business District, Hong Kong SAR",
-      description: "Our main office where strategy and client relationships are managed",
+      description:
+        "Our main office where strategy and client relationships are managed",
       contact: {
         email: "hello@elitizon.com",
-        phone: "+852 XXXX XXXX"
-      }
+        phone: "+852 XXXX XXXX",
+      },
     },
     {
       title: "European Operations",
@@ -65,29 +70,33 @@ export default function ContactPage() {
       description: "Our expert network spans major European tech hubs",
       contact: {
         email: "europe@elitizon.com",
-        phone: "Available via Zoom/Teams"
-      }
-    }
-  ]
+        phone: "Available via Zoom/Teams",
+      },
+    },
+  ];
 
   const faqs = [
     {
       question: "How do you ensure quality with a distributed team?",
-      answer: "All our experts are carefully vetted with proven track records. We maintain strict quality standards and provide continuous oversight throughout projects."
+      answer:
+        "All our experts are carefully vetted with proven track records. We maintain strict quality standards and provide continuous oversight throughout projects.",
     },
     {
       question: "What's your typical project timeline?",
-      answer: "Project timelines vary from 2 weeks for consultations to 6+ months for major implementations. We'll provide a detailed timeline after understanding your requirements."
+      answer:
+        "Project timelines vary from 2 weeks for consultations to 6+ months for major implementations. We'll provide a detailed timeline after understanding your requirements.",
     },
     {
       question: "Do you provide ongoing support after project completion?",
-      answer: "Yes, we offer comprehensive support packages including maintenance, training, and knowledge transfer to ensure long-term success."
+      answer:
+        "Yes, we offer comprehensive support packages including maintenance, training, and knowledge transfer to ensure long-term success.",
     },
     {
       question: "Can you work within our existing budget constraints?",
-      answer: "We offer flexible engagement models and can work within various budget ranges. We'll discuss options that provide maximum value for your investment."
-    }
-  ]
+      answer:
+        "We offer flexible engagement models and can work within various budget ranges. We'll discuss options that provide maximum value for your investment.",
+    },
+  ];
 
   if (submitted) {
     return (
@@ -95,15 +104,28 @@ export default function ContactPage() {
         <div className="max-w-md mx-auto text-center">
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              <svg
+                className="w-8 h-8 text-pink-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">Thank You!</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">
+              Thank You!
+            </h2>
             <p className="text-slate-600 mb-6">
-              Your message has been sent successfully. We&apos;ll get back to you within 24 hours.
+              Your message has been sent successfully. We&apos;ll get back to
+              you within 24 hours.
             </p>
-            <button 
+            <button
               onClick={() => setSubmitted(false)}
               className="bg-pink-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-pink-700 transition-colors"
             >
@@ -112,7 +134,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -125,8 +147,8 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-xl md:text-2xl text-slate-100 max-w-4xl mx-auto">
-              Ready to transform your business with expert data engineering, ML, and AI solutions? 
-              Let&apos;s start the conversation.
+              Ready to transform your business with expert data engineering, ML,
+              and AI solutions? Let&apos;s start the conversation.
             </p>
           </div>
         </div>
@@ -139,11 +161,16 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-xl p-8">
-                <h2 className="text-3xl font-bold text-slate-900 mb-8">Tell Us About Your Project</h2>
+                <h2 className="text-3xl font-bold text-slate-900 mb-8">
+                  Tell Us About Your Project
+                </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-slate-700 mb-2"
+                      >
                         Full Name *
                       </label>
                       <input
@@ -159,7 +186,10 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-slate-700 mb-2"
+                      >
                         Email Address *
                       </label>
                       <input
@@ -176,7 +206,10 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">
+                    <label
+                      htmlFor="company"
+                      className="block text-sm font-medium text-slate-700 mb-2"
+                    >
                       Company
                     </label>
                     <input
@@ -192,7 +225,10 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="service" className="block text-sm font-medium text-slate-700 mb-2">
+                      <label
+                        htmlFor="service"
+                        className="block text-sm font-medium text-slate-700 mb-2"
+                      >
                         Service of Interest
                       </label>
                       <select
@@ -203,16 +239,25 @@ export default function ContactPage() {
                         className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors"
                       >
                         <option value="">Select a service</option>
-                        <option value="data-engineering">Data Engineering</option>
-                        <option value="machine-learning">Machine Learning</option>
-                        <option value="ai-agents">Generative AI & AI Agents</option>
+                        <option value="data-engineering">
+                          Data Engineering
+                        </option>
+                        <option value="machine-learning">
+                          Machine Learning
+                        </option>
+                        <option value="ai-agents">
+                          Generative AI & AI Agents
+                        </option>
                         <option value="consulting">General Consulting</option>
                         <option value="multiple">Multiple Services</option>
                       </select>
                     </div>
 
                     <div>
-                      <label htmlFor="budget" className="block text-sm font-medium text-slate-700 mb-2">
+                      <label
+                        htmlFor="budget"
+                        className="block text-sm font-medium text-slate-700 mb-2"
+                      >
                         Project Budget Range
                       </label>
                       <select
@@ -234,7 +279,10 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="timeline" className="block text-sm font-medium text-slate-700 mb-2">
+                    <label
+                      htmlFor="timeline"
+                      className="block text-sm font-medium text-slate-700 mb-2"
+                    >
                       Preferred Timeline
                     </label>
                     <select
@@ -254,7 +302,10 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-slate-700 mb-2"
+                    >
                       Project Details *
                     </label>
                     <textarea
@@ -274,7 +325,7 @@ export default function ContactPage() {
                     disabled={isSubmitting}
                     className="w-full bg-gradient-to-r from-pink-600 to-pink-700 text-white px-6 py-4 rounded-lg font-semibold hover:from-pink-700 hover:to-pink-800 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
                 </form>
               </div>
@@ -285,19 +336,28 @@ export default function ContactPage() {
               {/* Office Locations */}
               {offices.map((office, index) => (
                 <div key={index} className="bg-white rounded-2xl shadow-xl p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{office.title}</h3>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">
+                    {office.title}
+                  </h3>
                   <p className="text-slate-600 mb-3">{office.address}</p>
-                  <p className="text-sm text-slate-500 mb-4">{office.description}</p>
+                  <p className="text-sm text-slate-500 mb-4">
+                    {office.description}
+                  </p>
                   <div className="space-y-2">
                     <div className="flex items-center text-sm">
                       <span className="text-slate-500 mr-2">📧</span>
-                      <a href={`mailto:${office.contact.email}`} className="text-pink-600 hover:underline">
+                      <a
+                        href={`mailto:${office.contact.email}`}
+                        className="text-pink-600 hover:underline"
+                      >
                         {office.contact.email}
                       </a>
                     </div>
                     <div className="flex items-center text-sm">
                       <span className="text-slate-500 mr-2">📞</span>
-                      <span className="text-slate-600">{office.contact.phone}</span>
+                      <span className="text-slate-600">
+                        {office.contact.phone}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -311,21 +371,27 @@ export default function ContactPage() {
                     <span className="mr-3">⏰</span>
                     <div>
                       <div className="font-semibold">Response Time</div>
-                      <div className="text-slate-100 text-sm">Within 24 hours</div>
+                      <div className="text-slate-100 text-sm">
+                        Within 24 hours
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center">
                     <span className="mr-3">💼</span>
                     <div>
                       <div className="font-semibold">Free Consultation</div>
-                      <div className="text-slate-100 text-sm">30-minute strategy call</div>
+                      <div className="text-slate-100 text-sm">
+                        30-minute strategy call
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center">
                     <span className="mr-3">🌏</span>
                     <div>
                       <div className="font-semibold">Global Reach</div>
-                      <div className="text-slate-100 text-sm">Hong Kong + Europe</div>
+                      <div className="text-slate-100 text-sm">
+                        Hong Kong + Europe
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -339,16 +405,20 @@ export default function ContactPage() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Frequently Asked Questions
+            </h2>
             <p className="text-xl text-slate-600">
               Common questions about our services and approach
             </p>
           </div>
-          
+
           <div className="space-y-6">
             {faqs.map((faq, index) => (
               <div key={index} className="bg-slate-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-slate-900 mb-3">{faq.question}</h3>
+                <h3 className="text-lg font-semibold text-slate-900 mb-3">
+                  {faq.question}
+                </h3>
                 <p className="text-slate-600">{faq.answer}</p>
               </div>
             ))}
@@ -356,5 +426,5 @@ export default function ContactPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

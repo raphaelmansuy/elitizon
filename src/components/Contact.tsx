@@ -90,30 +90,34 @@ export default function Contact() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-neutral-50 to-secondary-50 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-neutral-50 to-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -right-40 w-80 h-80 bg-secondary-200 rounded-full opacity-30 animate-float"></div>
-        <div className="absolute bottom-1/4 -left-40 w-80 h-80 bg-primary-200 rounded-full opacity-30 animate-float" style={{animationDelay: '3s'}}></div>
+        <div className="absolute top-1/4 -right-40 w-80 h-80 bg-secondary-100 rounded-full opacity-20 animate-float"></div>
+        <div className="absolute bottom-1/4 -left-40 w-80 h-80 bg-primary-100 rounded-full opacity-20 animate-float" style={{animationDelay: '3s'}}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4 bg-gradient-to-r from-primary-700 to-secondary-600 bg-clip-text text-transparent">
-            Ready to Transform Your Business?
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-6xl font-bold text-primary-900 mb-8 leading-tight">
+            Ready to Transform
+            <span className="block bg-gradient-to-r from-secondary-600 to-secondary-500 bg-clip-text text-transparent mt-2">
+              Your Business?
+            </span>
           </h2>
-          <p className="text-xl text-primary-600 max-w-3xl mx-auto">
-            Get in touch with our experts to discuss your data engineering, ML, or AI project requirements
+          <p className="text-xl md:text-2xl text-primary-700 max-w-4xl mx-auto leading-relaxed font-medium">
+            Get in touch with our experts to discuss your data engineering, ML, or AI project requirements. 
+            Let&apos;s build something extraordinary together.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="glass-card rounded-2xl p-8 animate-fade-in-up animation-delay-300 bg-white/80 backdrop-blur-sm border border-white/20">
-            <h3 className="text-2xl font-bold text-primary-900 mb-6 bg-gradient-to-r from-primary-700 to-secondary-600 bg-clip-text text-transparent">Send us a message</h3>
+          <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+            <h3 className="text-3xl font-bold text-primary-900 mb-8">Send us a message</h3>
             
             {isSubmitted && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg animate-fade-in-up">
+              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
                 <div className="flex items-center">
                   <svg className="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -125,7 +129,7 @@ export default function Contact() {
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-primary-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-primary-900 mb-2">
                   Full Name *
                 </label>
                 <input
@@ -135,10 +139,10 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus-outline hover-lift ${
+                  className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 hover:shadow-md ${
                     errors.name 
-                      ? 'border-secondary-300 focus:ring-secondary-500 bg-secondary-50' 
-                      : 'border-primary-300 focus:ring-secondary-500 focus:border-transparent'
+                      ? 'border-red-300 focus:ring-red-500 bg-red-50' 
+                      : 'border-primary-300 focus:ring-secondary-500 focus:border-secondary-500'
                   }`}
                   placeholder="Your full name"
                 />
@@ -148,7 +152,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-primary-900 mb-2">
                   Email Address *
                 </label>
                 <input
@@ -158,10 +162,10 @@ export default function Contact() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 focus-outline hover-lift ${
+                  className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 hover:shadow-md ${
                     errors.email 
                       ? 'border-red-300 focus:ring-red-500 bg-red-50' 
-                      : 'border-gray-300 focus:ring-blue-500 focus:border-transparent'
+                      : 'border-primary-300 focus:ring-secondary-500 focus:border-secondary-500'
                   }`}
                   placeholder="your.email@company.com"
                 />
@@ -171,7 +175,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="company" className="block text-sm font-semibold text-primary-900 mb-2">
                   Company
                 </label>
                 <input
@@ -180,13 +184,13 @@ export default function Contact() {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 focus-outline hover-lift"
+                  className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 transition-all duration-200 focus:outline-none hover:shadow-md"
                   placeholder="Your company name"
                 />
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="service" className="block text-sm font-semibold text-primary-900 mb-2">
                   Service of Interest
                 </label>
                 <select
@@ -194,7 +198,7 @@ export default function Contact() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 focus-outline hover-lift"
+                  className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 transition-all duration-200 focus:outline-none hover:shadow-md"
                 >
                   <option value="">Select a service</option>
                   <option value="data-engineering">Data Engineering</option>
@@ -205,7 +209,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-primary-900 mb-2">
                   Message *
                 </label>
                 <textarea
@@ -215,10 +219,10 @@ export default function Contact() {
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg transition-all duration-200 focus-outline hover-lift resize-none ${
+                  className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 hover:shadow-md resize-none ${
                     errors.message 
                       ? 'border-red-300 focus:ring-red-500 bg-red-50' 
-                      : 'border-gray-300 focus:ring-blue-500 focus:border-transparent'
+                      : 'border-primary-300 focus:ring-secondary-500 focus:border-secondary-500'
                   }`}
                   placeholder="Tell us about your project requirements..."
                 />
@@ -230,7 +234,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 btn-hover-effect disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center space-x-2 glow"
+                className="w-full bg-gradient-to-r from-secondary-600 to-secondary-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-secondary-700 hover:to-secondary-600 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center space-x-2"
               >
                 {isSubmitting ? (
                   <>
@@ -250,12 +254,12 @@ export default function Contact() {
           </div>
 
           {/* Contact Information */}
-          <div className="space-y-8 animate-fade-in-up animation-delay-500">
+          <div className="space-y-8 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
             {/* Office Location */}
-            <div className="glass-card rounded-2xl p-6 hover-lift">
+            <div className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-secondary-600 to-secondary-500 rounded-xl flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -263,8 +267,8 @@ export default function Contact() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Hong Kong Office</h4>
-                  <p className="text-gray-600">
+                  <h4 className="text-xl font-bold text-primary-900 mb-3">Hong Kong Office</h4>
+                  <p className="text-primary-700 leading-relaxed">
                     Central Business District<br />
                     Hong Kong SAR<br />
                     Available for meetings by appointment
@@ -274,18 +278,18 @@ export default function Contact() {
             </div>
 
             {/* European Network */}
-            <div className="glass-card rounded-2xl p-6 hover-lift">
+            <div className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-primary-700 to-primary-600 rounded-xl flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">European Expert Network</h4>
-                  <p className="text-gray-600">
+                  <h4 className="text-xl font-bold text-primary-900 mb-3">European Expert Network</h4>
+                  <p className="text-primary-700 leading-relaxed">
                     50+ specialists across<br />
                     France, Germany, UK, Netherlands<br />
                     Remote collaboration worldwide
@@ -295,18 +299,18 @@ export default function Contact() {
             </div>
 
             {/* Response Time */}
-            <div className="glass-card rounded-2xl p-6 hover-lift">
+            <div className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 border border-gray-100">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-green-500 rounded-xl flex items-center justify-center">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Quick Response</h4>
-                  <p className="text-gray-600">
+                  <h4 className="text-xl font-bold text-primary-900 mb-3">Quick Response</h4>
+                  <p className="text-primary-700 leading-relaxed">
                     We respond within 24 hours<br />
                     Initial consultation available<br />
                     Flexible meeting scheduling
@@ -316,14 +320,14 @@ export default function Contact() {
             </div>
 
             {/* CTA */}
-            <div className="glass-card rounded-2xl p-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-              <h4 className="text-xl font-bold mb-3">Ready to Start?</h4>
-              <p className="text-blue-100 mb-4">
+            <div className="bg-gradient-to-r from-secondary-600 to-secondary-500 rounded-2xl shadow-xl p-8 text-white">
+              <h4 className="text-2xl font-bold mb-4">Ready to Start?</h4>
+              <p className="text-secondary-100 mb-6 leading-relaxed">
                 Schedule a free consultation to discuss your project needs and explore how we can help transform your business.
               </p>
               <a 
                 href="mailto:contact@elitizon.com" 
-                className="inline-flex items-center space-x-2 bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors btn-hover-effect"
+                className="inline-flex items-center space-x-2 bg-white text-secondary-600 px-6 py-3 rounded-xl font-semibold hover:bg-secondary-50 hover:text-secondary-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
