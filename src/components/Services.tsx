@@ -13,7 +13,7 @@ export default function Services() {
         "ETL/ELT Solutions"
       ],
       icon: "🏗️",
-      color: "from-secondary-600 to-secondary-500"
+      color: "from-pink-600 to-pink-500"
     },
     {
       title: "Machine Learning",
@@ -26,7 +26,7 @@ export default function Services() {
         "MLOps & Model Deployment"
       ],
       icon: "🤖",
-      color: "from-primary-600 to-primary-500"
+      color: "from-slate-600 to-slate-500"
     },
     {
       title: "Generative AI & AI Agents",
@@ -39,7 +39,7 @@ export default function Services() {
         "Process Automation"
       ],
       icon: "✨",
-      color: "from-secondary-500 to-secondary-400"
+      color: "from-pink-500 to-pink-400"
     }
   ]
 
@@ -47,16 +47,16 @@ export default function Services() {
     <section className="py-20 bg-gradient-to-br from-neutral-50 to-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -right-40 w-80 h-80 bg-secondary-100 rounded-full opacity-30 animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 -left-40 w-80 h-80 bg-primary-100 rounded-full opacity-30 animate-pulse-slow animation-delay-2000"></div>
+        <div className="absolute top-1/4 -right-40 w-80 h-80 bg-pink-100 rounded-full opacity-30 animate-pulse-slow"></div>
+        <div className="absolute bottom-1/4 -left-40 w-80 h-80 bg-slate-100 rounded-full opacity-30 animate-pulse-slow animation-delay-2000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
             Our Consulting Services
           </h2>
-          <p className="text-xl text-primary-600 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             We specialize in three key areas that drive digital transformation and business growth
           </p>
         </div>
