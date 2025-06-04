@@ -4,7 +4,10 @@ export default function About() {
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 -right-32 w-64 h-64 bg-secondary-200 rounded-full opacity-25 animate-float"></div>
-        <div className="absolute bottom-1/4 -left-32 w-64 h-64 bg-primary-200 rounded-full opacity-25 animate-float" style={{animationDelay: '2s'}}></div>
+        <div
+          className="absolute bottom-1/4 -left-32 w-64 h-64 bg-primary-200 rounded-full opacity-25 animate-float"
+          style={{ animationDelay: "2s" }}
+        ></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -17,8 +20,9 @@ export default function About() {
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-primary-800 max-w-5xl mx-auto leading-relaxed font-medium">
-            ELITIZON is strategically positioned in Hong Kong, one of Asia&apos;s leading financial and technology hubs, 
-            while maintaining strong partnerships with Europe&apos;s most talented experts.
+            ELITIZON is strategically positioned in Hong Kong, one of
+            Asia&apos;s leading financial and technology hubs, while maintaining
+            strong partnerships with Europe&apos;s most talented experts.
           </p>
         </div>
 
@@ -26,87 +30,139 @@ export default function About() {
           {/* Main Content */}
           <div>
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-              <h3 className="text-2xl font-bold text-primary-900 mb-6">Our Unique Position</h3>
+              <h3 className="text-2xl font-bold text-primary-900 mb-6">
+                Our Unique Position
+              </h3>
               <p className="text-lg text-primary-700 mb-6 leading-relaxed">
-                This unique combination allows us to deliver world-class consulting services that blend Eastern business 
-                acumen with Western technical innovation, providing our clients with unparalleled expertise in data 
-                engineering, machine learning, and AI solutions.
+                This unique combination allows us to deliver world-class
+                consulting services that blend Eastern business acumen with
+                Western technical innovation, providing our clients with
+                unparalleled expertise in data engineering, machine learning,
+                and AI solutions.
               </p>
-              
+
               {/* Location Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
                 <div className="text-center p-6 bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-xl border border-secondary-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <div className="text-4xl mb-4">🏙️</div>
-                  <div className="text-lg font-bold text-primary-900 mb-2">Hong Kong Base</div>
-                  <div className="text-sm text-primary-600">Strategic Asian Hub</div>
+                  <div className="text-lg font-bold text-primary-900 mb-2">
+                    Hong Kong Base
+                  </div>
+                  <div className="text-sm text-primary-600">
+                    Strategic Asian Hub
+                  </div>
                 </div>
                 <div className="text-center p-6 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border border-primary-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <div className="text-4xl mb-4">🌍</div>
-                  <div className="text-lg font-bold text-primary-900 mb-2">European Network</div>
-                  <div className="text-sm text-primary-600">50+ Top-tier Experts</div>
+                  <div className="text-lg font-bold text-primary-900 mb-2">
+                    European Network
+                  </div>
+                  <div className="text-sm text-primary-600">
+                    50+ Top-tier Experts
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          
+
           {/* Features Section */}
           <div className="space-y-8">
             {/* Our Approach */}
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-secondary-600 to-secondary-500 rounded-lg flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-primary-900">Our Approach</h3>
+                <h3 className="text-2xl font-bold text-primary-900">
+                  Our Approach
+                </h3>
               </div>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-secondary-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                  <span className="text-primary-700 text-lg leading-relaxed">Client-centric solutions tailored to specific business needs</span>
+                  <span className="text-primary-700 text-lg leading-relaxed">
+                    Client-centric solutions tailored to specific business needs
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-secondary-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                  <span className="text-primary-700 text-lg leading-relaxed">Agile methodology with rapid prototyping and iteration</span>
+                  <span className="text-primary-700 text-lg leading-relaxed">
+                    Agile methodology with rapid prototyping and iteration
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-secondary-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                  <span className="text-primary-700 text-lg leading-relaxed">Knowledge transfer and capability building</span>
+                  <span className="text-primary-700 text-lg leading-relaxed">
+                    Knowledge transfer and capability building
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-secondary-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                  <span className="text-primary-700 text-lg leading-relaxed">Long-term partnerships beyond project delivery</span>
+                  <span className="text-primary-700 text-lg leading-relaxed">
+                    Long-term partnerships beyond project delivery
+                  </span>
                 </li>
               </ul>
             </div>
-            
+
             {/* Why Choose ELITIZON */}
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-primary-700 to-primary-600 rounded-lg flex items-center justify-center mr-4">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <svg
+                    className="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-primary-900">Why Choose ELITIZON</h3>
+                <h3 className="text-2xl font-bold text-primary-900">
+                  Why Choose ELITIZON
+                </h3>
               </div>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                  <span className="text-primary-700 text-lg leading-relaxed">Access to Europe&apos;s finest technical talent</span>
+                  <span className="text-primary-700 text-lg leading-relaxed">
+                    Access to Europe&apos;s finest technical talent
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                  <span className="text-primary-700 text-lg leading-relaxed">Deep understanding of Asian business culture</span>
+                  <span className="text-primary-700 text-lg leading-relaxed">
+                    Deep understanding of Asian business culture
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                  <span className="text-primary-700 text-lg leading-relaxed">Proven track record across multiple industries</span>
+                  <span className="text-primary-700 text-lg leading-relaxed">
+                    Proven track record across multiple industries
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                  <span className="text-primary-700 text-lg leading-relaxed">Cost-effective solutions without compromising quality</span>
+                  <span className="text-primary-700 text-lg leading-relaxed">
+                    Cost-effective solutions without compromising quality
+                  </span>
                 </li>
               </ul>
             </div>
@@ -114,5 +170,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
