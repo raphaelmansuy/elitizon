@@ -94,9 +94,13 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-neutral-50 to-white relative overflow-hidden">
+    <section
+      className="py-24 bg-gradient-to-b from-neutral-50 to-white relative overflow-hidden"
+      aria-labelledby="contact-heading"
+      role="region"
+    >
       {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute top-1/4 -right-40 w-80 h-80 bg-secondary-100 rounded-full opacity-20 animate-float"></div>
         <div
           className="absolute bottom-1/4 -left-40 w-80 h-80 bg-primary-100 rounded-full opacity-20 animate-float"
@@ -105,8 +109,11 @@ export default function Contact() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold text-primary-900 mb-8 leading-tight">
+        <header className="text-center mb-20">
+          <h2
+            id="contact-heading"
+            className="text-4xl md:text-6xl font-bold text-primary-900 mb-8 leading-tight"
+          >
             Ready to Transform
             <span className="block bg-gradient-to-r from-secondary-600 to-secondary-500 bg-clip-text text-transparent mt-2">
               Your Business?
@@ -117,7 +124,7 @@ export default function Contact() {
             or AI project requirements. Let&apos;s build something extraordinary
             together.
           </p>
-        </div>
+        </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
@@ -127,12 +134,17 @@ export default function Contact() {
             </h3>
 
             {isSubmitted && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
+              <div
+                className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl"
+                role="alert"
+                aria-live="polite"
+              >
                 <div className="flex items-center">
                   <svg
                     className="w-5 h-5 text-green-500 mr-2"
                     fill="currentColor"
                     viewBox="0 0 20 20"
+                    aria-hidden="true"
                   >
                     <path
                       fillRule="evenodd"
@@ -147,7 +159,12 @@ export default function Contact() {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6"
+              noValidate
+              aria-label="Contact form"
+            >
               <div>
                 <label
                   htmlFor="name"
@@ -162,15 +179,34 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 hover:shadow-md ${
+                  className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 hover:shadow-md ${
                     errors.name
-                      ? "border-red-300 focus:ring-red-500 bg-red-50"
-                      : "border-primary-300 focus:ring-secondary-500 focus:border-secondary-500"
+                      ? "border-red-300 focus:ring-red-200 bg-red-50 aria-invalid"
+                      : "border-primary-300 focus:ring-primary-200 focus:border-secondary-500"
                   }`}
                   placeholder="Your full name"
+                  aria-invalid={errors.name ? "true" : "false"}
+                  aria-describedby={errors.name ? "name-error" : undefined}
                 />
                 {errors.name && (
-                  <p className="mt-1 text-sm text-red-600 animate-fade-in-up">
+                  <p
+                    id="name-error"
+                    className="mt-2 text-sm text-red-600 animate-fade-in-up font-medium"
+                    role="alert"
+                    aria-live="polite"
+                  >
+                    <svg
+                      className="w-4 h-4 inline mr-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
                     {errors.name}
                   </p>
                 )}
@@ -190,15 +226,34 @@ export default function Contact() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 hover:shadow-md ${
+                  className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 hover:shadow-md ${
                     errors.email
-                      ? "border-red-300 focus:ring-red-500 bg-red-50"
-                      : "border-primary-300 focus:ring-secondary-500 focus:border-secondary-500"
+                      ? "border-red-300 focus:ring-red-200 bg-red-50"
+                      : "border-primary-300 focus:ring-primary-200 focus:border-secondary-500"
                   }`}
                   placeholder="your.email@company.com"
+                  aria-invalid={errors.email ? "true" : "false"}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                 />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-600 animate-fade-in-up">
+                  <p
+                    id="email-error"
+                    className="mt-2 text-sm text-red-600 animate-fade-in-up font-medium"
+                    role="alert"
+                    aria-live="polite"
+                  >
+                    <svg
+                      className="w-4 h-4 inline mr-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
                     {errors.email}
                   </p>
                 )}
@@ -217,7 +272,7 @@ export default function Contact() {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 transition-all duration-200 focus:outline-none hover:shadow-md"
+                  className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-4 focus:ring-primary-200 focus:border-secondary-500 transition-all duration-200 focus:outline-none hover:shadow-md"
                   placeholder="Your company name"
                 />
               </div>
@@ -234,7 +289,8 @@ export default function Contact() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-2 focus:ring-secondary-500 focus:border-secondary-500 transition-all duration-200 focus:outline-none hover:shadow-md"
+                  className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-4 focus:ring-primary-200 focus:border-secondary-500 transition-all duration-200 focus:outline-none hover:shadow-md"
+                  aria-label="Select a service you're interested in"
                 >
                   <option value="">Select a service</option>
                   <option value="data-engineering">Data Engineering</option>
@@ -258,15 +314,36 @@ export default function Contact() {
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 hover:shadow-md resize-none ${
+                  className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 hover:shadow-md resize-none ${
                     errors.message
-                      ? "border-red-300 focus:ring-red-500 bg-red-50"
-                      : "border-primary-300 focus:ring-secondary-500 focus:border-secondary-500"
+                      ? "border-red-300 focus:ring-red-200 bg-red-50"
+                      : "border-primary-300 focus:ring-primary-200 focus:border-secondary-500"
                   }`}
                   placeholder="Tell us about your project requirements..."
+                  aria-invalid={errors.message ? "true" : "false"}
+                  aria-describedby={
+                    errors.message ? "message-error" : undefined
+                  }
                 />
                 {errors.message && (
-                  <p className="mt-1 text-sm text-red-600 animate-fade-in-up">
+                  <p
+                    id="message-error"
+                    className="mt-2 text-sm text-red-600 animate-fade-in-up font-medium"
+                    role="alert"
+                    aria-live="polite"
+                  >
+                    <svg
+                      className="w-4 h-4 inline mr-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
                     {errors.message}
                   </p>
                 )}
@@ -275,11 +352,19 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-secondary-600 to-secondary-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-secondary-700 hover:to-secondary-600 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-secondary-600 to-secondary-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-secondary-700 hover:to-secondary-600 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center space-x-2 focus:outline-none focus:ring-4 focus:ring-secondary-200"
+                aria-label={
+                  isSubmitting
+                    ? "Sending message..."
+                    : "Send message to Elitizon"
+                }
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <div
+                      className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"
+                      aria-hidden="true"
+                    ></div>
                     <span>Sending...</span>
                   </>
                 ) : (
@@ -290,6 +375,7 @@ export default function Contact() {
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
+                      aria-hidden="true"
                     >
                       <path
                         strokeLinecap="round"

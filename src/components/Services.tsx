@@ -46,16 +46,20 @@ export default function Services() {
         "Process Automation",
       ],
       icon: "✨",
-      color: "from-secondary-500 to-secondary-400",
-      bgColor: "from-secondary-50 to-secondary-100",
-      iconBg: "from-secondary-500 to-secondary-400",
+      color: "from-secondary-600 to-secondary-500",
+      bgColor: "from-secondary-50 to-white",
+      iconBg: "from-secondary-600 to-secondary-500",
     },
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-neutral-100 to-white relative overflow-hidden min-h-screen">
+    <section
+      className="py-24 bg-gradient-to-b from-neutral-100 to-white relative overflow-hidden min-h-screen"
+      aria-labelledby="services-heading"
+      role="region"
+    >
       {/* Enhanced Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute top-1/4 -right-32 w-64 h-64 bg-secondary-200 rounded-full opacity-25 animate-float"></div>
         <div
           className="absolute bottom-1/3 -left-32 w-64 h-64 bg-primary-200 rounded-full opacity-25 animate-float"
@@ -69,8 +73,11 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Enhanced Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-900 mb-6">
+        <header className="text-center mb-20">
+          <h2
+            id="services-heading"
+            className="text-4xl md:text-5xl font-bold text-primary-900 mb-6"
+          >
             Our Consulting Services
           </h2>
           <p className="text-xl text-primary-800 max-w-4xl mx-auto leading-relaxed font-medium">
@@ -78,17 +85,25 @@ export default function Services() {
             and business growth, combining cutting-edge technology with proven
             methodologies
           </p>
-        </div>
+        </header>
 
         {/* Enhanced Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
+        <div
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20"
+          role="list"
+        >
           {services.map((service, index) => (
-            <div
+            <article
               key={index}
-              className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden hover:-translate-y-2"
+              className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden hover:-translate-y-2 focus-within:ring-4 focus-within:ring-primary-200"
+              role="listitem"
+              aria-labelledby={`service-${index}-title`}
             >
               {/* Enhanced Top Border */}
-              <div className={`h-1 bg-gradient-to-r ${service.color}`}></div>
+              <div
+                className={`h-1 bg-gradient-to-r ${service.color}`}
+                aria-hidden="true"
+              ></div>
 
               {/* Card Content */}
               <div className="p-8">
@@ -96,11 +111,15 @@ export default function Services() {
                 <div className="flex items-center mb-6">
                   <div
                     className={`w-16 h-16 bg-gradient-to-r ${service.iconBg} rounded-2xl flex items-center justify-center text-2xl shadow-lg mr-4 group-hover:scale-110 transition-transform duration-300`}
+                    aria-hidden="true"
                   >
                     {service.icon}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-primary-900 group-hover:text-primary-800 transition-colors duration-300">
+                    <h3
+                      id={`service-${index}-title`}
+                      className="text-2xl font-bold text-primary-900 group-hover:text-primary-800 transition-colors duration-300"
+                    >
                       {service.title}
                     </h3>
                   </div>
@@ -118,14 +137,16 @@ export default function Services() {
                   <h4 className="text-sm font-bold text-primary-900 mb-4 uppercase tracking-wide">
                     Key Capabilities
                   </h4>
-                  <ul className="space-y-3">
+                  <ul className="space-y-3" role="list">
                     {service.features.map((feature, idx) => (
                       <li
                         key={idx}
                         className="flex items-center text-primary-900 hover:text-primary-800 transition-colors duration-200"
+                        role="listitem"
                       >
                         <div
                           className={`w-2 h-2 bg-gradient-to-r ${service.iconBg} rounded-full mr-3 flex-shrink-0`}
+                          aria-hidden="true"
                         ></div>
                         <span className="font-semibold">{feature}</span>
                       </li>
@@ -136,7 +157,8 @@ export default function Services() {
                 {/* Enhanced CTA Button */}
                 <Link
                   href="/contact"
-                  className={`inline-flex items-center justify-center w-full bg-gradient-to-r ${service.color} text-white px-6 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group-hover:from-primary-700 group-hover:to-secondary-600`}
+                  className={`inline-flex items-center justify-center w-full bg-gradient-to-r ${service.color} text-white px-6 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] group-hover:from-primary-700 group-hover:to-secondary-600 focus:outline-none focus:ring-4 focus:ring-primary-200`}
+                  aria-label={`Get started with ${service.title} services`}
                 >
                   <span>Get Started</span>
                   <svg
@@ -144,6 +166,7 @@ export default function Services() {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -154,22 +177,28 @@ export default function Services() {
                   </svg>
                 </Link>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
         {/* Enhanced Call to Action Section */}
-        <div>
+        <section aria-labelledby="cta-heading">
           <div className="bg-gradient-to-r from-primary-800 to-primary-700 rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl">
             {/* Background Pattern */}
-            <div className="absolute inset-0 overflow-hidden">
+            <div
+              className="absolute inset-0 overflow-hidden"
+              aria-hidden="true"
+            >
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full"></div>
               <div className="absolute top-1/2 -left-8 w-32 h-32 bg-white/5 rounded-full"></div>
               <div className="absolute bottom-4 right-1/3 w-16 h-16 bg-secondary-400/20 rounded-full"></div>
             </div>
 
             <div className="relative z-10 text-center">
-              <h3 className="text-3xl md:text-4xl font-bold mb-6">
+              <h3
+                id="cta-heading"
+                className="text-3xl md:text-4xl font-bold mb-6"
+              >
                 Ready to Transform Your Business?
               </h3>
               <p className="text-primary-100 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
@@ -177,16 +206,22 @@ export default function Services() {
                 AI and data to drive growth, innovation, and competitive
                 advantage in your industry.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+                role="group"
+                aria-label="Contact options"
+              >
                 <Link
                   href="/contact"
-                  className="bg-white text-primary-800 px-8 py-4 rounded-xl font-semibold hover:bg-secondary-50 hover:text-secondary-700 transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center justify-center"
+                  className="bg-white text-primary-800 px-8 py-4 rounded-xl font-semibold hover:bg-secondary-50 hover:text-secondary-700 transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-white/30"
+                  aria-label="Start a conversation with our team"
                 >
                   <svg
                     className="w-5 h-5 mr-2"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -199,13 +234,15 @@ export default function Services() {
                 </Link>
                 <Link
                   href="/services"
-                  className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-primary-800 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center"
+                  className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-primary-800 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-white/30"
+                  aria-label="View detailed information about all our services"
                 >
                   <svg
                     className="w-5 h-5 mr-2"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -219,7 +256,7 @@ export default function Services() {
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </section>
   );
