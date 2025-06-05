@@ -507,15 +507,15 @@ export default function Contact() {
             </div>
 
             {/* CTA */}
-            <div className="bg-gradient-to-r from-secondary-600 to-secondary-500 rounded-2xl shadow-xl p-8 text-white">
+            <div className="bg-gradient-to-r from-slate-800 to-slate-700 rounded-2xl shadow-xl p-8 text-white">
               <h4 className="text-2xl font-bold mb-4">Ready to Start?</h4>
-              <p className="text-secondary-100 mb-6 leading-relaxed">
+              <p className="text-white mb-6 leading-relaxed">
                 Schedule a free consultation to discuss your project needs and
                 explore how we can help transform your business.
               </p>
               <a
                 href="mailto:contact@elitizon.com"
-                className="inline-flex items-center space-x-2 bg-white text-secondary-600 px-6 py-3 rounded-xl font-semibold hover:bg-secondary-50 hover:text-secondary-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="inline-flex items-center space-x-2 bg-white text-slate-800 px-6 py-3 rounded-xl font-semibold hover:bg-slate-50 hover:text-slate-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 <svg
                   className="w-5 h-5"
