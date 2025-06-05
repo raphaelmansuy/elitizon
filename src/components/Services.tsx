@@ -54,7 +54,7 @@ export default function Services() {
 
   return (
     <section
-      className="py-24 bg-gradient-to-b from-neutral-100 to-white relative overflow-hidden min-h-screen"
+      className="py-24 bg-gradient-to-b from-neutral-100 to-white relative overflow-hidden"
       aria-labelledby="services-heading"
       role="region"
     >
@@ -182,8 +182,8 @@ export default function Services() {
         </div>
 
         {/* Enhanced Call to Action Section */}
-        <section aria-labelledby="cta-heading">
-          <div className="bg-gradient-to-r from-primary-800 to-primary-700 rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl">
+        <section aria-labelledby="cta-heading" className="mt-16">
+          <div className="bg-gradient-to-r from-slate-800 to-slate-700 rounded-3xl p-12 text-white relative overflow-hidden shadow-2xl">
             {/* Background Pattern */}
             <div
               className="absolute inset-0 overflow-hidden"
@@ -191,17 +191,17 @@ export default function Services() {
             >
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full"></div>
               <div className="absolute top-1/2 -left-8 w-32 h-32 bg-white/5 rounded-full"></div>
-              <div className="absolute bottom-4 right-1/3 w-16 h-16 bg-secondary-400/20 rounded-full"></div>
+              <div className="absolute bottom-4 right-1/3 w-16 h-16 bg-pink-400/20 rounded-full"></div>
             </div>
 
-            <div className="relative z-10 text-center">
+            <div className="relative z-20 text-center">
               <h3
                 id="cta-heading"
-                className="text-3xl md:text-4xl font-bold mb-6"
+                className="text-3xl md:text-4xl font-bold mb-6 text-white"
               >
                 Ready to Transform Your Business?
               </h3>
-              <p className="text-primary-100 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
+              <p className="text-white mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
                 Our team of experts is ready to help you leverage the power of
                 AI and data to drive growth, innovation, and competitive
                 advantage in your industry.
@@ -213,7 +213,7 @@ export default function Services() {
               >
                 <Link
                   href="/contact"
-                  className="bg-white text-primary-800 px-8 py-4 rounded-xl font-semibold hover:bg-secondary-50 hover:text-secondary-700 transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-white/30"
+                  className="bg-white text-slate-800 px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 hover:text-slate-700 transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-white/30"
                   aria-label="Start a conversation with our team"
                 >
                   <svg
@@ -234,7 +234,7 @@ export default function Services() {
                 </Link>
                 <Link
                   href="/services"
-                  className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-primary-800 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-white/30"
+                  className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-slate-800 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-white/30"
                   aria-label="View detailed information about all our services"
                 >
                   <svg
