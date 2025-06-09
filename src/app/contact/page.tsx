@@ -56,7 +56,8 @@ export default function ContactPage() {
   const offices = [
     {
       title: "Hong Kong Headquarters",
-      address: "28 Mody Road, Room 2203, 22/F., CFC Tower, Tsim Sha Tsui, Hong Kong SAR",
+      address:
+        "28 Mody Road, Room 2203, 22/F., CFC Tower, Tsim Sha Tsui, Hong Kong SAR",
       description:
         "Elitizon Ltd - Private Company Limited By Shares (Registration: 2348219). Our main office where strategy and client relationships are managed",
       contact: {

@@ -29,7 +29,8 @@ export default function PrivacyPolicy() {
             <strong>Company Registration Number:</strong> 2348219
           </p>
           <p>
-            <strong>Registered Address:</strong> 28 Mody Road, Room 2203, 22/F., CFC Tower, Tsim Sha Tsui, Hong Kong SAR
+            <strong>Registered Address:</strong> 28 Mody Road, Room 2203, 22/F.,
+            CFC Tower, Tsim Sha Tsui, Hong Kong SAR
           </p>
           <p>
             <strong>Contact Email:</strong> privacy@elitizon.com
@@ -38,7 +39,9 @@ export default function PrivacyPolicy() {
             <strong>Website:</strong> www.elitizon.com
           </p>
           <p>
-            This Privacy Policy explains how Elitizon Ltd collects, uses, processes, and protects your personal information when you use our website and services.
+            This Privacy Policy explains how Elitizon Ltd collects, uses,
+            processes, and protects your personal information when you use our
+            website and services.
           </p>
         </div>
       ),
@@ -50,28 +53,36 @@ export default function PrivacyPolicy() {
           <p>We collect information to provide better services to our users:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong>Contact Information:</strong> Name, email address, phone number, company name, job title
+              <strong>Contact Information:</strong> Name, email address, phone
+              number, company name, job title
             </li>
             <li>
-              <strong>Communication Data:</strong> Messages you send us, inquiry details, service preferences
+              <strong>Communication Data:</strong> Messages you send us, inquiry
+              details, service preferences
             </li>
             <li>
-              <strong>Technical Information:</strong> IP address, browser type, device information, operating system
+              <strong>Technical Information:</strong> IP address, browser type,
+              device information, operating system
             </li>
             <li>
-              <strong>Usage Data:</strong> Pages visited, time spent, interaction patterns
+              <strong>Usage Data:</strong> Pages visited, time spent,
+              interaction patterns
             </li>
             <li>
-              <strong>Cookies and Tracking:</strong> See our Cookie Policy section below
+              <strong>Cookies and Tracking:</strong> See our Cookie Policy
+              section below
             </li>
             <li>
-              <strong>Professional Information:</strong> Business requirements, project details, technical specifications
+              <strong>Professional Information:</strong> Business requirements,
+              project details, technical specifications
             </li>
             <li>
-              <strong>Marketing Preferences:</strong> Communication preferences, subscription choices
+              <strong>Marketing Preferences:</strong> Communication preferences,
+              subscription choices
             </li>
             <li>
-              Training data provided by clients (subject to separate data processing agreements)
+              Training data provided by clients (subject to separate data
+              processing agreements)
             </li>
           </ul>
         </div>
@@ -81,27 +92,46 @@ export default function PrivacyPolicy() {
       title: "3. Legal Basis for Processing",
       content: (
         <div className="space-y-4">
-          <p>We process your personal data based on the following legal grounds:</p>
-          
+          <p>
+            We process your personal data based on the following legal grounds:
+          </p>
+
           <div className="space-y-4">
             <div>
-              <h4 className="font-semibold text-primary-800">Consent (Article 6(1)(a))</h4>
-              <p>Marketing communications, cookies, and newsletter subscriptions</p>
+              <h4 className="font-semibold text-primary-800">
+                Consent (Article 6(1)(a))
+              </h4>
+              <p>
+                Marketing communications, cookies, and newsletter subscriptions
+              </p>
             </div>
-            
+
             <div>
-              <h4 className="font-semibold text-primary-800">Contract Performance (Article 6(1)(b))</h4>
-              <p>Service delivery, project management, and client communications</p>
+              <h4 className="font-semibold text-primary-800">
+                Contract Performance (Article 6(1)(b))
+              </h4>
+              <p>
+                Service delivery, project management, and client communications
+              </p>
             </div>
-            
+
             <div>
-              <h4 className="font-semibold text-primary-800">Legal Obligation (Article 6(1)(c))</h4>
-              <p>Compliance with accounting, tax, and regulatory requirements</p>
+              <h4 className="font-semibold text-primary-800">
+                Legal Obligation (Article 6(1)(c))
+              </h4>
+              <p>
+                Compliance with accounting, tax, and regulatory requirements
+              </p>
             </div>
-            
+
             <div>
-              <h4 className="font-semibold text-primary-800">Legitimate Interest (Article 6(1)(f))</h4>
-              <p>Business operations, security, fraud prevention, and service improvement</p>
+              <h4 className="font-semibold text-primary-800">
+                Legitimate Interest (Article 6(1)(f))
+              </h4>
+              <p>
+                Business operations, security, fraud prevention, and service
+                improvement
+              </p>
             </div>
           </div>
         </div>
@@ -121,7 +151,9 @@ export default function PrivacyPolicy() {
             <li>Complying with legal obligations</li>
             <li>Marketing communications (with your consent)</li>
             <li>Business development and partnership opportunities</li>
-            <li>Data preprocessing and model training (with explicit consent)</li>
+            <li>
+              Data preprocessing and model training (with explicit consent)
+            </li>
             <li>Quality assurance and service optimization</li>
           </ul>
         </div>
@@ -134,19 +166,24 @@ export default function PrivacyPolicy() {
           <p>We may share your information with:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong>Service Providers:</strong> Trusted partners who assist in service delivery
+              <strong>Service Providers:</strong> Trusted partners who assist in
+              service delivery
             </li>
             <li>
-              <strong>European Expert Network:</strong> Specialists involved in your projects (with appropriate agreements)
+              <strong>European Expert Network:</strong> Specialists involved in
+              your projects (with appropriate agreements)
             </li>
             <li>
-              <strong>Business Transfers:</strong> In case of merger, acquisition, or sale
+              <strong>Business Transfers:</strong> In case of merger,
+              acquisition, or sale
             </li>
             <li>
-              <strong>Legal Requirements:</strong> When required by law or regulation
+              <strong>Legal Requirements:</strong> When required by law or
+              regulation
             </li>
             <li>
-              <strong>With Consent:</strong> When you explicitly authorize sharing
+              <strong>With Consent:</strong> When you explicitly authorize
+              sharing
             </li>
           </ul>
         </div>
@@ -156,7 +193,10 @@ export default function PrivacyPolicy() {
       title: "6. International Data Transfers",
       content: (
         <div className="space-y-4">
-          <p>As we operate between Hong Kong and Europe, your data may be transferred internationally. We ensure adequate protection through:</p>
+          <p>
+            As we operate between Hong Kong and Europe, your data may be
+            transferred internationally. We ensure adequate protection through:
+          </p>
           <ul className="list-disc pl-6 space-y-2">
             <li>Standard Contractual Clauses (SCCs)</li>
             <li>Adequacy decisions</li>
@@ -170,41 +210,43 @@ export default function PrivacyPolicy() {
       content: (
         <div className="space-y-4">
           <p>You have the following rights regarding your personal data:</p>
-          
+
           <div className="space-y-3">
             <div>
               <strong>Right of Access (Article 15):</strong>
               <p>Request a copy of your personal data we hold</p>
             </div>
-            
+
             <div>
               <strong>Right to Rectification (Article 16):</strong>
               <p>Correct inaccurate or incomplete data</p>
             </div>
-            
+
             <div>
               <strong>Right to Erasure (Article 17):</strong>
               <p>Request deletion of your personal data</p>
             </div>
-            
+
             <div>
               <strong>Right to Restrict Processing (Article 18):</strong>
               <p>Limit how we use your data</p>
             </div>
-            
+
             <div>
               <strong>Right to Data Portability (Article 20):</strong>
               <p>Receive your data in a portable format</p>
             </div>
-            
+
             <div>
               <strong>Right to Object (Article 21):</strong>
               <p>Object to processing based on legitimate interests</p>
             </div>
           </div>
-          
+
           <p className="mb-3">
-            Email us at <strong>privacy@elitizon.com</strong> with your request. We will respond within 30 days and may require identity verification.
+            Email us at <strong>privacy@elitizon.com</strong> with your request.
+            We will respond within 30 days and may require identity
+            verification.
           </p>
         </div>
       ),
@@ -268,21 +310,28 @@ export default function PrivacyPolicy() {
             <li>Performance analytics</li>
             <li>Marketing and personalization (with consent)</li>
           </ul>
-          
+
           <p>You can manage cookie preferences through:</p>
           <ul className="list-disc pl-6 space-y-1">
             <li>Our cookie consent banner (when you first visit)</li>
             <li>Browser settings</li>
             <li>
               Opt-out links in marketing emails{" "}
-              <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Consent Required</span>
+              <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
+                Consent Required
+              </span>
             </li>
           </ul>
-          
-          <p>Marketing cookies and third-party analytics require your explicit consent.</p>
+
+          <p>
+            Marketing cookies and third-party analytics require your explicit
+            consent.
+          </p>
           <p>
             Performance tracking{" "}
-            <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">Consent Required</span>
+            <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">
+              Consent Required
+            </span>
           </p>
         </div>
       ),
@@ -292,19 +341,23 @@ export default function PrivacyPolicy() {
       content: (
         <div className="space-y-4">
           <p className="mb-3">
-            While not legally required for our organization size, we are committed to appointing a DPO to ensure compliance with data protection regulations.
+            While not legally required for our organization size, we are
+            committed to appointing a DPO to ensure compliance with data
+            protection regulations.
           </p>
-          
+
           <p className="mb-3">
-            For any privacy-related questions or to exercise your rights, contact us:
+            For any privacy-related questions or to exercise your rights,
+            contact us:
           </p>
-          
+
           <div className="bg-gray-50 p-4 rounded-lg">
             <p>
               <strong>Email:</strong> privacy@elitizon.com
             </p>
             <p>
-              <strong>Address:</strong> Elitizon Ltd, 28 Mody Road, Room 2203, 22/F., CFC Tower, Tsim Sha Tsui, Hong Kong SAR
+              <strong>Address:</strong> Elitizon Ltd, 28 Mody Road, Room 2203,
+              22/F., CFC Tower, Tsim Sha Tsui, Hong Kong SAR
             </p>
             <p>
               <strong>DPO Contact:</strong> dpo@elitizon.com
@@ -317,28 +370,45 @@ export default function PrivacyPolicy() {
       title: "12. Policy Updates",
       content: (
         <div className="space-y-4">
-          <p>We may update this Privacy Policy to reflect changes in our practices, technology, legal requirements, or other factors. We will notify you of material changes through:</p>
-          
+          <p>
+            We may update this Privacy Policy to reflect changes in our
+            practices, technology, legal requirements, or other factors. We will
+            notify you of material changes through:
+          </p>
+
           <ul className="list-disc pl-6 space-y-1">
             <li>Email notification to registered users</li>
             <li>Prominent notice on our website</li>
             <li>Updated timestamp on this policy</li>
           </ul>
-          
+
           <h5 className="font-semibold">12.1 Notification Timeline</h5>
-          <p>We will provide at least 30 days notice for material changes affecting your rights.</p>
-          
+          <p>
+            We will provide at least 30 days notice for material changes
+            affecting your rights.
+          </p>
+
           <h5 className="font-semibold">12.2 Review Responsibility</h5>
-          <p>We encourage you to review this policy periodically for updates.</p>
-          
+          <p>
+            We encourage you to review this policy periodically for updates.
+          </p>
+
           <h5 className="font-semibold">12.3 Continued Use</h5>
-          <p>Your continued use of our services after policy updates constitutes acceptance of the revised terms, unless the changes require explicit consent.</p>
-          
+          <p>
+            Your continued use of our services after policy updates constitutes
+            acceptance of the revised terms, unless the changes require explicit
+            consent.
+          </p>
+
           <h5 className="font-semibold">12.4 Archive Access</h5>
           <p>Previous versions of this policy are available upon request.</p>
-          
+
           <h5 className="font-semibold">12.5 Transparency Commitment</h5>
-          <p>We are committed to maintaining transparency in our data practices and will always provide clear, accessible information about how we handle your data.</p>
+          <p>
+            We are committed to maintaining transparency in our data practices
+            and will always provide clear, accessible information about how we
+            handle your data.
+          </p>
         </div>
       ),
     },
@@ -353,7 +423,10 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
           <p className="text-xl text-primary-600 max-w-4xl mx-auto leading-relaxed">
-            At Elitizon Ltd, we are committed to protecting your privacy and personal data. This policy explains how we collect, use, and safeguard your information in compliance with GDPR and other applicable data protection laws.
+            At Elitizon Ltd, we are committed to protecting your privacy and
+            personal data. This policy explains how we collect, use, and
+            safeguard your information in compliance with GDPR and other
+            applicable data protection laws.
           </p>
           <p className="text-sm text-gray-500 mt-4">
             Last updated: December 2024
@@ -407,17 +480,30 @@ export default function PrivacyPolicy() {
         {/* Contact CTA */}
         <div className="mt-16 text-center">
           <div className="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">Questions About This Policy?</h3>
+            <h3 className="text-2xl font-bold mb-4">
+              Questions About This Policy?
+            </h3>
             <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
-              We're here to help. Our privacy team is committed to addressing your concerns and ensuring your data rights are respected.
+              We're here to help. Our privacy team is committed to addressing
+              your concerns and ensuring your data rights are respected.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
                 href="mailto:privacy@elitizon.com"
                 className="bg-white text-primary-600 px-6 py-3 rounded-xl font-semibold hover:bg-primary-50 transition-colors duration-300 flex items-center space-x-2"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
                 </svg>
                 <span>Contact Privacy Team</span>
               </a>
