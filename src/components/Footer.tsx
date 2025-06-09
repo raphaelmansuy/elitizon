@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-pink-300 bg-clip-text text-transparent">
-              ELITIZON
+              Elitizon Ltd
             </h3>
             <p className="text-white/80 mb-4 max-w-md">
               Leading consulting firm specializing in Data Engineering, Machine
@@ -128,7 +128,7 @@ export default function Footer() {
 
         <div className="border-t border-slate-800/50 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/70 text-sm">
-            © 2025 ELITIZON. All rights reserved.
+            © 2025 Elitizon Ltd. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link

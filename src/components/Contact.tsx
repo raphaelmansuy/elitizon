@@ -356,7 +356,7 @@ export default function Contact() {
                 aria-label={
                   isSubmitting
                     ? "Sending message..."
-                    : "Send message to Elitizon"
+                    : "Send message to Elitizon Ltd"
                 }
               >
                 {isSubmitting ? (
@@ -423,14 +423,18 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-primary-900 mb-3">
-                    Hong Kong Office
+                    Hong Kong Headquarters
                   </h4>
                   <p className="text-primary-700 leading-relaxed">
-                    Central Business District
+                    Elitizon Ltd
+                    <br />
+                    28 Mody Road, Room 2203, 22/F.
+                    <br />
+                    CFC Tower, Tsim Sha Tsui
                     <br />
                     Hong Kong SAR
                     <br />
-                    Available for meetings by appointment
+                    Company Registration: 2348219
                   </p>
                 </div>
               </div>

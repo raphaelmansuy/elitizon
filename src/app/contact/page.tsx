@@ -56,9 +56,9 @@ export default function ContactPage() {
   const offices = [
     {
       title: "Hong Kong Headquarters",
-      address: "Central Business District, Hong Kong SAR",
+      address: "28 Mody Road, Room 2203, 22/F., CFC Tower, Tsim Sha Tsui, Hong Kong SAR",
       description:
-        "Our main office where strategy and client relationships are managed",
+        "Elitizon Ltd - Private Company Limited By Shares (Registration: 2348219). Our main office where strategy and client relationships are managed",
       contact: {
         email: "hello@elitizon.com",
         phone: "+852 XXXX XXXX",

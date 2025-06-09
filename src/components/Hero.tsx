@@ -17,7 +17,7 @@ export default function Hero() {
           {/* Brand Logo/Name */}
           <div className="mb-8">
             <h2 className="text-2xl md:text-3xl font-light tracking-wider text-white/90 mb-2">
-              ELITIZON
+              Elitizon Ltd
             </h2>
             <div className="w-24 h-0.5 bg-gradient-to-r from-pink-600 to-pink-400 mx-auto"></div>
           </div>
@@ -29,7 +29,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="text-xl md:text-2xl mb-10 text-white/90 max-w-4xl mx-auto font-light leading-relaxed">
-            ELITIZON delivers cutting-edge consulting in Data Engineering,
+            Elitizon Ltd delivers cutting-edge consulting in Data Engineering,
             Machine Learning, and Generative AI. Based in Hong Kong with
             Europe&apos;s finest experts.
           </p>

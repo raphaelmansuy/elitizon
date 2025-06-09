@@ -38,14 +38,6 @@ export default function Navigation() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
 
-  const handleMobileMenuToggle = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsOpen(false);
-  };
-
   return (
     <nav
       className="bg-white/95 backdrop-blur-md shadow-lg fixed w-full z-50 border-b border-gray-200/50"
@@ -61,7 +53,7 @@ export default function Navigation() {
               aria-label="Elitizon homepage"
             >
               <span className="text-3xl font-bold bg-gradient-to-r from-slate-700 to-pink-600 bg-clip-text text-transparent tracking-tight">
-                ELITIZON
+                Elitizon Ltd
               </span>
             </Link>
           </div>

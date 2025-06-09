@@ -263,10 +263,13 @@ export default function Contact() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Hong Kong Office</h4>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Hong Kong Headquarters</h4>
                   <p className="text-gray-600">
-                    Central Business District<br />
+                    Elitizon Ltd<br />
+                    28 Mody Road, Room 2203, 22/F.<br />
+                    CFC Tower, Tsim Sha Tsui<br />
                     Hong Kong SAR<br />
+                    Company Registration: 2348219<br />
                     Available for meetings by appointment
                   </p>
                 </div>

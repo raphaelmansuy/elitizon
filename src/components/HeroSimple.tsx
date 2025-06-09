@@ -6,7 +6,7 @@ export default function HeroSimple() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-light tracking-wider text-white/90 mb-2">
-            ELITIZON
+            Elitizon Ltd
           </h2>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Transform Your Business with
@@ -15,7 +15,7 @@ export default function HeroSimple() {
             </span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/80 max-w-4xl mx-auto font-light leading-relaxed">
-            ELITIZON delivers cutting-edge consulting in Data Engineering, Machine Learning, 
+            Elitizon Ltd delivers cutting-edge consulting in Data Engineering, Machine Learning, 
             and Generative AI. Based in Hong Kong with Europe&apos;s finest experts.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

@@ -33,7 +33,7 @@ export default function AboutPage() {
       year: "2023",
       title: "Company Founded",
       description:
-        "ELITIZON was established in Hong Kong with a vision to bridge Asian innovation with European expertise.",
+        "Elitizon Ltd was established in Hong Kong with a vision to bridge Asian innovation with European expertise.",
     },
     {
       year: "2023",
@@ -68,7 +68,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About ELITIZON
+              About Elitizon Ltd
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto">
               Bridging Hong Kong Innovation with European Excellence in Data,
@@ -112,7 +112,7 @@ export default function AboutPage() {
               <p className="text-lg text-slate-600">
                 We envision a future where businesses seamlessly leverage
                 advanced analytics, machine learning, and AI to drive growth,
-                efficiency, and innovation, with ELITIZON as their trusted
+                efficiency, and innovation, with Elitizon Ltd as their trusted
                 partner in this journey.
               </p>
             </div>
@@ -193,7 +193,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                Why Choose ELITIZON?
+                Why Choose Elitizon Ltd?
               </h2>
               <div className="space-y-6">
                 <div className="flex items-start">

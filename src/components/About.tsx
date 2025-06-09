@@ -20,7 +20,7 @@ export default function About() {
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-primary-800 max-w-5xl mx-auto leading-relaxed font-medium">
-            ELITIZON is strategically positioned in Hong Kong, one of
+            Elitizon Ltd is strategically positioned in Hong Kong, one of
             Asia&apos;s leading financial and technology hubs, while maintaining
             strong partnerships with Europe&apos;s most talented experts.
           </p>
@@ -46,10 +46,10 @@ export default function About() {
                 <div className="text-center p-6 bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-xl border border-secondary-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <div className="text-4xl mb-4">🏙️</div>
                   <div className="text-lg font-bold text-primary-900 mb-2">
-                    Hong Kong Base
+                    Hong Kong Headquarters
                   </div>
                   <div className="text-sm text-primary-600">
-                    Strategic Asian Hub
+                    Elitizon Ltd - Company Registration: 2348219
                   </div>
                 </div>
                 <div className="text-center p-6 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border border-primary-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
@@ -117,7 +117,7 @@ export default function About() {
               </ul>
             </div>
 
-            {/* Why Choose ELITIZON */}
+            {/* Why Choose Elitizon Ltd */}
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-primary-700 to-primary-600 rounded-lg flex items-center justify-center mr-4">
@@ -136,7 +136,7 @@ export default function About() {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-primary-900">
-                  Why Choose ELITIZON
+                  Why Choose Elitizon Ltd
                 </h3>
               </div>
               <ul className="space-y-4">
