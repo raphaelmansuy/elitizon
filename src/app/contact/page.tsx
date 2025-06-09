@@ -61,8 +61,9 @@ export default function ContactPage() {
       description:
         "Elitizon Ltd - Private Company Limited By Shares (Registration: 2348219). Our main office where strategy and client relationships are managed",
       contact: {
-        email: "hello@elitizon.com",
-        phone: "+852 XXXX XXXX",
+        email: "contact@elitizon.com",
+        phone: "Available via Google Meet or Zoom",
+
       },
     },
     {
@@ -71,7 +72,7 @@ export default function ContactPage() {
       description: "Our expert network spans major European tech hubs",
       contact: {
         email: "europe@elitizon.com",
-        phone: "Available via Zoom/Teams",
+        phone: "Available via Google Meet or Zoom",
       },
     },
   ];
