@@ -11,14 +11,18 @@ export default function Footer() {
               Elitizon Ltd
             </h3>
             <p className="text-white/80 mb-4 max-w-md">
-              Leading consulting firm specializing in Data Engineering, Machine
-              Learning, and Generative AI solutions. Bridging Hong Kong
-              innovation with European excellence.
+              Access world-class AI & data experts who deliver measurable ROI
+              without the overhead. Our global network of elite consultants
+              provides 24/7 coverage—connecting top 1% talent with ambitious
+              businesses worldwide.
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://twitter.com/elitizon"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/70 hover:text-pink-400 transition-colors"
+                aria-label="Follow Elitizon on Twitter"
               >
                 <svg
                   className="w-6 h-6"
@@ -29,8 +33,11 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://linkedin.com/company/elitizon"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/70 hover:text-pink-400 transition-colors"
+                aria-label="Follow Elitizon on LinkedIn"
               >
                 <svg
                   className="w-6 h-6"
