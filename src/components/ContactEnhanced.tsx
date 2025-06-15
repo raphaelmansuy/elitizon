@@ -371,14 +371,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                    European Expert Network
+                    Global Expert Network
                   </h4>
                   <p className="text-gray-600">
-                    50+ specialists across
+                    20+ specialists across
                     <br />
-                    France, Germany, UK, Netherlands
+                    France, Luxembourg, Switzerland, UK, Hong Kong
                     <br />
-                    Remote collaboration worldwide
+                    Follow-the-sun collaboration worldwide
                   </p>
                 </div>
               </div>

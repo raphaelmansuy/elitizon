@@ -462,14 +462,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-primary-900 mb-3">
-                    European Expert Network
+                    Global Expert Network
                   </h4>
                   <p className="text-primary-700 leading-relaxed">
-                    50+ specialists across
+                    20+ specialists across
                     <br />
-                    France, Germany, UK, Netherlands
+                    France, Luxembourg, Switzerland, UK, Hong Kong
                     <br />
-                    Remote collaboration worldwide
+                    Follow-the-sun collaboration worldwide
                   </p>
                 </div>
               </div>

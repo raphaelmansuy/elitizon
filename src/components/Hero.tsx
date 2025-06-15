@@ -56,7 +56,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-8 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 hover:shadow-xl group">
             <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
-              50+
+              20+
             </div>
             <div className="text-white/90 font-medium text-lg">
               Expert Consultants
@@ -67,15 +67,15 @@ export default function Hero() {
               100+
             </div>
             <div className="text-white/90 font-medium text-lg">
-              Projects Delivered
+              Projects Completed
             </div>
           </div>
           <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-8 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 hover:shadow-xl group">
             <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
-              25+
+              5
             </div>
             <div className="text-white/90 font-medium text-lg">
-              Countries Served
+              Key Locations
             </div>
           </div>
         </div>

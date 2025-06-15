@@ -50,7 +50,7 @@ export default function About() {
                     Global Operations
                   </div>
                   <div className="text-sm text-primary-600">
-                    Serving clients across 25+ countries
+                    Serving clients across multiple regions
                   </div>
                 </div>
                 <div className="text-center p-6 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border border-primary-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
@@ -59,7 +59,7 @@ export default function About() {
                     Expert Network
                   </div>
                   <div className="text-sm text-primary-600">
-                    50+ World-class Specialists
+                    20+ World-class Specialists
                   </div>
                 </div>
               </div>
