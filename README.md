@@ -1,53 +1,48 @@
-# ELITIZON - Expert Consulting Website
+<!-- Generated: 2025-06-15 00:00:00 UTC -->
 
-A professional Next.js website for ELITIZON, a consulting company specializing in Data Engineering, Machine Learning, and Generative AI solutions.
+# ELITIZON - AI Consulting Website
 
-## Company Overview
+Modern Next.js 15 web application for a global AI consulting company specializing in Data Engineering, Machine Learning, and Generative AI solutions. Built with TypeScript, React 19, Tailwind CSS v4, and AWS SES integration for enterprise-grade contact and career management.
 
-ELITIZON Ltd, established in Hong Kong in 2020, is strategically positioned with a curated network of top-tier worldwide experts. We provide world-class consulting services that bridge Eastern business acumen with Western technical innovation.
+## Key Entry Points
 
-Since our inception, we've evolved from a venture studio offering (2021) to securing major data strategy and AI consulting contracts with European companies (2022), expanding into Generative AI consulting (2023), and developing our international network of top worldwide experts in Data, ML and AI (2025).
+- `src/app/layout.tsx` - Root application layout with navigation and SEO
+- `src/app/page.tsx` - Homepage with integrated contact functionality  
+- `src/app/api/contact/route.ts` - Contact form processing with AWS SES
+- `package.json` - Project configuration and dependencies
+- `next.config.ts` - Next.js configuration with optimizations
 
-## Services
+## Quick Build Commands
 
-### 🏗️ Data Engineering
+```bash
+npm install          # Install dependencies
+npm run dev         # Development server with Turbopack
+npm run build       # Production build
+npm start           # Production server
+npm run lint        # Code quality checks
+```
 
-- Data Pipeline Architecture
-- Real-time Data Processing
-- Cloud Data Platforms (AWS, Azure, GCP)
-- Data Quality & Governance
-- ETL/ELT Solutions
+## Documentation
 
-### 🤖 Machine Learning
+- **[Project Overview](docs/project-overview.md)** - Technology stack, platform requirements, and core features for understanding the application scope
+- **[Architecture](docs/architecture.md)** - Component organization, data flow, and system design for extending functionality  
+- **[Build System](docs/build-system.md)** - Development workflow, configuration files, and deployment preparation
+- **[Development](docs/development.md)** - Code patterns, TypeScript conventions, and component development workflow
+- **[Testing](docs/testing.md)** - Quality assurance approach and validation strategies
+- **[Deployment](docs/deployment.md)** - Platform deployment options, environment configuration, and production setup
+- **[Files Catalog](docs/files.md)** - Comprehensive file organization and dependency mapping for quick navigation
+- **[AWS SES Setup](docs/AWS_SES_SETUP.md)** - Email service configuration for contact and career forms
 
-- Predictive Analytics
-- Computer Vision
-- Natural Language Processing
-- Recommendation Systems
-- MLOps & Model Deployment
+## Environment Setup
 
-### ✨ Generative AI & AI Agents
+Create `.env.local` with AWS SES credentials:
+```bash
+AWS_REGION=us-east-1
+AWS_ACCESS_KEY_ID=your_access_key
+AWS_SECRET_ACCESS_KEY=your_secret_key
+```
 
-- Custom AI Agents
-- LLM Integration
-- Conversational AI
-- Content Generation
-- Process Automation
-
-## Website Features
-
-- **Modern Design**: Built with Next.js 15 and Tailwind CSS
-- **Responsive**: Fully responsive design that works on all devices
-- **Performance**: Optimized for speed and SEO
-- **Accessibility**: WCAG compliant with proper semantic markup
-- **Type Safety**: Built with TypeScript for robust development
-
-## Pages
-
-1. **Homepage** (`/`) - Hero section, services overview, about, and contact
-2. **Services** (`/services`) - Detailed service descriptions and capabilities
-3. **About** (`/about`) - Company mission, values, and journey
-4. **Team** (`/team`) - Leadership team and expert network
+Built with Next.js 15 App Router, React 19, TypeScript, and Tailwind CSS v4.
 5. **Contact** (`/contact`) - Contact form and office information
 
 ## Technology Stack
