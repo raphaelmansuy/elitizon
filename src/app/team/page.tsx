@@ -35,20 +35,44 @@ export default function TeamPage() {
   const expertiseAreas = [
     {
       area: "Data Engineering",
-      experts: 5,
-      locations: ["France", "Luxembourg", "Switzerland", "UK", "Hong Kong"],
+      experts: 12,
+      locations: [
+        "France",
+        "Luxembourg",
+        "Switzerland",
+        "UK",
+        "Hong Kong",
+        "Singapore",
+        "USA",
+      ],
       skills: ["Apache Spark", "Kafka", "Airflow", "dbt", "Cloud Platforms"],
     },
     {
       area: "Machine Learning",
-      experts: 7,
-      locations: ["France", "Luxembourg", "Switzerland", "UK", "Hong Kong"],
+      experts: 15,
+      locations: [
+        "France",
+        "Luxembourg",
+        "Switzerland",
+        "UK",
+        "Hong Kong",
+        "Singapore",
+        "USA",
+      ],
       skills: ["Deep Learning", "Computer Vision", "NLP", "MLOps", "AutoML"],
     },
     {
       area: "AI & Generative AI",
-      experts: 4,
-      locations: ["France", "Luxembourg", "Switzerland", "UK", "Hong Kong"],
+      experts: 13,
+      locations: [
+        "France",
+        "Luxembourg",
+        "Switzerland",
+        "UK",
+        "Hong Kong",
+        "Singapore",
+        "USA",
+      ],
       skills: [
         "LLMs",
         "RAG Systems",
@@ -59,8 +83,16 @@ export default function TeamPage() {
     },
     {
       area: "Cloud & DevOps",
-      experts: 4,
-      locations: ["France", "Luxembourg", "Switzerland", "UK", "Hong Kong"],
+      experts: 10,
+      locations: [
+        "France",
+        "Luxembourg",
+        "Switzerland",
+        "UK",
+        "Hong Kong",
+        "Singapore",
+        "USA",
+      ],
       skills: ["AWS", "Azure", "GCP", "Kubernetes", "Terraform", "CI/CD"],
     },
   ];
@@ -194,7 +226,7 @@ export default function TeamPage() {
               Our Expert Network
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              20 carefully selected specialists across key locations, ready to
+              50+ carefully selected specialists across 15+ locations, ready to
               tackle your most challenging projects
             </p>
           </div>
@@ -306,22 +338,18 @@ export default function TeamPage() {
       {/* Statistics */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-pink-600 mb-2">20+</div>
-              <div className="text-slate-600">Expert Consultants</div>
+              <div className="text-4xl font-bold text-pink-600 mb-2">50+</div>
+              <div className="text-slate-600">Elite AI & Data Experts</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-pink-600 mb-2">5</div>
-              <div className="text-slate-600">Key Locations</div>
+              <div className="text-4xl font-bold text-pink-600 mb-2">200+</div>
+              <div className="text-slate-600">Successful Transformations</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-pink-600 mb-2">100+</div>
-              <div className="text-slate-600">Projects Completed</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-pink-600 mb-2">98%</div>
-              <div className="text-slate-600">Client Satisfaction</div>
+              <div className="text-4xl font-bold text-pink-600 mb-2">15+</div>
+              <div className="text-slate-600">Countries & Time Zones</div>
             </div>
           </div>
         </div>
