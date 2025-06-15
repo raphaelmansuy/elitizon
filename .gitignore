@@ -36,6 +36,16 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Netlify
+.netlify/
+netlify/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Lighthouse reports
+reports/
+
+# Build analysis
+.next/analyze/

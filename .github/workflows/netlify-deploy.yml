@@ -1,0 +1,116 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+env:
+  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Run linting
+        run: npm run lint
+
+      - name: Run type checking
+        run: npm run type-check
+
+      - name: Build application
+        run: npm run build
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          SES_FROM_EMAIL: ${{ secrets.SES_FROM_EMAIL }}
+          SES_TO_EMAIL: ${{ secrets.SES_TO_EMAIL }}
+          SES_CAREERS_EMAIL: ${{ secrets.SES_CAREERS_EMAIL }}
+          NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+          NEXT_TELEMETRY_DISABLED: 1
+          NODE_ENV: production
+
+      - name: Generate sitemap
+        run: npm run sitemap || echo "Sitemap generation failed (optional)"
+
+      - name: Deploy to Netlify (Production)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          npm install -g netlify-cli
+          netlify deploy --prod --dir=.next --message "Deploy from GitHub Actions (Production)"
+
+      - name: Deploy to Netlify (Preview)
+        if: github.ref != 'refs/heads/main' || github.event_name == 'pull_request'
+        run: |
+          npm install -g netlify-cli
+          netlify deploy --dir=.next --message "Deploy from GitHub Actions (Preview)"
+
+      - name: Comment PR with deploy URL
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const output = `#### 🚀 Netlify Deploy Preview
+
+            Your changes have been deployed to a preview environment!
+
+            **Deploy URL**: Check the deploy logs above for the preview URL
+
+            <details>
+            <summary>View deploy details</summary>
+
+            - **Commit**: ${{ github.sha }}
+            - **Branch**: ${{ github.head_ref }}
+            - **Workflow**: ${{ github.workflow }}
+
+            </details>`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            });
+
+  lighthouse:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+            ${{ secrets.NEXT_PUBLIC_SITE_URL }}/about
+            ${{ secrets.NEXT_PUBLIC_SITE_URL }}/services
+            ${{ secrets.NEXT_PUBLIC_SITE_URL }}/contact
+          configPath: "./.lighthouserc.json"
+          uploadArtifacts: true
+          temporaryPublicStorage: true

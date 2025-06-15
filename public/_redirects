@@ -1,0 +1,33 @@
+# Redirects for Next.js App Router
+# This file handles client-side routing and redirects
+
+# API routes - these should be handled by serverless functions
+/api/*  /.netlify/functions/:splat  200
+
+# Static assets
+/_next/static/*  /_next/static/:splat  200
+/static/*  /static/:splat  200
+
+# Images and media
+/images/*  /images/:splat  200
+/media/*  /media/:splat  200
+
+# SEO redirects (www to non-www)
+https://www.elitizon.com/*  https://elitizon.com/:splat  301!
+
+# Old URL redirects for better SEO
+/old-contact  /contact  301
+/old-about  /about  301
+/old-services  /services  301
+
+# Trailing slash redirects (remove trailing slashes)
+/about/  /about  301
+/services/  /services  301
+/contact/  /contact  301
+/careers/  /careers  301
+/team/  /team  301
+/privacy/  /privacy  301
+/terms/  /terms  301
+
+# Handle Next.js App Router pages
+/*  /index.html  200
