@@ -47,6 +47,8 @@ export default function ServicesPage() {
       ],
       icon: "🏗️",
       color: "from-pink-500 to-pink-600",
+      borderColor: "border-pink-500",
+      heroColor: "text-pink-600",
     },
     {
       title: "Machine Learning",
@@ -92,7 +94,9 @@ export default function ServicesPage() {
         "R",
       ],
       icon: "🤖",
-      color: "from-slate-500 to-slate-600",
+      color: "from-purple-500 to-purple-600",
+      borderColor: "border-purple-500",
+      heroColor: "text-purple-600",
     },
     {
       title: "Generative AI & AI Agents",
@@ -137,53 +141,60 @@ export default function ServicesPage() {
         "Streamlit",
       ],
       icon: "✨",
-      color: "from-pink-500 to-pink-600",
+      color: "from-emerald-500 to-emerald-600",
+      borderColor: "border-emerald-500",
+      heroColor: "text-emerald-600",
     },
     {
-      title: "Startup Studio",
-      hero: "From Idea to Market-Ready Product",
+      title: "AI-Powered Startup Studio",
+      hero: "Build the Next Generation of AI-First Products",
       description:
-        "Transform your innovative ideas into successful ventures with our comprehensive startup studio services. We provide end-to-end support from concept validation to product launch, combining technical expertise with business strategy.",
+        "Launch AI-native startups that leverage generative AI and intelligent automation from day one. We help you build market-disrupting products powered by cutting-edge AI technology, combining deep technical expertise with proven startup methodologies.",
       detailedFeatures: [
         {
-          name: "Idea Validation & Market Research",
+          name: "AI Product Ideation & Validation",
           description:
-            "Validate your business concept through comprehensive market research, competitor analysis, and customer discovery sessions.",
+            "Discover AI-driven business opportunities using generative AI for market research, competitor analysis, and customer insight generation. Validate concepts with AI-powered prototypes and data-driven market testing.",
         },
         {
-          name: "MVP Development",
+          name: "AI-Native MVP Development",
           description:
-            "Build minimum viable products quickly and efficiently using modern development frameworks and best practices.",
+            "Build intelligent MVPs that integrate LLMs, AI agents, and automation from the ground up. Create products that learn, adapt, and improve user experience through AI capabilities.",
         },
         {
-          name: "Product Strategy & Roadmap",
+          name: "Generative AI Integration Strategy",
           description:
-            "Develop comprehensive product strategies, feature prioritization, and technical roadmaps aligned with business goals.",
+            "Develop comprehensive AI integration strategies including custom LLM fine-tuning, AI agent architectures, and intelligent automation workflows tailored to your business model.",
         },
         {
-          name: "Technical Architecture & Scaling",
+          name: "Scalable AI Infrastructure",
           description:
-            "Design scalable architecture from day one, ensuring your product can grow with your user base and business needs.",
+            "Design cloud-native AI architectures that can handle growing AI workloads, implement vector databases, and optimize for AI model performance and cost efficiency.",
         },
         {
-          name: "Go-to-Market Support",
+          name: "AI-Driven Go-to-Market",
           description:
-            "Support your launch with technical marketing automation, analytics implementation, and performance optimization.",
+            "Launch with AI-powered marketing automation, intelligent customer acquisition, personalized user experiences, and data-driven growth strategies.",
         },
       ],
       technologies: [
+        "OpenAI GPT",
+        "Anthropic Claude",
+        "LangChain",
+        "Pinecone",
+        "Chroma",
+        "FastAPI",
         "React",
         "Next.js",
-        "Node.js",
         "Python",
-        "PostgreSQL",
         "AWS",
         "Docker",
         "TypeScript",
-        "Tailwind CSS",
       ],
       icon: "🚀",
       color: "from-blue-500 to-blue-600",
+      borderColor: "border-blue-500",
+      heroColor: "text-blue-600",
     },
   ];
 
@@ -197,8 +208,9 @@ export default function ServicesPage() {
               Our Consulting Services
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto">
-              Expert solutions in Data Engineering, Machine Learning, and
-              Generative AI that drive innovation and business growth
+              Expert solutions in Data Engineering, Machine Learning, Generative
+              AI, and AI-Powered Startup Studio that drive innovation and
+              business growth
             </p>
           </div>
         </div>
@@ -220,7 +232,9 @@ export default function ServicesPage() {
                   <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
                     {service.title}
                   </h2>
-                  <h3 className="text-xl text-pink-600 mb-6">{service.hero}</h3>
+                  <h3 className={`text-xl ${service.heroColor} mb-6`}>
+                    {service.hero}
+                  </h3>
                   <p className="text-lg text-slate-600 mb-8">
                     {service.description}
                   </p>
@@ -258,7 +272,7 @@ export default function ServicesPage() {
                       {service.detailedFeatures.map((feature, idx) => (
                         <div
                           key={idx}
-                          className="border-l-4 border-pink-500 pl-6"
+                          className={`border-l-4 ${service.borderColor} pl-6`}
                         >
                           <h5 className="font-semibold text-slate-900 mb-2">
                             {feature.name}
