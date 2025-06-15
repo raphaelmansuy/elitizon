@@ -19,6 +19,7 @@ export default function Contact() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const validateForm = (): FormErrors => {
     const newErrors: FormErrors = {};
@@ -51,26 +52,45 @@ export default function Contact() {
 
     setIsSubmitting(true);
     setErrors({});
+    setSubmitError("");
 
-    // Simulate API call delay
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    console.log("Form submitted:", formData);
+      const result = await response.json();
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      service: "",
-      message: "",
-    });
+      if (response.ok) {
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          service: "",
+          message: "",
+        });
+        setIsSubmitted(true);
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Hide success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+        // Hide success message after 5 seconds
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        setSubmitError(
+          result.message || "Failed to send message. Please try again."
+        );
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitError(
+        "Network error. Please check your connection and try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -267,6 +287,25 @@ export default function Contact() {
                   </p>
                 )}
               </div>
+
+              {submitError && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                  <div className="flex items-center">
+                    <svg
+                      className="w-5 h-5 text-red-500 mr-2 flex-shrink-0"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <p className="text-red-700 font-medium">{submitError}</p>
+                  </div>
+                </div>
+              )}
 
               <button
                 type="submit"

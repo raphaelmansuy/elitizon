@@ -1,6 +1,6 @@
-# AWS SES Setup for Career Applications
+# AWS SES Setup for Contact Forms and Career Applications
 
-This document describes how to set up Amazon Simple Email Service (SES) for handling career application emails.
+This document describes how to set up Amazon Simple Email Service (SES) for handling both contact form submissions and career application emails.
 
 ## Prerequisites
 
@@ -14,7 +14,8 @@ This document describes how to set up Amazon Simple Email Service (SES) for hand
 
 1. Go to Amazon SES console
 2. Verify your domain or email addresses:
-   - Add `careers@elitizon.com` as a verified sender
+   - Add `careers@elitizon.com` as a verified sender (for career applications)
+   - Add `contact@elitizon.com` as a verified sender (for contact forms)
    - Add your domain if sending from multiple addresses
 3. Request production access if needed (initially SES is in sandbox mode)
 
@@ -53,16 +54,38 @@ SES_TO_EMAIL=careers@elitizon.com
 NEXT_PUBLIC_BASE_URL=https://elitizon.com
 ```
 
+**Note:** The same AWS SES configuration is used for both contact forms (`/api/contact`) and career applications (`/api/careers/apply`). The system will automatically use the appropriate email addresses and templates based on the form type.
+
 ### 4. Testing
 
 1. Start the development server: `npm run dev`
-2. Navigate to `/careers/apply`
-3. Fill out and submit the application form
-4. Check your email for both the application notification and confirmation
+2. **Contact Form Testing:**
+   - Navigate to `/contact`
+   - Fill out and submit the contact form
+   - Check your email for both the inquiry notification and confirmation
+3. **Career Application Testing:**
+   - Navigate to `/careers/apply`
+   - Fill out and submit the application form
+   - Check your email for both the application notification and confirmation
 
 ## Email Templates
 
-The system sends two emails:
+The system sends different emails based on the form type:
+
+### Contact Form Emails
+
+1. **Contact Inquiry Notification** (to contact@elitizon.com)
+
+   - Contains all contact form details
+   - Includes project requirements and budget
+   - Formatted for sales team review
+
+2. **Contact Confirmation Email** (to submitter)
+   - Confirms message receipt
+   - Explains response timeline
+   - Provides next steps information
+
+### Career Application Emails
 
 1. **Application Notification** (to careers@elitizon.com)
 

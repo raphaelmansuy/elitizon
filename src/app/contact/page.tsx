@@ -15,31 +15,49 @@ export default function ContactPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError("");
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
-    setIsSubmitting(false);
-
-    // Reset form after a delay
-    setTimeout(() => {
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        service: "",
-        budget: "",
-        timeline: "",
-        message: "",
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-      setSubmitted(false);
-    }, 3000);
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitted(true);
+        // Reset form after successful submission
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          service: "",
+          budget: "",
+          timeline: "",
+          message: "",
+        });
+      } else {
+        setSubmitError(
+          result.message || "Failed to send message. Please try again."
+        );
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitError(
+        "Network error. Please check your connection and try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -124,7 +142,7 @@ export default function ContactPage() {
             </h2>
             <p className="text-slate-600 mb-6">
               Your message has been sent successfully. We&apos;ll get back to
-              We&apos;ll get back to you within 24 hours.
+              you within 24 hours.
             </p>
             <button
               onClick={() => setSubmitted(false)}
@@ -362,6 +380,29 @@ export default function ContactPage() {
                       placeholder="Tell us about your project requirements, challenges, and goals..."
                     />
                   </div>
+
+                  {submitError && (
+                    <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                      <div className="flex">
+                        <div className="flex-shrink-0">
+                          <svg
+                            className="h-5 w-5 text-red-400"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <div className="ml-3">
+                          <p className="text-sm text-red-700">{submitError}</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
 
                   <button
                     type="submit"

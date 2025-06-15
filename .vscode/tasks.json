@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Contact Form Development Server",
+      "type": "shell",
+      "command": "npm run dev",
+      "group": "development",
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}
