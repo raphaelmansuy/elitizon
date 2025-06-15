@@ -7,7 +7,7 @@ Modern Next.js 15 web application for a global AI consulting company specializin
 ## Key Entry Points
 
 - `src/app/layout.tsx` - Root application layout with navigation and SEO
-- `src/app/page.tsx` - Homepage with integrated contact functionality  
+- `src/app/page.tsx` - Homepage with integrated contact functionality
 - `src/app/api/contact/route.ts` - Contact form processing with AWS SES
 - `package.json` - Project configuration and dependencies
 - `next.config.ts` - Next.js configuration with optimizations
@@ -25,7 +25,7 @@ npm run lint        # Code quality checks
 ## Documentation
 
 - **[Project Overview](docs/project-overview.md)** - Technology stack, platform requirements, and core features for understanding the application scope
-- **[Architecture](docs/architecture.md)** - Component organization, data flow, and system design for extending functionality  
+- **[Architecture](docs/architecture.md)** - Component organization, data flow, and system design for extending functionality
 - **[Build System](docs/build-system.md)** - Development workflow, configuration files, and deployment preparation
 - **[Development](docs/development.md)** - Code patterns, TypeScript conventions, and component development workflow
 - **[Testing](docs/testing.md)** - Quality assurance approach and validation strategies
@@ -36,14 +36,14 @@ npm run lint        # Code quality checks
 ## Environment Setup
 
 Create `.env.local` with AWS SES credentials:
+
 ```bash
 AWS_REGION=us-east-1
 AWS_ACCESS_KEY_ID=your_access_key
 AWS_SECRET_ACCESS_KEY=your_secret_key
 ```
 
-Built with Next.js 15 App Router, React 19, TypeScript, and Tailwind CSS v4.
-5. **Contact** (`/contact`) - Contact form and office information
+Built with Next.js 15 App Router, React 19, TypeScript, and Tailwind CSS v4. 5. **Contact** (`/contact`) - Contact form and office information
 
 ## Technology Stack
 

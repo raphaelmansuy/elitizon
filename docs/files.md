@@ -9,6 +9,7 @@ The codebase is organized into logical groups: core application files in `src/ap
 ## Core Source Files
 
 ### Application Pages (App Router)
+
 - `src/app/layout.tsx` - Root layout with navigation, footer, SEO metadata, and Google Analytics
 - `src/app/page.tsx` - Homepage with Hero, Services, About, Contact sections and comprehensive SEO
 - `src/app/globals.css` - Global styles, Tailwind CSS base, and custom component styles
@@ -16,6 +17,7 @@ The codebase is organized into logical groups: core application files in `src/ap
 - `src/app/sitemap.ts` - Dynamic sitemap generation for SEO and search engine indexing
 
 ### Feature Pages
+
 - `src/app/about/page.tsx` - Company information, mission, and value proposition
 - `src/app/services/page.tsx` - Service offerings, expertise areas, and detailed capabilities
 - `src/app/contact/page.tsx` - Enhanced contact form with comprehensive field validation
@@ -28,12 +30,14 @@ The codebase is organized into logical groups: core application files in `src/ap
 - `src/app/test/page.tsx` - Development testing page for component verification
 
 ### API Routes (Backend Logic)
+
 - `src/app/api/contact/route.ts` - Contact form submission handler with AWS SES email integration
 - `src/app/api/careers/apply/route.ts` - Career application processing with file upload support
 
 ## Platform Implementation
 
 ### UI Components (React/TypeScript)
+
 - `src/components/Navigation.tsx` - Responsive navigation with mobile menu and accessibility features
 - `src/components/Footer.tsx` - Site footer with links, contact information, and social media
 - `src/components/Hero.tsx` - Main homepage hero section with call-to-action and value proposition
@@ -46,11 +50,13 @@ The codebase is organized into logical groups: core application files in `src/ap
 - `src/components/Debug.tsx` - Development debugging utilities and component testing
 
 ### Business Logic Components
+
 - `src/components/GoogleAnalytics.tsx` - Google Analytics 4 integration and event tracking
 - `src/components/PrivacyPolicy.tsx` - Privacy policy content component with legal text
 - `src/components/TermsOfService.tsx` - Terms of service content with usage agreements
 
 ### Utility Libraries
+
 - `src/lib/schema.ts` - Schema.org structured data definitions for SEO optimization
   - Organization schema with company information and contact details
   - Website schema with navigation structure and metadata
@@ -59,6 +65,7 @@ The codebase is organized into logical groups: core application files in `src/ap
 ## Build System
 
 ### Core Configuration
+
 - `package.json` - Project dependencies, scripts, and metadata with Next.js 15 and React 19
 - `next.config.ts` - Next.js configuration with image optimization and security headers
 - `tsconfig.json` - TypeScript compiler configuration with strict type checking
@@ -67,12 +74,14 @@ The codebase is organized into logical groups: core application files in `src/ap
 - `eslint.config.mjs` - ESLint configuration for code quality and formatting standards
 
 ### Environment and Development
+
 - `next-env.d.ts` - Next.js TypeScript declarations and global type definitions
 - `.env.example` - Environment variable template with AWS SES configuration examples
 
 ## Configuration
 
 ### Static Assets
+
 - `public/robots.txt` - Search engine crawling instructions and sitemap references
 - `public/next.svg` - Next.js logo for development and branding
 - `public/vercel.svg` - Vercel deployment platform logo
@@ -81,6 +90,7 @@ The codebase is organized into logical groups: core application files in `src/ap
 - `public/window.svg` - Window icon for UI and interface representations
 
 ### Documentation Files
+
 - `docs/AWS_SES_SETUP.md` - AWS Simple Email Service configuration guide
 - `docs/project-overview.md` - Project description, technology stack, and platform requirements
 - `docs/architecture.md` - System architecture, component organization, and data flow
@@ -90,6 +100,7 @@ The codebase is organized into logical groups: core application files in `src/ap
 - `docs/deployment.md` - Deployment options, platform configuration, and production setup
 
 ### Project Documentation
+
 - `README.md` - Project overview, quick start guide, and essential information
 - `COMPREHENSIVE_UX_AUDIT_2025.md` - UX audit findings and improvement recommendations
 - `CONTACT_FORM_IMPLEMENTATION.md` - Contact form development specifications
@@ -104,6 +115,7 @@ The codebase is organized into logical groups: core application files in `src/ap
 ## Reference
 
 ### File Organization Patterns
+
 - **Pages**: Follow App Router structure in `src/app/` with `page.tsx` files
 - **Components**: Reusable UI elements in `src/components/` with TypeScript interfaces
 - **API Routes**: Backend logic in `src/app/api/` with `route.ts` files for HTTP methods
@@ -112,6 +124,7 @@ The codebase is organized into logical groups: core application files in `src/ap
 - **Configuration**: Root-level config files for build tools and development environment
 
 ### Naming Conventions
+
 - **Components**: PascalCase for React components (`Navigation.tsx`, `ContactEnhanced.tsx`)
 - **Pages**: Lowercase for route segments following App Router conventions
 - **API Routes**: Descriptive names with HTTP method exports (`contact/route.ts`)
@@ -119,6 +132,7 @@ The codebase is organized into logical groups: core application files in `src/ap
 - **Documentation**: UPPERCASE with underscores for major documentation files
 
 ### Dependency Relationships
+
 - **Pages depend on Components**: Page files import and compose UI components
 - **Components use Utilities**: UI components import schemas and utility functions
 - **API Routes use External Services**: Backend routes integrate with AWS SES for email

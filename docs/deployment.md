@@ -7,18 +7,21 @@ ELITIZON is designed for modern web deployment platforms with support for static
 ## Package Types
 
 ### Static Export (JAMstack)
+
 - **Build Command**: `npm run build && npx next export`
 - **Output**: `out/` directory with static HTML, CSS, and JavaScript
 - **Limitations**: No server-side features, API routes become static
 - **Use Case**: CDN deployment, static hosting services
 
 ### Server-Side Rendering (SSR)
+
 - **Build Command**: `npm run build`
 - **Output**: `.next/` directory with server and client bundles
 - **Features**: Full Next.js functionality, API routes, dynamic rendering
 - **Requirements**: Node.js runtime environment
 
 ### Serverless Functions
+
 - **Platform**: Vercel, Netlify, AWS Lambda
 - **Configuration**: Automatic with Next.js deployment
 - **API Routes**: `src/app/api/` routes become serverless functions
@@ -27,6 +30,7 @@ ELITIZON is designed for modern web deployment platforms with support for static
 ## Platform Deployment
 
 ### Vercel (Recommended)
+
 - **Configuration**: `vercel.json` (optional for advanced settings)
 - **Environment Variables**: Configure in Vercel dashboard
 - **Build Settings**:
@@ -37,6 +41,7 @@ ELITIZON is designed for modern web deployment platforms with support for static
 - **AWS SES Integration**: Add environment variables in project settings
 
 ### AWS Deployment
+
 - **EC2 Instance**: Traditional server deployment with PM2 or Docker
 - **AWS Amplify**: Git-based deployment with automatic builds
 - **Elastic Beanstalk**: Managed Node.js application deployment
@@ -44,6 +49,7 @@ ELITIZON is designed for modern web deployment platforms with support for static
 - **S3 + CloudFront**: Static deployment for exported builds
 
 ### Docker Deployment
+
 ```dockerfile
 # Example Dockerfile (to be created)
 FROM node:18-alpine
@@ -57,6 +63,7 @@ CMD ["npm", "start"]
 ```
 
 ### Traditional Hosting
+
 - **Requirements**: Node.js 18+, npm, process manager (PM2)
 - **Build Process**: `npm install && npm run build`
 - **Start Command**: `npm start` or `pm2 start npm -- start`
@@ -65,6 +72,7 @@ CMD ["npm", "start"]
 ## Reference
 
 ### Environment Variables
+
 - `AWS_REGION` - AWS region for SES (default: us-east-1)
 - `AWS_ACCESS_KEY_ID` - AWS access key for SES authentication
 - `AWS_SECRET_ACCESS_KEY` - AWS secret key for SES authentication
@@ -72,11 +80,13 @@ CMD ["npm", "start"]
 - `NODE_ENV` - Environment setting (production, development, test)
 
 ### Deployment Scripts
+
 - **Build Script**: `package.json` scripts.build - `next build`
 - **Start Script**: `package.json` scripts.start - `next start`
 - **Development**: `package.json` scripts.dev - `next dev --turbopack`
 
 ### Configuration Files
+
 - `next.config.ts` - Next.js production configuration with optimizations
 - `package.json` - Dependencies and deployment scripts
 - `.env.example` - Template for environment variables
@@ -84,12 +94,14 @@ CMD ["npm", "start"]
 - `Dockerfile` - Container deployment configuration (to be created)
 
 ### Build Optimization
+
 - **Image Optimization**: Configured in `next.config.ts` (lines 9-13)
 - **Compression**: Enabled in `next.config.ts` (line 16)
 - **Security Headers**: Custom headers in `next.config.ts` (lines 18+)
 - **Bundle Analysis**: Use `npm run build` to analyze bundle size
 
 ### Deployment Checklist
+
 1. **Environment Setup**: Configure all required environment variables
 2. **AWS SES Configuration**: Verify email addresses and production access
 3. **Build Testing**: Run `npm run build` locally to verify build success

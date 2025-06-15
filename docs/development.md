@@ -7,6 +7,7 @@ ELITIZON follows modern React and Next.js development patterns with TypeScript f
 ## Code Style
 
 ### TypeScript Conventions
+
 - **Strict Type Checking**: Enabled in `tsconfig.json` for compile-time safety
 - **Interface Definitions**: Used for component props and API data structures
 - **Type Imports**: Import types separately using `import type` syntax
@@ -29,6 +30,7 @@ interface ContactFormData {
 ```
 
 ### Component Patterns
+
 - **Functional Components**: All components use React function syntax
 - **Default Exports**: Each component file exports one default component
 - **Props Interface**: Define props interface above component definition
@@ -43,6 +45,7 @@ export default function Navigation() {
 ```
 
 ### CSS and Styling Conventions
+
 - **Tailwind CSS v4**: Utility-first approach with custom design system
 - **Custom Colors**: Brand colors defined in `tailwind.config.ts` (lines 12-32)
 - **Responsive Design**: Mobile-first with responsive utility classes
@@ -62,6 +65,7 @@ secondary: {
 ## Common Patterns
 
 ### Page Component Structure
+
 - **Metadata Export**: Each page exports SEO metadata configuration
 - **Default Function Export**: Main page component as default export
 - **Component Composition**: Pages composed of reusable UI components
@@ -87,6 +91,7 @@ export default function HomePage() {
 ```
 
 ### API Route Pattern
+
 - **Named HTTP Method Exports**: Export GET, POST, etc. as named functions
 - **Request/Response Handling**: Use NextRequest and NextResponse types
 - **Error Handling**: Consistent error response format with status codes
@@ -96,7 +101,7 @@ export default function HomePage() {
 export async function POST(request: NextRequest) {
   try {
     const formData: ContactFormData = await request.json();
-    
+
     // Validation logic
     const requiredFields = ["name", "email", "message"];
     for (const field of requiredFields) {
@@ -115,6 +120,7 @@ export async function POST(request: NextRequest) {
 ```
 
 ### State Management Pattern
+
 - **Local State**: useState hook for component-level state
 - **Refs for DOM Access**: useRef for direct DOM manipulation
 - **Effect Hooks**: useEffect for side effects and cleanup
@@ -131,7 +137,7 @@ useEffect(() => {
       mobileMenuButtonRef.current?.focus();
     }
   };
-  
+
   document.addEventListener("keydown", handleKeyDown);
   return () => document.removeEventListener("keydown", handleKeyDown);
 }, [isOpen]);
@@ -140,6 +146,7 @@ useEffect(() => {
 ## Workflows
 
 ### Component Development Workflow
+
 1. **Create Component File**: Add new component in `src/components/`
 2. **Define Props Interface**: TypeScript interface for component props
 3. **Implement Component**: Functional component with hooks if needed
@@ -147,6 +154,7 @@ useEffect(() => {
 5. **Test in Browser**: Use development server for immediate feedback
 
 ### API Route Development
+
 1. **Create Route File**: Add `route.ts` in appropriate `src/app/api/` directory
 2. **Define Data Interfaces**: TypeScript interfaces for request/response data
 3. **Implement HTTP Methods**: Export named functions for GET, POST, etc.
@@ -154,6 +162,7 @@ useEffect(() => {
 5. **Test with Browser**: Use browser DevTools Network tab for API testing
 
 ### Page Development Process
+
 1. **Create Page File**: Add `page.tsx` in appropriate `src/app/` directory
 2. **Export Metadata**: Define SEO metadata for the page
 3. **Compose Components**: Use existing components or create new ones
@@ -163,18 +172,21 @@ useEffect(() => {
 ## Reference
 
 ### File Organization
+
 - `src/app/` - Pages and API routes using App Router structure
 - `src/components/` - Reusable UI components
 - `src/lib/` - Utility functions and shared logic (schema definitions)
 - `public/` - Static assets (images, icons, robots.txt)
 
 ### Naming Conventions
+
 - **Components**: PascalCase for component files (`Navigation.tsx`)
 - **Pages**: lowercase for route segments (`about/page.tsx`)
 - **API Routes**: lowercase with descriptive names (`contact/route.ts`)
 - **Utilities**: camelCase for utility functions and hooks
 
 ### Common Development Issues
+
 - **TypeScript Errors**: Check `tsconfig.json` configuration and type imports
 - **Tailwind Styles**: Verify classes are defined in `tailwind.config.ts`
 - **API Route Issues**: Check AWS SES configuration in environment variables
@@ -182,6 +194,7 @@ useEffect(() => {
 - **Performance**: Use Next.js Image component for optimized image loading
 
 ### Development Tools Integration
+
 - **VS Code Extensions**: TypeScript, Tailwind CSS IntelliSense, ESLint
 - **Browser DevTools**: Network tab for API testing, Elements for styling
 - **Next.js DevTools**: Built-in development overlay for debugging
