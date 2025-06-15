@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 
 # AWS SES Configuration Validation Script for Elitizon Website
 # This script validates the complete SES setup and security configuration

@@ -396,40 +396,14 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-secondary-600 to-secondary-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-secondary-700 hover:to-secondary-600 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center space-x-2 focus:outline-none focus:ring-4 focus:ring-secondary-200"
+                className="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-4 px-8 rounded-xl transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
                 aria-label={
                   isSubmitting
                     ? "Sending message..."
                     : "Send message to Elitizon Ltd"
                 }
               >
-                {isSubmitting ? (
-                  <>
-                    <div
-                      className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"
-                      aria-hidden="true"
-                    ></div>
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  <>
-                    <span>Send Message</span>
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                      />
-                    </svg>
-                  </>
-                )}
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
@@ -563,7 +537,7 @@ export default function Contact() {
               </p>
               <a
                 href="mailto:contact@elitizon.com"
-                className="inline-flex items-center space-x-2 bg-white text-slate-800 px-6 py-3 rounded-xl font-semibold hover:bg-slate-50 hover:text-slate-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="inline-flex items-center space-x-2 bg-white text-slate-900 px-6 py-3 rounded-xl font-bold hover:bg-slate-50 hover:text-slate-800 transition-all duration-300 transform hover:scale-105 shadow-lg border border-slate-200"
               >
                 <svg
                   className="w-5 h-5"
