@@ -20,9 +20,10 @@ export default function About() {
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-primary-800 max-w-5xl mx-auto leading-relaxed font-medium">
-            Elitizon Ltd connects businesses with the world&apos;s finest AI & Data specialists 
-            through our unmatched network of remote-first experts, delivering exceptional results 
-            with complete flexibility and freedom.
+            Elitizon Ltd connects businesses with the world&apos;s finest AI &
+            Data specialists through our unmatched network of remote-first
+            experts, delivering exceptional results with complete flexibility
+            and freedom.
           </p>
         </div>
 
@@ -34,10 +35,11 @@ export default function About() {
                 Our Remote-First Approach
               </h3>
               <p className="text-lg text-primary-700 mb-6 leading-relaxed">
-                Our network of world-class AI & Data experts operates with complete flexibility, 
-                working from anywhere in the world to deliver exceptional results. This remote-first 
-                culture enables us to access the finest talent globally while providing our clients 
-                with unmatched expertise and innovative solutions.
+                Our network of world-class AI & Data experts operates with
+                complete flexibility, working from anywhere in the world to
+                deliver exceptional results. This remote-first culture enables
+                us to access the finest talent globally while providing our
+                clients with unmatched expertise and innovative solutions.
               </p>
 
               {/* Location Cards */}
@@ -92,7 +94,8 @@ export default function About() {
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-secondary-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Remote-first collaboration with global talent and local insights
+                    Remote-first collaboration with global talent and local
+                    insights
                   </span>
                 </li>
                 <li className="flex items-start">
@@ -148,7 +151,8 @@ export default function About() {
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Remote-first culture delivering faster, more innovative results
+                    Remote-first culture delivering faster, more innovative
+                    results
                   </span>
                 </li>
                 <li className="flex items-start">
@@ -160,7 +164,8 @@ export default function About() {
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Flexible, scalable solutions that adapt to your business needs
+                    Flexible, scalable solutions that adapt to your business
+                    needs
                   </span>
                 </li>
               </ul>
