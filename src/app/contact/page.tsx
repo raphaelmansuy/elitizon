@@ -63,12 +63,11 @@ export default function ContactPage() {
       contact: {
         email: "contact@elitizon.com",
         phone: "Available via Google Meet or Zoom",
-
       },
     },
     {
       title: "European Operations",
-      address: "Distributed across 12+ countries",
+      address: "Distributed across 15+ countries",
       description: "Our expert network spans major European tech hubs",
       contact: {
         email: "europe@elitizon.com",
@@ -125,7 +124,7 @@ export default function ContactPage() {
             </h2>
             <p className="text-slate-600 mb-6">
               Your message has been sent successfully. We&apos;ll get back to
-              you within 24 hours.
+              We&apos;ll get back to you within 24 hours.
             </p>
             <button
               onClick={() => setSubmitted(false)}
@@ -146,12 +145,50 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Get in Touch
+              Start Your Transformation Today
             </h1>
             <p className="text-xl md:text-2xl text-slate-100 max-w-4xl mx-auto">
-              Ready to transform your business with expert data engineering, ML,
-              and AI solutions? Let&apos;s start the conversation.
+              Get a <strong>free 30-minute strategy session</strong> with our AI
+              & Data experts. Discover how to unlock{" "}
+              <span className="bg-gradient-to-r from-pink-400 to-pink-300 bg-clip-text text-transparent">
+                measurable ROI
+              </span>{" "}
+              from your data.
             </p>
+
+            {/* Trust indicators */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mt-8 text-slate-300">
+              <div className="flex items-center">
+                <svg
+                  className="w-5 h-5 text-pink-400 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                <span>Trusted by Fortune 500</span>
+              </div>
+              <div className="flex items-center">
+                <svg
+                  className="w-5 h-5 text-pink-400 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>24hr Response Time</span>
+              </div>
+              <div className="flex items-center">
+                <svg
+                  className="w-5 h-5 text-pink-400 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <span>300% Average ROI</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -163,9 +200,13 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-xl p-8">
-                <h2 className="text-3xl font-bold text-slate-900 mb-8">
-                  Tell Us About Your Project
+                <h2 className="text-3xl font-bold text-slate-900 mb-2">
+                  Get Your Free Strategy Session
                 </h2>
+                <p className="text-slate-600 mb-8">
+                  Share your challenge and we&apos;ll show you exactly how our
+                  AI & Data experts can deliver results for your business.
+                </p>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -373,9 +414,7 @@ export default function ContactPage() {
                     <span className="mr-3">⏰</span>
                     <div>
                       <div className="font-semibold">Response Time</div>
-                      <div className="text-slate-100 text-sm">
-                        Within 24 hours
-                      </div>
+                      <div className="text-slate-100 text-sm">Within 24hr</div>
                     </div>
                   </div>
                   <div className="flex items-center">

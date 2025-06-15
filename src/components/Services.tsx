@@ -5,7 +5,7 @@ export default function Services() {
     {
       title: "Data Engineering",
       description:
-        "Build robust, scalable data pipelines and architectures that power your business intelligence and analytics.",
+        "Transform chaotic data into your competitive advantage. Our experts build enterprise-grade data infrastructure that scales with your business and delivers insights in real-time.",
       features: [
         "Data Pipeline Architecture",
         "Real-time Data Processing",
@@ -21,7 +21,7 @@ export default function Services() {
     {
       title: "Machine Learning",
       description:
-        "Deploy intelligent ML solutions that drive actionable insights and automate complex business processes.",
+        "Turn data into profit with AI that actually works. Our ML solutions automate complex decisions, predict customer behavior, and optimize operations to drive measurable business growth.",
       features: [
         "Predictive Analytics",
         "Computer Vision",
@@ -37,7 +37,7 @@ export default function Services() {
     {
       title: "Generative AI & AI Agents",
       description:
-        "Leverage cutting-edge AI agents and generative models to revolutionize your customer experience and operations.",
+        "Deploy intelligent AI agents that work 24/7 for your business. From customer service to content creation, our GenAI solutions reduce costs while improving quality and speed.",
       features: [
         "Custom AI Agents",
         "LLM Integration",
@@ -78,12 +78,15 @@ export default function Services() {
             id="services-heading"
             className="text-4xl md:text-5xl font-bold text-primary-900 mb-6"
           >
-            Our Consulting Services
+            Transform Your Business. Drive Real Results.
           </h2>
           <p className="text-xl text-primary-800 max-w-4xl mx-auto leading-relaxed font-medium">
-            We specialize in three key areas that drive digital transformation
-            and business growth, combining cutting-edge technology with proven
-            methodologies
+            Our world-class experts deliver <strong>measurable ROI</strong>{" "}
+            through cutting-edge AI & Data solutions.
+            <span className="block mt-2 text-lg">
+              Join 200+ companies who&apos;ve accelerated their growth with
+              Elitizon.
+            </span>
           </p>
         </header>
 
@@ -199,12 +202,17 @@ export default function Services() {
                 id="cta-heading"
                 className="text-3xl md:text-4xl font-bold mb-6 text-white"
               >
-                Ready to Transform Your Business?
+                Ready to 10X Your Business Growth?
               </h3>
               <p className="text-white mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
-                Our team of experts is ready to help you leverage the power of
-                AI and data to drive growth, innovation, and competitive
-                advantage in your industry.
+                Join the ranks of Fortune 500 companies and innovative startups
+                who trust Elitizon to deliver{" "}
+                <strong>measurable results</strong> through world-class AI &
+                Data expertise.
+                <span className="block mt-2">
+                  Your competition is already using AI. Don&apos;t get left
+                  behind.
+                </span>
               </p>
               <div
                 className="flex flex-col sm:flex-row gap-4 justify-center"

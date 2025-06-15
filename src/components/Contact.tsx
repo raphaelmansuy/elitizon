@@ -465,7 +465,7 @@ export default function Contact() {
                     Global Expert Network
                   </h4>
                   <p className="text-primary-700 leading-relaxed">
-                    20+ specialists across
+                    50+ elite specialists across
                     <br />
                     France, Luxembourg, Switzerland, UK, Hong Kong
                     <br />
@@ -500,7 +500,7 @@ export default function Contact() {
                     Quick Response
                   </h4>
                   <p className="text-primary-700 leading-relaxed">
-                    We respond within 24 hours
+                    We respond within 24hr
                     <br />
                     Initial consultation available
                     <br />

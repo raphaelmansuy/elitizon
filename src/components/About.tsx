@@ -14,16 +14,20 @@ export default function About() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold text-primary-900 mb-8 leading-tight">
-            World-Class AI & Data Experts
+            Elite Talent. Global Reach.
             <span className="block bg-gradient-to-r from-secondary-600 to-secondary-500 bg-clip-text text-transparent mt-2">
-              Remote-First Excellence
+              Unmatched Results.
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-primary-800 max-w-5xl mx-auto leading-relaxed font-medium">
-            Elitizon Ltd connects businesses with the world&apos;s finest AI &
-            Data specialists through our unmatched network of remote-first
-            experts, delivering exceptional results with complete flexibility
-            and freedom.
+            We connect the world&apos;s top 1% of AI & Data specialists with
+            ambitious businesses.
+            <span className="block mt-3">
+              <strong>For clients:</strong> Access elite expertise without the
+              overhead.
+              <strong className="ml-4">For consultants:</strong> Freedom to work
+              from anywhere while solving the most exciting challenges.
+            </span>
           </p>
         </div>
 
@@ -32,34 +36,39 @@ export default function About() {
           <div>
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
               <h3 className="text-2xl font-bold text-primary-900 mb-6">
-                Our Remote-First Approach
+                The Perfect Partnership Model
               </h3>
               <p className="text-lg text-primary-700 mb-6 leading-relaxed">
-                Our network of world-class AI & Data experts operates with
-                complete flexibility, working from anywhere in the world to
-                deliver exceptional results. This remote-first culture enables
-                us to access the finest talent globally while providing our
-                clients with unmatched expertise and innovative solutions.
+                <strong>For Businesses:</strong> Skip the hiring headaches,
+                onboarding delays, and infrastructure costs. Access world-class
+                talent that starts delivering results from day one, with
+                complete transparency and accountability.
+              </p>
+              <p className="text-lg text-primary-700 mb-6 leading-relaxed">
+                <strong>For Consultants:</strong> Work on cutting-edge projects
+                with the world&apos;s most innovative companies. Enjoy complete
+                location freedom, competitive rates, and the support of a global
+                network of peers.
               </p>
 
-              {/* Location Cards */}
+              {/* Enhanced Value Props */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
                 <div className="text-center p-6 bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-xl border border-secondary-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-4xl mb-4">🌍</div>
+                  <div className="text-4xl mb-4">⚡</div>
                   <div className="text-lg font-bold text-primary-900 mb-2">
-                    Remote-First Network
+                    50% Faster Delivery
                   </div>
                   <div className="text-sm text-primary-600">
-                    World-class experts working globally
+                    Pre-vetted experts hit the ground running
                   </div>
                 </div>
                 <div className="text-center p-6 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border border-primary-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-4xl mb-4">🎯</div>
+                  <div className="text-4xl mb-4">💰</div>
                   <div className="text-lg font-bold text-primary-900 mb-2">
-                    AI & Data Specialists
+                    Zero Overhead Costs
                   </div>
                   <div className="text-sm text-primary-600">
-                    50+ World-class Experts Globally
+                    No office space, equipment, or benefits
                   </div>
                 </div>
               </div>
@@ -85,35 +94,38 @@ export default function About() {
                       d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                </div>
+                </div>{" "}
                 <h3 className="text-2xl font-bold text-primary-900">
-                  Our Approach
+                  For Consultants: Work Your Way
                 </h3>
               </div>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-secondary-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Remote-first collaboration with global talent and local
-                    insights
+                    <strong>True Location Freedom:</strong> Work from anywhere
+                    with complete autonomy
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-secondary-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Flexible engagement models with autonomous expert teams
+                    <strong>Premium Projects Only:</strong> Handpicked
+                    engagements with industry leaders
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-secondary-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Knowledge transfer and capability building
+                    <strong>Competitive Compensation:</strong> Top-tier rates
+                    with flexible payment terms
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-secondary-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Long-term partnerships beyond project delivery
+                    <strong>Global Network:</strong> Connect with the
+                    world&apos;s best AI & Data professionals
                   </span>
                 </li>
               </ul>
@@ -138,34 +150,29 @@ export default function About() {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-primary-900">
-                  Why Choose Elitizon Ltd
+                  Why Industry Leaders Choose Us
                 </h3>
               </div>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Access to unmatched AI & Data expertise worldwide
+                    <strong>Proven ROI:</strong> Average 300% return on
+                    investment within 12 months
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Remote-first culture delivering faster, more innovative
-                    results
+                    <strong>Elite Talent Pool:</strong> Only top 1% of AI & Data
+                    professionals worldwide
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Proven track record across multiple industries and regions
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                  <span className="text-primary-700 text-lg leading-relaxed">
-                    Flexible, scalable solutions that adapt to your business
-                    needs
+                    <strong>Global Scale:</strong> 24/7 coverage across 15+ time
+                    zones and countries
                   </span>
                 </li>
               </ul>

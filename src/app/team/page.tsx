@@ -98,12 +98,16 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Meet Our Expert Team
+              The World&apos;s Top 1% AI & Data Experts
             </h1>
             <p className="text-xl md:text-2xl text-slate-100 max-w-4xl mx-auto">
-              A curated network of the finest data, AI, and technology experts
-              across Europe and Asia, led by experienced international
-              professionals
+              Elite professionals who deliver{" "}
+              <strong>measurable results</strong> for Fortune 500 companies and
+              innovative startups.
+              <span className="block mt-3 text-lg">
+                Led by proven executives who&apos;ve scaled AI solutions
+                globally.
+              </span>
             </p>
           </div>
         </div>
