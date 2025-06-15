@@ -11,6 +11,9 @@ echo "🚀 Starting Netlify deployment process..."
 check_env_vars() {
     echo "📋 Checking environment variables..."
     
+    # Note: Use scripts/aws/setup-ses-iam.sh to generate secure credentials
+    echo "💡 If you haven't set up AWS SES IAM yet, run: ./scripts/aws/setup-ses-iam.sh"
+    
     required_vars=(
         "AWS_REGION"
         "AWS_ACCESS_KEY_ID" 
@@ -33,6 +36,8 @@ check_env_vars() {
         printf '%s\n' "${missing_vars[@]}"
         echo ""
         echo "Please set these variables in your .env.local file or Netlify dashboard."
+        echo "💡 To generate secure credentials, run: ./scripts/aws/setup-ses-iam.sh"
+        echo "📖 For more information, see: docs/SES_IAM_SECURITY.md"
         exit 1
     fi
     
