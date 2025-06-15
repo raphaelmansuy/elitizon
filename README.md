@@ -4,11 +4,14 @@ A professional Next.js website for ELITIZON, a consulting company specializing i
 
 ## Company Overview
 
-ELITIZON is strategically positioned in Hong Kong with a curated network of top-tier European freelance experts. We provide world-class consulting services that bridge Eastern business acumen with Western technical innovation.
+ELITIZON Ltd, established in Hong Kong in 2020, is strategically positioned with a curated network of top-tier worldwide experts. We provide world-class consulting services that bridge Eastern business acumen with Western technical innovation.
+
+Since our inception, we've evolved from a venture studio offering (2021) to securing major data strategy and AI consulting contracts with European companies (2022), expanding into Generative AI consulting (2023), and developing our international network of top worldwide experts in Data, ML and AI (2025).
 
 ## Services
 
 ### 🏗️ Data Engineering
+
 - Data Pipeline Architecture
 - Real-time Data Processing
 - Cloud Data Platforms (AWS, Azure, GCP)
@@ -16,6 +19,7 @@ ELITIZON is strategically positioned in Hong Kong with a curated network of top-
 - ETL/ELT Solutions
 
 ### 🤖 Machine Learning
+
 - Predictive Analytics
 - Computer Vision
 - Natural Language Processing
@@ -23,6 +27,7 @@ ELITIZON is strategically positioned in Hong Kong with a curated network of top-
 - MLOps & Model Deployment
 
 ### ✨ Generative AI & AI Agents
+
 - Custom AI Agents
 - LLM Integration
 - Conversational AI
@@ -58,23 +63,26 @@ ELITIZON is strategically positioned in Hong Kong with a curated network of top-
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn package manager
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd elitizonweb_new
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -116,17 +124,20 @@ src/
 ## Design System
 
 ### Colors
+
 - **Primary**: Blue (600-900)
 - **Secondary**: Cyan/Indigo gradients
 - **Accent**: Green, Purple, Pink
 - **Neutral**: Gray scales
 
 ### Typography
+
 - **Font**: Inter (Google Fonts)
 - **Headings**: Bold weights with proper hierarchy
 - **Body**: Regular weight for readability
 
 ### Components
+
 - **Cards**: Rounded corners with shadow effects
 - **Buttons**: Gradient backgrounds with hover effects
 - **Forms**: Clean inputs with focus states
@@ -149,6 +160,7 @@ The website is ready for deployment on Vercel:
 3. Deploy automatically
 
 For other platforms:
+
 ```bash
 npm run build
 npm start
@@ -157,16 +169,19 @@ npm start
 ## Customization
 
 ### Adding New Pages
+
 1. Create new folder in `src/app/`
 2. Add `page.tsx` file
 3. Update navigation in `Navigation.tsx`
 
 ### Modifying Styles
+
 - Edit `globals.css` for global styles
 - Use Tailwind classes for component styling
 - Customize colors in `tailwind.config.js`
 
 ### Content Updates
+
 - Update company information in components
 - Modify service descriptions in `/services/page.tsx`
 - Edit team information in `/team/page.tsx`

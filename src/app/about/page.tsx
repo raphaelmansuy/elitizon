@@ -30,34 +30,34 @@ export default function AboutPage() {
 
   const timeline = [
     {
-      year: "2023",
-      title: "Company Founded",
+      year: "2020",
+      title: "Creation of ELITIZON Ltd",
       description:
-        "Elitizon Ltd was established in Hong Kong with a vision to bridge Asian innovation with European expertise.",
+        "ELITIZON Ltd was established in Hong Kong with a vision to bridge Asian innovation with European expertise.",
+    },
+    {
+      year: "2021",
+      title: "Venture Studio Creation Offer",
+      description:
+        "Launched our venture studio services, helping startups build their data and AI foundations from the ground up.",
+    },
+    {
+      year: "2022",
+      title: "Major Data Strategy & AI Consulting Contracts",
+      description:
+        "Secured major contracts for Data Strategy and AI consulting with European startups and retail companies with worldwide reach.",
     },
     {
       year: "2023",
-      title: "European Network",
+      title: "Generative AI Consulting Offer",
       description:
-        "Built strategic partnerships with top-tier freelance experts across Europe, expanding our technical capabilities.",
-    },
-    {
-      year: "2024",
-      title: "First Major Projects",
-      description:
-        "Successfully delivered data engineering and ML solutions for leading fintech and e-commerce companies.",
-    },
-    {
-      year: "2024",
-      title: "AI Specialization",
-      description:
-        "Expanded into Generative AI and AI Agents, becoming early adopters of cutting-edge AI technologies.",
+        "Expanded into Generative AI consulting, becoming early adopters of cutting-edge AI technologies and LLM solutions.",
     },
     {
       year: "2025",
-      title: "Scale & Growth",
+      title: "International Network of Top Worldwide Experts",
       description:
-        "Growing our team and client base while maintaining our commitment to excellence and innovation.",
+        "Developed an international network of top worldwide experts in Data, ML and AI, establishing our global presence.",
     },
   ];
 
@@ -157,7 +157,8 @@ export default function AboutPage() {
               Our Journey
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              From startup to leading consulting firm
+              From startup to global consulting firm - 5 years of growth and
+              innovation
             </p>
           </div>
 

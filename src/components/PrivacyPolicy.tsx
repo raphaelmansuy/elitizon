@@ -484,8 +484,9 @@ export default function PrivacyPolicy() {
               Questions About This Policy?
             </h3>
             <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
-              We're here to help. Our privacy team is committed to addressing
-              your concerns and ensuring your data rights are respected.
+              We&apos;re here to help. Our privacy team is committed to
+              addressing your concerns and ensuring your data rights are
+              respected.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
