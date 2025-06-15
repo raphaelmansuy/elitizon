@@ -1,4 +1,41 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title:
+    "Remote AI Jobs & Data Engineering Careers | Join ELITIZON Global Team",
+  description:
+    "Join ELITIZON's global network of AI & data experts. 100% remote-first careers in Machine Learning, Data Engineering, and AI consulting. Premium compensation, flexible engagement worldwide.",
+  keywords:
+    "remote AI jobs, data engineering careers, AI consultant jobs, machine learning remote work, remote data science jobs, global AI careers, remote-first AI consulting jobs",
+  openGraph: {
+    title: "Remote AI Jobs & Data Engineering Careers | ELITIZON",
+    description:
+      "Join ELITIZON's global network of AI & data experts. 100% remote-first careers with premium compensation and flexible engagement worldwide.",
+    url: "https://elitizon.com/careers",
+    siteName: "ELITIZON",
+    images: [
+      {
+        url: "https://elitizon.com/og-careers.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Remote AI Jobs at ELITIZON",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Remote AI Jobs & Data Engineering Careers | ELITIZON",
+    description:
+      "Join ELITIZON's global network of AI & data experts. 100% remote-first careers with premium compensation and flexible engagement worldwide.",
+    images: ["https://elitizon.com/og-careers.jpg"],
+  },
+  alternates: {
+    canonical: "https://elitizon.com/careers",
+  },
+};
 
 export default function CareersPage() {
   const benefits = [

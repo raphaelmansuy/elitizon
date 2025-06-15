@@ -1,4 +1,41 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title:
+    "About ELITIZON | Global AI Consulting Company - Remote-First Excellence",
+  description:
+    "Learn about ELITIZON's journey from Hong Kong startup to global AI consulting leader. Our remote-first model connects world-class AI & data experts with businesses worldwide since 2020.",
+  keywords:
+    "ELITIZON global AI consulting company, remote-first AI consulting, international data engineering experts, worldwide AI transformation, AI consulting company history, remote AI experts",
+  openGraph: {
+    title: "About ELITIZON | Global AI Consulting Company",
+    description:
+      "Learn about ELITIZON's journey from Hong Kong startup to global AI consulting leader. Remote-first excellence connecting top talent worldwide.",
+    url: "https://elitizon.com/about",
+    siteName: "ELITIZON",
+    images: [
+      {
+        url: "https://elitizon.com/og-about.jpg",
+        width: 1200,
+        height: 630,
+        alt: "About ELITIZON - Global AI Consulting Company",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About ELITIZON | Global AI Consulting Company",
+    description:
+      "Learn about ELITIZON's journey from Hong Kong startup to global AI consulting leader. Remote-first excellence connecting top talent worldwide.",
+    images: ["https://elitizon.com/og-about.jpg"],
+  },
+  alternates: {
+    canonical: "https://elitizon.com/about",
+  },
+};
 
 export default function AboutPage() {
   const values = [

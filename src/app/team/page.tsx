@@ -1,4 +1,42 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { teamSchema } from "@/lib/schema";
+
+export const metadata: Metadata = {
+  title:
+    "Meet ELITIZON's Global AI Expert Team | Raphaël Mansuy CTO & Leadership",
+  description:
+    "Meet ELITIZON's world-class AI consulting team. Led by CTO Raphaël Mansuy, our global network of 50+ experts spans Europe, Asia, and North America delivering cutting-edge AI solutions.",
+  keywords:
+    "ELITIZON AI experts team, Raphaël Mansuy CTO, AI consulting leadership, global AI team, international data engineering experts, AI consulting experts worldwide",
+  openGraph: {
+    title: "Meet ELITIZON's Global AI Expert Team",
+    description:
+      "Meet ELITIZON's world-class AI consulting team. Led by CTO Raphaël Mansuy, our global network of 50+ experts delivers cutting-edge AI solutions worldwide.",
+    url: "https://elitizon.com/team",
+    siteName: "ELITIZON",
+    images: [
+      {
+        url: "https://elitizon.com/og-team.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ELITIZON Global AI Expert Team",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Meet ELITIZON's Global AI Expert Team",
+    description:
+      "Meet ELITIZON's world-class AI consulting team. Led by CTO Raphaël Mansuy, our global network of 50+ experts delivers cutting-edge AI solutions worldwide.",
+    images: ["https://elitizon.com/og-team.jpg"],
+  },
+  alternates: {
+    canonical: "https://elitizon.com/team",
+  },
+};
 
 export default function TeamPage() {
   const leadership = [
@@ -354,6 +392,17 @@ export default function TeamPage() {
           </div>
         </div>
       </section>
+
+      {/* Structured Data */}
+      {teamSchema.map((person, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(person),
+          }}
+        />
+      ))}
     </div>
   );
 }

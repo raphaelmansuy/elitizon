@@ -15,13 +15,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
         <div className="text-center">
           {/* Brand Logo/Name */}
-          <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-light tracking-wider text-white/90 mb-2">
-              Elitizon Ltd
-            </h2>
-            <div className="w-24 h-0.5 bg-gradient-to-r from-pink-600 to-pink-400 mx-auto"></div>
-          </div>
-
+    
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             Transform Your Business with
             <span className="block bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mt-2">

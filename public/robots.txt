@@ -1,0 +1,30 @@
+# Robots.txt for ELITIZON Ltd - AI & Data Consulting
+# https://elitizon.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl the site
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /careers
+Allow: /team
+Allow: /privacy
+Allow: /terms
+
+# Block crawling of admin and private areas (if any in future)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Block crawling of development and testing files
+Disallow: *.json$
+Disallow: /test/
+
+# Sitemap location
+Sitemap: https://elitizon.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

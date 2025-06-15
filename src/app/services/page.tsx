@@ -1,4 +1,42 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { serviceSchema } from "@/lib/schema";
+
+export const metadata: Metadata = {
+  title:
+    "AI & Data Engineering Services | Machine Learning Consulting - ELITIZON",
+  description:
+    "Expert AI consulting services: Data Engineering, Machine Learning, and Generative AI solutions. Transform your business with our remote-first global team of AI specialists and data architects.",
+  keywords:
+    "data engineering services, machine learning consulting, generative AI development, AI agent development, MLOps consulting, data pipeline architecture, enterprise AI transformation consulting, custom AI solutions development",
+  openGraph: {
+    title: "AI & Data Engineering Services | ELITIZON",
+    description:
+      "Expert AI consulting services: Data Engineering, Machine Learning, and Generative AI solutions. Transform your business with our remote-first global team.",
+    url: "https://elitizon.com/services",
+    siteName: "ELITIZON",
+    images: [
+      {
+        url: "https://elitizon.com/og-services.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ELITIZON AI & Data Engineering Services",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI & Data Engineering Services | ELITIZON",
+    description:
+      "Expert AI consulting services: Data Engineering, Machine Learning, and Generative AI solutions. Transform your business with our remote-first global team.",
+    images: ["https://elitizon.com/og-services.jpg"],
+  },
+  alternates: {
+    canonical: "https://elitizon.com/services",
+  },
+};
 
 export default function ServicesPage() {
   const services = [
@@ -316,6 +354,14 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceSchema),
+        }}
+      />
     </div>
   );
 }
