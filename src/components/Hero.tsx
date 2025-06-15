@@ -30,8 +30,9 @@ export default function Hero() {
           </h1>
           <p className="text-xl md:text-2xl mb-10 text-white/90 max-w-4xl mx-auto font-light leading-relaxed">
             Elitizon Ltd delivers cutting-edge consulting in Data Engineering,
-            Machine Learning, and Generative AI. Based in Hong Kong with
-            Europe&apos;s finest experts.
+            Machine Learning, and Generative AI. Connecting world-class
+            expertise with businesses globally through our international network
+            of specialists.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link
@@ -71,7 +72,7 @@ export default function Hero() {
           </div>
           <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-8 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 hover:shadow-xl group">
             <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
-              15+
+              25+
             </div>
             <div className="text-white/90 font-medium text-lg">
               Countries Served

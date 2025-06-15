@@ -14,15 +14,15 @@ export default function About() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold text-primary-900 mb-8 leading-tight">
-            Bridging Hong Kong Innovation with
+            Global Expertise Meets
             <span className="block bg-gradient-to-r from-secondary-600 to-secondary-500 bg-clip-text text-transparent mt-2">
-              European Excellence
+              Local Excellence
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-primary-800 max-w-5xl mx-auto leading-relaxed font-medium">
-            Elitizon Ltd is strategically positioned in Hong Kong, one of
-            Asia&apos;s leading financial and technology hubs, while maintaining
-            strong partnerships with Europe&apos;s most talented experts.
+            Elitizon Ltd leverages a worldwide network of elite consultants and
+            technical specialists, delivering world-class solutions across
+            multiple continents and industries.
           </p>
         </div>
 
@@ -31,34 +31,35 @@ export default function About() {
           <div>
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
               <h3 className="text-2xl font-bold text-primary-900 mb-6">
-                Our Unique Position
+                Our Global Approach
               </h3>
               <p className="text-lg text-primary-700 mb-6 leading-relaxed">
-                This unique combination allows us to deliver world-class
-                consulting services that blend Eastern business acumen with
-                Western technical innovation, providing our clients with
-                unparalleled expertise in data engineering, machine learning,
-                and AI solutions.
+                Our international network of experts spans multiple continents,
+                bringing together diverse perspectives and deep technical
+                expertise. This global reach allows us to deliver
+                culturally-aware, technically superior solutions that address
+                complex business challenges across different markets and
+                industries.
               </p>
 
               {/* Location Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
                 <div className="text-center p-6 bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-xl border border-secondary-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-4xl mb-4">🏙️</div>
+                  <div className="text-4xl mb-4">🌍</div>
                   <div className="text-lg font-bold text-primary-900 mb-2">
-                    Hong Kong Headquarters
+                    Global Operations
                   </div>
                   <div className="text-sm text-primary-600">
-                    Elitizon Ltd - Company Registration: 2348219
+                    Serving clients across 25+ countries
                   </div>
                 </div>
                 <div className="text-center p-6 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border border-primary-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-4xl mb-4">🌍</div>
+                  <div className="text-4xl mb-4">🎯</div>
                   <div className="text-lg font-bold text-primary-900 mb-2">
-                    European Network
+                    Expert Network
                   </div>
                   <div className="text-sm text-primary-600">
-                    50+ Top-tier Experts
+                    50+ World-class Specialists
                   </div>
                 </div>
               </div>
@@ -143,25 +144,26 @@ export default function About() {
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Access to Europe&apos;s finest technical talent
+                    Access to world-class technical talent across multiple
+                    continents
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Deep understanding of Asian business culture
+                    Deep understanding of diverse business cultures and markets
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Proven track record across multiple industries
+                    Proven track record across multiple industries and regions
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Cost-effective solutions without compromising quality
+                    Scalable solutions optimized for global deployment
                   </span>
                 </li>
               </ul>
