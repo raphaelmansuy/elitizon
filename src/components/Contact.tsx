@@ -86,7 +86,7 @@ export default function Contact() {
     } catch (error) {
       console.error("Error submitting form:", error);
       setSubmitError(
-        "Network error. Please check your connection and try again."
+        "We're experiencing technical difficulties. Please try again later or contact us directly at contact@elitizon.com"
       );
     } finally {
       setIsSubmitting(false);
