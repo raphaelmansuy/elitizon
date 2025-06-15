@@ -139,6 +139,52 @@ export default function ServicesPage() {
       icon: "✨",
       color: "from-pink-500 to-pink-600",
     },
+    {
+      title: "Startup Studio",
+      hero: "From Idea to Market-Ready Product",
+      description:
+        "Transform your innovative ideas into successful ventures with our comprehensive startup studio services. We provide end-to-end support from concept validation to product launch, combining technical expertise with business strategy.",
+      detailedFeatures: [
+        {
+          name: "Idea Validation & Market Research",
+          description:
+            "Validate your business concept through comprehensive market research, competitor analysis, and customer discovery sessions.",
+        },
+        {
+          name: "MVP Development",
+          description:
+            "Build minimum viable products quickly and efficiently using modern development frameworks and best practices.",
+        },
+        {
+          name: "Product Strategy & Roadmap",
+          description:
+            "Develop comprehensive product strategies, feature prioritization, and technical roadmaps aligned with business goals.",
+        },
+        {
+          name: "Technical Architecture & Scaling",
+          description:
+            "Design scalable architecture from day one, ensuring your product can grow with your user base and business needs.",
+        },
+        {
+          name: "Go-to-Market Support",
+          description:
+            "Support your launch with technical marketing automation, analytics implementation, and performance optimization.",
+        },
+      ],
+      technologies: [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Python",
+        "PostgreSQL",
+        "AWS",
+        "Docker",
+        "TypeScript",
+        "Tailwind CSS",
+      ],
+      icon: "🚀",
+      color: "from-blue-500 to-blue-600",
+    },
   ];
 
   return (
