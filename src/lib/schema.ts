@@ -35,7 +35,7 @@ export const organizationSchema = {
     availableLanguage: ["English", "French", "Chinese"],
   },
   sameAs: [
-    "https://twitter.com/elitizon",
+    "https://x.com/ElitizonLtd",
     "https://linkedin.com/company/elitizon",
   ],
   knowsAbout: [

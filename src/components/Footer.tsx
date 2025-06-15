@@ -18,7 +18,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://twitter.com/elitizon"
+                href="https://x.com/ElitizonLtd"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-pink-400 transition-colors"
