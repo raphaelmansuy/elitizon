@@ -3,28 +3,28 @@ import Link from "next/link";
 export default function AboutPage() {
   const values = [
     {
-      title: "Excellence",
+      title: "Remote-First Excellence",
       description:
-        "We maintain the highest standards in every project, ensuring top-quality deliverables that exceed expectations.",
-      icon: "⭐",
+        "We embrace the future of work, enabling our experts to deliver world-class solutions from anywhere while maintaining the highest standards of collaboration and quality.",
+      icon: "🌐",
     },
     {
-      title: "Innovation",
+      title: "Unmatched Expertise",
       description:
-        "We stay at the forefront of technology, constantly exploring new solutions and methodologies.",
-      icon: "💡",
+        "Our network consists of carefully curated world-class specialists in AI & Data, ensuring clients access to the finest talent available globally.",
+      icon: "🎯",
     },
     {
-      title: "Collaboration",
+      title: "Freedom & Flexibility",
       description:
-        "We work as partners with our clients, fostering open communication and shared success.",
-      icon: "🤝",
+        "We believe great work happens when people have the freedom to work where they thrive, fostering innovation and work-life balance for our consultants.",
+      icon: "🕊️",
     },
     {
-      title: "Integrity",
+      title: "Global Impact",
       description:
-        "We conduct business with honesty, transparency, and ethical practices in all our interactions.",
-      icon: "🛡️",
+        "By connecting the world's best AI & Data talent with businesses everywhere, we create transformative solutions that know no geographical boundaries.",
+      icon: "🌍",
     },
   ];
 
@@ -55,9 +55,9 @@ export default function AboutPage() {
     },
     {
       year: "2025",
-      title: "International Network of Top Worldwide Experts",
+      title: "Remote-First Global Network of AI & Data Experts",
       description:
-        "Developed an international network of top worldwide experts in Data, ML and AI, establishing our global presence.",
+        "Transformed into a remote-first organization, creating an unmatched network of world-class AI & Data experts working from across the globe, delivering exceptional value to clients worldwide.",
     },
   ];
 
@@ -71,8 +71,7 @@ export default function AboutPage() {
               About Elitizon Ltd
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto">
-              Bridging Hong Kong Innovation with European Excellence in Data,
-              AI, and Technology Consulting
+              Creating the Unmatched Network of World-Class AI & Data Experts with Remote-First Excellence
             </p>
           </div>
         </div>
@@ -87,16 +86,15 @@ export default function AboutPage() {
                 Our Mission
               </h2>
               <p className="text-lg text-slate-600 mb-6">
-                To empower businesses across Asia-Pacific with world-class data
-                engineering, machine learning, and AI solutions by combining the
-                strategic advantages of Hong Kong&apos;s business hub with the
-                technical excellence of Europe&apos;s finest consultants.
+                To create the unmatched network of world-class experts in AI & Data, 
+                with a remote work first culture that empowers our consultants to deliver 
+                exceptional value from anywhere in the world.
               </p>
               <p className="text-lg text-slate-600">
-                We believe that the fusion of Eastern business acumen and
-                Western technical innovation creates unparalleled value for our
-                clients, enabling them to achieve digital transformation and
-                competitive advantage in the global marketplace.
+                We connect businesses with the finest AI and Data specialists globally, 
+                while giving our experts the freedom to work from where they thrive. 
+                This unique approach ensures our clients receive unmatched expertise 
+                while our consultants enjoy ultimate flexibility and work-life balance.
               </p>
             </div>
             <div>
@@ -104,16 +102,15 @@ export default function AboutPage() {
                 Our Vision
               </h2>
               <p className="text-lg text-slate-600 mb-6">
-                To become the leading cross-continental consulting firm that
-                sets the standard for excellence in data and AI solutions, known
-                for our innovative approach, exceptional talent network, and
-                transformative business impact.
+                To become the world&apos;s premier network of AI & Data experts, 
+                setting the gold standard for remote-first consulting excellence. 
+                We envision a future where talent knows no boundaries and expertise 
+                flows freely across continents.
               </p>
               <p className="text-lg text-slate-600">
-                We envision a future where businesses seamlessly leverage
-                advanced analytics, machine learning, and AI to drive growth,
-                efficiency, and innovation, with Elitizon Ltd as their trusted
-                partner in this journey.
+                Our vision is a world where the best minds in AI and Data collaborate 
+                seamlessly across time zones, delivering transformative solutions while 
+                maintaining the perfect balance between professional excellence and personal freedom.
               </p>
             </div>
           </div>
@@ -188,6 +185,92 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Benefits for Consultants and Customers */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Why Everyone Wins With Elitizon
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Our remote-first approach creates exceptional value for both our expert consultants and our clients
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* For Consultants */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
+              <div className="text-center mb-8">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">For Expert Consultants</h3>
+                <p className="text-slate-600">Join the world&apos;s premier network of AI & Data specialists</p>
+              </div>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-blue-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                  <span className="text-slate-700">Work from anywhere in the world with complete flexibility</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-blue-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                  <span className="text-slate-700">Access to premium global projects and Fortune 500 clients</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-blue-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                  <span className="text-slate-700">Competitive compensation and transparent project matching</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-blue-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                  <span className="text-slate-700">Collaborate with world-class peers and expand your network</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-blue-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                  <span className="text-slate-700">Perfect work-life balance with project autonomy</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* For Customers */}
+            <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-8 border border-pink-100">
+              <div className="text-center mb-8">
+                <div className="w-16 h-16 bg-gradient-to-r from-pink-600 to-rose-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">For Customers</h3>
+                <p className="text-slate-600">Access the world&apos;s finest AI & Data expertise</p>
+              </div>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-pink-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                  <span className="text-slate-700">Unmatched access to world-class AI & Data specialists</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-pink-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                  <span className="text-slate-700">Faster project delivery with motivated, flexible experts</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-pink-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                  <span className="text-slate-700">Cost-effective solutions without compromising on quality</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-pink-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                  <span className="text-slate-700">24/7 global coverage with timezone-optimized teams</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="w-2 h-2 bg-pink-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                  <span className="text-slate-700">Scalable expertise that grows with your business needs</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -213,11 +296,10 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
-                      Global Perspective, Local Expertise
+                      World-Class Expert Network
                     </h3>
                     <p className="text-slate-600">
-                      Unique blend of Asian business understanding and European
-                      technical excellence
+                      Access to the finest AI & Data specialists globally, carefully vetted for exceptional expertise and proven track records
                     </p>
                   </div>
                 </div>
@@ -238,11 +320,10 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
-                      Curated Expert Network
+                      Remote-First Excellence
                     </h3>
                     <p className="text-slate-600">
-                      Access to Europe&apos;s finest freelance specialists,
-                      carefully vetted for excellence
+                      Our experts work from where they thrive, delivering exceptional results with the flexibility and freedom that drives innovation
                     </p>
                   </div>
                 </div>
@@ -263,11 +344,10 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
-                      Cutting-Edge Technology
+                      Unmatched Market Access
                     </h3>
                     <p className="text-slate-600">
-                      Always at the forefront of AI, ML, and data engineering
-                      innovations
+                      Clients gain access to expertise typically unavailable in traditional consulting, while experts reach global opportunities
                     </p>
                   </div>
                 </div>
@@ -288,11 +368,10 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-2">
-                      Proven Track Record
+                      Win-Win Partnership Model
                     </h3>
                     <p className="text-slate-600">
-                      Successful delivery of complex projects across multiple
-                      industries
+                      Our model benefits everyone: consultants enjoy freedom and flexibility, clients access world-class expertise, and projects deliver exceptional results
                     </p>
                   </div>
                 </div>
@@ -301,11 +380,11 @@ export default function AboutPage() {
 
             <div className="bg-gradient-to-br from-slate-600 to-slate-800 rounded-2xl p-8 text-white">
               <h3 className="text-2xl font-bold mb-6">
-                Ready to Work Together?
+                Ready to Join Our Global Network?
               </h3>
               <p className="mb-6">
-                Let&apos;s discuss how we can help transform your business with
-                our expertise in data engineering, machine learning, and AI.
+                Whether you&apos;re a world-class expert looking for freedom and flexibility, 
+                or a business seeking unmatched AI & Data expertise, we&apos;d love to connect with you.
               </p>
               <div className="space-y-4">
                 <Link
@@ -315,10 +394,10 @@ export default function AboutPage() {
                   Get in Touch
                 </Link>
                 <Link
-                  href="/services"
+                  href="/careers"
                   className="block w-full border-2 border-white text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-white hover:text-slate-600 transition-colors"
                 >
-                  View Our Services
+                  Join Our Expert Network
                 </Link>
               </div>
             </div>

@@ -14,15 +14,15 @@ export default function About() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold text-primary-900 mb-8 leading-tight">
-            Global Expertise Meets
+            World-Class AI & Data Experts
             <span className="block bg-gradient-to-r from-secondary-600 to-secondary-500 bg-clip-text text-transparent mt-2">
-              Local Excellence
+              Remote-First Excellence
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-primary-800 max-w-5xl mx-auto leading-relaxed font-medium">
-            Elitizon Ltd leverages a worldwide network of elite consultants and
-            technical specialists, delivering world-class solutions across
-            multiple continents and industries.
+            Elitizon Ltd connects businesses with the world&apos;s finest AI & Data specialists 
+            through our unmatched network of remote-first experts, delivering exceptional results 
+            with complete flexibility and freedom.
           </p>
         </div>
 
@@ -31,15 +31,13 @@ export default function About() {
           <div>
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
               <h3 className="text-2xl font-bold text-primary-900 mb-6">
-                Our Global Approach
+                Our Remote-First Approach
               </h3>
               <p className="text-lg text-primary-700 mb-6 leading-relaxed">
-                Our international network of experts spans multiple continents,
-                bringing together diverse perspectives and deep technical
-                expertise. This global reach allows us to deliver
-                culturally-aware, technically superior solutions that address
-                complex business challenges across different markets and
-                industries.
+                Our network of world-class AI & Data experts operates with complete flexibility, 
+                working from anywhere in the world to deliver exceptional results. This remote-first 
+                culture enables us to access the finest talent globally while providing our clients 
+                with unmatched expertise and innovative solutions.
               </p>
 
               {/* Location Cards */}
@@ -47,19 +45,19 @@ export default function About() {
                 <div className="text-center p-6 bg-gradient-to-br from-secondary-50 to-secondary-100 rounded-xl border border-secondary-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <div className="text-4xl mb-4">🌍</div>
                   <div className="text-lg font-bold text-primary-900 mb-2">
-                    Global Operations
+                    Remote-First Network
                   </div>
                   <div className="text-sm text-primary-600">
-                    Serving clients across multiple regions
+                    World-class experts working globally
                   </div>
                 </div>
                 <div className="text-center p-6 bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl border border-primary-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <div className="text-4xl mb-4">🎯</div>
                   <div className="text-lg font-bold text-primary-900 mb-2">
-                    Expert Network
+                    AI & Data Specialists
                   </div>
                   <div className="text-sm text-primary-600">
-                    20+ World-class Specialists
+                    50+ World-class Experts Globally
                   </div>
                 </div>
               </div>
@@ -94,13 +92,13 @@ export default function About() {
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-secondary-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Client-centric solutions tailored to specific business needs
+                    Remote-first collaboration with global talent and local insights
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-secondary-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Agile methodology with rapid prototyping and iteration
+                    Flexible engagement models with autonomous expert teams
                   </span>
                 </li>
                 <li className="flex items-start">
@@ -144,14 +142,13 @@ export default function About() {
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Access to world-class technical talent across multiple
-                    continents
+                    Access to unmatched AI & Data expertise worldwide
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Deep understanding of diverse business cultures and markets
+                    Remote-first culture delivering faster, more innovative results
                   </span>
                 </li>
                 <li className="flex items-start">
@@ -163,7 +160,7 @@ export default function About() {
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    Scalable solutions optimized for global deployment
+                    Flexible, scalable solutions that adapt to your business needs
                   </span>
                 </li>
               </ul>
