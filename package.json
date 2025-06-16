@@ -19,6 +19,7 @@
   "dependencies": {
     "@aws-sdk/client-ses": "^3.828.0",
     "@aws-sdk/client-sts": "^3.828.0",
+    "@vercel/speed-insights": "^1.2.0",
     "critters": "^0.0.23",
     "next": "15.3.3",
     "react": "^19.0.0",
