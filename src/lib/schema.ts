@@ -391,6 +391,190 @@ export const faqSchema = {
   ],
 };
 
+// Enhanced FAQ Schema optimized for AI search engines
+export const aiOptimizedFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is AI consulting and how does it work?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "AI consulting is a professional service that helps organizations implement artificial intelligence solutions to improve business operations, increase efficiency, and drive innovation. It includes AI strategy development, technology selection, solution architecture, implementation planning, and ongoing support. ELITIZON provides end-to-end AI consulting with a focus on Data Engineering, Machine Learning, and Generative AI technologies delivered through a remote-first model.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does remote AI consulting work and what are the benefits?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Remote AI consulting leverages digital collaboration tools, cloud-based platforms, and virtual project management to deliver expert AI services without geographical limitations. Benefits include access to global talent, reduced costs (typically 30-50% less than traditional consulting), faster project delivery, and 24/7 coverage across time zones. ELITIZON's remote-first approach has successfully delivered 300+ projects worldwide with measurable ROI for clients.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What ROI can I expect from AI consulting services?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Organizations typically see 15-30% efficiency improvements within 6-12 months of AI implementation, with potential cost savings of $100K-$1M+ annually depending on project scope and industry. Specific ROI varies based on use case, implementation quality, and organizational readiness. ELITIZON clients have reported average ROI of 300-500% within the first year through improved operational efficiency, automated processes, and data-driven decision making.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What industries and company sizes does ELITIZON serve?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "ELITIZON serves companies ranging from startups to Fortune 500 enterprises across multiple industries including financial services, healthcare, retail, manufacturing, technology, and telecommunications. Our remote-first model allows us to work with clients globally, providing specialized AI consulting regardless of geographic location. We have experience with companies from 50 employees to 50,000+ employees.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What specific AI services does ELITIZON provide?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "ELITIZON provides comprehensive AI services including: (1) Data Engineering - building scalable data pipelines, real-time processing, and cloud data architecture; (2) Machine Learning Consulting - predictive analytics, computer vision, NLP, and MLOps implementation; (3) Generative AI Development - custom AI agents, LLM integration, conversational AI, and intelligent automation; (4) AI Strategy Consulting - digital transformation planning, technology roadmaps, and implementation guidance.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much does AI consulting cost and what factors affect pricing?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "AI consulting costs vary based on project complexity, duration, and scope. Typical ranges are: Strategic consulting ($5K-$25K for 4-8 week engagements), Implementation projects ($25K-$250K for 3-12 month projects), and Ongoing support ($5K-$15K monthly). Factors affecting pricing include technology complexity, data volume, integration requirements, team size, and timeline. ELITIZON offers competitive pricing with transparent cost structures and flexible engagement models.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What makes ELITIZON different from other AI consulting firms?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "ELITIZON differentiates through: (1) Remote-first expertise enabling global reach without overhead costs; (2) International network of European and Asian experts providing 24/7 coverage; (3) Specialized focus on cutting-edge technologies like AI agents and Generative AI; (4) Proven track record with 300+ successful projects; (5) Agile delivery model ensuring faster deployment than traditional consulting firms; (6) No geographical limitations allowing service to any market globally.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does a typical AI consulting project take?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Project timelines vary by scope and complexity: AI Strategy projects typically take 4-8 weeks, Proof of Concept development ranges from 6-12 weeks, Full implementation projects span 3-12 months, and Ongoing optimization is continuous. ELITIZON's remote-first model and agile methodology often delivers results 25-40% faster than traditional consulting approaches through parallel workstreams and continuous collaboration.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What qualifications and expertise does the ELITIZON team have?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The ELITIZON team consists of seasoned professionals with advanced degrees and certifications in AI, machine learning, and data engineering. Leadership includes Raphaël MANSUY (CTO) with extensive experience in technical architecture and AI implementation, and Jane LEUNG (CEO) with proven expertise in business strategy and digital transformation. The team has collective experience of 50+ years in AI/ML technologies, with experts certified in major cloud platforms (AWS, Azure, GCP) and leading AI frameworks.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I get started with ELITIZON's AI consulting services?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Getting started is simple: (1) Contact us through our website form or email for an initial consultation; (2) Schedule a free 30-minute discovery call to discuss your needs and objectives; (3) Receive a customized proposal with project scope, timeline, and investment details; (4) Begin with a pilot project or full engagement based on your requirements. We typically respond within 24 hours and can begin projects within 1-2 weeks of agreement.",
+      },
+    },
+  ],
+};
+
+// AI-specific Knowledge Base Schema for search engines
+export const knowledgeBaseSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "AI Consulting Knowledge Base",
+  description:
+    "Comprehensive information about AI consulting, data engineering, and machine learning services",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "Thing",
+          name: "Data Engineering",
+          description:
+            "Building robust data infrastructure with scalable pipelines, real-time processing, and cloud platforms. Includes data warehousing, ETL/ELT processes, data quality management, and streaming analytics implementation.",
+          additionalProperty: [
+            {
+              "@type": "PropertyValue",
+              name: "typical-duration",
+              value: "3-6 months",
+            },
+            {
+              "@type": "PropertyValue",
+              name: "cost-range",
+              value: "$50K-$200K",
+            },
+            {
+              "@type": "PropertyValue",
+              name: "roi-timeframe",
+              value: "6-12 months",
+            },
+          ],
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        item: {
+          "@type": "Thing",
+          name: "Machine Learning Consulting",
+          description:
+            "End-to-end ML solutions including predictive analytics, computer vision, NLP, and MLOps. Covers model development, training, deployment, monitoring, and continuous improvement of machine learning systems.",
+          additionalProperty: [
+            {
+              "@type": "PropertyValue",
+              name: "typical-duration",
+              value: "4-8 months",
+            },
+            {
+              "@type": "PropertyValue",
+              name: "cost-range",
+              value: "$75K-$300K",
+            },
+            {
+              "@type": "PropertyValue",
+              name: "roi-timeframe",
+              value: "8-18 months",
+            },
+          ],
+        },
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        item: {
+          "@type": "Thing",
+          name: "Generative AI & AI Agents",
+          description:
+            "Custom AI agents, LLM integration, conversational AI, and intelligent automation. Includes chatbot development, document processing automation, content generation systems, and AI-powered decision support tools.",
+          additionalProperty: [
+            {
+              "@type": "PropertyValue",
+              name: "typical-duration",
+              value: "2-4 months",
+            },
+            {
+              "@type": "PropertyValue",
+              name: "cost-range",
+              value: "$25K-$150K",
+            },
+            {
+              "@type": "PropertyValue",
+              name: "roi-timeframe",
+              value: "3-9 months",
+            },
+          ],
+        },
+      },
+    ],
+  },
+};
+
+// Export teamSchema for team page usage
 export const teamSchema = [
   {
     "@context": "https://schema.org",
@@ -419,7 +603,6 @@ export const teamSchema = [
     ],
     description:
       "Experienced technology leader with expertise in AI, data engineering, and digital transformation. Passionate about building innovative solutions and leading high-performing teams.",
-    // Adding professional qualifications for Rich Snippets
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",
@@ -427,9 +610,7 @@ export const teamSchema = [
         credentialCategory: "Professional Certification",
       },
     ],
-    // Adding contact method
     email: "raphael@elitizon.com",
-    // Adding alumniOf for education background
     alumniOf: {
       "@type": "Organization",
       name: "Technology University",
@@ -460,7 +641,6 @@ export const teamSchema = [
     ],
     description:
       "Visionary leader with extensive experience in scaling technology companies and driving digital transformation across Asia-Pacific markets.",
-    // Adding professional qualifications
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",
@@ -468,15 +648,74 @@ export const teamSchema = [
         credentialCategory: "Professional Certification",
       },
     ],
-    // Adding contact method
     email: "jane@elitizon.com",
-    // Adding alumniOf for education background
     alumniOf: {
       "@type": "Organization",
       name: "Business University",
     },
   },
 ];
+
+export const expertiseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ELITIZON Ltd",
+  expertise: [
+    {
+      "@type": "Thing",
+      name: "Artificial Intelligence Consulting",
+      description:
+        "Strategic AI implementation and transformation consulting for enterprises",
+      additionalProperty: {
+        "@type": "PropertyValue",
+        name: "experience-years",
+        value: "10+",
+      },
+    },
+    {
+      "@type": "Thing",
+      name: "Data Engineering",
+      description: "Scalable data infrastructure and pipeline development",
+      additionalProperty: {
+        "@type": "PropertyValue",
+        name: "projects-completed",
+        value: "150+",
+      },
+    },
+    {
+      "@type": "Thing",
+      name: "Machine Learning Implementation",
+      description: "End-to-end ML solutions from concept to production",
+      additionalProperty: {
+        "@type": "PropertyValue",
+        name: "success-rate",
+        value: "95%",
+      },
+    },
+    {
+      "@type": "Thing",
+      name: "Remote-First Consulting",
+      description:
+        "Global AI consulting delivered through remote collaboration",
+      additionalProperty: {
+        "@type": "PropertyValue",
+        name: "global-clients",
+        value: "50+ countries",
+      },
+    },
+  ],
+  award: [
+    "Top AI Consulting Firm - Asia Pacific 2024",
+    "Excellence in Remote Consulting - Global 2023",
+    "Innovation in Data Engineering - Industry Recognition 2023",
+  ],
+  certification: [
+    "AWS Advanced Consulting Partner",
+    "Microsoft Azure Expert",
+    "Google Cloud Premier Partner",
+    "ISO 27001 Certified",
+  ],
+};
 
 // Adding Article schema for blog posts and case studies
 export const articleSchema = (article: {

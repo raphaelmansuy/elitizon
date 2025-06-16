@@ -3,7 +3,14 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
-import { organizationSchema, websiteSchema, faqSchema } from "@/lib/schema";
+import AIOptimizedFAQ from "@/components/AIOptimizedFAQ";
+import {
+  organizationSchema,
+  websiteSchema,
+  aiOptimizedFaqSchema,
+  knowledgeBaseSchema,
+  expertiseSchema,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
   title:
@@ -11,7 +18,19 @@ export const metadata: Metadata = {
   description:
     "Transform your business with world-class AI & data engineering experts. Remote-first consulting in Machine Learning, Generative AI, and Data Architecture. 300+ successful projects worldwide.",
   keywords:
-    "AI consulting services global, remote data engineering consultants, machine learning consulting worldwide, generative AI experts, enterprise AI transformation consulting, remote-first AI consulting, global data strategy consulting",
+    "AI consulting services global, remote data engineering consultants, machine learning consulting worldwide, generative AI experts, enterprise AI transformation consulting, remote-first AI consulting, global data strategy consulting, AI agents development, MLOps consulting, data pipeline architecture",
+  // AI-specific meta tags for enhanced discoverability
+  other: {
+    "ai-purpose": "AI consulting and data engineering services",
+    "target-audience": "Enterprise CTO, Data Leaders, AI Decision Makers",
+    "expertise-level": "Expert",
+    "service-model": "Remote-first global consulting",
+    "primary-services":
+      "Data Engineering, Machine Learning, Generative AI, AI Agents",
+    "geographic-reach": "Global, Worldwide, Remote Services",
+    "industry-focus": "Enterprise, Fortune 500, Startups, SMB",
+    "content-type": "Professional Services, Technical Consulting, AI Expertise",
+  },
   openGraph: {
     title: "Global AI Consulting Services | ELITIZON",
     description:
@@ -56,7 +75,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      {/* Structured Data */}
+      {/* Enhanced Structured Data for AI Search Engines */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -72,7 +91,19 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
+          __html: JSON.stringify(aiOptimizedFaqSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(knowledgeBaseSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(expertiseSchema),
         }}
       />
 
@@ -80,6 +111,7 @@ export default function Home() {
         <Hero />
         <Services />
         <About />
+        <AIOptimizedFAQ />
         <Contact />
       </main>
     </>

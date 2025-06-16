@@ -16,7 +16,22 @@ export const metadata: Metadata = {
   description:
     "Leading consulting firm specializing in Data Engineering, Machine Learning, and Generative AI solutions. Based in Hong Kong with a network of top European experts.",
   keywords:
-    "data engineering, machine learning, AI consulting, generative AI, AI agents, Hong Kong",
+    "data engineering, machine learning, AI consulting, generative AI, AI agents, Hong Kong, remote consulting, global AI services",
+  // AI-specific meta tags for enhanced discoverability
+  other: {
+    "ai-content-type": "Professional AI Consulting Services",
+    "expertise-areas":
+      "Data Engineering, Machine Learning, Generative AI, AI Agents",
+    "service-delivery": "Remote-first, Global Coverage, 24/7 Support",
+    "target-market": "Enterprise, Fortune 500, Startups, SMB",
+    "geographic-scope": "Global, International, Remote Services",
+    "industry-expertise":
+      "Technology, Healthcare, Finance, Manufacturing, Retail",
+    "company-type":
+      "AI Consulting Firm, Professional Services, Technology Consultancy",
+    "content-authority": "Expert, Professional, Industry-Leading",
+    "update-frequency": "Regular Updates, Current Information, Fresh Content",
+  },
   // Enhanced OpenGraph for Rich Snippets
   openGraph: {
     title: "ELITIZON - Expert Consulting in Data Engineering, ML & AI",
@@ -55,7 +70,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://elitizon.com",
   },
-  // Enhanced robots configuration
+  // Enhanced robots configuration for AI crawlers
   robots: {
     index: true,
     follow: true,
@@ -91,6 +106,39 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* AI-specific meta tags for enhanced discoverability */}
+        <meta
+          name="ai-purpose"
+          content="AI consulting and data engineering services"
+        />
+        <meta
+          name="target-audience"
+          content="Enterprise CTO, Data Leaders, AI Decision Makers"
+        />
+        <meta name="expertise-level" content="Expert" />
+        <meta name="service-model" content="Remote-first global consulting" />
+        <meta
+          name="primary-services"
+          content="Data Engineering, Machine Learning, Generative AI, AI Agents"
+        />
+        <meta
+          name="geographic-reach"
+          content="Global, Worldwide, Remote Services"
+        />
+        <meta
+          name="industry-focus"
+          content="Enterprise, Fortune 500, Startups, SMB"
+        />
+        <meta
+          name="content-type"
+          content="Professional Services, Technical Consulting, AI Expertise"
+        />
+        <meta name="company-size" content="Boutique consulting firm" />
+        <meta name="years-experience" content="10+ years" />
+        <meta name="project-count" content="300+ successful projects" />
+        <meta name="team-coverage" content="24/7 global coverage" />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         {/* Skip Navigation Links for Accessibility */}
         <a
