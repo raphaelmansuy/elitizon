@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,9 +50,19 @@ export default function Navigation() {
           <div className="flex items-center">
             <Link
               href="/"
-              className="flex-shrink-0 group focus:outline-none focus:ring-4 focus:ring-primary-200 rounded-lg"
+              className="flex items-center space-x-3 group focus:outline-none focus:ring-4 focus:ring-primary-200 rounded-lg"
               aria-label="Elitizon homepage"
             >
+              <div className="flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <Image
+                  src="/logo_transparent.svg"
+                  alt="Elitizon Logo"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                  priority
+                />
+              </div>
               <span className="text-3xl font-bold bg-gradient-to-r from-slate-700 to-pink-600 bg-clip-text text-transparent tracking-tight">
                 Elitizon Ltd
               </span>
@@ -144,6 +155,20 @@ export default function Navigation() {
             aria-labelledby="mobile-menu-button"
           >
             <div className="px-2 pt-4 pb-6 space-y-2 bg-white/95 backdrop-blur-md border-t border-gray-200/50">
+              {/* Mobile Menu Brand */}
+              <div className="flex items-center justify-center space-x-2 px-4 py-2 mb-4 border-b border-gray-200/30">
+                <Image
+                  src="/logo_transparent.svg"
+                  alt="Elitizon Logo"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                />
+                <span className="text-xl font-bold bg-gradient-to-r from-slate-700 to-pink-600 bg-clip-text text-transparent">
+                  Elitizon Ltd
+                </span>
+              </div>
+              
               <Link
                 href="/"
                 className="text-slate-700 hover:text-pink-600 block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
