@@ -27,5 +27,8 @@
   "extensions.autoUpdate": false,
   "extensions.autoCheckUpdates": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "security.workspace.trust.enabled": false
+  "security.workspace.trust.enabled": false,
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
 }

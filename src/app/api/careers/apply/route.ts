@@ -1,14 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
+import { SendEmailCommand } from "@aws-sdk/client-ses";
+import { createSESClient, validateEmailConfig, handleSESError } from "@/lib/aws-ses";
 
-// Configure AWS SES
-const sesClient = new SESClient({
-  region: process.env.AWS_REGION || "us-east-1",
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID || "",
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || "",
-  },
-});
+// Configure AWS SES with validation
+const sesClient = createSESClient();
 
 export async function POST(request: NextRequest) {
   try {
@@ -47,14 +42,17 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Validate email configuration
+    const emailConfig = validateEmailConfig();
+
     // Generate email content
     const emailContent = generateEmailContent(formData);
 
     // Send email using SES
     const command = new SendEmailCommand({
-      Source: process.env.SES_FROM_EMAIL || "careers@elitizon.com",
+      Source: emailConfig.fromEmail,
       Destination: {
-        ToAddresses: [process.env.SES_TO_EMAIL || "careers@elitizon.com"],
+        ToAddresses: [emailConfig.careersEmail],
       },
       Message: {
         Subject: {
@@ -78,7 +76,7 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to applicant
     const confirmationCommand = new SendEmailCommand({
-      Source: process.env.SES_FROM_EMAIL || "careers@elitizon.com",
+      Source: emailConfig.fromEmail,
       Destination: {
         ToAddresses: [formData.email],
       },
@@ -104,9 +102,11 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error("Error processing application:", error);
+    
+    const errorResponse = handleSESError(error);
     return NextResponse.json(
-      { message: "Failed to process application" },
-      { status: 500 }
+      { message: errorResponse.message },
+      { status: errorResponse.status }
     );
   }
 }
