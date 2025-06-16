@@ -1,4 +1,5 @@
 import { SESClient } from "@aws-sdk/client-ses";
+import { logger } from "./logger";
 
 // Validate and sanitize AWS credentials
 export function validateAWSCredentials() {
@@ -27,26 +28,15 @@ export function validateAWSCredentials() {
 
 // Create and configure AWS SES client
 export function createSESClient(): SESClient {
-  try {
-    const credentials = validateAWSCredentials();
-    return new SESClient({
-      region: credentials.region,
-      credentials: {
-        accessKeyId: credentials.accessKeyId,
-        secretAccessKey: credentials.secretAccessKey,
-      },
-    });
-  } catch (error) {
-    console.error("AWS SES configuration error:", error);
-    // Return a dummy client for development environments
-    return new SESClient({
-      region: "us-east-1",
-      credentials: {
-        accessKeyId: "dummy",
-        secretAccessKey: "dummy",
-      },
-    });
-  }
+  const credentials = validateAWSCredentials();
+  
+  return new SESClient({
+    region: credentials.region,
+    credentials: {
+      accessKeyId: credentials.accessKeyId,
+      secretAccessKey: credentials.secretAccessKey,
+    },
+  });
 }
 
 // Validate email configuration
@@ -76,7 +66,7 @@ export function handleSESError(error: unknown): {
   status: number;
 } {
   if (error instanceof Error) {
-    console.error("SES Error:", error.message);
+    logger.error("SES Error", error);
 
     // Handle AccessDenied errors (often due to sandbox mode)
     if (error.message.includes("AccessDenied") || error.message.includes("not authorized")) {

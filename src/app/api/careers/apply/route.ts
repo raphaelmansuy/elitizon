@@ -5,45 +5,55 @@ import {
   validateEmailConfig,
   handleSESError,
 } from "@/lib/aws-ses";
+import { logger } from "@/lib/logger";
+import { sanitizeText } from "@/lib/sanitize";
+import { careerSchema, validateInput } from "@/lib/validation";
+import { checkRateLimit, getClientIP } from "@/lib/rateLimit";
 
 // Configure AWS SES with validation
 const sesClient = createSESClient();
 
 export async function POST(request: NextRequest) {
   try {
-    const formData = await request.json();
+    // Check rate limit - more restrictive for career applications
+    const clientIP = getClientIP(request);
+    const rateLimitResult = checkRateLimit(clientIP, 2, 60 * 60 * 1000); // 2 requests per hour
+    
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        { 
+          message: "Too many career applications. Please try again later.",
+          retryAfter: Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000)
+        },
+        { 
+          status: 429,
+          headers: {
+            'X-RateLimit-Limit': rateLimitResult.limit.toString(),
+            'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+            'X-RateLimit-Reset': rateLimitResult.resetTime.toString(),
+            'Retry-After': Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000).toString()
+          }
+        }
+      );
+    }
 
-    // Validate required fields
-    const requiredFields = [
-      "firstName",
-      "lastName",
-      "email",
-      "location",
-      "linkedinUrl",
-      "currentTitle",
-      "yearsExperience",
-      "expertiseArea",
-      "primarySkills",
-      "availabilityType",
-      "preferredRate",
-      "timeZone",
-      "previousExperience",
-      "remoteExperience",
-      "clientFacingExperience",
-      "privacyConsent",
-      "termsAgreement",
-    ];
+    const rawFormData = await request.json();
 
-    for (const field of requiredFields) {
-      if (
-        !formData[field] ||
-        (Array.isArray(formData[field]) && formData[field].length === 0)
-      ) {
-        return NextResponse.json(
-          { message: `Missing required field: ${field}` },
-          { status: 400 }
-        );
-      }
+    // Validate input data
+    const { error, value: formData } = validateInput(careerSchema, rawFormData);
+    
+    if (error) {
+      return NextResponse.json(
+        { message: error },
+        { status: 400 }
+      );
+    }
+
+    if (!formData) {
+      return NextResponse.json(
+        { message: "Invalid form data" },
+        { status: 400 }
+      );
     }
 
     // Validate email configuration
@@ -60,7 +70,7 @@ export async function POST(request: NextRequest) {
       },
       Message: {
         Subject: {
-          Data: `New Expert Application: ${formData.firstName} ${formData.lastName} - ${formData.expertiseArea}`,
+          Data: `New Expert Application: ${sanitizeText(formData.firstName)} ${sanitizeText(formData.lastName)} - ${sanitizeText(formData.expertiseArea)}`,
           Charset: "UTF-8",
         },
         Body: {
@@ -102,10 +112,17 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { message: "Application submitted successfully" },
-      { status: 200 }
+      { 
+        status: 200,
+        headers: {
+          'X-RateLimit-Limit': rateLimitResult.limit.toString(),
+          'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+          'X-RateLimit-Reset': rateLimitResult.resetTime.toString()
+        }
+      }
     );
   } catch (error) {
-    console.error("Error processing application:", error);
+    logger.error("Error processing application", error);
 
     const errorResponse = handleSESError(error);
     return NextResponse.json(

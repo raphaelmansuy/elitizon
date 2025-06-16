@@ -5,6 +5,10 @@ import {
   validateEmailConfig,
   handleSESError,
 } from "@/lib/aws-ses";
+import { logger } from "@/lib/logger";
+import { sanitizeText } from "@/lib/sanitize";
+import { contactSchema, validateInput } from "@/lib/validation";
+import { checkRateLimit, getClientIP } from "@/lib/rateLimit";
 
 // Configure AWS SES with validation
 const sesClient = createSESClient();
@@ -21,25 +25,43 @@ interface ContactFormData {
 
 export async function POST(request: NextRequest) {
   try {
-    const formData: ContactFormData = await request.json();
-
-    // Validate required fields
-    const requiredFields = ["name", "email", "message"];
-
-    for (const field of requiredFields) {
-      if (!formData[field as keyof ContactFormData]) {
-        return NextResponse.json(
-          { message: `Missing required field: ${field}` },
-          { status: 400 }
-        );
-      }
+    // Check rate limit
+    const clientIP = getClientIP(request);
+    const rateLimitResult = checkRateLimit(clientIP, 5, 15 * 60 * 1000); // 5 requests per 15 minutes
+    
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        { 
+          message: "Too many requests. Please try again later.",
+          retryAfter: Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000)
+        },
+        { 
+          status: 429,
+          headers: {
+            'X-RateLimit-Limit': rateLimitResult.limit.toString(),
+            'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+            'X-RateLimit-Reset': rateLimitResult.resetTime.toString(),
+            'Retry-After': Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000).toString()
+          }
+        }
+      );
     }
 
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
+    const rawFormData = await request.json();
+
+    // Validate input data
+    const { error, value: formData } = validateInput(contactSchema, rawFormData);
+    
+    if (error) {
       return NextResponse.json(
-        { message: "Invalid email format" },
+        { message: error },
+        { status: 400 }
+      );
+    }
+
+    if (!formData) {
+      return NextResponse.json(
+        { message: "Invalid form data" },
         { status: 400 }
       );
     }
@@ -47,13 +69,12 @@ export async function POST(request: NextRequest) {
     // Validate email configuration
     const emailConfig = validateEmailConfig();
 
-    // DEBUG: Log the email configuration being used
-    console.log("=== EMAIL DEBUG ===");
-    console.log("Form email (user input):", formData.email);
-    console.log("emailConfig.fromEmail:", emailConfig.fromEmail);
-    console.log("emailConfig.toEmail:", emailConfig.toEmail);
-    console.log("SES_FROM_EMAIL env var:", process.env.SES_FROM_EMAIL);
-    console.log("===================");
+    // Debug: Log email configuration in development only
+    logger.debug("Email configuration check", {
+      formEmail: formData.email,
+      configFromEmail: emailConfig.fromEmail,
+      configToEmail: emailConfig.toEmail
+    });
 
     // Generate email content
     const emailContent = generateEmailContent(formData);
@@ -66,8 +87,8 @@ export async function POST(request: NextRequest) {
       },
       Message: {
         Subject: {
-          Data: `New Contact Form Submission from ${formData.name} - ${
-            formData.company || "Individual"
+          Data: `New Contact Form Submission from ${sanitizeText(formData.name)} - ${
+            formData.company ? sanitizeText(formData.company) : "Individual"
           }`,
           Charset: "UTF-8",
         },
@@ -109,19 +130,26 @@ export async function POST(request: NextRequest) {
       });
 
       await sesClient.send(confirmationCommand);
-      console.log("Confirmation email sent successfully");
+      logger.info("Confirmation email sent successfully");
     } catch (confirmationError) {
       // Log the error but don't fail the entire request
       // This is common in SES sandbox mode where recipient emails must be verified
-      console.warn("Could not send confirmation email (likely due to SES sandbox mode):", confirmationError);
+      logger.warn("Could not send confirmation email (likely due to SES sandbox mode)", confirmationError);
     }
 
     return NextResponse.json(
       { message: "Contact form submitted successfully" },
-      { status: 200 }
+      { 
+        status: 200,
+        headers: {
+          'X-RateLimit-Limit': rateLimitResult.limit.toString(),
+          'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
+          'X-RateLimit-Reset': rateLimitResult.resetTime.toString()
+        }
+      }
     );
   } catch (error) {
-    console.error("Error processing contact form:", error);
+    logger.error("Error processing contact form", error);
 
     const errorResponse = handleSESError(error);
     return NextResponse.json(
@@ -161,32 +189,32 @@ function generateEmailContent(formData: ContactFormData) {
         <div class="content">
             <div class="section">
                 <h2>👤 Contact Information</h2>
-                <div class="field"><strong>Name:</strong> ${formData.name}</div>
+                <div class="field"><strong>Name:</strong> ${sanitizeText(formData.name)}</div>
                 <div class="field"><strong>Email:</strong> <a href="mailto:${
-                  formData.email
-                }">${formData.email}</a></div>
+                  sanitizeText(formData.email)
+                }">${sanitizeText(formData.email)}</a></div>
                 <div class="field"><strong>Company:</strong> ${
-                  formData.company || "Not specified"
+                  formData.company ? sanitizeText(formData.company) : "Not specified"
                 }</div>
             </div>
 
             <div class="section">
                 <h2>💼 Project Details</h2>
                 <div class="field"><strong>Service Interest:</strong> ${
-                  formData.service || "Not specified"
+                  formData.service ? sanitizeText(formData.service) : "Not specified"
                 }</div>
                 <div class="field"><strong>Budget Range:</strong> ${
-                  formData.budget || "Not specified"
+                  formData.budget ? sanitizeText(formData.budget) : "Not specified"
                 }</div>
                 <div class="field"><strong>Timeline:</strong> ${
-                  formData.timeline || "Not specified"
+                  formData.timeline ? sanitizeText(formData.timeline) : "Not specified"
                 }</div>
             </div>
 
             <div class="section">
                 <h2>💬 Message</h2>
                 <div class="message-box">
-                    ${formData.message.replace(/\n/g, "<br>")}
+                    ${sanitizeText(formData.message).replace(/\n/g, "<br>")}
                 </div>
             </div>
 
@@ -208,17 +236,17 @@ function generateEmailContent(formData: ContactFormData) {
 NEW CONTACT FORM SUBMISSION
 
 CONTACT INFORMATION
-Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company || "Not specified"}
+Name: ${sanitizeText(formData.name)}
+Email: ${sanitizeText(formData.email)}
+Company: ${formData.company ? sanitizeText(formData.company) : "Not specified"}
 
 PROJECT DETAILS
-Service Interest: ${formData.service || "Not specified"}
-Budget Range: ${formData.budget || "Not specified"}
-Timeline: ${formData.timeline || "Not specified"}
+Service Interest: ${formData.service ? sanitizeText(formData.service) : "Not specified"}
+Budget Range: ${formData.budget ? sanitizeText(formData.budget) : "Not specified"}
+Timeline: ${formData.timeline ? sanitizeText(formData.timeline) : "Not specified"}
 
 MESSAGE
-${formData.message}
+${sanitizeText(formData.message)}
 
 ---
 Submitted via Elitizon Contact Form
@@ -276,21 +304,21 @@ function generateConfirmationEmail(formData: ContactFormData) {
         </div>
         
         <div class="content">
-            <p>Dear ${formData.name},</p>
+            <p>Dear ${sanitizeText(formData.name)},</p>
             
             <p>Thank you for your interest in Elitizon's data engineering and AI consulting services. We have successfully received your message and our team will review your requirements.</p>
             
             <div class="highlight">
                 <h3>📋 Your Submission Summary</h3>
-                <p><strong>Name:</strong> ${formData.name}</p>
+                <p><strong>Name:</strong> ${sanitizeText(formData.name)}</p>
                 <p><strong>Company:</strong> ${
-                  formData.company || "Individual"
+                  formData.company ? sanitizeText(formData.company) : "Individual"
                 }</p>
                 <p><strong>Service Interest:</strong> ${
-                  formData.service || "General Inquiry"
+                  formData.service ? sanitizeText(formData.service) : "General Inquiry"
                 }</p>
                 <p><strong>Timeline:</strong> ${
-                  formData.timeline || "Not specified"
+                  formData.timeline ? sanitizeText(formData.timeline) : "Not specified"
                 }</p>
             </div>
 
