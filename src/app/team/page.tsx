@@ -4,15 +4,15 @@ import { teamSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title:
-    "Meet ELITIZON's Global AI Expert Team | Raphaël Mansuy CTO & Leadership",
+    "Meet ELITIZON's AI & Data Team | Raphaël Mansuy CTO & Leadership",
   description:
-    "Meet ELITIZON's world-class AI consulting team. Led by CTO Raphaël Mansuy, our global network of 50+ experts spans Europe, Asia, and North America delivering cutting-edge AI solutions.",
+    "Meet ELITIZON's experienced AI consulting team. Led by CTO Raphaël Mansuy, our global network of 50+ professionals spans Europe, Asia, and North America delivering practical AI solutions.",
   keywords:
-    "ELITIZON AI experts team, Raphaël Mansuy CTO, AI consulting leadership, global AI team, international data engineering experts, AI consulting experts worldwide",
+    "ELITIZON AI team, Raphaël Mansuy CTO, AI consulting leadership, global AI team, international data engineering professionals, AI consulting worldwide",
   openGraph: {
-    title: "Meet ELITIZON's Global AI Expert Team",
+    title: "Meet ELITIZON's AI & Data Team",
     description:
-      "Meet ELITIZON's world-class AI consulting team. Led by CTO Raphaël Mansuy, our global network of 50+ experts delivers cutting-edge AI solutions worldwide.",
+      "Meet ELITIZON's experienced AI consulting team. Led by CTO Raphaël Mansuy, our global network of 50+ professionals delivers practical AI solutions worldwide.",
     url: "https://elitizon.com/team",
     siteName: "ELITIZON",
     images: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "https://elitizon.com/og-team.jpg",
         width: 1200,
         height: 630,
-        alt: "ELITIZON Global AI Expert Team",
+        alt: "ELITIZON AI & Data Team",
       },
     ],
     locale: "en_US",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Meet ELITIZON's Global AI Expert Team",
+    title: "Meet ELITIZON's AI & Data Team",
     description:
-      "Meet ELITIZON's world-class AI consulting team. Led by CTO Raphaël Mansuy, our global network of 50+ experts delivers cutting-edge AI solutions worldwide.",
+      "Meet ELITIZON's experienced AI consulting team. Led by CTO Raphaël Mansuy, our global network of 50+ professionals delivers practical AI solutions worldwide.",
     images: ["https://elitizon.com/og-team.jpg"],
   },
   alternates: {
@@ -168,14 +168,14 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              The World&apos;s Top 1% AI & Data Experts
+              Experienced AI & Data Professionals
             </h1>
             <p className="text-xl md:text-2xl text-slate-100 max-w-4xl mx-auto">
-              Elite professionals who deliver{" "}
+              Skilled professionals who deliver{" "}
               <strong>measurable results</strong> for Fortune 500 companies and
               innovative startups.
               <span className="block mt-3 text-lg">
-                Led by proven executives who&apos;ve scaled AI solutions
+                Led by proven executives who&apos;ve successfully implemented AI solutions
                 globally.
               </span>
             </p>
@@ -261,11 +261,11 @@ export default function TeamPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Our Expert Network
+              Our Professional Network
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               50+ carefully selected specialists across 15+ locations, ready to
-              tackle your most challenging projects
+              tackle your challenging projects
             </p>
           </div>
 
@@ -277,7 +277,7 @@ export default function TeamPage() {
                     {area.area}
                   </h3>
                   <span className="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-semibold">
-                    {area.experts} experts
+                    {area.experts} professionals
                   </span>
                 </div>
 
@@ -349,12 +349,12 @@ export default function TeamPage() {
       <section className="py-20 bg-gradient-to-r from-slate-600 to-slate-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Join Our Expert Network
+            Join Our Professional Network
           </h2>
           <p className="text-xl text-slate-100 mb-8">
-            Are you a top-tier data engineer, ML engineer, or AI specialist
-            based in Europe or Asia? We&apos;re always looking for exceptional
-            talent to join our curated network.
+            Are you an experienced data engineer, ML engineer, or AI specialist
+            based in Europe or Asia? We&apos;re always looking for talented
+            professionals to join our network.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -379,7 +379,7 @@ export default function TeamPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-pink-600 mb-2">50+</div>
-              <div className="text-slate-600">Elite AI & Data Experts</div>
+              <div className="text-slate-600">AI & Data Professionals</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-pink-600 mb-2">200+</div>

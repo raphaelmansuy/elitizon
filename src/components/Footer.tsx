@@ -11,9 +11,9 @@ export default function Footer() {
               Elitizon Ltd
             </h3>
             <p className="text-white/80 mb-4 max-w-md">
-              Access world-class AI & data experts who deliver measurable ROI
-              without the overhead. Our global network of elite consultants
-              provides 24/7 coverage—connecting top 1% talent with ambitious
+              Access experienced AI & data professionals who deliver measurable ROI
+              without the overhead. Our global network of skilled consultants
+              provides 24/7 coverage—connecting talented specialists with ambitious
               businesses worldwide.
             </p>
             <div className="flex space-x-4">

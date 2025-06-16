@@ -448,7 +448,7 @@ function generateConfirmationEmail(formData: ApplicationData) {
 
         <div class="footer">
             <p><strong>Elitizon Ltd</strong> - Premium Data & AI Consulting</p>
-            <p>Building the future with elite talent</p>
+            <p>Building the future with skilled professionals</p>
         </div>
     </body>
     </html>

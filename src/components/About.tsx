@@ -14,19 +14,19 @@ export default function About() {
         {/* Section Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold text-primary-900 mb-8 leading-tight">
-            Elite Talent. Global Reach.
+            Skilled Talent. Global Reach.
             <span className="block bg-gradient-to-r from-secondary-600 to-secondary-500 bg-clip-text text-transparent mt-2">
-              Unmatched Results.
+              Proven Results.
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-primary-800 max-w-5xl mx-auto leading-relaxed font-medium">
-            We connect the world&apos;s top 1% of AI & Data specialists with
+            We connect experienced AI & Data specialists with
             ambitious businesses.
             <span className="block mt-3">
-              <strong>For clients:</strong> Access elite expertise without the
+              <strong>For clients:</strong> Access skilled expertise without the
               overhead.
               <strong className="ml-4">For consultants:</strong> Freedom to work
-              from anywhere while solving the most exciting challenges.
+              from anywhere while solving exciting challenges.
             </span>
           </p>
         </div>
@@ -164,8 +164,8 @@ export default function About() {
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    <strong>Elite Talent Pool:</strong> Only top 1% of AI & Data
-                    professionals worldwide
+                    <strong>Experienced Professionals:</strong> Carefully selected AI & Data
+                    specialists worldwide
                   </span>
                 </li>
                 <li className="flex items-start">

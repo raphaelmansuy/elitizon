@@ -249,10 +249,10 @@ export default function ApplyPage() {
       <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Join Our Elite Network
+            Join Our Professional Network
           </h1>
           <p className="text-xl text-slate-100 mb-8">
-            Take the first step towards joining the world&apos;s most exclusive
+            Take the first step towards joining our curated
             freelance consulting network
           </p>
           <div className="flex justify-center">

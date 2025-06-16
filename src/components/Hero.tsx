@@ -96,10 +96,10 @@ export default function Hero() {
               50+
             </div>
             <div className="text-white/90 font-medium text-lg">
-              Elite AI & Data Experts
+              AI & Data Professionals
             </div>
             <div className="text-white/70 text-sm mt-2">
-              Hand-picked from top tech companies
+              Experienced consultants from top tech companies
             </div>
           </div>
           <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-8 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 hover:shadow-xl group">

@@ -46,7 +46,7 @@ export default function CareersPage() {
       icon: "🌍",
     },
     {
-      title: "Elite Projects Only",
+      title: "Premium Projects Only",
       description:
         "Join exclusive projects with Fortune 500 companies and cutting-edge startups. Work on problems that matter.",
       icon: "🚀",
@@ -213,14 +213,14 @@ export default function CareersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
-              Join the Elite Network of
+              Join the Professional Network of
               <span className="bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent block">
-                Remote-First Experts
+                Remote-First Specialists
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-100 mb-12 leading-relaxed">
-              Are you a world-class data engineer, ML engineer, or AI
-              specialist? Join an exclusive network of top-tier freelancers
+              Are you an experienced data engineer, ML engineer, or AI
+              specialist? Join a curated network of skilled freelancers
               working on the most challenging and rewarding projects in the
               industry.
             </p>{" "}
@@ -419,7 +419,7 @@ export default function CareersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Your Path to Elite Status
+              Your Path to Professional Success
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Our streamlined process ensures we find the perfect match between
