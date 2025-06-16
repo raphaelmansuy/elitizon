@@ -17,6 +17,69 @@ export const metadata: Metadata = {
     "Leading consulting firm specializing in Data Engineering, Machine Learning, and Generative AI solutions. Based in Hong Kong with a network of top European experts.",
   keywords:
     "data engineering, machine learning, AI consulting, generative AI, AI agents, Hong Kong",
+  // Enhanced OpenGraph for Rich Snippets
+  openGraph: {
+    title: "ELITIZON - Expert Consulting in Data Engineering, ML & AI",
+    description: "Leading consulting firm specializing in Data Engineering, Machine Learning, and Generative AI solutions. Based in Hong Kong with a network of top European experts.",
+    url: "https://elitizon.com",
+    siteName: "ELITIZON",
+    images: [
+      {
+        url: "https://elitizon.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ELITIZON - AI & Data Engineering Consulting",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  // Enhanced Twitter Card
+  twitter: {
+    card: "summary_large_image",
+    title: "ELITIZON - Expert Consulting in Data Engineering, ML & AI",
+    description: "Leading consulting firm specializing in Data Engineering, Machine Learning, and Generative AI solutions.",
+    images: ["https://elitizon.com/og-image.jpg"],
+    creator: "@ElitizonLtd",
+    site: "@ElitizonLtd",
+  },
+  // Add verification tags for search engines
+  verification: {
+    google: "your-google-verification-code",
+    // yandex: "your-yandex-verification-code",
+    // yahoo: "your-yahoo-verification-code",
+  },
+  // Add canonical URL
+  alternates: {
+    canonical: "https://elitizon.com",
+  },
+  // Enhanced robots configuration
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  // Add additional metadata for Rich Snippets
+  authors: [{ name: "ELITIZON Team" }],
+  generator: "Next.js",
+  applicationName: "ELITIZON Website",
+  referrer: "origin-when-cross-origin",
+  colorScheme: "light",
+  themeColor: "#1e293b",
+  // Add viewport for mobile optimization
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 export default function RootLayout({

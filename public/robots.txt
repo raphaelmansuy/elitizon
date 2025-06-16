@@ -19,6 +19,26 @@ Disallow: /api/
 Disallow: /_next/
 Disallow: /private/
 
+# Allow Google Images
+User-agent: Googlebot-Image
+Allow: /
+
+# Allow social media crawlers for Rich Snippets
+User-agent: facebookexternalhit/*
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Sitemap location for search engines
+Sitemap: https://elitizon.com/sitemap.xml
+
+# Crawl-delay for all bots (be respectful)
+Crawl-delay: 1
+
 # Block crawling of development and testing files
 Disallow: *.json$
 Disallow: /test/

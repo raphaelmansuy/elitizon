@@ -14,7 +14,9 @@
     "clean": "rm -rf .next out",
     "analyze": "ANALYZE=true npm run build",
     "sitemap": "next-sitemap",
-    "test:build": "npm run build && npm run start"
+    "test:build": "npm run build && npm run start",
+    "test:rich-snippets": "node scripts/test-rich-snippets.js",
+    "validate:seo": "npm run test:rich-snippets"
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.828.0",

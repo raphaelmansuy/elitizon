@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { breadcrumbSchema, jobPostingSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title:
@@ -38,6 +39,58 @@ export const metadata: Metadata = {
 };
 
 export default function CareersPage() {
+  // Create breadcrumb items
+  const breadcrumbItems = [
+    { name: "Home", url: "https://elitizon.com" },
+    { name: "Careers", url: "https://elitizon.com/careers" },
+  ];
+
+  // Sample job postings for structured data
+  const jobPostings = [
+    {
+      title: "Senior AI Engineer",
+      description:
+        "Lead AI development projects and work with cutting-edge machine learning technologies in a remote-first environment.",
+      location: "Remote - Worldwide",
+      employmentType: "CONTRACTOR",
+      datePosted: "2025-01-01",
+      validThrough: "2025-12-31",
+      baseSalary: {
+        min: 80000,
+        max: 150000,
+        currency: "USD",
+      },
+    },
+    {
+      title: "Data Engineering Consultant",
+      description:
+        "Design and implement scalable data infrastructure for global enterprises using modern cloud technologies.",
+      location: "Remote - Worldwide",
+      employmentType: "CONTRACTOR",
+      datePosted: "2025-01-01",
+      validThrough: "2025-12-31",
+      baseSalary: {
+        min: 70000,
+        max: 130000,
+        currency: "USD",
+      },
+    },
+    {
+      title: "Generative AI Specialist",
+      description:
+        "Develop innovative AI agents and LLM-based solutions for enterprise clients in various industries.",
+      location: "Remote - Worldwide",
+      employmentType: "CONTRACTOR",
+      datePosted: "2025-01-01",
+      validThrough: "2025-12-31",
+      baseSalary: {
+        min: 90000,
+        max: 160000,
+        currency: "USD",
+      },
+    },
+  ];
+
   const benefits = [
     {
       title: "100% Remote First",
@@ -207,7 +260,54 @@ export default function CareersPage() {
   ];
 
   return (
-    <div className="pt-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema(breadcrumbItems)),
+        }}
+      />
+      {jobPostings.map((job, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jobPostingSchema(job)),
+          }}
+        />
+      ))}
+
+      {/* Breadcrumb Navigation */}
+      <nav
+        className="bg-white border-b border-slate-200"
+        aria-label="Breadcrumb"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ol className="flex items-center space-x-4 py-4 text-sm">
+            <li>
+              <Link
+                href="/"
+                className="text-slate-500 hover:text-slate-700 transition-colors"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <span className="text-slate-400">/</span>
+            </li>
+            <li>
+              <span
+                className="text-slate-900 font-medium"
+                aria-current="page"
+              >
+                Careers
+              </span>
+            </li>
+          </ol>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -478,9 +578,7 @@ export default function CareersPage() {
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-white mb-2">
-                  €100-300
-                </div>
+                <div className="text-3xl font-bold text-white mb-2">€100-300</div>
                 <div className="text-pink-100">Per hour range</div>
               </div>
               <div>

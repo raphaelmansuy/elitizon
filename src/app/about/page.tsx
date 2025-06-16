@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { breadcrumbSchema, organizationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title:
@@ -38,6 +39,12 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  // Create breadcrumb items
+  const breadcrumbItems = [
+    { name: "Home", url: "https://elitizon.com" },
+    { name: "About", url: "https://elitizon.com/about" },
+  ];
+
   const values = [
     {
       title: "Remote-First Excellence",
@@ -99,7 +106,51 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="pt-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema(breadcrumbItems)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationSchema),
+        }}
+      />
+
+      {/* Breadcrumb Navigation for UX and SEO */}
+      <nav
+        className="bg-white border-b border-slate-200"
+        aria-label="Breadcrumb"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ol className="flex items-center space-x-4 py-4 text-sm">
+            <li>
+              <Link
+                href="/"
+                className="text-slate-500 hover:text-slate-700 transition-colors"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <span className="text-slate-400">/</span>
+            </li>
+            <li>
+              <span
+                className="text-slate-900 font-medium"
+                aria-current="page"
+              >
+                About
+              </span>
+            </li>
+          </ol>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-slate-900 via-slate-700 to-slate-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
