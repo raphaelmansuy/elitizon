@@ -71,39 +71,48 @@ export function validateEmailConfig() {
 }
 
 // Handle AWS SES errors
-export function handleSESError(error: unknown): { message: string; status: number } {
+export function handleSESError(error: unknown): {
+  message: string;
+  status: number;
+} {
   if (error instanceof Error) {
     console.error("SES Error:", error.message);
-    
-    if (error.message.includes("AWS") || error.message.includes("credentials")) {
+
+    if (
+      error.message.includes("AWS") ||
+      error.message.includes("credentials")
+    ) {
       return {
         message: "Service configuration error",
         status: 503,
       };
     }
-    
+
     if (error.message.includes("Invalid character in header")) {
       return {
         message: "Authentication error",
         status: 503,
       };
     }
-    
+
     if (error.message.includes("rate") || error.message.includes("throttl")) {
       return {
         message: "Service temporarily unavailable",
         status: 429,
       };
     }
-    
-    if (error.message.includes("verification") || error.message.includes("not verified")) {
+
+    if (
+      error.message.includes("verification") ||
+      error.message.includes("not verified")
+    ) {
       return {
         message: "Email verification required",
         status: 503,
       };
     }
   }
-  
+
   return {
     message: "Service temporarily unavailable",
     status: 500,

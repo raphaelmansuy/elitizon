@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { SendEmailCommand } from "@aws-sdk/client-ses";
-import { createSESClient, validateEmailConfig, handleSESError } from "@/lib/aws-ses";
+import {
+  createSESClient,
+  validateEmailConfig,
+  handleSESError,
+} from "@/lib/aws-ses";
 
 // Configure AWS SES with validation
 const sesClient = createSESClient();
@@ -102,7 +106,7 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error("Error processing application:", error);
-    
+
     const errorResponse = handleSESError(error);
     return NextResponse.json(
       { message: errorResponse.message },
