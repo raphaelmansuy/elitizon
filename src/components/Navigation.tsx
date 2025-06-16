@@ -165,7 +165,7 @@ export default function Navigation() {
                   className="w-8 h-8"
                 />
                 <span className="text-xl font-bold bg-gradient-to-r from-slate-700 to-pink-600 bg-clip-text text-transparent">
-                  Elitizon Ltd
+                  Elitizon
                 </span>
               </div>
 
