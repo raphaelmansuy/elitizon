@@ -483,11 +483,9 @@ export default function Contact() {
                     Global Expert Network
                   </h4>
                   <p className="text-primary-700 leading-relaxed">
-                    50+ elite specialists across
+                    50+ specialists across 5 countries
                     <br />
-                    France, Luxembourg, Switzerland, UK, Hong Kong
-                    <br />
-                    Follow-the-sun collaboration worldwide
+                    24/7 global collaboration
                   </p>
                 </div>
               </div>
