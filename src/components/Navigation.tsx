@@ -168,7 +168,7 @@ export default function Navigation() {
                   Elitizon Ltd
                 </span>
               </div>
-              
+
               <Link
                 href="/"
                 className="text-slate-700 hover:text-pink-600 block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"

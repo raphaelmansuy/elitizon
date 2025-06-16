@@ -84,8 +84,8 @@ export default function Services() {
             Our world-class experts deliver <strong>measurable ROI</strong>{" "}
             through cutting-edge AI & Data solutions.
             <span className="block mt-2 text-lg">
-              Join 200+ companies who&apos;ve accelerated their growth with
-              Elitizon.
+              Join industry leaders and Fortune 500 companies who trust Elitizon
+              to transform their business with proven AI expertise.
             </span>
           </p>
         </header>

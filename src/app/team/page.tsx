@@ -3,8 +3,7 @@ import Link from "next/link";
 import { teamSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title:
-    "Meet ELITIZON's AI & Data Team | Raphaël Mansuy CTO & Leadership",
+  title: "Meet ELITIZON's AI & Data Team | Raphaël Mansuy CTO & Leadership",
   description:
     "Meet ELITIZON's experienced AI consulting team. Led by CTO Raphaël Mansuy, our global network of 50+ professionals spans Europe, Asia, and North America delivering practical AI solutions.",
   keywords:
@@ -175,8 +174,8 @@ export default function TeamPage() {
               <strong>measurable results</strong> for Fortune 500 companies and
               innovative startups.
               <span className="block mt-3 text-lg">
-                Led by proven executives who&apos;ve successfully implemented AI solutions
-                globally.
+                Led by proven executives who&apos;ve successfully implemented AI
+                solutions globally.
               </span>
             </p>
           </div>

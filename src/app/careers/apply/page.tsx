@@ -252,8 +252,8 @@ export default function ApplyPage() {
             Join Our Professional Network
           </h1>
           <p className="text-xl text-slate-100 mb-8">
-            Take the first step towards joining our curated
-            freelance consulting network
+            Take the first step towards joining our curated freelance consulting
+            network
           </p>
           <div className="flex justify-center">
             <div className="flex space-x-4">

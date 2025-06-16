@@ -20,8 +20,8 @@ export default function About() {
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-primary-800 max-w-5xl mx-auto leading-relaxed font-medium">
-            We connect experienced AI & Data specialists with
-            ambitious businesses.
+            We connect experienced AI & Data specialists with ambitious
+            businesses.
             <span className="block mt-3">
               <strong>For clients:</strong> Access skilled expertise without the
               overhead.
@@ -164,8 +164,8 @@ export default function About() {
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary-700 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-primary-700 text-lg leading-relaxed">
-                    <strong>Experienced Professionals:</strong> Carefully selected AI & Data
-                    specialists worldwide
+                    <strong>Experienced Professionals:</strong> Carefully
+                    selected AI & Data specialists worldwide
                   </span>
                 </li>
                 <li className="flex items-start">

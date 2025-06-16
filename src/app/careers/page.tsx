@@ -220,9 +220,8 @@ export default function CareersPage() {
             </h1>
             <p className="text-xl md:text-2xl text-slate-100 mb-12 leading-relaxed">
               Are you an experienced data engineer, ML engineer, or AI
-              specialist? Join a curated network of skilled freelancers
-              working on the most challenging and rewarding projects in the
-              industry.
+              specialist? Join a curated network of skilled freelancers working
+              on the most challenging and rewarding projects in the industry.
             </p>{" "}
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
