@@ -47,6 +47,14 @@ export async function POST(request: NextRequest) {
     // Validate email configuration
     const emailConfig = validateEmailConfig();
 
+    // DEBUG: Log the email configuration being used
+    console.log("=== EMAIL DEBUG ===");
+    console.log("Form email (user input):", formData.email);
+    console.log("emailConfig.fromEmail:", emailConfig.fromEmail);
+    console.log("emailConfig.toEmail:", emailConfig.toEmail);
+    console.log("SES_FROM_EMAIL env var:", process.env.SES_FROM_EMAIL);
+    console.log("===================");
+
     // Generate email content
     const emailContent = generateEmailContent(formData);
 
