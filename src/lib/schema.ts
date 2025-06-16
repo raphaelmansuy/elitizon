@@ -11,13 +11,13 @@ export const organizationSchema = {
     "@type": "ImageObject",
     url: "https://elitizon.com/logo.png",
     width: 200,
-    height: 200
+    height: 200,
   },
   image: {
     "@type": "ImageObject",
     url: "https://elitizon.com/og-image.jpg",
     width: 1200,
-    height: 630
+    height: 630,
   },
   foundingDate: "2020",
   founders: [
@@ -28,8 +28,8 @@ export const organizationSchema = {
       url: "https://www.linkedin.com/in/raphaelmansuy/",
       worksFor: {
         "@type": "Organization",
-        name: "ELITIZON Ltd"
-      }
+        name: "ELITIZON Ltd",
+      },
     },
     {
       "@type": "Person",
@@ -38,15 +38,15 @@ export const organizationSchema = {
       url: "https://www.linkedin.com/in/jane-leung-264087b7/",
       worksFor: {
         "@type": "Organization",
-        name: "ELITIZON Ltd"
-      }
+        name: "ELITIZON Ltd",
+      },
     },
   ],
   address: {
     "@type": "PostalAddress",
     addressCountry: "HK",
     addressRegion: "Hong Kong",
-    addressLocality: "Hong Kong"
+    addressLocality: "Hong Kong",
   },
   contactPoint: [
     {
@@ -54,15 +54,15 @@ export const organizationSchema = {
       telephone: "+852-XXXX-XXXX",
       contactType: "customer service",
       availableLanguage: ["English", "French", "Chinese"],
-      areaServed: "Worldwide"
+      areaServed: "Worldwide",
     },
     {
       "@type": "ContactPoint",
       contactType: "technical support",
       availableLanguage: ["English", "French"],
       areaServed: "Worldwide",
-      email: "support@elitizon.com"
-    }
+      email: "support@elitizon.com",
+    },
   ],
   sameAs: [
     "https://x.com/ElitizonLtd",
@@ -80,7 +80,7 @@ export const organizationSchema = {
     "Deep Learning",
     "Natural Language Processing",
     "Computer Vision",
-    "Big Data Analytics"
+    "Big Data Analytics",
   ],
   serviceType: [
     "AI Consulting",
@@ -90,18 +90,14 @@ export const organizationSchema = {
     "AI Agent Development",
     "Data Strategy Consulting",
   ],
-  areaServed: [
-    "Worldwide",
-    "Global",
-    "Remote Services"
-  ],
+  areaServed: ["Worldwide", "Global", "Remote Services"],
   // Adding aggregateRating for Rich Snippets
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.9",
     reviewCount: "150",
     bestRating: "5",
-    worstRating: "1"
+    worstRating: "1",
   },
   // Adding review examples for Rich Snippets
   review: [
@@ -109,34 +105,36 @@ export const organizationSchema = {
       "@type": "Review",
       author: {
         "@type": "Person",
-        name: "Sarah Chen"
+        name: "Sarah Chen",
       },
       datePublished: "2024-11-15",
-      reviewBody: "ELITIZON transformed our data infrastructure completely. Their remote-first approach delivered exceptional results faster than traditional consulting firms.",
+      reviewBody:
+        "ELITIZON transformed our data infrastructure completely. Their remote-first approach delivered exceptional results faster than traditional consulting firms.",
       name: "Exceptional AI Consulting Experience",
       reviewRating: {
         "@type": "Rating",
         bestRating: "5",
         ratingValue: "5",
-        worstRating: "1"
-      }
+        worstRating: "1",
+      },
     },
     {
       "@type": "Review",
       author: {
         "@type": "Person",
-        name: "Michael Rodriguez"
+        name: "Michael Rodriguez",
       },
       datePublished: "2024-10-22",
-      reviewBody: "The machine learning solutions ELITIZON developed increased our predictive accuracy by 40%. Outstanding technical expertise and project management.",
+      reviewBody:
+        "The machine learning solutions ELITIZON developed increased our predictive accuracy by 40%. Outstanding technical expertise and project management.",
       name: "Outstanding ML Implementation",
       reviewRating: {
         "@type": "Rating",
         bestRating: "5",
         ratingValue: "5",
-        worstRating: "1"
-      }
-    }
+        worstRating: "1",
+      },
+    },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -152,11 +150,11 @@ export const organizationSchema = {
           serviceType: "Data Engineering",
           provider: {
             "@type": "Organization",
-            name: "ELITIZON Ltd"
-          }
+            name: "ELITIZON Ltd",
+          },
         },
         areaServed: "Worldwide",
-        availability: "InStock"
+        availability: "InStock",
       },
       {
         "@type": "Offer",
@@ -168,11 +166,11 @@ export const organizationSchema = {
           serviceType: "Machine Learning",
           provider: {
             "@type": "Organization",
-            name: "ELITIZON Ltd"
-          }
+            name: "ELITIZON Ltd",
+          },
         },
         areaServed: "Worldwide",
-        availability: "InStock"
+        availability: "InStock",
       },
       {
         "@type": "Offer",
@@ -184,24 +182,21 @@ export const organizationSchema = {
           serviceType: "Generative AI",
           provider: {
             "@type": "Organization",
-            name: "ELITIZON Ltd"
-          }
+            name: "ELITIZON Ltd",
+          },
         },
         areaServed: "Worldwide",
-        availability: "InStock"
+        availability: "InStock",
       },
     ],
   },
   // Adding opening hours for better local business representation
-  openingHours: [
-    "Mo-Fr 09:00-18:00",
-    "Sa 10:00-16:00"
-  ],
+  openingHours: ["Mo-Fr 09:00-18:00", "Sa 10:00-16:00"],
   // Adding price range indicator
   priceRange: "$$$",
   // Adding telephone for better contact info
   telephone: "+852-XXXX-XXXX",
-  email: "info@elitizon.com"
+  email: "info@elitizon.com",
 };
 
 export const websiteSchema = {
@@ -245,13 +240,13 @@ export const serviceSchema = {
     "@type": "Organization",
     name: "ELITIZON Ltd",
     url: "https://elitizon.com",
-    logo: "https://elitizon.com/logo.png"
+    logo: "https://elitizon.com/logo.png",
   },
   areaServed: "Worldwide",
   availableChannel: {
     "@type": "ServiceChannel",
     serviceType: "Remote Consulting",
-    availableLanguage: ["English", "French", "Chinese"]
+    availableLanguage: ["English", "French", "Chinese"],
   },
   category: "AI Consulting Services",
   serviceType: [
@@ -267,7 +262,7 @@ export const serviceSchema = {
     ratingValue: "4.9",
     reviewCount: "85",
     bestRating: "5",
-    worstRating: "1"
+    worstRating: "1",
   },
   // Adding specific service offers with pricing hints
   hasOfferCatalog: {
@@ -277,7 +272,8 @@ export const serviceSchema = {
       {
         "@type": "Offer",
         name: "Data Engineering Consulting",
-        description: "Build robust data infrastructure with scalable pipelines, real-time processing, and cloud platforms",
+        description:
+          "Build robust data infrastructure with scalable pipelines, real-time processing, and cloud platforms",
         itemOffered: {
           "@type": "Service",
           name: "Data Engineering",
@@ -286,18 +282,19 @@ export const serviceSchema = {
           serviceType: "Data Engineering",
           provider: {
             "@type": "Organization",
-            name: "ELITIZON Ltd"
-          }
+            name: "ELITIZON Ltd",
+          },
         },
         areaServed: "Worldwide",
         availability: "InStock",
         priceRange: "$$$",
-        eligibleRegion: "Worldwide"
+        eligibleRegion: "Worldwide",
       },
       {
         "@type": "Offer",
         name: "Machine Learning Consulting",
-        description: "End-to-end ML solutions including predictive analytics, computer vision, NLP, and MLOps",
+        description:
+          "End-to-end ML solutions including predictive analytics, computer vision, NLP, and MLOps",
         itemOffered: {
           "@type": "Service",
           name: "Machine Learning Consulting",
@@ -306,18 +303,19 @@ export const serviceSchema = {
           serviceType: "Machine Learning",
           provider: {
             "@type": "Organization",
-            name: "ELITIZON Ltd"
-          }
+            name: "ELITIZON Ltd",
+          },
         },
         areaServed: "Worldwide",
         availability: "InStock",
         priceRange: "$$$",
-        eligibleRegion: "Worldwide"
+        eligibleRegion: "Worldwide",
       },
       {
         "@type": "Offer",
         name: "Generative AI & AI Agents",
-        description: "Custom AI agents, LLM integration, conversational AI, and intelligent automation",
+        description:
+          "Custom AI agents, LLM integration, conversational AI, and intelligent automation",
         itemOffered: {
           "@type": "Service",
           name: "Generative AI & AI Agents",
@@ -326,13 +324,13 @@ export const serviceSchema = {
           serviceType: "Generative AI",
           provider: {
             "@type": "Organization",
-            name: "ELITIZON Ltd"
-          }
+            name: "ELITIZON Ltd",
+          },
         },
         areaServed: "Worldwide",
         availability: "InStock",
         priceRange: "$$$",
-        eligibleRegion: "Worldwide"
+        eligibleRegion: "Worldwide",
       },
     ],
   },
@@ -341,7 +339,7 @@ export const serviceSchema = {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     opens: "09:00",
-    closes: "18:00"
+    closes: "18:00",
   },
   // Adding typical service duration
   offers: {
@@ -350,8 +348,8 @@ export const serviceSchema = {
     description: "Comprehensive AI and data engineering consulting services",
     priceRange: "$$$",
     availability: "InStock",
-    areaServed: "Worldwide"
-  }
+    areaServed: "Worldwide",
+  },
 };
 
 export const faqSchema = {
@@ -426,16 +424,16 @@ export const teamSchema = [
       {
         "@type": "EducationalOccupationalCredential",
         name: "AI & Machine Learning Certification",
-        credentialCategory: "Professional Certification"
-      }
+        credentialCategory: "Professional Certification",
+      },
     ],
     // Adding contact method
     email: "raphael@elitizon.com",
     // Adding alumniOf for education background
     alumniOf: {
       "@type": "Organization",
-      name: "Technology University"
-    }
+      name: "Technology University",
+    },
   },
   {
     "@context": "https://schema.org",
@@ -467,16 +465,16 @@ export const teamSchema = [
       {
         "@type": "EducationalOccupationalCredential",
         name: "Business Strategy Certification",
-        credentialCategory: "Professional Certification"
-      }
+        credentialCategory: "Professional Certification",
+      },
     ],
     // Adding contact method
     email: "jane@elitizon.com",
     // Adding alumniOf for education background
     alumniOf: {
       "@type": "Organization",
-      name: "Business University"
-    }
+      name: "Business University",
+    },
   },
 ];
 
@@ -498,12 +496,12 @@ export const articleSchema = (article: {
     "@type": "ImageObject",
     url: article.image,
     width: 1200,
-    height: 630
+    height: 630,
   },
   author: {
     "@type": "Person",
     name: article.author,
-    url: "https://elitizon.com/team"
+    url: "https://elitizon.com/team",
   },
   publisher: {
     "@type": "Organization",
@@ -512,22 +510,22 @@ export const articleSchema = (article: {
       "@type": "ImageObject",
       url: "https://elitizon.com/logo.png",
       width: 200,
-      height: 200
-    }
+      height: 200,
+    },
   },
   datePublished: article.datePublished,
   dateModified: article.dateModified,
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": article.url
-  }
+    "@id": article.url,
+  },
 });
 
 // Adding HowTo schema for technical guides
 export const howToSchema = (guide: {
   name: string;
   description: string;
-  steps: Array<{ name: string; text: string; }>;
+  steps: Array<{ name: string; text: string }>;
   image: string;
   totalTime: string;
 }) => ({
@@ -537,31 +535,31 @@ export const howToSchema = (guide: {
   description: guide.description,
   image: {
     "@type": "ImageObject",
-    url: guide.image
+    url: guide.image,
   },
   totalTime: guide.totalTime,
   supply: [
     {
       "@type": "HowToSupply",
-      name: "AI/ML Platform Access"
+      name: "AI/ML Platform Access",
     },
     {
-      "@type": "HowToSupply", 
-      name: "Data Infrastructure"
-    }
+      "@type": "HowToSupply",
+      name: "Data Infrastructure",
+    },
   ],
   tool: [
     {
       "@type": "HowToTool",
-      name: "ELITIZON AI Consulting Services"
-    }
+      name: "ELITIZON AI Consulting Services",
+    },
   ],
   step: guide.steps.map((step, index) => ({
     "@type": "HowToStep",
     position: index + 1,
     name: step.name,
-    text: step.text
-  }))
+    text: step.text,
+  })),
 });
 
 // Adding Course schema for training programs
@@ -569,11 +567,12 @@ export const courseSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
   name: "AI & Data Engineering Masterclass",
-  description: "Comprehensive training program covering Data Engineering, Machine Learning, and Generative AI technologies",
+  description:
+    "Comprehensive training program covering Data Engineering, Machine Learning, and Generative AI technologies",
   provider: {
     "@type": "Organization",
     name: "ELITIZON Ltd",
-    url: "https://elitizon.com"
+    url: "https://elitizon.com",
   },
   hasCourseInstance: [
     {
@@ -581,9 +580,9 @@ export const courseSchema = {
       courseMode: "online",
       instructor: {
         "@type": "Person",
-        name: "Raphaël MANSUY"
-      }
-    }
+        name: "Raphaël MANSUY",
+      },
+    },
   ],
   coursePrerequisites: "Basic programming knowledge",
   educationalLevel: "Professional",
@@ -591,8 +590,8 @@ export const courseSchema = {
     "Data Engineering",
     "Machine Learning",
     "Generative AI",
-    "AI Agents"
-  ]
+    "AI Agents",
+  ],
 };
 
 // Adding Event schema for webinars and workshops
@@ -614,12 +613,12 @@ export const eventSchema = (event: {
   eventStatus: "EventScheduled",
   location: {
     "@type": "VirtualLocation",
-    url: event.location
+    url: event.location,
   },
   organizer: {
     "@type": "Organization",
     name: "ELITIZON Ltd",
-    url: "https://elitizon.com"
+    url: "https://elitizon.com",
   },
   offers: {
     "@type": "Offer",
@@ -627,8 +626,8 @@ export const eventSchema = (event: {
     price: "0",
     priceCurrency: "USD",
     availability: "InStock",
-    validFrom: new Date().toISOString()
-  }
+    validFrom: new Date().toISOString(),
+  },
 });
 
 // Adding Job Posting schema for careers page
@@ -653,15 +652,15 @@ export const jobPostingSchema = (job: {
     "@type": "Organization",
     name: "ELITIZON Ltd",
     sameAs: "https://elitizon.com",
-    logo: "https://elitizon.com/logo.png"
+    logo: "https://elitizon.com/logo.png",
   },
   jobLocation: {
     "@type": "Place",
     address: {
       "@type": "PostalAddress",
       addressLocality: job.location,
-      addressCountry: "Worldwide"
-    }
+      addressCountry: "Worldwide",
+    },
   },
   employmentType: job.employmentType,
   datePosted: job.datePosted,
@@ -674,18 +673,18 @@ export const jobPostingSchema = (job: {
         "@type": "QuantitativeValue",
         minValue: job.baseSalary.min,
         maxValue: job.baseSalary.max,
-        unitText: "YEAR"
-      }
-    }
+        unitText: "YEAR",
+      },
+    },
   }),
   qualifications: [
     "Experience in AI/ML technologies",
     "Strong problem-solving skills",
-    "Remote work experience preferred"
+    "Remote work experience preferred",
   ],
   responsibilities: [
     "Develop AI solutions for clients",
     "Collaborate with global teams",
-    "Deliver high-quality consulting services"
-  ]
+    "Deliver high-quality consulting services",
+  ],
 });

@@ -297,10 +297,7 @@ export default function CareersPage() {
               <span className="text-slate-400">/</span>
             </li>
             <li>
-              <span
-                className="text-slate-900 font-medium"
-                aria-current="page"
-              >
+              <span className="text-slate-900 font-medium" aria-current="page">
                 Careers
               </span>
             </li>
@@ -578,7 +575,9 @@ export default function CareersPage() {
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-white mb-2">€100-300</div>
+                <div className="text-3xl font-bold text-white mb-2">
+                  €100-300
+                </div>
                 <div className="text-pink-100">Per hour range</div>
               </div>
               <div>

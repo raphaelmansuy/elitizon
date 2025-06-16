@@ -20,7 +20,8 @@ export const metadata: Metadata = {
   // Enhanced OpenGraph for Rich Snippets
   openGraph: {
     title: "ELITIZON - Expert Consulting in Data Engineering, ML & AI",
-    description: "Leading consulting firm specializing in Data Engineering, Machine Learning, and Generative AI solutions. Based in Hong Kong with a network of top European experts.",
+    description:
+      "Leading consulting firm specializing in Data Engineering, Machine Learning, and Generative AI solutions. Based in Hong Kong with a network of top European experts.",
     url: "https://elitizon.com",
     siteName: "ELITIZON",
     images: [
@@ -38,7 +39,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ELITIZON - Expert Consulting in Data Engineering, ML & AI",
-    description: "Leading consulting firm specializing in Data Engineering, Machine Learning, and Generative AI solutions.",
+    description:
+      "Leading consulting firm specializing in Data Engineering, Machine Learning, and Generative AI solutions.",
     images: ["https://elitizon.com/og-image.jpg"],
     creator: "@ElitizonLtd",
     site: "@ElitizonLtd",

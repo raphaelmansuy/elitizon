@@ -140,10 +140,7 @@ export default function AboutPage() {
               <span className="text-slate-400">/</span>
             </li>
             <li>
-              <span
-                className="text-slate-900 font-medium"
-                aria-current="page"
-              >
+              <span className="text-slate-900 font-medium" aria-current="page">
                 About
               </span>
             </li>
