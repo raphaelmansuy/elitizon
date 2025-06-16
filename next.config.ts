@@ -9,9 +9,6 @@ const nextConfig: NextConfig = {
   // Optimize for Netlify deployment
   output: process.env.NODE_ENV === "production" ? "standalone" : undefined,
 
-  // Disable telemetry for better build performance
-  telemetry: false,
-
   // Optimize images for better performance
   images: {
     formats: ["image/webp", "image/avif"],

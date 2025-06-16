@@ -123,21 +123,18 @@
 # Development context for branch deploys
 [context.develop]
   command = "npm run build"
-  environment = { NODE_ENV = "development" }
 
 [context.branch-deploy]
   command = "npm run build"
-  environment = { NODE_ENV = "staging" }
 
 # Production context
 [context.production]
   command = "npm run build"
-  environment = { NODE_ENV = "production", NEXT_TELEMETRY_DISABLED = "1" }
+  environment = { NEXT_TELEMETRY_DISABLED = "1" }
 
 # Deploy previews
 [context.deploy-preview]
   command = "npm run build"
-  environment = { NODE_ENV = "preview" }
 
 # Plugin configuration for better Next.js support
 [[plugins]]

@@ -78,6 +78,14 @@ export function handleSESError(error: unknown): {
   if (error instanceof Error) {
     console.error("SES Error:", error.message);
 
+    // Handle AccessDenied errors (often due to sandbox mode)
+    if (error.message.includes("AccessDenied") || error.message.includes("not authorized")) {
+      return {
+        message: "Email service is in sandbox mode. Contact form received but confirmation email not sent.",
+        status: 200, // Return 200 to indicate the form was processed successfully
+      };
+    }
+
     if (
       error.message.includes("AWS") ||
       error.message.includes("credentials")

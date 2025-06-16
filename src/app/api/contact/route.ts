@@ -86,27 +86,35 @@ export async function POST(request: NextRequest) {
 
     await sesClient.send(command);
 
-    // Send confirmation email to the sender
-    const confirmationCommand = new SendEmailCommand({
-      Source: emailConfig.fromEmail,
-      Destination: {
-        ToAddresses: [formData.email],
-      },
-      Message: {
-        Subject: {
-          Data: "Thank you for contacting Elitizon - We'll be in touch soon!",
-          Charset: "UTF-8",
+    // Try to send confirmation email to the sender
+    // This may fail in SES sandbox mode if the recipient email is not verified
+    try {
+      const confirmationCommand = new SendEmailCommand({
+        Source: emailConfig.fromEmail,
+        Destination: {
+          ToAddresses: [formData.email],
         },
-        Body: {
-          Html: {
-            Data: generateConfirmationEmail(formData),
+        Message: {
+          Subject: {
+            Data: "Thank you for contacting Elitizon - We'll be in touch soon!",
             Charset: "UTF-8",
           },
+          Body: {
+            Html: {
+              Data: generateConfirmationEmail(formData),
+              Charset: "UTF-8",
+            },
+          },
         },
-      },
-    });
+      });
 
-    await sesClient.send(confirmationCommand);
+      await sesClient.send(confirmationCommand);
+      console.log("Confirmation email sent successfully");
+    } catch (confirmationError) {
+      // Log the error but don't fail the entire request
+      // This is common in SES sandbox mode where recipient emails must be verified
+      console.warn("Could not send confirmation email (likely due to SES sandbox mode):", confirmationError);
+    }
 
     return NextResponse.json(
       { message: "Contact form submitted successfully" },
