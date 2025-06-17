@@ -23,7 +23,9 @@ export default function Navigation() {
           'a, button, [tabindex]:not([tabindex="-1"])'
         );
         const firstElement = focusableElements[0] as HTMLElement;
-        const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+        const lastElement = focusableElements[
+          focusableElements.length - 1
+        ] as HTMLElement;
 
         if (event.shiftKey) {
           // Shift+Tab - if focused on first element, move to last
@@ -48,7 +50,9 @@ export default function Navigation() {
   // Focus management for mobile menu
   useEffect(() => {
     if (isOpen && mobileMenuRef.current) {
-      const firstMenuItem = mobileMenuRef.current.querySelector("a") as HTMLElement;
+      const firstMenuItem = mobileMenuRef.current.querySelector(
+        "a"
+      ) as HTMLElement;
       firstMenuItem?.focus();
     }
   }, [isOpen]);

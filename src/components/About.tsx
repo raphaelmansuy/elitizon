@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section 
+    <section
       className="py-24 bg-gradient-to-b from-neutral-100 to-white relative overflow-hidden"
       aria-labelledby="about-heading"
       role="main"
@@ -17,7 +17,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <header className="text-center mb-20">
-          <h2 
+          <h2
             id="about-heading"
             className="text-4xl md:text-6xl font-bold text-primary-900 mb-8 leading-tight"
           >
