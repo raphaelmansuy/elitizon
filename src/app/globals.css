@@ -119,20 +119,43 @@ body {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
-/* Ensure content is always visible */
+/* Enhanced motion preferences for accessibility */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-pulse,
+  .animate-bounce,
+  .animate-spin,
+  .animate-ping,
+  .animate-slide-in-right {
+    animation: none !important;
+  }
+
+  /* Ensure content remains visible */
   .animate-fade-in-up {
     opacity: 1;
     transform: none;
-    animation: none;
   }
 
   .animate-float {
-    animation: none;
+    transform: none;
   }
 
-  .animate-pulse-glow {
-    animation: none;
+  /* Disable hover transforms for reduced motion */
+  .hover\:scale-105:hover,
+  .transform:hover {
+    transform: none !important;
   }
 }
 

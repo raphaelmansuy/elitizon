@@ -1,6 +1,10 @@
 export default function About() {
   return (
-    <section className="py-24 bg-gradient-to-b from-neutral-100 to-white relative overflow-hidden">
+    <section 
+      className="py-24 bg-gradient-to-b from-neutral-100 to-white relative overflow-hidden"
+      aria-labelledby="about-heading"
+      role="main"
+    >
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 -right-32 w-64 h-64 bg-secondary-200 rounded-full opacity-25 animate-float"></div>
@@ -12,8 +16,11 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold text-primary-900 mb-8 leading-tight">
+        <header className="text-center mb-20">
+          <h2 
+            id="about-heading"
+            className="text-4xl md:text-6xl font-bold text-primary-900 mb-8 leading-tight"
+          >
             Skilled Talent. Global Reach.
             <span className="block bg-gradient-to-r from-secondary-600 to-secondary-500 bg-clip-text text-transparent mt-2">
               Proven Results.
@@ -29,7 +36,7 @@ export default function About() {
               from anywhere while solving exciting challenges.
             </span>
           </p>
-        </div>
+        </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Main Content */}

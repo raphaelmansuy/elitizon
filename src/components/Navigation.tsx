@@ -16,10 +16,41 @@ export default function Navigation() {
         setIsOpen(false);
         mobileMenuButtonRef.current?.focus();
       }
+
+      // Handle Tab key for focus management in mobile menu
+      if (event.key === "Tab" && isOpen && mobileMenuRef.current) {
+        const focusableElements = mobileMenuRef.current.querySelectorAll(
+          'a, button, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstElement = focusableElements[0] as HTMLElement;
+        const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+        if (event.shiftKey) {
+          // Shift+Tab - if focused on first element, move to last
+          if (document.activeElement === firstElement) {
+            event.preventDefault();
+            lastElement?.focus();
+          }
+        } else {
+          // Tab - if focused on last element, move to first
+          if (document.activeElement === lastElement) {
+            event.preventDefault();
+            firstElement?.focus();
+          }
+        }
+      }
     };
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
+  // Focus management for mobile menu
+  useEffect(() => {
+    if (isOpen && mobileMenuRef.current) {
+      const firstMenuItem = mobileMenuRef.current.querySelector("a") as HTMLElement;
+      firstMenuItem?.focus();
+    }
   }, [isOpen]);
 
   // Handle click outside to close mobile menu
@@ -73,42 +104,42 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-2" role="menubar">
             <Link
               href="/"
-              className="text-slate-700 hover:text-pink-600 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
+              className="text-slate-700 hover:text-pink-700 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
               role="menuitem"
             >
               Home
             </Link>
             <Link
               href="/services"
-              className="text-slate-700 hover:text-pink-600 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
+              className="text-slate-700 hover:text-pink-700 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
               role="menuitem"
             >
               Services
             </Link>
             <Link
               href="/about"
-              className="text-slate-700 hover:text-pink-600 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
+              className="text-slate-700 hover:text-pink-700 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
               role="menuitem"
             >
               About
             </Link>
             <Link
               href="/team"
-              className="text-slate-700 hover:text-pink-600 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
+              className="text-slate-700 hover:text-pink-700 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
               role="menuitem"
             >
               Team
             </Link>
             <Link
               href="/careers"
-              className="text-slate-700 hover:text-pink-600 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
+              className="text-slate-700 hover:text-pink-700 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
               role="menuitem"
             >
               Careers
             </Link>
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-pink-600 to-pink-500 text-white px-6 py-3 rounded-xl text-sm font-semibold hover:from-pink-500 hover:to-pink-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-primary-200"
+              className="bg-gradient-to-r from-pink-700 to-pink-600 text-white px-6 py-3 rounded-xl text-sm font-semibold hover:from-pink-600 hover:to-pink-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-primary-200"
               role="menuitem"
               aria-label="Contact us to get started"
             >
@@ -119,8 +150,9 @@ export default function Navigation() {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
+              ref={mobileMenuButtonRef}
               onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-700 hover:text-pink-600 focus:outline-none p-2 rounded-lg hover:bg-pink-50 transition-all duration-300 focus:ring-4 focus:ring-primary-200"
+              className="text-slate-700 hover:text-pink-700 focus:outline-none p-2 rounded-lg hover:bg-pink-50 transition-all duration-300 focus:ring-4 focus:ring-primary-200"
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
               aria-label={isOpen ? "Close main menu" : "Open main menu"}
@@ -211,7 +243,7 @@ export default function Navigation() {
               </Link>
               <Link
                 href="/contact"
-                className="bg-gradient-to-r from-pink-600 to-pink-500 text-white block px-4 py-3 rounded-xl text-base font-semibold mt-4 text-center transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/30"
+                className="bg-gradient-to-r from-pink-700 to-pink-600 text-white block px-4 py-3 rounded-xl text-base font-semibold mt-4 text-center transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/30"
                 role="menuitem"
                 onClick={() => setIsOpen(false)}
                 aria-label="Contact us to get started"

@@ -202,7 +202,7 @@ export default function Contact() {
                   className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 hover:shadow-md ${
                     errors.name
                       ? "border-red-300 focus:ring-red-200 bg-red-50 aria-invalid"
-                      : "border-primary-300 focus:ring-primary-200 focus:border-secondary-500"
+                      : "border-primary-400 focus:ring-primary-200 focus:border-secondary-500"
                   }`}
                   placeholder="Your full name"
                   aria-invalid={errors.name ? "true" : "false"}
@@ -211,7 +211,7 @@ export default function Contact() {
                 {errors.name && (
                   <p
                     id="name-error"
-                    className="mt-2 text-sm text-red-600 animate-fade-in-up font-medium"
+                    className="mt-2 text-sm text-red-700 animate-fade-in-up font-medium"
                     role="alert"
                     aria-live="polite"
                   >
@@ -249,7 +249,7 @@ export default function Contact() {
                   className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 hover:shadow-md ${
                     errors.email
                       ? "border-red-300 focus:ring-red-200 bg-red-50"
-                      : "border-primary-300 focus:ring-primary-200 focus:border-secondary-500"
+                      : "border-primary-400 focus:ring-primary-200 focus:border-secondary-500"
                   }`}
                   placeholder="your.email@company.com"
                   aria-invalid={errors.email ? "true" : "false"}
@@ -258,7 +258,7 @@ export default function Contact() {
                 {errors.email && (
                   <p
                     id="email-error"
-                    className="mt-2 text-sm text-red-600 animate-fade-in-up font-medium"
+                    className="mt-2 text-sm text-red-700 animate-fade-in-up font-medium"
                     role="alert"
                     aria-live="polite"
                   >
@@ -292,7 +292,7 @@ export default function Contact() {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-4 focus:ring-primary-200 focus:border-secondary-500 transition-all duration-200 focus:outline-none hover:shadow-md"
+                  className="w-full px-4 py-3 border border-primary-400 rounded-xl focus:ring-4 focus:ring-primary-200 focus:border-secondary-500 transition-all duration-200 focus:outline-none hover:shadow-md"
                   placeholder="Your company name"
                 />
               </div>
@@ -309,7 +309,7 @@ export default function Contact() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-primary-300 rounded-xl focus:ring-4 focus:ring-primary-200 focus:border-secondary-500 transition-all duration-200 focus:outline-none hover:shadow-md"
+                  className="w-full px-4 py-3 border border-primary-400 rounded-xl focus:ring-4 focus:ring-primary-200 focus:border-secondary-500 transition-all duration-200 focus:outline-none hover:shadow-md"
                   aria-label="Select a service you're interested in"
                 >
                   <option value="">Select a service</option>
@@ -337,7 +337,7 @@ export default function Contact() {
                   className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 focus:outline-none focus:ring-4 hover:shadow-md resize-none ${
                     errors.message
                       ? "border-red-300 focus:ring-red-200 bg-red-50"
-                      : "border-primary-300 focus:ring-primary-200 focus:border-secondary-500"
+                      : "border-primary-400 focus:ring-primary-200 focus:border-secondary-500"
                   }`}
                   placeholder="Tell us about your project requirements..."
                   aria-invalid={errors.message ? "true" : "false"}
@@ -348,7 +348,7 @@ export default function Contact() {
                 {errors.message && (
                   <p
                     id="message-error"
-                    className="mt-2 text-sm text-red-600 animate-fade-in-up font-medium"
+                    className="mt-2 text-sm text-red-700 animate-fade-in-up font-medium"
                     role="alert"
                     aria-live="polite"
                   >

@@ -16,7 +16,11 @@
     "sitemap": "next-sitemap",
     "test:build": "npm run build && npm run start",
     "test:rich-snippets": "node scripts/test-rich-snippets.js",
-    "validate:seo": "npm run test:rich-snippets"
+    "test:contrast": "node scripts/test-color-contrast.js",
+    "test:accessibility": "node scripts/test-accessibility.js",
+    "validate:seo": "npm run test:rich-snippets",
+    "validate:accessibility": "npm run test:contrast && node scripts/validate-accessibility.js",
+    "validate:all": "npm run validate:seo && npm run validate:accessibility"
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.828.0",

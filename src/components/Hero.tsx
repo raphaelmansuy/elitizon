@@ -51,7 +51,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-white px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-pink-500/20 hover:shadow-pink-500/25"
+              className="bg-gradient-to-r from-pink-700 to-pink-600 hover:from-pink-600 hover:to-pink-500 text-white px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-pink-600/20 hover:shadow-pink-600/25"
             >
               Get Free Strategy Session
             </Link>

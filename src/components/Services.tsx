@@ -151,7 +151,7 @@ export default function Services() {
                           className={`w-2 h-2 bg-gradient-to-r ${service.iconBg} rounded-full mr-3 flex-shrink-0`}
                           aria-hidden="true"
                         ></div>
-                        <span className="font-semibold">{feature}</span>
+                        <span className="font-semibold text-primary-900">{feature}</span>
                       </li>
                     ))}
                   </ul>
