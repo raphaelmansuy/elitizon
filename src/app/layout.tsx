@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
@@ -17,6 +18,17 @@ export const metadata: Metadata = {
     "Leading consulting firm specializing in Data Engineering, Machine Learning, and Generative AI solutions. Based in Hong Kong with a network of top European experts.",
   keywords:
     "data engineering, machine learning, AI consulting, generative AI, AI agents, Hong Kong, remote consulting, global AI services",
+  // Icon configuration using Elitizon logo
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
+    ],
+    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.ico',
+  },
+  // Web App Manifest
+  manifest: '/site.webmanifest',
   // AI-specific meta tags for enhanced discoverability
   other: {
     "ai-content-type": "Professional AI Consulting Services",
@@ -102,7 +114,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">
