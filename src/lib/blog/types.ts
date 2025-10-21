@@ -17,6 +17,6 @@ export interface BlogFrontmatter {
 }
 
 export interface BlogPost extends BlogFrontmatter {
-  content: React.ReactNode;
+  content: React.ComponentType<Record<string, unknown>> | React.ReactNode;
   filePath?: string;
 }

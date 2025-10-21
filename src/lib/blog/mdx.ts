@@ -1,4 +1,3 @@
-import { compile } from "@mdx-js/mdx";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -16,13 +15,11 @@ export async function getBlogPost(slug: string): Promise<BlogPost> {
   const source = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(source);
 
-  const compiled = await compile(content, { jsx: true });
-
   return {
     ...(data as BlogFrontmatter),
-    content: compiled.value,
+    content: content as unknown as React.ReactNode,
     filePath,
-  };
+  } as BlogPost;
 }
 
 export async function getAllBlogPosts(): Promise<BlogPost[]> {
@@ -30,9 +27,7 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
     return [];
   }
 
-  const files = fs
-    .readdirSync(BLOG_DIR)
-    .filter((f) => f.endsWith(".mdx"));
+  const files = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith(".mdx"));
 
   const posts = await Promise.all(
     files.map((f) => getBlogPost(f.replace(".mdx", "")))
@@ -55,7 +50,9 @@ export async function getAllTags(): Promise<string[]> {
   return Array.from(tags).sort();
 }
 
-export async function getBlogPostsByAuthor(author: string): Promise<BlogPost[]> {
+export async function getBlogPostsByAuthor(
+  author: string
+): Promise<BlogPost[]> {
   const posts = await getAllBlogPosts();
   return posts.filter((p) => p.author === author);
 }
