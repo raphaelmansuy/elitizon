@@ -13,15 +13,15 @@
 
 ## The Recommendation at a Glance
 
-| Criteria                  | Docusaurus                  | Native Next.js                | Winner     |
-| ------------------------- | --------------------------- | ----------------------------- | ---------- |
-| **Build Complexity**      | Two separate systems        | Single unified build          | Next.js ✅ |
-| **SEO Performance**       | Fragmented domain authority | Single domain, strongest SEO  | Next.js ✅ |
-| **Design Consistency**    | Custom theming required     | Automatic design system reuse | Next.js ✅ |
-| **Deployment Simplicity** | Separate CI/CD pipeline     | One deployment to Netlify     | Next.js ✅ |
-| **Team Productivity**     | Learn new framework         | Use existing patterns         | Next.js ✅ |
-| **Time to Launch**        | 6-8 weeks                   | 3-4 weeks                     | Next.js ✅ |
-| **Maintenance Burden**    | Two codebases               | One codebase                  | Next.js ✅ |
+| Criteria | Docusaurus | Native Next.js | Winner |
+|----------|-----------|----------------|--------|
+| **Build Complexity** | Two separate systems | Single unified build | Next.js ✅ |
+| **SEO Performance** | Fragmented domain authority | Single domain, strongest SEO | Next.js ✅ |
+| **Design Consistency** | Custom theming required | Automatic design system reuse | Next.js ✅ |
+| **Deployment Simplicity** | Separate CI/CD pipeline | One deployment to Netlify | Next.js ✅ |
+| **Team Productivity** | Learn new framework | Use existing patterns | Next.js ✅ |
+| **Time to Launch** | 6-8 weeks | 3-4 weeks | Next.js ✅ |
+| **Maintenance Burden** | Two codebases | One codebase | Next.js ✅ |
 
 ---
 
@@ -32,20 +32,17 @@ Docusaurus is designed as a **standalone documentation engine**. Integrating it 
 ### Technical Problems
 
 1. **Two Build Systems**
-
    - Main site: `npm run build` → Next.js
    - Blog: Docusaurus build → separate output
    - Result: Complex CI/CD, deployment coordination nightmare
 
 2. **Fragmented SEO**
-
    - Blog at `blog.elitizon.com` or `/blog` subdirectory
    - Doesn't benefit from main domain authority
    - Lost internal linking signals between blog and services
    - Google treats it as separate content property
 
 3. **Design System Conflicts**
-
    - ELITIZON uses: Tailwind v4 + custom brand colors (navy, pink)
    - Docusaurus ships with its own UI components
    - Requires extensive theming to match brand
@@ -66,42 +63,36 @@ Building the blog as part of the ELITIZON Next.js application leverages existing
 ### Technical Advantages
 
 ✅ **Single Codebase**
-
 - Blog and website share one Git repository
 - Unified TypeScript configuration
 - One `package.json` with shared dependencies
 - One ESLint ruleset, one Prettier config
 
 ✅ **Architectural Alignment**
-
 - Blog uses Next.js 15 App Router (same as main site)
 - Reuses Navigation, Footer, Layout components
 - Shares Tailwind CSS design system (navy, pink colors)
 - Uses same contact form, analytics, security headers
 
 ✅ **Superior SEO**
-
 - All content under single domain (`elitizon.com`)
 - Full domain authority benefits entire site
 - Blog posts naturally link to services, about, team pages
 - Unified sitemap, robots.txt, structured data
 
 ✅ **One Deployment**
-
 - Single `npm run build` generates entire site + blog
 - One deployment to Netlify
 - Atomic consistency—blog and main site always in sync
 - No coordination between separate pipelines
 
 ✅ **Developer Experience**
-
 - Team already knows Next.js 15 and App Router
 - No new framework to learn
 - Local development: `npm run dev` includes blog with hot reload
 - Type-safe with existing TypeScript setup
 
 ✅ **Content Management**
-
 - Blog posts are `.mdx` files (Markdown + React components)
 - Stored in Git, version-controlled, PR-reviewable
 - Frontmatter metadata (title, date, tags, SEO) colocated with content
@@ -166,12 +157,12 @@ Markdown + inline React components for interactivity.
 
 ## Timeline & Effort
 
-| Phase             | Duration | Effort  | Deliverable                     |
-| ----------------- | -------- | ------- | ------------------------------- |
-| **Foundation**    | Week 1-2 | Medium  | Blog infrastructure, core pages |
-| **Core Features** | Week 2-3 | Medium  | Tags, search, author pages      |
-| **Polish**        | Week 3-4 | Low     | Components, RSS, optimization   |
-| **Content**       | Week 4+  | Ongoing | Seed posts, publishing workflow |
+| Phase | Duration | Effort | Deliverable |
+|-------|----------|--------|-------------|
+| **Foundation** | Week 1-2 | Medium | Blog infrastructure, core pages |
+| **Core Features** | Week 2-3 | Medium | Tags, search, author pages |
+| **Polish** | Week 3-4 | Low | Components, RSS, optimization |
+| **Content** | Week 4+ | Ongoing | Seed posts, publishing workflow |
 
 **Total:** 3-4 weeks to production-ready blog
 
@@ -227,13 +218,13 @@ Markdown + inline React components for interactivity.
 
 ## Risk Mitigation
 
-| Risk                              | Mitigation Strategy                                       |
-| --------------------------------- | --------------------------------------------------------- |
+| Risk | Mitigation Strategy |
+|------|-------------------|
 | Build times slow as content grows | ISR (Incremental Static Regen)—only changed posts rebuild |
-| Blog abandoned after launch       | Editorial calendar + owner accountability + team OKRs     |
-| Poor SEO performance              | Keyword research upfront + structured data validation     |
-| Content quality inconsistency     | Brand voice guide + editorial review process              |
-| Team unfamiliar with MDX          | Documentation + templates + light onboarding              |
+| Blog abandoned after launch | Editorial calendar + owner accountability + team OKRs |
+| Poor SEO performance | Keyword research upfront + structured data validation |
+| Content quality inconsistency | Brand voice guide + editorial review process |
+| Team unfamiliar with MDX | Documentation + templates + light onboarding |
 
 ---
 
@@ -272,13 +263,11 @@ Markdown + inline React components for interactivity.
 ### Docusaurus Approach ❌
 
 **Pros:**
-
 - Mature documentation framework
 - Built-in search (Algolia)
 - Strong versioning support
 
 **Cons:**
-
 - ❌ Separate build pipeline
 - ❌ Fragmented SEO (subdomain or `/blog` path still isolated)
 - ❌ Design system conflicts and rework required
@@ -292,7 +281,6 @@ Markdown + inline React components for interactivity.
 ### Native Next.js Approach ✅
 
 **Pros:**
-
 - ✅ Single codebase, one Git repository
 - ✅ Shared infrastructure (Tailwind, components, security headers)
 - ✅ Unified SEO (single domain authority)
@@ -303,7 +291,6 @@ Markdown + inline React components for interactivity.
 - ✅ Faster time to launch
 
 **Cons:**
-
 - Requires custom implementations (search, RSS, tagging)
 - Blog scaling requires ISR configuration
 

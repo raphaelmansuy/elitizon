@@ -90,15 +90,15 @@ This directory contains comprehensive strategic and tactical documentation for a
 
 ### Why?
 
-| Dimension          | Docusaurus                  | Native Next.js               |
-| ------------------ | --------------------------- | ---------------------------- |
-| Build System       | Two separate pipelines      | Single unified build         |
-| SEO Performance    | Fragmented domain authority | Single domain, strongest SEO |
-| Design Consistency | Custom theming required     | Automatic design reuse       |
-| Deployment         | Two separate deployments    | One deployment to Netlify    |
-| Team Productivity  | Learn new framework         | Use existing patterns        |
-| Time to Launch     | 6-8 weeks                   | **3-4 weeks**                |
-| Maintenance        | Two codebases               | One codebase                 |
+| Dimension | Docusaurus | Native Next.js |
+|-----------|-----------|----------------|
+| Build System | Two separate pipelines | Single unified build |
+| SEO Performance | Fragmented domain authority | Single domain, strongest SEO |
+| Design Consistency | Custom theming required | Automatic design reuse |
+| Deployment | Two separate deployments | One deployment to Netlify |
+| Team Productivity | Learn new framework | Use existing patterns |
+| Time to Launch | 6-8 weeks | **3-4 weeks** |
+| Maintenance | Two codebases | One codebase |
 
 ---
 
@@ -150,12 +150,12 @@ Markdown + inline React components for interactivity.
 
 ## Implementation Timeline
 
-| Phase         | Duration | Deliverable                     |
-| ------------- | -------- | ------------------------------- |
-| Foundation    | Week 1-2 | Blog infrastructure, core pages |
-| Core Features | Week 2-3 | Tags, search, author pages      |
-| Polish        | Week 3-4 | Components, RSS, optimization   |
-| Content       | Week 4+  | Seed posts, publishing workflow |
+| Phase | Duration | Deliverable |
+|-------|----------|-------------|
+| Foundation | Week 1-2 | Blog infrastructure, core pages |
+| Core Features | Week 2-3 | Tags, search, author pages |
+| Polish | Week 3-4 | Components, RSS, optimization |
+| Content | Week 4+ | Seed posts, publishing workflow |
 
 **Total:** 3-4 weeks to production
 
@@ -272,14 +272,14 @@ docs/blog/
 
 ## Questions & Clarifications
 
-| Question                   | Answer                                                                               |
-| -------------------------- | ------------------------------------------------------------------------------------ |
-| Why not Docusaurus?        | Separate build/deploy pipeline, fragmented SEO, design conflicts, higher maintenance |
-| What about existing CMS?   | File-based MDX is simpler for engineering-focused content, version-controlled in Git |
-| How do we handle comments? | Optional: Disqus, Giscus, or custom (future enhancement)                             |
-| What about analytics?      | Tracked in main Google Analytics property (unified domain)                           |
-| Can we add a newsletter?   | Yes, integrate with existing Contact form infrastructure                             |
-| Performance impact?        | Minimal—ISR (Incremental Static Regen) prevents full rebuilds for each post          |
+| Question | Answer |
+|----------|--------|
+| Why not Docusaurus? | Separate build/deploy pipeline, fragmented SEO, design conflicts, higher maintenance |
+| What about existing CMS? | File-based MDX is simpler for engineering-focused content, version-controlled in Git |
+| How do we handle comments? | Optional: Disqus, Giscus, or custom (future enhancement) |
+| What about analytics? | Tracked in main Google Analytics property (unified domain) |
+| Can we add a newsletter? | Yes, integrate with existing Contact form infrastructure |
+| Performance impact? | Minimal—ISR (Incremental Static Regen) prevents full rebuilds for each post |
 
 ---
 
