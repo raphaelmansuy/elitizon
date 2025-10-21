@@ -1,4 +1,5 @@
 # Blog Integration Vision & Architecture
+
 **ELITIZON Website Blog Solution**
 
 **Date:** October 21, 2025  
@@ -50,24 +51,24 @@ While Docusaurus is an excellent documentation framework, it is **not the optima
 
 #### Technical Drawbacks
 
-| Concern | Impact |
-|---------|--------|
-| **Separate Build Pipeline** | Introduces two build systems, two deployments, increased maintenance burden |
+| Concern                     | Impact                                                                                              |
+| --------------------------- | --------------------------------------------------------------------------------------------------- |
+| **Separate Build Pipeline** | Introduces two build systems, two deployments, increased maintenance burden                         |
 | **Duplicate Design System** | Docusaurus has its own UI components; integrating custom ELITIZON design requires extensive theming |
-| **Content/Code Separation** | Blog content isolated from main product; harder to maintain consistency |
-| **Environment Variables** | Separate `.env` configuration, requires additional CI/CD orchestration |
-| **Search Implementation** | Docusaurus uses Algolia or similar; main site uses different search patterns—inconsistent UX |
-| **Analytics Fragmentation** | Separate Google Analytics implementation, data scattered across domains |
-| **Deployment Complexity** | Requires separate hosting, redirects, subdomain management (`blog.elitizon.com` or path routing) |
+| **Content/Code Separation** | Blog content isolated from main product; harder to maintain consistency                             |
+| **Environment Variables**   | Separate `.env` configuration, requires additional CI/CD orchestration                              |
+| **Search Implementation**   | Docusaurus uses Algolia or similar; main site uses different search patterns—inconsistent UX        |
+| **Analytics Fragmentation** | Separate Google Analytics implementation, data scattered across domains                             |
+| **Deployment Complexity**   | Requires separate hosting, redirects, subdomain management (`blog.elitizon.com` or path routing)    |
 
 #### Business/UX Drawbacks
 
-| Concern | Impact |
-|---------|--------|
-| **Two Separate Experiences** | Users encounter different navigation, design, loading patterns |
-| **SEO Challenges** | Blog hosted separately loses primary domain authority benefits; internal linking more complex |
-| **Shared Authentication** | Harder to implement member-only content, newsletter integration, comment systems |
-| **Update Friction** | Blog updates on separate schedule from main site; feature requests compete for resources |
+| Concern                      | Impact                                                                                        |
+| ---------------------------- | --------------------------------------------------------------------------------------------- |
+| **Two Separate Experiences** | Users encounter different navigation, design, loading patterns                                |
+| **SEO Challenges**           | Blog hosted separately loses primary domain authority benefits; internal linking more complex |
+| **Shared Authentication**    | Harder to implement member-only content, newsletter integration, comment systems              |
+| **Update Friction**          | Blog updates on separate schedule from main site; feature requests compete for resources      |
 
 #### Maintenance Burden
 
@@ -184,14 +185,13 @@ The centralized data lake model has dominated enterprise data architecture for y
 
 ## Interactive Demo
 
-<CodeExample language="python">
-{`# Your code here`}
-</CodeExample>
+<CodeExample language="python">{`# Your code here`}</CodeExample>
 
 ## Case Study
 
 <Callout type="success">
-This pattern generated 40% improvement in analytics query performance for our client XYZ Corp.
+  This pattern generated 40% improvement in analytics query performance for our
+  client XYZ Corp.
 </Callout>
 
 ---
@@ -229,63 +229,66 @@ export interface BlogPost extends BlogFrontmatter {
 #### `lib/blog/mdx.ts` — MDX Loader & Compiler
 
 ```typescript
-import { compile } from '@mdx-js/mdx';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter'; // For YAML parsing
+import { compile } from "@mdx-js/mdx";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter"; // For YAML parsing
 
-const BLOG_DIR = path.join(process.cwd(), 'content/blog');
+const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
 export async function getBlogPost(slug: string): Promise<BlogPost> {
   const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
-  const source = fs.readFileSync(filePath, 'utf-8');
+  const source = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(source);
-  
+
   const compiled = await compile(content, { jsx: true });
-  
+
   return {
-    ...data as BlogFrontmatter,
+    ...(data as BlogFrontmatter),
     content: compiled.value,
     filePath,
   };
 }
 
 export async function getAllBlogPosts(): Promise<BlogPost[]> {
-  const files = fs.readdirSync(BLOG_DIR).filter(f => f.endsWith('.mdx'));
+  const files = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith(".mdx"));
   const posts = await Promise.all(
-    files.map(f => getBlogPost(f.replace('.mdx', '')))
+    files.map((f) => getBlogPost(f.replace(".mdx", "")))
   );
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return posts.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
 }
 
 export async function getBlogPostsByTag(tag: string): Promise<BlogPost[]> {
   const posts = await getAllBlogPosts();
-  return posts.filter(p => p.tags.includes(tag));
+  return posts.filter((p) => p.tags.includes(tag));
 }
 ```
 
 #### `src/app/blog/page.tsx` — Blog Index
 
 ```typescript
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { getAllBlogPosts } from '@/lib/blog/mdx';
-import { blogIndexSchema } from '@/lib/schema';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { getAllBlogPosts } from "@/lib/blog/mdx";
+import { blogIndexSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: 'Blog | ELITIZON - AI Consulting Insights',
-  description: 'Explore expert insights on AI, data engineering, machine learning, and remote-first scaling.',
-  keywords: 'AI consulting blog, data engineering, machine learning insights',
+  title: "Blog | ELITIZON - AI Consulting Insights",
+  description:
+    "Explore expert insights on AI, data engineering, machine learning, and remote-first scaling.",
+  keywords: "AI consulting blog, data engineering, machine learning insights",
   openGraph: {
-    title: 'Blog | ELITIZON',
-    description: 'Expert insights on AI consulting and data engineering.',
-    type: 'website',
+    title: "Blog | ELITIZON",
+    description: "Expert insights on AI consulting and data engineering.",
+    type: "website",
   },
 };
 
 export default async function BlogIndex() {
   const posts = await getAllBlogPosts();
-  const featured = posts.filter(p => p.featured).slice(0, 3);
+  const featured = posts.filter((p) => p.featured).slice(0, 3);
   const recent = posts.slice(0, 12);
 
   return (
@@ -298,11 +301,10 @@ export default async function BlogIndex() {
       />
 
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-primary-800 mb-4">
-          Blog
-        </h1>
+        <h1 className="text-4xl font-bold text-primary-800 mb-4">Blog</h1>
         <p className="text-lg text-gray-600 mb-12">
-          Insights on AI, data engineering, and remote-first scaling from the ELITIZON team.
+          Insights on AI, data engineering, and remote-first scaling from the
+          ELITIZON team.
         </p>
 
         {/* Featured Posts */}
@@ -310,7 +312,7 @@ export default async function BlogIndex() {
           <section className="mb-16">
             <h2 className="text-2xl font-bold mb-8">Featured</h2>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {featured.map(post => (
+              {featured.map((post) => (
                 <BlogCard key={post.slug} post={post} />
               ))}
             </div>
@@ -321,7 +323,7 @@ export default async function BlogIndex() {
         <section>
           <h2 className="text-2xl font-bold mb-8">Latest Posts</h2>
           <div className="space-y-8">
-            {recent.map(post => (
+            {recent.map((post) => (
               <BlogPostPreview key={post.slug} post={post} />
             ))}
           </div>
@@ -337,18 +339,27 @@ function BlogCard({ post }: { post: BlogPost }) {
       <article className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
         {post.image && (
           <div className="h-48 bg-gray-200 overflow-hidden">
-            <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full h-full object-cover"
+            />
           </div>
         )}
         <div className="p-6">
           <div className="flex gap-2 mb-2">
-            {post.tags.slice(0, 2).map(tag => (
-              <span key={tag} className="text-xs bg-secondary-100 text-secondary-700 px-2 py-1 rounded">
+            {post.tags.slice(0, 2).map((tag) => (
+              <span
+                key={tag}
+                className="text-xs bg-secondary-100 text-secondary-700 px-2 py-1 rounded"
+              >
                 {tag}
               </span>
             ))}
           </div>
-          <h3 className="text-lg font-bold text-primary-800 mb-2">{post.title}</h3>
+          <h3 className="text-lg font-bold text-primary-800 mb-2">
+            {post.title}
+          </h3>
           <p className="text-gray-600 text-sm mb-4">{post.description}</p>
           <div className="flex justify-between items-center text-xs text-gray-500">
             <span>{post.author}</span>
@@ -386,10 +397,10 @@ function BlogPostPreview({ post }: { post: BlogPost }) {
 #### `src/app/blog/[slug]/page.tsx` — Individual Post
 
 ```typescript
-import type { Metadata } from 'next';
-import { getBlogPost, getAllBlogPosts } from '@/lib/blog/mdx';
-import { blogPostSchema } from '@/lib/schema';
-import { notFound } from 'next/navigation';
+import type { Metadata } from "next";
+import { getBlogPost, getAllBlogPosts } from "@/lib/blog/mdx";
+import { blogPostSchema } from "@/lib/schema";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
@@ -401,11 +412,11 @@ export async function generateMetadata({
     return {
       title: `${post.title} | ELITIZON Blog`,
       description: post.description,
-      keywords: post.seo?.keywords || post.tags.join(', '),
+      keywords: post.seo?.keywords || post.tags.join(", "),
       openGraph: {
         title: post.title,
         description: post.description,
-        type: 'article',
+        type: "article",
         publishedTime: post.date,
         authors: [post.author],
         images: post.image ? [{ url: post.image }] : undefined,
@@ -413,13 +424,13 @@ export async function generateMetadata({
       authors: [{ name: post.author }],
     };
   } catch {
-    return { title: 'Post Not Found' };
+    return { title: "Post Not Found" };
   }
 }
 
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts();
-  return posts.map(post => ({ slug: post.slug }));
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export default async function BlogPost({
@@ -448,7 +459,7 @@ export default async function BlogPost({
       <div className="max-w-3xl mx-auto">
         <header className="mb-8">
           <div className="flex gap-2 mb-4">
-            {post.tags.map(tag => (
+            {post.tags.map((tag) => (
               <Link
                 key={tag}
                 href={`/blog/tag/${tag}`}
@@ -619,7 +630,7 @@ export function blogPostSchema(post: BlogPost) {
 ✅ **Internal Linking** — Blog posts link to services, generating topical clustering signals  
 ✅ **Unified Sitemap** — All content in one robots.txt, one structured data injection point  
 ✅ **Consistent Core Web Vitals** — Shared performance budget across site + blog  
-✅ **Indexation Speed** — Blog posts get crawled/indexed as part of main site refresh  
+✅ **Indexation Speed** — Blog posts get crawled/indexed as part of main site refresh
 
 ### 6.2 Analytics & Tracking
 
@@ -671,25 +682,25 @@ Track in Google Analytics:
 
 ### Docusaurus Approach ❌
 
-| Aspect | Assessment |
-|--------|-----------|
-| **Integration** | Separate system, duplicate tooling |
-| **SEO** | Fragmented domain authority, subdomain penalties |
-| **Design** | Theme conflicts with main site, inconsistent UX |
-| **Maintenance** | Two codebases, two deployments, two CI/CD pipelines |
-| **Team Fit** | Requires new framework knowledge (React SSG vs. Next.js) |
-| **Time to Launch** | 6-8 weeks (setup + theming + content) |
+| Aspect             | Assessment                                               |
+| ------------------ | -------------------------------------------------------- |
+| **Integration**    | Separate system, duplicate tooling                       |
+| **SEO**            | Fragmented domain authority, subdomain penalties         |
+| **Design**         | Theme conflicts with main site, inconsistent UX          |
+| **Maintenance**    | Two codebases, two deployments, two CI/CD pipelines      |
+| **Team Fit**       | Requires new framework knowledge (React SSG vs. Next.js) |
+| **Time to Launch** | 6-8 weeks (setup + theming + content)                    |
 
 ### Native Next.js Approach ✅
 
-| Aspect | Assessment |
-|--------|-----------|
-| **Integration** | Unified codebase, single dependency set |
-| **SEO** | Single domain authority, internal linking benefits |
-| **Design** | Automatic theme consistency via shared Tailwind |
-| **Maintenance** | One codebase, one deployment, one CI/CD pipeline |
-| **Team Fit** | Familiar framework, existing patterns, no ramp-up |
-| **Time to Launch** | 3-4 weeks (core features built-in) |
+| Aspect             | Assessment                                         |
+| ------------------ | -------------------------------------------------- |
+| **Integration**    | Unified codebase, single dependency set            |
+| **SEO**            | Single domain authority, internal linking benefits |
+| **Design**         | Automatic theme consistency via shared Tailwind    |
+| **Maintenance**    | One codebase, one deployment, one CI/CD pipeline   |
+| **Team Fit**       | Familiar framework, existing patterns, no ramp-up  |
+| **Time to Launch** | 3-4 weeks (core features built-in)                 |
 
 ---
 
@@ -746,6 +757,7 @@ Track in Google Analytics:
 ### ✅ Recommendation: Implement Native Next.js Blog
 
 **Rationale:**
+
 1. **Perfect Technical Fit** — Leverages existing Next.js 15 infrastructure, no new frameworks
 2. **Superior SEO** — Single domain, unified authority, internal linking benefits
 3. **Operational Simplicity** — One codebase, one deployment, one analytics property
