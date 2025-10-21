@@ -135,6 +135,13 @@ export default function Navigation() {
               Team
             </Link>
             <Link
+              href="/blog"
+              className="text-slate-700 hover:text-pink-700 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
+              role="menuitem"
+            >
+              Blog
+            </Link>
+            <Link
               href="/careers"
               className="text-slate-700 hover:text-pink-700 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
               role="menuitem"
@@ -236,6 +243,14 @@ export default function Navigation() {
                 onClick={() => setIsOpen(false)}
               >
                 Team
+              </Link>
+              <Link
+                href="/blog"
+                className="text-slate-700 hover:text-pink-600 block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
+                role="menuitem"
+                onClick={() => setIsOpen(false)}
+              >
+                Blog
               </Link>
               <Link
                 href="/careers"
