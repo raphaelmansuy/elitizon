@@ -52,15 +52,15 @@ Performance             Added JS payload    Minimal overhead    Next.js ✅
 
 ## Decision Criteria & Scoring
 
-| Criterion | Weight | Docusaurus | Next.js | Notes |
-|-----------|--------|-----------|---------|-------|
-| **Integration Complexity** | 15% | 2/10 | 9/10 | Next.js is drop-in to existing architecture |
-| **SEO Effectiveness** | 25% | 4/10 | 10/10 | Single domain authority is critical for organic growth |
-| **Team Productivity** | 20% | 3/10 | 9/10 | Team knows Next.js; Docusaurus requires ramp-up |
-| **Design Consistency** | 15% | 3/10 | 10/10 | Docusaurus requires extensive theming; Next.js automatic |
-| **Maintenance Burden** | 15% | 3/10 | 9/10 | Two systems vs. one system |
-| **Time to Launch** | 10% | 4/10 | 9/10 | 6-8 weeks vs. 3-4 weeks |
-| **Total Score** | 100% | **3.3/10** | **9.2/10** | **Native Next.js Winner** |
+| Criterion                  | Weight | Docusaurus | Next.js    | Notes                                                    |
+| -------------------------- | ------ | ---------- | ---------- | -------------------------------------------------------- |
+| **Integration Complexity** | 15%    | 2/10       | 9/10       | Next.js is drop-in to existing architecture              |
+| **SEO Effectiveness**      | 25%    | 4/10       | 10/10      | Single domain authority is critical for organic growth   |
+| **Team Productivity**      | 20%    | 3/10       | 9/10       | Team knows Next.js; Docusaurus requires ramp-up          |
+| **Design Consistency**     | 15%    | 3/10       | 10/10      | Docusaurus requires extensive theming; Next.js automatic |
+| **Maintenance Burden**     | 15%    | 3/10       | 9/10       | Two systems vs. one system                               |
+| **Time to Launch**         | 10%    | 4/10       | 9/10       | 6-8 weeks vs. 3-4 weeks                                  |
+| **Total Score**            | 100%   | **3.3/10** | **9.2/10** | **Native Next.js Winner**                                |
 
 ---
 
@@ -80,6 +80,7 @@ A blog's primary business value is organic traffic and lead generation. Docusaur
 ### Why Team Fit Matters (20% weight)
 
 ELITIZON team is:
+
 - **Highly Proficient** in Next.js 15 and App Router
 - **Unfamiliar** with Docusaurus and its ecosystem
 - **Time-Constrained** (consulting firm, not dedicated platform team)
@@ -176,6 +177,7 @@ Advantages:
 ### Docusaurus
 
 **Costs:**
+
 - Framework learning curve: 20-30 hours
 - Design system customization: 40-60 hours
 - CI/CD orchestration: 20-30 hours
@@ -183,6 +185,7 @@ Advantages:
 - **Total Time:** 80-120 hours (one-time) + 5-10 hours (monthly)
 
 **Benefits:**
+
 - Built-in search (Algolia—requires subscription ~$50-100/month)
 - Multiple version support (unnecessary for blog)
 - Mature ecosystem (not needed for simple blog)
@@ -194,12 +197,14 @@ Advantages:
 ### Native Next.js
 
 **Costs:**
+
 - Implementation: 30-40 hours (familiar patterns)
 - MDX/content infrastructure: 10-15 hours
 - Long-term maintenance (integrated with main site): 2-3 hours/month
 - **Total Time:** 40-55 hours (one-time) + 2-3 hours (monthly)
 
 **Benefits:**
+
 - Unified codebase (less maintenance, fewer bugs)
 - Single deployment (consistency, reliability)
 - Better SEO (single domain authority)
@@ -214,13 +219,13 @@ Advantages:
 
 ### Docusaurus Risks
 
-| Risk | Probability | Impact | Mitigation |
-|------|-----------|--------|-----------|
-| Design system conflicts | High | Medium | Custom theming (time-consuming) |
-| Deployment failures | Medium | High | Separate monitoring required |
-| Team productivity loss | High | Medium | Training overhead |
-| SEO fragmentation | High | High | None—inherent to subdomain |
-| Long-term maintenance | Medium | Medium | Two systems to maintain |
+| Risk                    | Probability | Impact | Mitigation                      |
+| ----------------------- | ----------- | ------ | ------------------------------- |
+| Design system conflicts | High        | Medium | Custom theming (time-consuming) |
+| Deployment failures     | Medium      | High   | Separate monitoring required    |
+| Team productivity loss  | High        | Medium | Training overhead               |
+| SEO fragmentation       | High        | High   | None—inherent to subdomain      |
+| Long-term maintenance   | Medium      | Medium | Two systems to maintain         |
 
 **Risk Score:** 7/10 (Elevated risk profile)
 
@@ -228,12 +233,12 @@ Advantages:
 
 ### Native Next.js Risks
 
-| Risk | Probability | Impact | Mitigation |
-|------|-----------|--------|-----------|
-| Build times increase | Low | Low | ISR (Incremental Static Regen) |
-| Content grows slowly | Low | Medium | Editorial calendar + owner |
-| Blog abandoned | Low | Medium | Team OKRs + publishing cadence |
-| Performance degradation | Very Low | Low | Monitoring + optimization |
+| Risk                    | Probability | Impact | Mitigation                     |
+| ----------------------- | ----------- | ------ | ------------------------------ |
+| Build times increase    | Low         | Low    | ISR (Incremental Static Regen) |
+| Content grows slowly    | Low         | Medium | Editorial calendar + owner     |
+| Blog abandoned          | Low         | Medium | Team OKRs + publishing cadence |
+| Performance degradation | Very Low    | Low    | Monitoring + optimization      |
 
 **Risk Score:** 2/10 (Low risk profile)
 
@@ -264,13 +269,13 @@ Advantages:
 
 ### 6-Month Projections
 
-| Metric | Docusaurus | Native Next.js | Difference |
-|--------|-----------|----------------|-----------|
-| Time to First Posts | 8 weeks | 4 weeks | 50% faster |
-| Initial Organic Visitors | 200/month | 500/month | 150% more |
-| First Top 10 Rankings | ~3 posts | ~5 posts | 67% more |
-| First Conversions | 0-1/week | 2-3/week | 200-300% more |
-| Lead Value Generated | $50-100K | $200-300K | 200-300% more |
+| Metric                   | Docusaurus | Native Next.js | Difference    |
+| ------------------------ | ---------- | -------------- | ------------- |
+| Time to First Posts      | 8 weeks    | 4 weeks        | 50% faster    |
+| Initial Organic Visitors | 200/month  | 500/month      | 150% more     |
+| First Top 10 Rankings    | ~3 posts   | ~5 posts       | 67% more      |
+| First Conversions        | 0-1/week   | 2-3/week       | 200-300% more |
+| Lead Value Generated     | $50-100K   | $200-300K      | 200-300% more |
 
 **12-Month Impact:** Native approach compounds advantages—estimated $500K+ additional lead value over Docusaurus approach.
 
@@ -281,6 +286,7 @@ Advantages:
 ### ✅ Recommend: Native Next.js Blog
 
 **Rationale:**
+
 1. **Technical Fit:** Perfect alignment with existing Next.js 15 architecture
 2. **SEO Advantage:** Single domain authority maximizes organic reach
 3. **Team Productivity:** 50% faster implementation using existing expertise

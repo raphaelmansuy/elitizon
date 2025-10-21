@@ -10,14 +10,14 @@
 
 ## Why Native Next.js Over Docusaurus?
 
-| Factor | Impact |
-|--------|--------|
-| **Build System** | Single vs. two pipelines |
-| **SEO** | Unified domain authority vs. fragmented subdomains |
-| **Design System** | Shared Tailwind + components vs. separate theming |
-| **Deployment** | One vs. two deployments |
-| **Team Fit** | Familiar framework vs. new framework learning curve |
-| **Maintenance** | One codebase vs. two codebases |
+| Factor            | Impact                                              |
+| ----------------- | --------------------------------------------------- |
+| **Build System**  | Single vs. two pipelines                            |
+| **SEO**           | Unified domain authority vs. fragmented subdomains  |
+| **Design System** | Shared Tailwind + components vs. separate theming   |
+| **Deployment**    | One vs. two deployments                             |
+| **Team Fit**      | Familiar framework vs. new framework learning curve |
+| **Maintenance**   | One codebase vs. two codebases                      |
 
 **Bottom Line:** Native Next.js avoids infrastructure duplication, maintains SEO advantage of single domain, and leverages existing ELITIZON architecture patterns. Team already knows Next.js 15 App Router.
 
@@ -105,22 +105,22 @@ export interface BlogPost extends BlogFrontmatter {
 **File:** `src/lib/blog/mdx.ts`
 
 ```typescript
-import { compile } from '@mdx-js/mdx';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import type { BlogPost, BlogFrontmatter } from './types';
+import { compile } from "@mdx-js/mdx";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import type { BlogPost, BlogFrontmatter } from "./types";
 
-const BLOG_DIR = path.join(process.cwd(), 'content/blog');
+const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
 export async function getBlogPost(slug: string): Promise<BlogPost> {
   const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
-  
+
   if (!fs.existsSync(filePath)) {
     throw new Error(`Blog post not found: ${slug}`);
   }
 
-  const source = fs.readFileSync(filePath, 'utf-8');
+  const source = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(source);
 
   const compiled = await compile(content, { jsx: true });
@@ -132,12 +132,10 @@ export async function getBlogPost(slug: string): Promise<BlogPost> {
 }
 
 export async function getAllBlogPosts(): Promise<BlogPost[]> {
-  const files = fs
-    .readdirSync(BLOG_DIR)
-    .filter(f => f.endsWith('.mdx'));
+  const files = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith(".mdx"));
 
   const posts = await Promise.all(
-    files.map(f => getBlogPost(f.replace('.mdx', '')))
+    files.map((f) => getBlogPost(f.replace(".mdx", "")))
   );
 
   // Sort by date, newest first
@@ -148,12 +146,12 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
 
 export async function getBlogPostsByTag(tag: string): Promise<BlogPost[]> {
   const posts = await getAllBlogPosts();
-  return posts.filter(p => p.tags.includes(tag));
+  return posts.filter((p) => p.tags.includes(tag));
 }
 
 export async function getAllTags(): Promise<string[]> {
   const posts = await getAllBlogPosts();
-  const tags = new Set(posts.flatMap(p => p.tags));
+  const tags = new Set(posts.flatMap((p) => p.tags));
   return Array.from(tags).sort();
 }
 ```
@@ -163,35 +161,35 @@ export async function getAllTags(): Promise<string[]> {
 **File:** `src/app/blog/page.tsx`
 
 ```typescript
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { getAllBlogPosts } from '@/lib/blog/mdx';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { getAllBlogPosts } from "@/lib/blog/mdx";
 
 export const metadata: Metadata = {
-  title: 'Blog | ELITIZON - AI Consulting Insights',
-  description: 'Expert insights on AI, data engineering, and remote-first scaling from the ELITIZON team.',
+  title: "Blog | ELITIZON - AI Consulting Insights",
+  description:
+    "Expert insights on AI, data engineering, and remote-first scaling from the ELITIZON team.",
 };
 
 export default async function BlogIndex() {
   const posts = await getAllBlogPosts();
-  const featured = posts.filter(p => p.featured).slice(0, 3);
+  const featured = posts.filter((p) => p.featured).slice(0, 3);
   const recent = posts.slice(0, 12);
 
   return (
     <main className="min-h-screen bg-white py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-primary-800 mb-4">
-          Blog
-        </h1>
+        <h1 className="text-4xl font-bold text-primary-800 mb-4">Blog</h1>
         <p className="text-lg text-gray-600 mb-12">
-          Insights on AI, data engineering, and remote-first scaling from ELITIZON experts.
+          Insights on AI, data engineering, and remote-first scaling from
+          ELITIZON experts.
         </p>
 
         {featured.length > 0 && (
           <section className="mb-16">
             <h2 className="text-2xl font-bold mb-8">Featured</h2>
             <div className="grid gap-8 md:grid-cols-3">
-              {featured.map(post => (
+              {featured.map((post) => (
                 <BlogCard key={post.slug} post={post} />
               ))}
             </div>
@@ -201,7 +199,7 @@ export default async function BlogIndex() {
         <section>
           <h2 className="text-2xl font-bold mb-8">Latest Posts</h2>
           <div className="space-y-6">
-            {recent.map(post => (
+            {recent.map((post) => (
               <BlogPostPreview key={post.slug} post={post} />
             ))}
           </div>
@@ -264,10 +262,10 @@ function BlogPostPreview({ post }: { post: any }) {
 **File:** `src/app/blog/[slug]/page.tsx`
 
 ```typescript
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { getBlogPost, getAllBlogPosts } from '@/lib/blog/mdx';
-import { notFound } from 'next/navigation';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { getBlogPost, getAllBlogPosts } from "@/lib/blog/mdx";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
@@ -279,23 +277,23 @@ export async function generateMetadata({
     return {
       title: `${post.title} | ELITIZON Blog`,
       description: post.description,
-      keywords: post.tags.join(', '),
+      keywords: post.tags.join(", "),
       openGraph: {
         title: post.title,
         description: post.description,
-        type: 'article',
+        type: "article",
         publishedTime: post.date,
         authors: [post.author],
       },
     };
   } catch {
-    return { title: 'Post Not Found' };
+    return { title: "Post Not Found" };
   }
 }
 
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts();
-  return posts.map(post => ({ slug: post.slug }));
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export default async function BlogPost({
@@ -315,7 +313,7 @@ export default async function BlogPost({
       <div className="max-w-3xl mx-auto">
         <header className="mb-8 pb-8 border-b">
           <div className="flex gap-2 mb-4">
-            {post.tags.map(tag => (
+            {post.tags.map((tag) => (
               <Link
                 key={tag}
                 href={`/blog/tag/${tag}`}
@@ -357,10 +355,10 @@ export default async function BlogPost({
 **File:** `src/app/blog/tag/[tag]/page.tsx`
 
 ```typescript
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { getBlogPostsByTag, getAllTags } from '@/lib/blog/mdx';
-import { notFound } from 'next/navigation';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { getBlogPostsByTag, getAllTags } from "@/lib/blog/mdx";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
@@ -375,14 +373,10 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   const tags = await getAllTags();
-  return tags.map(tag => ({ tag }));
+  return tags.map((tag) => ({ tag }));
 }
 
-export default async function TagPage({
-  params,
-}: {
-  params: { tag: string };
-}) {
+export default async function TagPage({ params }: { params: { tag: string } }) {
   const posts = await getBlogPostsByTag(params.tag);
 
   if (posts.length === 0) {
@@ -392,7 +386,10 @@ export default async function TagPage({
   return (
     <main className="min-h-screen bg-white py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <Link href="/blog" className="text-secondary-600 hover:text-secondary-700 mb-8 inline-block">
+        <Link
+          href="/blog"
+          className="text-secondary-600 hover:text-secondary-700 mb-8 inline-block"
+        >
           ← Back to Blog
         </Link>
 
@@ -401,7 +398,7 @@ export default async function TagPage({
         </h1>
 
         <div className="space-y-6 mt-12">
-          {posts.map(post => (
+          {posts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`}>
               <article className="border-b pb-6 cursor-pointer hover:bg-gray-50 p-4 -mx-4">
                 <h3 className="text-xl font-bold text-primary-800">
@@ -460,7 +457,7 @@ Data Mesh is built on four core principles:
 
 ## Case Study: Finance Services Client
 
-*[Anonymized case study showing measurable ROI and implementation timeline]*
+_[Anonymized case study showing measurable ROI and implementation timeline]_
 
 ## Next Steps
 
@@ -483,11 +480,11 @@ Add link to blog in **`src/components/Navigation.tsx`**:
 Modify **`src/app/sitemap.ts`** to include blog posts:
 
 ```typescript
-import { getAllBlogPosts } from '@/lib/blog/mdx';
+import { getAllBlogPosts } from "@/lib/blog/mdx";
 
 export default async function sitemap() {
-  const baseUrl = 'https://elitizon.com';
-  
+  const baseUrl = "https://elitizon.com";
+
   // Existing pages...
   const pages = [
     /* ... existing pages ... */
@@ -495,10 +492,10 @@ export default async function sitemap() {
 
   // Add blog posts
   const posts = await getAllBlogPosts();
-  const blogPosts = posts.map(post => ({
+  const blogPosts = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.updated || post.date),
-    changeFrequency: 'weekly' as const,
+    changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
 
@@ -537,8 +534,8 @@ author: "Author Name"
 authorBio: "Short bio for author byline"
 tags: ["tag1", "tag2", "tag3"]
 description: "Meta description (150-160 chars, summary for listings)"
-featured: true  # For homepage carousel (optional)
-readingTime: "X min"  # Optional, compute automatically if omitted
+featured: true # For homepage carousel (optional)
+readingTime: "X min" # Optional, compute automatically if omitted
 ---
 
 # Main Heading (matches title)
@@ -599,13 +596,13 @@ More content...
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
-| `Cannot find module '@mdx-js/mdx'` | Run `npm install @mdx-js/mdx @mdx-js/react gray-matter` |
-| Blog page returns 404 | Ensure `.mdx` files exist in `content/blog/` with correct slug |
-| Styles not applied | Check that Tailwind `content:` includes `content/blog/**` |
-| Build takes too long | Posts are ISR; revalidate only when content changes |
-| TypeScript errors | Ensure `@types/gray-matter` is installed as devDependency |
+| Issue                              | Solution                                                       |
+| ---------------------------------- | -------------------------------------------------------------- |
+| `Cannot find module '@mdx-js/mdx'` | Run `npm install @mdx-js/mdx @mdx-js/react gray-matter`        |
+| Blog page returns 404              | Ensure `.mdx` files exist in `content/blog/` with correct slug |
+| Styles not applied                 | Check that Tailwind `content:` includes `content/blog/**`      |
+| Build takes too long               | Posts are ISR; revalidate only when content changes            |
+| TypeScript errors                  | Ensure `@types/gray-matter` is installed as devDependency      |
 
 ---
 
