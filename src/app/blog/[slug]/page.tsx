@@ -58,13 +58,13 @@ export default async function BlogPost({
   return (
     <article className="min-h-screen bg-white">
       {/* Hero Section with Gradient Background */}
-      <div className="bg-gradient-to-br from-primary-50 via-white to-accent-emerald-50 py-16 sm:py-20 lg:py-24 border-b border-gray-100">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-8">
+      <div className="bg-gradient-to-br from-primary-50 via-white to-accent-emerald-50 py-12 sm:py-16 lg:py-20 border-b border-gray-100">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8">
           <div className="lg:col-span-3">
             {/* Breadcrumb Navigation */}
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-secondary-600 hover:text-secondary-700 mb-8 font-semibold text-sm transition-all duration-200 group"
+              className="inline-flex items-center gap-2 text-secondary-600 hover:text-secondary-700 mb-6 font-semibold text-sm transition-all duration-200 group"
             >
               <span className="group-hover:-translate-x-1 transition-transform">
                 ←
@@ -73,12 +73,12 @@ export default async function BlogPost({
             </Link>
 
             {/* Category Tags - Enhanced */}
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap gap-2 mb-5">
               {post.tags.map((tag, idx) => (
                 <Link
                   key={tag}
                   href={`/blog/tag/${tag}`}
-                  className={`text-xs font-black uppercase tracking-widest px-4 py-2.5 rounded-full transition-all duration-200 ${
+                  className={`text-xs font-black uppercase tracking-widest px-3 py-2 rounded-full transition-all duration-200 ${
                     idx === 0
                       ? "bg-secondary-600 text-white hover:bg-secondary-700 shadow-sm"
                       : "bg-gray-100 text-primary-700 hover:bg-gray-200"
@@ -90,12 +90,12 @@ export default async function BlogPost({
             </div>
 
             {/* Article Title - Professional Typography */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary-950 leading-tight tracking-tight mb-8 max-w-3xl">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-primary-950 leading-tight tracking-tight mb-6 max-w-3xl">
               {post.title}
             </h1>
 
             {/* Enhanced Metadata Section */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 pt-2">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-0">
               <div className="flex items-center gap-4">
                 <div>
                   <p className="text-sm font-black text-primary-800 uppercase tracking-wide">
@@ -112,7 +112,7 @@ export default async function BlogPost({
               </div>
 
               {post.readingTime && (
-                <div className="flex items-center gap-2 bg-accent-amber-100 text-accent-amber-900 px-4 py-2.5 rounded-lg font-semibold text-sm shadow-sm">
+                <div className="flex items-center gap-2 bg-accent-amber-100 text-accent-amber-900 px-4 py-2 rounded-lg font-semibold text-sm shadow-sm">
                   <span>📖</span>
                   <span>{post.readingTime} read</span>
                 </div>
@@ -123,8 +123,8 @@ export default async function BlogPost({
       </div>
 
       {/* Article Content */}
-      <div className="py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Main Content - Sidebar on desktop */}
           <div className="lg:col-span-3">
             {/* Article Content - Professional Typography */}
