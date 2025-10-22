@@ -8,7 +8,9 @@ interface MDXContentProps {
 
 export default function MDXContent({ content }: MDXContentProps) {
   if (typeof content === "function") {
-    return createElement(content as React.ComponentType<Record<string, unknown>>);
+    return createElement(
+      content as React.ComponentType<Record<string, unknown>>
+    );
   }
   return <>{content}</>;
 }

@@ -1,0 +1,218 @@
+/* Professional Blog Typography Styling */
+
+@layer components {
+  /* Prose Container - Professional Typography Settings */
+  .prose {
+    /* Font-feature settings for professional typography */
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-ligatures: contextual;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Paragraphs - Perfect Readability */
+  .prose p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    letter-spacing: 0.3px;
+    margin-bottom: 2rem;
+    color: #1f2937;
+  }
+
+  /* Headings - Professional Hierarchy */
+  .prose h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+  }
+
+  .prose h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+  }
+
+  .prose h3 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+  }
+
+  .prose h4 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    letter-spacing: 0px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+
+  /* Links - Professional appearance */
+  .prose a {
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(217, 48, 96, 0.3);
+    text-underline-offset: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .prose a:hover {
+    text-decoration-color: rgba(217, 48, 96, 1);
+    color: #d9305f;
+  }
+
+  /* Strong text - Bold impact */
+  .prose strong {
+    font-weight: 900;
+    letter-spacing: -0.01em;
+  }
+
+  /* Emphasis - Subtle but clear */
+  .prose em {
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* Code blocks - Professional appearance */
+  .prose code {
+    font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono",
+      "Courier New", monospace;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+  }
+
+  .prose pre {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+    line-height: 1.6;
+  }
+
+  .prose pre code {
+    background: none;
+    color: #f3f4f6;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  /* Lists - Better spacing and alignment */
+  .prose ul,
+  .prose ol {
+    line-height: 1.8;
+    margin: 2rem 0;
+  }
+
+  .prose li {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    letter-spacing: 0.3px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Blockquotes - Professional styling */
+  .prose blockquote {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    letter-spacing: 0.3px;
+    margin: 2.5rem 0;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+    border-left: 4px solid #d9305f;
+    background: linear-gradient(135deg, #fef2f6 0%, #fff7fb 100%);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .prose blockquote p {
+    margin-bottom: 0;
+  }
+
+  /* Images - Professional presentation */
+  .prose img {
+    border-radius: 0.75rem;
+    border: 2px solid #e5e7eb;
+    margin: 3rem 0;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .prose img:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    border-color: #d9305f;
+  }
+
+  /* Tables - Professional appearance */
+  .prose table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 2rem 0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .prose thead {
+    background: linear-gradient(135deg, #fef2f6 0%, #fff7fb 100%);
+  }
+
+  .prose th {
+    text-align: left;
+    font-weight: 900;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+  }
+
+  .prose td {
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+  }
+
+  .prose tbody tr:hover {
+    background: linear-gradient(135deg, #fef2f6 0%, #fff7fb 100%);
+  }
+
+  /* Horizontal rule - Professional appearance */
+  .prose hr {
+    margin: 3rem 0;
+    border: none;
+    border-top: 2px solid #e5e7eb;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .prose p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .prose h1 {
+    font-size: 2rem;
+  }
+
+  .prose h2 {
+    font-size: 1.5rem;
+  }
+
+  .prose h3 {
+    font-size: 1.25rem;
+  }
+
+  .prose li {
+    font-size: 1rem;
+  }
+}

@@ -31,8 +31,8 @@ export default async function BlogIndex() {
               Blog & Insights
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
-              Deep dives into AI consulting, data engineering, and remote-first scaling. 
-              Insights from the ELITIZON team.
+              Deep dives into AI consulting, data engineering, and remote-first
+              scaling. Insights from the ELITIZON team.
             </p>
           </div>
         </section>
@@ -40,7 +40,9 @@ export default async function BlogIndex() {
         {/* Featured Posts */}
         {featured.length > 0 && (
           <section className="mb-20">
-            <h2 className="text-3xl font-bold text-primary-800 mb-10">Featured Articles</h2>
+            <h2 className="text-3xl font-bold text-primary-800 mb-10">
+              Featured Articles
+            </h2>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {featured.map((post) => (
                 <BlogCard key={post.slug} post={post} />
@@ -52,7 +54,9 @@ export default async function BlogIndex() {
         {/* Recent Posts */}
         {recent.length > 0 ? (
           <section>
-            <h2 className="text-3xl font-bold text-primary-800 mb-10">Latest Articles</h2>
+            <h2 className="text-3xl font-bold text-primary-800 mb-10">
+              Latest Articles
+            </h2>
             <div className="space-y-6">
               {recent.map((post) => (
                 <BlogPostPreview key={post.slug} post={post} />
@@ -118,7 +122,13 @@ function BlogCard({ post }: { post: BlogPost }) {
             <div className="flex items-center gap-2">
               <span className="font-medium">{post.author}</span>
               <span>•</span>
-              <time>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</time>
+              <time>
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </time>
             </div>
             {post.readingTime && (
               <span className="bg-gray-50 px-2 py-1 rounded text-gray-600">
@@ -173,7 +183,13 @@ function BlogPostPreview({ post }: { post: BlogPost }) {
             {/* Metadata */}
             <div className="flex flex-wrap gap-4 text-sm text-gray-500">
               <span>{post.author}</span>
-              <time>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</time>
+              <time>
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </time>
               {post.readingTime && <span>{post.readingTime} read</span>}
             </div>
           </div>
