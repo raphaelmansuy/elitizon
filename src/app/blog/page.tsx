@@ -27,22 +27,22 @@ export default async function BlogIndex() {
       <section className="bg-gradient-to-br from-primary-50 to-accent-emerald-50 border-b border-gray-100 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-3xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-primary-950 leading-tight tracking-tight mb-4">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-primary-950 leading-tight tracking-tight mb-2">
               Blog & Insights
             </h1>
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl leading-relaxed font-medium">
-              Deep dives into AI consulting, data engineering, and remote-first scaling. Insights from the ELITIZON team.
+              Deep dives into AI consulting, data engineering, and remote-first
+              scaling. Insights from the ELITIZON team.
             </p>
           </div>
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
         {/* Featured Posts */}
         {featured.length > 0 && (
-          <section className="mb-16 lg:mb-20">
-            <div className="mb-8">
+          <section className="mb-6 lg:mb-8">
+            <div className="mb-4">
               <h2 className="text-3xl sm:text-4xl font-black text-primary-950 mb-3">
                 Featured Articles
               </h2>
@@ -59,7 +59,7 @@ export default async function BlogIndex() {
         {/* Recent Posts */}
         {recent.length > 0 ? (
           <section>
-            <div className="mb-8">
+            <div className="mb-4">
               <h2 className="text-3xl sm:text-4xl font-black text-primary-950 mb-3">
                 Latest Articles
               </h2>
@@ -203,7 +203,9 @@ function BlogPostPreview({ post }: { post: BlogPost }) {
                 })}
               </time>
               {post.readingTime && (
-                <span className="text-gray-600 font-medium">📖 {post.readingTime}</span>
+                <span className="text-gray-600 font-medium">
+                  📖 {post.readingTime}
+                </span>
               )}
             </div>
           </div>
