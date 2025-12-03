@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -12,6 +12,15 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
+
+// Viewport configuration - exported separately per Next.js 14+ requirements
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: "#1e293b",
+  colorScheme: "light",
+};
 
 export const metadata: Metadata = {
   title: "ELITIZON - Expert Consulting in Data Engineering, ML & AI",
@@ -102,14 +111,6 @@ export const metadata: Metadata = {
   generator: "Next.js",
   applicationName: "ELITIZON Website",
   referrer: "origin-when-cross-origin",
-  colorScheme: "light",
-  themeColor: "#1e293b",
-  // Add viewport for mobile optimization
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
 };
 
 export default function RootLayout({

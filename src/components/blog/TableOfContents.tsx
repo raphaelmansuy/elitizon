@@ -10,10 +10,13 @@ interface TocItem {
 
 interface TableOfContentsProps {
   className?: string;
+  /** Only show h2 headings (main sections) for cleaner TOC */
+  mainSectionsOnly?: boolean;
 }
 
 export default function TableOfContents({
   className = "",
+  mainSectionsOnly = true, // Default to showing only main sections (h2)
 }: TableOfContentsProps) {
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
@@ -23,7 +26,9 @@ export default function TableOfContents({
     const article = document.querySelector("article");
     if (!article) return;
 
-    const elements = article.querySelectorAll("h2, h3, h4");
+    // Only get h2 headings when mainSectionsOnly is true, otherwise get h2-h4
+    const selector = mainSectionsOnly ? "h2" : "h2, h3, h4";
+    const elements = article.querySelectorAll(selector);
     const items: TocItem[] = Array.from(elements).map((element, index) => {
       // Ensure element has an ID
       if (!element.id) {
@@ -42,7 +47,7 @@ export default function TableOfContents({
       };
     });
     setHeadings(items);
-  }, []);
+  }, [mainSectionsOnly]);
 
   // Track active heading
   const handleScroll = useCallback(() => {

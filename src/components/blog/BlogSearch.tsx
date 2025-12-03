@@ -97,13 +97,19 @@ export default function BlogSearch({ posts, allTags }: BlogSearchProps) {
           <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">
             Filter by topic
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div
+            className="flex flex-wrap gap-2"
+            role="group"
+            aria-label="Filter articles by topic"
+          >
             {allTags.map((tag) => (
               <button
                 key={tag}
                 onClick={() => handleTagClick(tag)}
+                aria-pressed={selectedTag === tag}
                 className={`
                   px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200
+                  focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:ring-offset-1
                   ${
                     selectedTag === tag
                       ? "bg-secondary-600 text-white shadow-md shadow-secondary-600/25 ring-1 ring-secondary-500"

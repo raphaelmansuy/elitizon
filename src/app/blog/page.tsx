@@ -178,10 +178,22 @@ export default async function BlogIndex() {
         </section>
 
         {/* Newsletter CTA Section */}
-        <section className="mt-20 relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 p-8 sm:p-12">
+        <section
+          className="mt-20 relative overflow-hidden rounded-2xl p-8 sm:p-12"
+          style={{
+            background:
+              "linear-gradient(to bottom right, var(--primary-900), var(--primary-800), var(--primary-900))",
+          }}
+        >
           {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-secondary-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent-emerald-500/10 rounded-full blur-3xl" />
+          <div
+            className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl"
+            style={{ backgroundColor: "rgba(250, 51, 102, 0.1)" }}
+          />
+          <div
+            className="absolute bottom-0 left-0 w-48 h-48 rounded-full blur-3xl"
+            style={{ backgroundColor: "rgba(16, 185, 129, 0.1)" }}
+          />
 
           <div className="relative max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-white/10 text-white/90 px-3 py-1 rounded-full text-sm font-medium mb-4">

@@ -69,18 +69,42 @@ const AIOptimizedFAQ: React.FC = () => {
           </div>
 
           <div className="text-center mt-12">
-            <div className="bg-primary-600 text-white rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-2">
+            <div
+              className="rounded-2xl p-8 shadow-lg"
+              style={{
+                background:
+                  "linear-gradient(135deg, #1e2329 0%, #2A3045 50%, #1e2329 100%)",
+              }}
+            >
+              {/* Decorative badge */}
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium text-white/90 mb-4">
+                <span>💬</span>
+                <span>Get In Touch</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-3 text-white">
                 Have More Questions?
               </h3>
-              <p className="mb-4">
+              <p className="mb-6 text-gray-300 text-base max-w-md mx-auto leading-relaxed">
                 Get personalized answers from our AI consulting experts
               </p>
               <a
                 href="/contact"
-                className="inline-block bg-white text-primary-600 px-6 py-2 rounded-md font-medium hover:bg-gray-50 transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-secondary-600 hover:bg-secondary-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                Contact Our Team
+                <span>Contact Our Team</span>
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
               </a>
             </div>
           </div>

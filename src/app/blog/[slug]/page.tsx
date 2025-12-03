@@ -107,7 +107,10 @@ export default async function BlogPost({
                 Blog
               </Link>
               <span aria-hidden="true">→</span>
-              <span className="text-primary-900 font-medium truncate max-w-[200px]">
+              <span
+                className="text-primary-900 font-medium line-clamp-1 max-w-md"
+                title={post.title}
+              >
                 {post.title}
               </span>
             </nav>
@@ -266,27 +269,55 @@ export default async function BlogPost({
               />
 
               {/* CTA Section - Enhanced with better visual design */}
-              <div className="mt-16 relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 rounded-2xl p-8 sm:p-10 text-white shadow-xl">
+              <div
+                className="mt-16 relative overflow-hidden rounded-2xl p-8 sm:p-10 shadow-xl"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #1e2329 0%, #2A3045 50%, #1e2329 100%)",
+                }}
+              >
                 {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-secondary-600/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent-emerald-500/10 rounded-full blur-3xl" />
+                <div
+                  className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl"
+                  style={{ backgroundColor: "rgba(250, 51, 102, 0.15)" }}
+                />
+                <div
+                  className="absolute bottom-0 left-0 w-48 h-48 rounded-full blur-3xl"
+                  style={{ backgroundColor: "rgba(16, 185, 129, 0.15)" }}
+                />
 
                 <div className="relative">
-                  <div className="inline-flex items-center gap-2 bg-white/10 text-white/90 px-3 py-1 rounded-full text-sm font-medium mb-4">
+                  <div
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-4"
+                    style={{
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                      color: "rgba(255, 255, 255, 0.9)",
+                    }}
+                  >
                     <span>💡</span>
                     <span>Let&apos;s Connect</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight text-white tracking-tight">
+                  <h3
+                    className="text-2xl sm:text-3xl font-bold mb-4 leading-tight tracking-tight"
+                    style={{ color: "#ffffff" }}
+                  >
                     Ready to Transform Your Data?
                   </h3>
-                  <p className="text-gray-300 mb-6 leading-relaxed text-base max-w-lg">
+                  <p
+                    className="mb-6 leading-relaxed text-base max-w-lg"
+                    style={{ color: "#d1d5db" }}
+                  >
                     Let ELITIZON help you implement cutting-edge data
                     architecture solutions tailored to your organization&apos;s
                     needs.
                   </p>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary-900 font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:scale-105 shadow-lg"
+                    className="inline-flex items-center gap-2 font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
+                    style={{
+                      backgroundColor: "#fa3366",
+                      color: "#ffffff",
+                    }}
                   >
                     <span>Get Started</span>
                     <svg
@@ -509,9 +540,18 @@ export default async function BlogPost({
                 <TableOfContents className="bg-white rounded-xl p-5 shadow-sm border border-gray-200" />
 
                 {/* CTA Card - Enhanced */}
-                <div className="relative overflow-hidden bg-gradient-to-br from-secondary-600 to-secondary-700 rounded-xl p-5 shadow-lg">
+                <div
+                  className="relative overflow-hidden rounded-xl p-5 shadow-lg"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom right, var(--secondary-600), var(--secondary-700))",
+                  }}
+                >
                   {/* Decorative element */}
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full blur-2xl" />
+                  <div
+                    className="absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl"
+                    style={{ backgroundColor: "rgba(255,255,255,0.05)" }}
+                  />
 
                   <div className="relative">
                     <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-3">

@@ -22,7 +22,10 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
 
   if (variant === "horizontal") {
     return (
-      <Link href={`/blog/${post.slug}`} className="group block">
+      <Link
+        href={`/blog/${post.slug}`}
+        className="group block focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2 rounded-xl"
+      >
         <article className="relative bg-white rounded-xl border border-gray-200 hover:border-secondary-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
           <div className="flex gap-4 p-5">
             {post.image && (
@@ -109,10 +112,16 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
 
   if (variant === "featured") {
     return (
-      <Link href={`/blog/${post.slug}`} className="group block h-full">
-        <article className="relative h-full rounded-2xl overflow-hidden bg-primary-950 min-h-[360px] sm:min-h-[400px]">
+      <Link
+        href={`/blog/${post.slug}`}
+        className="group block h-full focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2 rounded-2xl"
+      >
+        <article
+          className="relative h-full rounded-2xl overflow-hidden min-h-[360px] sm:min-h-[400px]"
+          style={{ backgroundColor: "var(--primary-900)" }}
+        >
           {/* Background Image with gradient overlay */}
-          {post.image && (
+          {post.image ? (
             <div className="absolute inset-0">
               <Image
                 src={post.image}
@@ -121,11 +130,48 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
                 className="object-cover opacity-50 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
               />
             </div>
+          ) : (
+            <div className="absolute inset-0 opacity-30">
+              <svg
+                className="w-full h-full"
+                viewBox="0 0 400 400"
+                preserveAspectRatio="xMidYMid slice"
+              >
+                <defs>
+                  <pattern
+                    id="featured-grid"
+                    width="30"
+                    height="30"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <circle
+                      cx="3"
+                      cy="3"
+                      r="1.5"
+                      fill="rgba(255,255,255,0.3)"
+                    />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#featured-grid)" />
+              </svg>
+            </div>
           )}
 
           {/* Multi-layer gradient overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-950 via-primary-950/85 to-primary-950/40" />
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-secondary-900/20" />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, var(--primary-900) 0%, rgba(23,26,31,0.85) 50%, rgba(23,26,31,0.4) 100%)",
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom right, transparent 0%, transparent 60%, rgba(99,20,41,0.2) 100%)",
+            }}
+          />
 
           {/* Content */}
           <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
@@ -222,7 +268,10 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
 
   // Default card variant - refined design
   return (
-    <Link href={`/blog/${post.slug}`} className="group block h-full">
+    <Link
+      href={`/blog/${post.slug}`}
+      className="group block h-full focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2 rounded-xl"
+    >
       <article className="h-full rounded-xl overflow-hidden bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:border-secondary-200 transition-all duration-300 flex flex-col hover:-translate-y-1">
         {/* Image container with overlay effects */}
         {post.image ? (
@@ -253,10 +302,54 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
             </div>
           </div>
         ) : (
-          <div className="relative h-48 bg-gradient-to-br from-primary-100 via-secondary-50 to-accent-emerald-100 overflow-hidden flex-shrink-0">
+          <div
+            className="relative h-48 overflow-hidden flex-shrink-0"
+            style={{
+              background:
+                "linear-gradient(135deg, var(--primary-200) 0%, var(--secondary-200) 40%, var(--accent-emerald-100) 100%)",
+            }}
+          >
+            {/* Abstract pattern overlay - enhanced saturation */}
+            <div className="absolute inset-0 opacity-30">
+              <svg
+                className="w-full h-full"
+                viewBox="0 0 200 200"
+                preserveAspectRatio="xMidYMid slice"
+              >
+                <defs>
+                  <pattern
+                    id="grid"
+                    width="20"
+                    height="20"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <circle
+                      cx="2"
+                      cy="2"
+                      r="1.5"
+                      fill="currentColor"
+                      className="text-primary-500"
+                    />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+              </svg>
+            </div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-2xl bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-lg">
-                <span className="text-3xl">📝</span>
+              <div className="w-16 h-16 rounded-2xl bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-lg border border-white/60 group-hover:scale-110 transition-transform duration-300">
+                <svg
+                  className="w-8 h-8 text-secondary-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+                  />
+                </svg>
               </div>
             </div>
           </div>
