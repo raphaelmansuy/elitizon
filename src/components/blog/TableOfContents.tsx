@@ -97,8 +97,18 @@ export default function TableOfContents({
     <nav className={`${className}`} aria-label="Table of contents">
       <div className="sticky top-24">
         <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-          <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
+          <svg
+            className="w-4 h-4 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h7"
+            />
           </svg>
           On This Page
         </h3>
@@ -106,20 +116,18 @@ export default function TableOfContents({
           {headings.map((heading) => {
             const isActive = activeId === heading.id;
             const indent = (heading.level - 2) * 12;
-            
+
             return (
-              <li
-                key={heading.id}
-                style={{ paddingLeft: `${indent}px` }}
-              >
+              <li key={heading.id} style={{ paddingLeft: `${indent}px` }}>
                 <button
                   onClick={() => scrollToHeading(heading.id)}
                   className={`
                     text-left text-[13px] leading-relaxed transition-all duration-200 w-full py-1.5 px-2.5 rounded-lg
                     hover:bg-secondary-50 hover:text-secondary-600
-                    ${isActive
-                      ? "bg-secondary-50 text-secondary-600 font-semibold border-l-2 border-secondary-500 -ml-0.5"
-                      : "text-gray-600 hover:text-gray-800"
+                    ${
+                      isActive
+                        ? "bg-secondary-50 text-secondary-600 font-semibold border-l-2 border-secondary-500 -ml-0.5"
+                        : "text-gray-600 hover:text-gray-800"
                     }
                   `}
                 >
@@ -129,11 +137,12 @@ export default function TableOfContents({
             );
           })}
         </ul>
-        
+
         {/* Progress indicator */}
         <div className="mt-4 pt-3 border-t border-gray-100">
           <p className="text-xs text-gray-400">
-            {headings.findIndex(h => h.id === activeId) + 1} of {headings.length} sections
+            {headings.findIndex((h) => h.id === activeId) + 1} of{" "}
+            {headings.length} sections
           </p>
         </div>
       </div>

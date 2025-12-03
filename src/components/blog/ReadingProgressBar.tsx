@@ -33,7 +33,7 @@ export default function ReadingProgressBar() {
       />
       {/* Glow effect at the end of the progress bar */}
       {progress > 0 && progress < 100 && (
-        <div 
+        <div
           className="absolute top-0 h-full w-8 bg-gradient-to-r from-transparent to-white/40 blur-sm"
           style={{ left: `calc(${progress}% - 2rem)` }}
         />

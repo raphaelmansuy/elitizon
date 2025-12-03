@@ -86,87 +86,115 @@ export default async function BlogPost({
           {/* Subtle background pattern */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary-50/80 via-white to-accent-emerald-50/50" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-secondary-100/20 via-transparent to-transparent" />
-          
+
           <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
             {/* Breadcrumb Navigation - Enhanced */}
-            <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
-              <Link href="/" className="hover:text-secondary-600 transition-colors">Home</Link>
+            <nav
+              className="flex items-center gap-2 text-sm text-gray-500 mb-8"
+              aria-label="Breadcrumb"
+            >
+              <Link
+                href="/"
+                className="hover:text-secondary-600 transition-colors"
+              >
+                Home
+              </Link>
               <span aria-hidden="true">→</span>
-              <Link href="/blog" className="hover:text-secondary-600 transition-colors">Blog</Link>
+              <Link
+                href="/blog"
+                className="hover:text-secondary-600 transition-colors"
+              >
+                Blog
+              </Link>
               <span aria-hidden="true">→</span>
-              <span className="text-primary-900 font-medium truncate max-w-[200px]">{post.title}</span>
+              <span className="text-primary-900 font-medium truncate max-w-[200px]">
+                {post.title}
+              </span>
             </nav>
 
             {/* Category Tags - Enhanced */}
             <div className="flex flex-wrap gap-2 mb-6">
-                {post.tags.map((tag, idx) => (
-                  <Link
-                    key={tag}
-                    href={`/blog/tag/${tag}`}
-                    className={`text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full transition-all duration-200 ${
-                      idx === 0
-                        ? "bg-secondary-100 text-secondary-700 hover:bg-secondary-200 border border-secondary-200/50"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200/50"
-                    }`}
+              {post.tags.map((tag, idx) => (
+                <Link
+                  key={tag}
+                  href={`/blog/tag/${tag}`}
+                  className={`text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full transition-all duration-200 ${
+                    idx === 0
+                      ? "bg-secondary-100 text-secondary-700 hover:bg-secondary-200 border border-secondary-200/50"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200/50"
+                  }`}
+                >
+                  {tag}
+                </Link>
+              ))}
+            </div>
+
+            {/* Article Title - Professional Typography with better line height */}
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-primary-950 leading-[1.15] tracking-tight mb-6 max-w-3xl">
+              {post.title}
+            </h1>
+
+            {/* Article description/excerpt */}
+            {post.description && (
+              <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl font-normal">
+                {post.description}
+              </p>
+            )}
+
+            {/* Enhanced Metadata Section */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 pt-6 border-t border-gray-200/60">
+              <div className="flex items-center gap-4">
+                {/* Author Avatar - enhanced */}
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-secondary-400 to-secondary-600 flex items-center justify-center text-white text-lg font-bold shadow-md ring-4 ring-white">
+                  {post.author.charAt(0)}
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-primary-900 tracking-wide">
+                    {post.author}
+                  </p>
+                  <time
+                    className="text-sm text-gray-500 font-medium"
+                    dateTime={post.date}
                   >
-                    {tag}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Article Title - Professional Typography with better line height */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-primary-950 leading-[1.15] tracking-tight mb-6 max-w-3xl">
-                {post.title}
-              </h1>
-              
-              {/* Article description/excerpt */}
-              {post.description && (
-                <p className="text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl font-normal">
-                  {post.description}
-                </p>
-              )}
-
-              {/* Enhanced Metadata Section */}
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 pt-6 border-t border-gray-200/60">
-                <div className="flex items-center gap-4">
-                  {/* Author Avatar - enhanced */}
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-secondary-400 to-secondary-600 flex items-center justify-center text-white text-lg font-bold shadow-md ring-4 ring-white">
-                    {post.author.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-primary-900 tracking-wide">
-                      {post.author}
-                    </p>
-                    <time className="text-sm text-gray-500 font-medium" dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </time>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  {post.readingTime && (
-                    <div className="flex items-center gap-2 bg-gray-100/80 text-gray-700 px-4 py-2 rounded-full font-medium text-sm">
-                      <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>{post.readingTime} read</span>
-                    </div>
-                  )}
-                  {/* Social Share */}
-                  <div className="hidden sm:block">
-                    <SocialShare url={postUrl} title={post.title} />
-                  </div>
+                    {new Date(post.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
                 </div>
               </div>
 
-              {/* Mobile Social Share */}
-              <div className="sm:hidden mt-5">
-                <SocialShare url={postUrl} title={post.title} />
+              <div className="flex items-center gap-3">
+                {post.readingTime && (
+                  <div className="flex items-center gap-2 bg-gray-100/80 text-gray-700 px-4 py-2 rounded-full font-medium text-sm">
+                    <svg
+                      className="w-4 h-4 text-gray-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span>{post.readingTime} read</span>
+                  </div>
+                )}
+                {/* Social Share */}
+                <div className="hidden sm:block">
+                  <SocialShare url={postUrl} title={post.title} />
+                </div>
               </div>
+            </div>
+
+            {/* Mobile Social Share */}
+            <div className="sm:hidden mt-5">
+              <SocialShare url={postUrl} title={post.title} />
+            </div>
           </div>
         </header>
 
@@ -242,7 +270,7 @@ export default async function BlogPost({
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-secondary-600/10 rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent-emerald-500/10 rounded-full blur-3xl" />
-                
+
                 <div className="relative">
                   <div className="inline-flex items-center gap-2 bg-white/10 text-white/90 px-3 py-1 rounded-full text-sm font-medium mb-4">
                     <span>💡</span>
@@ -252,16 +280,27 @@ export default async function BlogPost({
                     Ready to Transform Your Data?
                   </h3>
                   <p className="text-gray-300 mb-6 leading-relaxed text-base max-w-lg">
-                    Let ELITIZON help you implement cutting-edge data architecture
-                    solutions tailored to your organization&apos;s needs.
+                    Let ELITIZON help you implement cutting-edge data
+                    architecture solutions tailored to your organization&apos;s
+                    needs.
                   </p>
                   <Link
                     href="/contact"
                     className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary-900 font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:scale-105 shadow-lg"
                   >
                     <span>Get Started</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
                     </svg>
                   </Link>
                 </div>
@@ -295,8 +334,18 @@ export default async function BlogPost({
               {/* Post Navigation - Enhanced with better visual treatment */}
               <div className="mt-14 pt-10 border-t border-gray-200">
                 <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    />
                   </svg>
                   Continue Reading
                 </p>
@@ -305,8 +354,18 @@ export default async function BlogPost({
                     <Link href={`/blog/${previousPost.slug}`} className="group">
                       <div className="h-full p-5 bg-white border border-gray-200 rounded-xl hover:border-secondary-300 hover:shadow-md transition-all">
                         <p className="text-xs font-semibold text-gray-500 mb-2.5 flex items-center gap-1.5 group-hover:text-secondary-600 transition-colors">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M15 19l-7-7 7-7"
+                            />
                           </svg>
                           Previous Article
                         </p>
@@ -323,8 +382,18 @@ export default async function BlogPost({
                       <div className="h-full p-5 bg-white border border-gray-200 rounded-xl hover:border-secondary-300 hover:shadow-md transition-all text-right">
                         <p className="text-xs font-semibold text-gray-500 mb-2.5 flex items-center justify-end gap-1.5 group-hover:text-secondary-600 transition-colors">
                           Next Article
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 5l7 7-7 7"
+                            />
                           </svg>
                         </p>
                         <p className="font-bold text-primary-950 line-clamp-2 text-[0.9375rem] leading-snug group-hover:text-secondary-600 transition-colors">
@@ -345,16 +414,36 @@ export default async function BlogPost({
                 {/* Quick Info Card - Refined */}
                 <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
                   <h3 className="text-xs font-bold text-gray-500 mb-5 uppercase tracking-widest flex items-center gap-2">
-                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <svg
+                      className="w-4 h-4 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
                     </svg>
                     Article Info
                   </h3>
                   <div className="space-y-4 text-sm">
                     <div className="flex items-start gap-3">
                       <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
-                        <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        <svg
+                          className="w-4 h-4 text-gray-500"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                          />
                         </svg>
                       </div>
                       <div>
@@ -373,8 +462,18 @@ export default async function BlogPost({
                     {post.readingTime && (
                       <div className="flex items-start gap-3">
                         <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
-                          <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          <svg
+                            className="w-4 h-4 text-gray-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
                           </svg>
                         </div>
                         <div>
@@ -413,11 +512,21 @@ export default async function BlogPost({
                 <div className="relative overflow-hidden bg-gradient-to-br from-secondary-600 to-secondary-700 rounded-xl p-5 shadow-lg">
                   {/* Decorative element */}
                   <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full blur-2xl" />
-                  
+
                   <div className="relative">
                     <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-3">
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                      <svg
+                        className="w-5 h-5 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                        />
                       </svg>
                     </div>
                     <h3 className="font-bold text-white mb-2 text-[0.9375rem]">

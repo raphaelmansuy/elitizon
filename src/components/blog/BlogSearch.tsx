@@ -94,7 +94,9 @@ export default function BlogSearch({ posts, allTags }: BlogSearchProps) {
 
         {/* Tags - Enhanced with label */}
         <div>
-          <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">Filter by topic</p>
+          <p className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">
+            Filter by topic
+          </p>
           <div className="flex flex-wrap gap-2">
             {allTags.map((tag) => (
               <button
@@ -156,7 +158,7 @@ export default function BlogSearch({ posts, allTags }: BlogSearchProps) {
               </span>
             )}
           </p>
-          
+
           {filteredPosts.length > 0 && (
             <button
               onClick={clearFilters}
@@ -178,22 +180,43 @@ export default function BlogSearch({ posts, allTags }: BlogSearchProps) {
       ) : (
         <div className="text-center py-16 px-6 bg-gray-50 rounded-2xl border border-gray-100">
           <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-            <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <svg
+              className="w-8 h-8 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
             </svg>
           </div>
           <h3 className="text-lg font-bold text-primary-950 mb-2">
             No articles found
           </h3>
           <p className="text-gray-600 mb-5 max-w-sm mx-auto">
-            We couldn&apos;t find any articles matching your search. Try different keywords or browse all articles.
+            We couldn&apos;t find any articles matching your search. Try
+            different keywords or browse all articles.
           </p>
           <button
             onClick={clearFilters}
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary-600 hover:bg-secondary-700 text-white font-semibold rounded-lg transition-colors"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+              />
             </svg>
             Clear filters
           </button>

@@ -17,9 +17,10 @@ export default function BackToTop({
   useEffect(() => {
     const toggleVisibility = () => {
       const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      
+
       setIsVisible(scrollTop > threshold);
       setScrollProgress(Math.min(100, Math.max(0, progress)));
     };
@@ -60,7 +61,7 @@ export default function BackToTop({
       aria-label="Back to top"
     >
       {/* Circular progress indicator */}
-      <svg 
+      <svg
         className="absolute inset-0 w-full h-full -rotate-90"
         viewBox="0 0 48 48"
       >
@@ -75,7 +76,7 @@ export default function BackToTop({
           className="opacity-30"
         />
       </svg>
-      
+
       {/* Arrow icon */}
       <svg
         className="w-5 h-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
