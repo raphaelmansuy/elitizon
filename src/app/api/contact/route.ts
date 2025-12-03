@@ -9,6 +9,7 @@ import { logger } from "@/lib/logger";
 import { sanitizeText } from "@/lib/sanitize";
 import { contactSchema, validateInput } from "@/lib/validation";
 import { checkRateLimit, getClientIP } from "@/lib/rateLimit";
+import { checkForBot } from "@/lib/botProtection";
 
 // Configure AWS SES with validation
 const sesClient = createSESClient();
@@ -21,6 +22,9 @@ interface ContactFormData {
   budget: string;
   timeline: string;
   message: string;
+  // Bot protection fields
+  honeypot?: string;
+  formStartTime?: number;
 }
 
 export async function POST(request: NextRequest) {
@@ -28,21 +32,25 @@ export async function POST(request: NextRequest) {
     // Check rate limit
     const clientIP = getClientIP(request);
     const rateLimitResult = checkRateLimit(clientIP, 5, 15 * 60 * 1000); // 5 requests per 15 minutes
-    
+
     if (!rateLimitResult.success) {
       return NextResponse.json(
-        { 
+        {
           message: "Too many requests. Please try again later.",
-          retryAfter: Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000)
+          retryAfter: Math.ceil(
+            (rateLimitResult.resetTime - Date.now()) / 1000
+          ),
         },
-        { 
+        {
           status: 429,
           headers: {
-            'X-RateLimit-Limit': rateLimitResult.limit.toString(),
-            'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
-            'X-RateLimit-Reset': rateLimitResult.resetTime.toString(),
-            'Retry-After': Math.ceil((rateLimitResult.resetTime - Date.now()) / 1000).toString()
-          }
+            "X-RateLimit-Limit": rateLimitResult.limit.toString(),
+            "X-RateLimit-Remaining": rateLimitResult.remaining.toString(),
+            "X-RateLimit-Reset": rateLimitResult.resetTime.toString(),
+            "Retry-After": Math.ceil(
+              (rateLimitResult.resetTime - Date.now()) / 1000
+            ).toString(),
+          },
         }
       );
     }
@@ -50,19 +58,49 @@ export async function POST(request: NextRequest) {
     const rawFormData = await request.json();
 
     // Validate input data
-    const { error, value: formData } = validateInput(contactSchema, rawFormData);
-    
+    const { error, value: formData } = validateInput(
+      contactSchema,
+      rawFormData
+    );
+
     if (error) {
-      return NextResponse.json(
-        { message: error },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: error }, { status: 400 });
     }
 
     if (!formData) {
       return NextResponse.json(
         { message: "Invalid form data" },
         { status: 400 }
+      );
+    }
+
+    // Bot protection check
+    const botCheckResult = checkForBot(
+      {
+        honeypot: formData.honeypot,
+        formStartTime: formData.formStartTime,
+      },
+      {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        message: formData.message,
+      }
+    );
+
+    if (botCheckResult.isBot) {
+      logger.warn("Bot submission blocked", {
+        reason: botCheckResult.reason,
+        score: botCheckResult.score,
+        ip: clientIP,
+        name: formData.name?.substring(0, 30),
+      });
+
+      // Return a generic success message to not reveal bot detection
+      // This prevents bots from adapting their behavior
+      return NextResponse.json(
+        { message: "Thank you for your message. We will be in touch soon." },
+        { status: 200 }
       );
     }
 
@@ -73,7 +111,7 @@ export async function POST(request: NextRequest) {
     logger.debug("Email configuration check", {
       formEmail: formData.email,
       configFromEmail: emailConfig.fromEmail,
-      configToEmail: emailConfig.toEmail
+      configToEmail: emailConfig.toEmail,
     });
 
     // Generate email content
@@ -87,7 +125,9 @@ export async function POST(request: NextRequest) {
       },
       Message: {
         Subject: {
-          Data: `New Contact Form Submission from ${sanitizeText(formData.name)} - ${
+          Data: `New Contact Form Submission from ${sanitizeText(
+            formData.name
+          )} - ${
             formData.company ? sanitizeText(formData.company) : "Individual"
           }`,
           Charset: "UTF-8",
@@ -134,18 +174,21 @@ export async function POST(request: NextRequest) {
     } catch (confirmationError) {
       // Log the error but don't fail the entire request
       // This is common in SES sandbox mode where recipient emails must be verified
-      logger.warn("Could not send confirmation email (likely due to SES sandbox mode)", confirmationError);
+      logger.warn(
+        "Could not send confirmation email (likely due to SES sandbox mode)",
+        confirmationError
+      );
     }
 
     return NextResponse.json(
       { message: "Contact form submitted successfully" },
-      { 
+      {
         status: 200,
         headers: {
-          'X-RateLimit-Limit': rateLimitResult.limit.toString(),
-          'X-RateLimit-Remaining': rateLimitResult.remaining.toString(),
-          'X-RateLimit-Reset': rateLimitResult.resetTime.toString()
-        }
+          "X-RateLimit-Limit": rateLimitResult.limit.toString(),
+          "X-RateLimit-Remaining": rateLimitResult.remaining.toString(),
+          "X-RateLimit-Reset": rateLimitResult.resetTime.toString(),
+        },
       }
     );
   } catch (error) {
@@ -189,25 +232,35 @@ function generateEmailContent(formData: ContactFormData) {
         <div class="content">
             <div class="section">
                 <h2>👤 Contact Information</h2>
-                <div class="field"><strong>Name:</strong> ${sanitizeText(formData.name)}</div>
-                <div class="field"><strong>Email:</strong> <a href="mailto:${
-                  sanitizeText(formData.email)
-                }">${sanitizeText(formData.email)}</a></div>
+                <div class="field"><strong>Name:</strong> ${sanitizeText(
+                  formData.name
+                )}</div>
+                <div class="field"><strong>Email:</strong> <a href="mailto:${sanitizeText(
+                  formData.email
+                )}">${sanitizeText(formData.email)}</a></div>
                 <div class="field"><strong>Company:</strong> ${
-                  formData.company ? sanitizeText(formData.company) : "Not specified"
+                  formData.company
+                    ? sanitizeText(formData.company)
+                    : "Not specified"
                 }</div>
             </div>
 
             <div class="section">
                 <h2>💼 Project Details</h2>
                 <div class="field"><strong>Service Interest:</strong> ${
-                  formData.service ? sanitizeText(formData.service) : "Not specified"
+                  formData.service
+                    ? sanitizeText(formData.service)
+                    : "Not specified"
                 }</div>
                 <div class="field"><strong>Budget Range:</strong> ${
-                  formData.budget ? sanitizeText(formData.budget) : "Not specified"
+                  formData.budget
+                    ? sanitizeText(formData.budget)
+                    : "Not specified"
                 }</div>
                 <div class="field"><strong>Timeline:</strong> ${
-                  formData.timeline ? sanitizeText(formData.timeline) : "Not specified"
+                  formData.timeline
+                    ? sanitizeText(formData.timeline)
+                    : "Not specified"
                 }</div>
             </div>
 
@@ -241,9 +294,15 @@ Email: ${sanitizeText(formData.email)}
 Company: ${formData.company ? sanitizeText(formData.company) : "Not specified"}
 
 PROJECT DETAILS
-Service Interest: ${formData.service ? sanitizeText(formData.service) : "Not specified"}
-Budget Range: ${formData.budget ? sanitizeText(formData.budget) : "Not specified"}
-Timeline: ${formData.timeline ? sanitizeText(formData.timeline) : "Not specified"}
+Service Interest: ${
+    formData.service ? sanitizeText(formData.service) : "Not specified"
+  }
+Budget Range: ${
+    formData.budget ? sanitizeText(formData.budget) : "Not specified"
+  }
+Timeline: ${
+    formData.timeline ? sanitizeText(formData.timeline) : "Not specified"
+  }
 
 MESSAGE
 ${sanitizeText(formData.message)}
@@ -312,13 +371,19 @@ function generateConfirmationEmail(formData: ContactFormData) {
                 <h3>📋 Your Submission Summary</h3>
                 <p><strong>Name:</strong> ${sanitizeText(formData.name)}</p>
                 <p><strong>Company:</strong> ${
-                  formData.company ? sanitizeText(formData.company) : "Individual"
+                  formData.company
+                    ? sanitizeText(formData.company)
+                    : "Individual"
                 }</p>
                 <p><strong>Service Interest:</strong> ${
-                  formData.service ? sanitizeText(formData.service) : "General Inquiry"
+                  formData.service
+                    ? sanitizeText(formData.service)
+                    : "General Inquiry"
                 }</p>
                 <p><strong>Timeline:</strong> ${
-                  formData.timeline ? sanitizeText(formData.timeline) : "Not specified"
+                  formData.timeline
+                    ? sanitizeText(formData.timeline)
+                    : "Not specified"
                 }</p>
             </div>
 
