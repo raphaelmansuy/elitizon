@@ -51,3 +51,6 @@ reports/
 
 # Build analysis
 .next/analyze/
+
+# Playwright MCP artifacts (screenshots/video from test runs)
+.playwright-mcp/

@@ -809,3 +809,36 @@ a:focus {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Mermaid Diagram Styling - Clean White Background */
+.mermaid {
+  background: white !important;
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.mermaid svg {
+  background: white !important;
+  max-width: 100%;
+  height: auto !important;
+  display: block;
+}
+
+.mermaid svg text {
+  fill: #2a3045 !important;
+}
+
+/* Override pre styling for Mermaid diagrams */
+pre .mermaid {
+  background: white !important;
+  background-color: white !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 1.5rem 0 !important;
+  box-shadow: none !important;
+}
+
+pre .mermaid svg {
+  background: white !important;
+}

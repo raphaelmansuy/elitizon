@@ -1,10 +1,11 @@
 import { MetadataRoute } from "next";
+import { getAllBlogPosts } from "@/lib/blog/mdx";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://elitizon.com";
   const currentDate = new Date().toISOString();
 
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: currentDate,
@@ -53,5 +54,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: currentDate,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
   ];
+
+  // Add blog posts to sitemap
+  try {
+    const blogPosts = await getAllBlogPosts();
+    const blogPostsUrls: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.updated || post.date).toISOString(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }));
+
+    return [...staticPages, ...blogPostsUrls];
+  } catch {
+    // If blog posts can't be loaded, return just static pages
+    return staticPages;
+  }
 }
