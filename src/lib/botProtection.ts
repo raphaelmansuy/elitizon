@@ -105,13 +105,13 @@ function checkSubmissionTime(formStartTime?: number): {
 
   if (adjustedElapsedTime < MIN_FORM_SUBMISSION_TIME) {
     logger.warn("Bot detected: Form submitted too quickly", {
-      elapsedTime,
+      elapsedTime: adjustedElapsedTime,
       minRequired: MIN_FORM_SUBMISSION_TIME,
     });
     return {
       isSuspicious: true,
       score: 90,
-      reason: `Form submitted in ${elapsedTime}ms (minimum: ${MIN_FORM_SUBMISSION_TIME}ms)`,
+      reason: `Form submitted in ${adjustedElapsedTime}ms (minimum: ${MIN_FORM_SUBMISSION_TIME}ms)`,
     };
   }
 
