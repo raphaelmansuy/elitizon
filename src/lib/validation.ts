@@ -175,6 +175,16 @@ export const careerSchema = Joi.object({
     "any.only": "Terms agreement is required",
     "any.required": "Terms agreement is required",
   }),
+  // Bot protection fields (optional)
+  honeypot: Joi.string().allow("").max(500).optional().messages({
+    "string.max": "Invalid field value",
+  }),
+
+  formStartTime: Joi.number().integer().positive().optional().messages({
+    "number.base": "Invalid form data",
+    "number.integer": "Invalid form data",
+    "number.positive": "Invalid form data",
+  }),
 });
 
 // Validation helper function

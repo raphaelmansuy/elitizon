@@ -9,6 +9,7 @@ import { logger } from "@/lib/logger";
 import { sanitizeText } from "@/lib/sanitize";
 import { careerSchema, validateInput } from "@/lib/validation";
 import { checkRateLimit, getClientIP } from "@/lib/rateLimit";
+import { checkForBot } from "@/lib/botProtection";
 
 // Configure AWS SES with validation
 const sesClient = createSESClient();
@@ -56,11 +57,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Cast validated value to typed data (includes optional bot protection fields)
+    const data = formData as ApplicationData & { honeypot?: string; formStartTime?: number };
+
+    // Bot protection check - apply the same checks as contact form
+    const botCheckResult = checkForBot(
+      {
+        honeypot: data.honeypot,
+        formStartTime: data.formStartTime,
+      },
+      {
+        name: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        company: data.location,
+        message: [data.previousExperience, data.additionalInfo, data.notableProjects]
+          .filter(Boolean)
+          .join(" \n\n"),
+      }
+    );
+
+    if (botCheckResult.isBot) {
+      logger.warn("Bot application blocked", {
+        reason: botCheckResult.reason,
+        score: botCheckResult.score,
+        ip: clientIP,
+        name: `${data.firstName} ${data.lastName}`.substring(0, 40),
+      });
+
+      // Return a generic success message so bots can't discover the detection
+      return NextResponse.json(
+        { message: "Thank you! Your application has been received." },
+        { status: 200 }
+      );
+    }
+
     // Validate email configuration
     const emailConfig = validateEmailConfig();
 
     // Generate email content
-    const emailContent = generateEmailContent(formData);
+    const emailContent = generateEmailContent(data);
 
     // Send email using SES
     const command = new SendEmailCommand({
@@ -92,7 +127,7 @@ export async function POST(request: NextRequest) {
     const confirmationCommand = new SendEmailCommand({
       Source: emailConfig.fromEmail,
       Destination: {
-        ToAddresses: [formData.email],
+        ToAddresses: [data.email],
       },
       Message: {
         Subject: {
@@ -156,6 +191,9 @@ interface ApplicationData {
   additionalInfo: string;
   privacyConsent: boolean;
   termsAgreement: boolean;
+  // Bot protection fields
+  honeypot?: string;
+  formStartTime?: number;
 }
 
 function generateEmailContent(formData: ApplicationData) {
