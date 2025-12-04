@@ -70,19 +70,18 @@ function checkSubmissionTime(formStartTime?: number): {
   }
 
   const now = Date.now();
+  const elapsedTime = now - formStartTime;
 
   // Check if the timestamp is within a reasonable range of the current server time
-  // This handles cases where the client's clock is significantly ahead or behind
-  const clockDifference = formStartTime - now;
-
-  // If client timestamp is in the future by more than the tolerance, the clock is too far off
-  if (clockDifference > MAX_CLOCK_SKEW_TOLERANCE) {
+  // This handles cases where the client's clock is significantly ahead
+  // (elapsedTime would be negative if client clock is ahead)
+  if (elapsedTime < -MAX_CLOCK_SKEW_TOLERANCE) {
     logger.warn(
       "Bot detection: Client timestamp too far in the future (clock skew)",
       {
         formStartTime,
         serverTime: now,
-        clockDifference,
+        elapsedTime,
         maxTolerance: MAX_CLOCK_SKEW_TOLERANCE,
       }
     );
@@ -95,36 +94,37 @@ function checkSubmissionTime(formStartTime?: number): {
     };
   }
 
-  // Calculate elapsed time with clock skew tolerance
-  // If the client clock is slightly ahead (negative elapsed), we allow up to MAX_CLOCK_SKEW_TOLERANCE
-  const elapsedTime = now - formStartTime;
+  // Adjust elapsed time to account for acceptable clock skew
+  // If client clock is slightly ahead (small negative elapsed time), we add
+  // the tolerance to get an adjusted value that represents minimum possible time
+  const adjustedElapsedTime = Math.max(0, elapsedTime + MAX_CLOCK_SKEW_TOLERANCE);
 
-  // For timing checks, account for potential clock skew
-  // A client whose clock is behind will show a larger elapsed time (acceptable)
-  // A client whose clock is ahead will show a smaller or negative elapsed time (needs tolerance)
-  const adjustedElapsedTime =
-    elapsedTime < 0 ? 0 : elapsedTime;
-
-  if (adjustedElapsedTime < MIN_FORM_SUBMISSION_TIME) {
-    // Only flag as suspicious if we're confident there's no clock skew issue
-    // If elapsed time is negative or very small, it might just be clock skew
-    if (elapsedTime < -MAX_CLOCK_SKEW_TOLERANCE) {
-      // Extreme case: timestamp is way in the future beyond tolerance
-      return {
-        isSuspicious: false,
-        score: 25,
-        reason: "Timestamp appears to be from client with future clock",
-      };
-    }
-
+  // Check if form was submitted too quickly, accounting for clock skew tolerance
+  // We use the original elapsedTime for the strict check (not adjusted)
+  // because a negative elapsedTime beyond tolerance is already handled above
+  if (elapsedTime >= 0 && elapsedTime < MIN_FORM_SUBMISSION_TIME) {
+    // Elapsed time is positive but too fast - definitely a bot
     logger.warn("Bot detected: Form submitted too quickly", {
-      elapsedTime: adjustedElapsedTime,
+      elapsedTime,
       minRequired: MIN_FORM_SUBMISSION_TIME,
     });
     return {
       isSuspicious: true,
       score: 90,
-      reason: `Form submitted in ${adjustedElapsedTime}ms (minimum: ${MIN_FORM_SUBMISSION_TIME}ms)`,
+      reason: `Form submitted in ${elapsedTime}ms (minimum: ${MIN_FORM_SUBMISSION_TIME}ms)`,
+    };
+  } else if (elapsedTime < 0 && adjustedElapsedTime < MIN_FORM_SUBMISSION_TIME) {
+    // Elapsed time is negative (client clock ahead) but within tolerance
+    // After adjustment, still too fast - likely a bot
+    logger.warn("Bot detected: Form submitted too quickly (with clock skew adjustment)", {
+      elapsedTime,
+      adjustedElapsedTime,
+      minRequired: MIN_FORM_SUBMISSION_TIME,
+    });
+    return {
+      isSuspicious: true,
+      score: 90,
+      reason: `Form submitted too quickly (adjusted: ${adjustedElapsedTime}ms, minimum: ${MIN_FORM_SUBMISSION_TIME}ms)`,
     };
   }
 
