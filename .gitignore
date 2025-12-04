@@ -38,9 +38,7 @@ yarn-error.log*
 # vercel
 .vercel
 
-# Netlify
-.netlify/
-netlify/
+# (Netlify-related entries removed) .netlify/ netlify/ — no longer used
 
 # typescript
 *.tsbuildinfo
