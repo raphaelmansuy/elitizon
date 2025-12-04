@@ -72,12 +72,11 @@ function checkSubmissionTime(formStartTime?: number): {
   const now = Date.now();
   const elapsedTime = now - formStartTime;
 
-  // Check if the timestamp is within a reasonable range of the current server time
-  // This handles cases where the client's clock is significantly ahead
-  // (elapsedTime would be negative if client clock is ahead)
+  // Check if the timestamp is too far in the future (client clock significantly ahead)
+  // This is the extreme clock skew case - beyond what we can reasonably tolerate
   if (elapsedTime < -MAX_CLOCK_SKEW_TOLERANCE) {
     logger.warn(
-      "Bot detection: Client timestamp too far in the future (clock skew)",
+      "Bot detection: Client timestamp too far in the future (extreme clock skew)",
       {
         formStartTime,
         serverTime: now,
@@ -94,42 +93,8 @@ function checkSubmissionTime(formStartTime?: number): {
     };
   }
 
-  // Adjust elapsed time to account for acceptable clock skew
-  // If client clock is slightly ahead (small negative elapsed time), we add
-  // the tolerance to get an adjusted value that represents minimum possible time
-  const adjustedElapsedTime = Math.max(0, elapsedTime + MAX_CLOCK_SKEW_TOLERANCE);
-
-  // Check if form was submitted too quickly, accounting for clock skew tolerance
-  // We use the original elapsedTime for the strict check (not adjusted)
-  // because a negative elapsedTime beyond tolerance is already handled above
-  if (elapsedTime >= 0 && elapsedTime < MIN_FORM_SUBMISSION_TIME) {
-    // Elapsed time is positive but too fast - definitely a bot
-    logger.warn("Bot detected: Form submitted too quickly", {
-      elapsedTime,
-      minRequired: MIN_FORM_SUBMISSION_TIME,
-    });
-    return {
-      isSuspicious: true,
-      score: 90,
-      reason: `Form submitted in ${elapsedTime}ms (minimum: ${MIN_FORM_SUBMISSION_TIME}ms)`,
-    };
-  } else if (elapsedTime < 0 && adjustedElapsedTime < MIN_FORM_SUBMISSION_TIME) {
-    // Elapsed time is negative (client clock ahead) but within tolerance
-    // After adjustment, still too fast - likely a bot
-    logger.warn("Bot detected: Form submitted too quickly (with clock skew adjustment)", {
-      elapsedTime,
-      adjustedElapsedTime,
-      minRequired: MIN_FORM_SUBMISSION_TIME,
-    });
-    return {
-      isSuspicious: true,
-      score: 90,
-      reason: `Form submitted too quickly (adjusted: ${adjustedElapsedTime}ms, minimum: ${MIN_FORM_SUBMISSION_TIME}ms)`,
-    };
-  }
-
+  // Check if the timestamp is too far in the past (either client clock behind or old token)
   if (elapsedTime > MAX_FORM_SUBMISSION_TIME + MAX_CLOCK_SKEW_TOLERANCE) {
-    // Add clock skew tolerance to the maximum allowed time as well
     logger.warn("Bot detection: Form submission too old", {
       elapsedTime,
       maxAllowed: MAX_FORM_SUBMISSION_TIME + MAX_CLOCK_SKEW_TOLERANCE,
@@ -140,6 +105,39 @@ function checkSubmissionTime(formStartTime?: number): {
       reason: "Form submission token expired",
     };
   }
+
+  // Now check for bots submitting too quickly
+  // We need to account for acceptable clock skew (up to ±5 minutes)
+  //
+  // Case 1: Client clock is behind or correct (elapsedTime >= 0)
+  //   - Use elapsed time directly for the minimum time check
+  //
+  // Case 2: Client clock is slightly ahead (elapsedTime < 0 but > -MAX_CLOCK_SKEW_TOLERANCE)
+  //   - We can't definitively determine the real elapsed time
+  //   - Give benefit of the doubt but still flag extreme cases
+  //   - If elapsed time is negative, the apparent submission time is 0 or negative
+  //   - A legitimate user with a clock 5 minutes ahead who spent 10 seconds on the form
+  //     would have elapsedTime = 10000 - 300000 = -290000 (handled above as extreme skew)
+  //   - A bot with a clock 1 minute ahead would have elapsedTime ≈ -60000
+  //   - We'll treat small negative values as potentially legitimate but suspicious
+
+  if (elapsedTime >= 0 && elapsedTime < MIN_FORM_SUBMISSION_TIME) {
+    // Clear case: positive elapsed time but too fast - definitely a bot
+    logger.warn("Bot detected: Form submitted too quickly", {
+      elapsedTime,
+      minRequired: MIN_FORM_SUBMISSION_TIME,
+    });
+    return {
+      isSuspicious: true,
+      score: 90,
+      reason: `Form submitted in ${elapsedTime}ms (minimum: ${MIN_FORM_SUBMISSION_TIME}ms)`,
+    };
+  }
+
+  // For negative elapsed time within tolerance (client clock slightly ahead),
+  // we give benefit of the doubt. The user may have spent adequate time on the form,
+  // but their clock being ahead makes the elapsed time appear smaller/negative.
+  // We don't flag these as bots to avoid false positives.
 
   return { isSuspicious: false, score: 0 };
 }
