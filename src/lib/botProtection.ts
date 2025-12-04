@@ -17,6 +17,22 @@ const MIN_FORM_SUBMISSION_TIME = 3000;
 // Set to 1 hour - prevents replay attacks with stale tokens
 const MAX_FORM_SUBMISSION_TIME = 60 * 60 * 1000;
 
+// Spam keyword patterns for content analysis
+// These patterns detect common spam phrases in message content
+// Add or remove patterns as spam evolves
+const SPAM_KEYWORD_PATTERNS: RegExp[] = [
+  /\bcrypto\s*currency/i,
+  /\bbitcoin\s*investment/i,
+  /\bfree\s*money/i,
+  /\bclick\s*here\s*now/i,
+  /\bviagra/i,
+  /\bcialis/i,
+  /\bonline\s*casino/i,
+  /\bseo\s*services/i,
+  /\bbacklinks/i,
+  /\bguaranteed\s*results/i,
+];
+
 export interface BotProtectionData {
   // Honeypot field - should always be empty for legitimate submissions
   honeypot?: string;
@@ -150,20 +166,7 @@ function analyzeContentForSpam(content: {
     }
 
     // Check for spam keywords (common in spam submissions)
-    const spamKeywords = [
-      /\bcrypto\s*currency/i,
-      /\bbitcoin\s*investment/i,
-      /\bfree\s*money/i,
-      /\bclick\s*here\s*now/i,
-      /\bviagra/i,
-      /\bcialis/i,
-      /\bonline\s*casino/i,
-      /\bseo\s*services/i,
-      /\bbacklinks/i,
-      /\bguaranteed\s*results/i,
-    ];
-
-    for (const pattern of spamKeywords) {
+    for (const pattern of SPAM_KEYWORD_PATTERNS) {
       if (pattern.test(content.message)) {
         spamScore += 40;
         reasons.push("Spam keywords detected");
