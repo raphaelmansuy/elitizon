@@ -42,7 +42,7 @@ help:
 	@echo "  $(YELLOW)make analyze$(NC)          Analyze bundle size"
 	@echo ""
 	@echo "$(GREEN)🚢 Deployment$(NC)"
-	@echo "  $(YELLOW)make deploy-netlify$(NC)   (deprecated) Netlify deploys disabled"
+	@echo "  $(YELLOW)make deploy-netlify$(NC)   Build and export for Netlify"
 	@echo "  $(YELLOW)make deploy-vercel$(NC)    Prepare for Vercel deployment"
 	@echo ""
 	@echo "$(GREEN)🛠️  Utilities$(NC)"
@@ -132,8 +132,10 @@ analyze:
 
 # Deployment targets
 deploy-netlify:
-	@echo "$(YELLOW)⚠️ Netlify deployment target is deprecated and disabled in this repo.$(NC)"
-	@echo "If you need Netlify builds, re-enable build scripts and workflow or use the Netlify dashboard."
+	@echo "$(GREEN)🚀 Preparing for Netlify deployment...$(NC)"
+	npm run build:netlify
+	@echo "$(GREEN)✓ Ready for Netlify deployment$(NC)"
+	@echo "$(BLUE)→ Push to main branch to deploy$(NC)"
 
 deploy-vercel:
 	@echo "$(GREEN)🚀 Preparing for Vercel deployment...$(NC)"

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
   title: "Contact Global AI Consultants | Get AI Consulting Quote - ELITIZON",
@@ -41,4 +41,18 @@ export default function ContactLayout({
   children: React.ReactNode;
 }) {
   return <>{children}</>;
+}
+
+// generateViewport can be used for dynamic viewport properties per-route.
+// Use this when viewport must be computed at runtime (e.g. theming based on
+// route params or searchParams). For the contact route we export a static
+// function to demonstrate per-route runtime support.
+export function generateViewport(): Viewport {
+  return {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    themeColor: "#0b1220", // contact route has a slightly different theme color
+    colorScheme: "light",
+  };
 }

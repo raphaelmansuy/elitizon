@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface FormErrors {
   name?: string;
@@ -20,6 +20,15 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
+
+  // Bot protection state
+  const [honeypot, setHoneypot] = useState("");
+  const [formStartTime, setFormStartTime] = useState<number>(0);
+
+  // Set form start time when component mounts
+  useEffect(() => {
+    setFormStartTime(Date.now());
+  }, []);
 
   const validateForm = (): FormErrors => {
     const newErrors: FormErrors = {};
@@ -60,7 +69,12 @@ export default function Contact() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          // Bot protection fields
+          honeypot,
+          formStartTime,
+        }),
       });
 
       const result = await response.json();
@@ -164,6 +178,24 @@ export default function Contact() {
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot field - hidden from users, filled by bots */}
+              <div
+                className="absolute -left-[9999px] opacity-0 pointer-events-none"
+                aria-hidden="true"
+                tabIndex={-1}
+              >
+                <label htmlFor="website_url_enhanced">Website URL</label>
+                <input
+                  type="text"
+                  id="website_url_enhanced"
+                  name="website_url"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div>
                 <label
                   htmlFor="name"
