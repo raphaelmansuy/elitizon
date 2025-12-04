@@ -1,11 +1,15 @@
 #!/bin/bash
 
-# Netlify Deployment Script for ELITIZON
-# This script helps with local deployment testing and CI/CD setup
+# Netlify deployment script — DISABLED
+# Netlify-based CI/CD was removed from the project to prevent failing
+# checks in pull requests. The repository now uses Vercel (see .vercel/)
+# or GitHub Actions for deployment. This file is retained for historical
+# reference only and will exit immediately if executed to avoid accidental
+# deployments.
 
-set -e
-
-echo "🚀 Starting Netlify deployment process..."
+echo "⚠️  Netlify deployment script is disabled in this repository."
+echo "⚠️  If you need to re-enable Netlify deployment, restore or update this file."
+exit 0
 
 # Check if required environment variables are set
 check_env_vars() {

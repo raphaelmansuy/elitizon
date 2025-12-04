@@ -1,10 +1,8 @@
-[build]
-  # Build command and output directory
-  command = "npm run build"
-  publish = ".next"
-  
-  # Environment variables for build process
-  environment = { NODE_VERSION = "18", NEXT_TELEMETRY_DISABLED = "1" }
+# Netlify configuration file retained for history but disabled.
+# NOTE: This project no longer uses Netlify for CI/CD. The Netlify platform
+# integration caused spurious checks in PRs. To avoid repeated failing
+# checks this file has been intentionally disabled. If Netlify integration
+# should be re-enabled, replace this file with a valid netlify.toml configuration.
 
 [build.processing]
   # Skip processing for pre-compressed files
@@ -136,23 +134,4 @@
 [context.deploy-preview]
   command = "npm run build"
 
-# Plugin configuration for better Next.js support
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-[[plugins]]
-  package = "netlify-plugin-lighthouse"
-  
-  [plugins.inputs.settings]
-    output_path = "reports/lighthouse.html"
-
-[[plugins]]
-  package = "netlify-plugin-sitemap"
-  
-  [plugins.inputs]
-    base_url = "https://elitizon.com"
-    pretty_urls = true
-    exclude = [
-      "/admin/**",
-      "/test/**"
-    ]
+# Removed all Netlify deploy rules and plugin configuration.
