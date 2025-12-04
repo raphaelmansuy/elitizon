@@ -4,13 +4,17 @@
 
 ```bash
 # 1. Run the secure setup (one-time)
+#    (run the AWS SES setup script)
 ./scripts/aws/setup-ses-iam.sh
 
 # 2. Check everything is working
 ./scripts/aws/validate-ses-setup.sh
 
 # 3. Deploy with confidence
-./scripts/deploy-netlify.sh
+#    The repo no longer ships a Netlify-only deploy script; use your chosen
+#    platform (Vercel, Netlify, other) or run the generic build/start flow:
+#
+#    npm run build && npm run start
 ```
 
 ## What Was Created
