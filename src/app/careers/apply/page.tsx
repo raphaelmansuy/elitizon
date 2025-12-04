@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 interface FormData {
@@ -39,6 +39,9 @@ interface FormData {
   // Agreements
   privacyConsent: boolean;
   termsAgreement: boolean;
+  // Bot protection fields (hidden)
+  honeypot?: string;
+  formStartTime?: number | null;
 }
 
 export default function ApplyPage() {
@@ -72,6 +75,14 @@ export default function ApplyPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
   const [currentStep, setCurrentStep] = useState(1);
+  // Bot protection state
+  const [honeypot, setHoneypot] = useState("");
+  const [formStartTime, setFormStartTime] = useState<number | null>(null);
+
+  // Record when the form was first rendered — used by server side checks
+  useEffect(() => {
+    setFormStartTime(Date.now());
+  }, []);
 
   const expertiseOptions = [
     "Data Engineering",
@@ -165,12 +176,15 @@ export default function ApplyPage() {
     setSubmitMessage("");
 
     try {
+      // include honeypot and timing data for bot protection
+      const payload = { ...formData, honeypot, formStartTime };
+
       const response = await fetch("/api/careers/apply", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
@@ -281,6 +295,23 @@ export default function ApplyPage() {
             onSubmit={handleSubmit}
             className="bg-white rounded-2xl shadow-xl p-8"
           >
+            {/* Honeypot field (hidden) - bots often fill this */}
+            <div
+              className="absolute -left-[9999px] opacity-0 pointer-events-none"
+              aria-hidden="true"
+              tabIndex={-1}
+            >
+              <label htmlFor="website_url_careers">Website URL</label>
+              <input
+                type="text"
+                id="website_url_careers"
+                name="website_url"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
             {/* Step 1: Personal Information */}
             {currentStep === 1 && (
               <div className="space-y-6">
