@@ -39,7 +39,7 @@ function checkHoneypot(honeypot?: string): {
 } {
   if (honeypot && honeypot.trim().length > 0) {
     logger.warn("Bot detected: Honeypot field was filled", {
-      honeypot: honeypot.substring(0, 50),
+      honeypotLength: honeypot.length,
     });
     return { isSuspicious: true, score: 100 };
   }
