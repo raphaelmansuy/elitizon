@@ -10,8 +10,8 @@
 import { logger } from "./logger";
 
 // Minimum time (in milliseconds) a human would take to fill out the form
-// Set to 3 seconds - too fast is suspicious
-const MIN_FORM_SUBMISSION_TIME = 3000;
+// Set to 5 seconds - too fast is suspicious (increased from 3s to reduce false positives with autofill)
+const MIN_FORM_SUBMISSION_TIME = 5000;
 
 // Maximum time (in milliseconds) allowed for form submission
 // Set to 1 hour - prevents replay attacks with stale tokens
@@ -43,7 +43,8 @@ function checkHoneypot(honeypot?: string): {
 } {
   if (honeypot && honeypot.trim().length > 0) {
     logger.warn("Bot detected: Honeypot field was filled", {
-      honeypot: honeypot.substring(0, 50),
+      honeypotLength: honeypot.length,
+      honeypotPreview: honeypot.substring(0, 10),
     });
     return { isSuspicious: true, score: 100 };
   }
@@ -197,21 +198,8 @@ function analyzeContentForSpam(content: {
       reasons.push("Short gibberish message");
     }
 
-    // Check for spam keywords (common in spam submissions)
-    const spamKeywords = [
-      /\bcrypto\s*currency/i,
-      /\bbitcoin\s*investment/i,
-      /\bfree\s*money/i,
-      /\bclick\s*here\s*now/i,
-      /\bviagra/i,
-      /\bcialis/i,
-      /\bonline\s*casino/i,
-      /\bseo\s*services/i,
-      /\bbacklinks/i,
-      /\bguaranteed\s*results/i,
-    ];
-
-    for (const pattern of spamKeywords) {
+    // Check for spam keywords using centralized patterns
+    for (const pattern of SPAM_KEYWORD_PATTERNS) {
       if (pattern.test(content.message)) {
         spamScore += 40;
         reasons.push("Spam keywords detected");
