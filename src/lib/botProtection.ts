@@ -10,12 +10,30 @@
 import { logger } from "./logger";
 
 // Minimum time (in milliseconds) a human would take to fill out the form
-// Set to 3 seconds - too fast is suspicious
-const MIN_FORM_SUBMISSION_TIME = 3000;
+// Set to 5 seconds - too fast is suspicious (increased from 3s to reduce false positives with autofill)
+const MIN_FORM_SUBMISSION_TIME = 5000;
 
 // Maximum time (in milliseconds) allowed for form submission
 // Set to 1 hour - prevents replay attacks with stale tokens
 const MAX_FORM_SUBMISSION_TIME = 60 * 60 * 1000;
+
+// Tolerance for client-server time differences (in milliseconds)
+// Set to 5 minutes to handle clock synchronization issues
+const TIME_SYNC_TOLERANCE = 5 * 60 * 1000;
+
+// Spam keywords patterns - centralized for easier maintenance and tuning
+const SPAM_KEYWORD_PATTERNS: RegExp[] = [
+  /\bcrypto\s*currency/i,
+  /\bbitcoin\s*investment/i,
+  /\bfree\s*money/i,
+  /\bclick\s*here\s*now/i,
+  /\bviagra/i,
+  /\bcialis/i,
+  /\bonline\s*casino/i,
+  /\bseo\s*services/i,
+  /\bbacklinks/i,
+  /\bguaranteed\s*results/i,
+];
 
 export interface BotProtectionData {
   // Honeypot field - should always be empty for legitimate submissions
@@ -39,7 +57,8 @@ function checkHoneypot(honeypot?: string): {
 } {
   if (honeypot && honeypot.trim().length > 0) {
     logger.warn("Bot detected: Honeypot field was filled", {
-      honeypot: honeypot.substring(0, 50),
+      honeypotLength: honeypot.length,
+      honeypotPreview: honeypot.substring(0, 10),
     });
     return { isSuspicious: true, score: 100 };
   }
@@ -67,15 +86,32 @@ function checkSubmissionTime(formStartTime?: number): {
   const now = Date.now();
   const elapsedTime = now - formStartTime;
 
-  if (elapsedTime < MIN_FORM_SUBMISSION_TIME) {
-    logger.warn("Bot detected: Form submitted too quickly", {
+  // Check for clock synchronization issues
+  // If client timestamp is in the future (negative elapsed time) but within tolerance, treat as valid
+  if (elapsedTime < -TIME_SYNC_TOLERANCE) {
+    logger.warn("Bot detection: Form timestamp is too far in the future", {
       elapsedTime,
+      tolerance: TIME_SYNC_TOLERANCE,
+    });
+    return {
+      isSuspicious: true,
+      score: 60,
+      reason: "Form timestamp synchronization error",
+    };
+  }
+
+  // If elapsed time is negative but within tolerance, adjust to account for clock drift
+  const adjustedElapsedTime = Math.max(0, elapsedTime);
+
+  if (adjustedElapsedTime < MIN_FORM_SUBMISSION_TIME) {
+    logger.warn("Bot detected: Form submitted too quickly", {
+      elapsedTime: adjustedElapsedTime,
       minRequired: MIN_FORM_SUBMISSION_TIME,
     });
     return {
       isSuspicious: true,
       score: 90,
-      reason: `Form submitted in ${elapsedTime}ms (minimum: ${MIN_FORM_SUBMISSION_TIME}ms)`,
+      reason: `Form submitted in ${adjustedElapsedTime}ms (minimum: ${MIN_FORM_SUBMISSION_TIME}ms)`,
     };
   }
 
@@ -149,21 +185,8 @@ function analyzeContentForSpam(content: {
       reasons.push("Short gibberish message");
     }
 
-    // Check for spam keywords (common in spam submissions)
-    const spamKeywords = [
-      /\bcrypto\s*currency/i,
-      /\bbitcoin\s*investment/i,
-      /\bfree\s*money/i,
-      /\bclick\s*here\s*now/i,
-      /\bviagra/i,
-      /\bcialis/i,
-      /\bonline\s*casino/i,
-      /\bseo\s*services/i,
-      /\bbacklinks/i,
-      /\bguaranteed\s*results/i,
-    ];
-
-    for (const pattern of spamKeywords) {
+    // Check for spam keywords using centralized patterns
+    for (const pattern of SPAM_KEYWORD_PATTERNS) {
       if (pattern.test(content.message)) {
         spamScore += 40;
         reasons.push("Spam keywords detected");
