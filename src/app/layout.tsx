@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -101,14 +101,19 @@ export const metadata: Metadata = {
   generator: "Next.js",
   applicationName: "ELITIZON Website",
   referrer: "origin-when-cross-origin",
-  colorScheme: "light",
+  // colorScheme, themeColor and viewport are exported separately via the
+  // `viewport` export (see Next.js `generateViewport` / `viewport` docs).
+};
+
+// Export viewport settings in the correct (supported) place for App Router.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  // themeColor and color-scheme are part of the viewport API so declare
+  // them here rather than inside `metadata`.
   themeColor: "#1e293b",
-  // Add viewport for mobile optimization
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
+  colorScheme: "light",
 };
 
 export default function RootLayout({

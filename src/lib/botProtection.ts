@@ -9,6 +9,16 @@
 
 import { logger } from "./logger";
 
+// Centralized spam keyword regex list used for message scanning.
+// Keep this reasonably conservative to avoid false positives while catching
+// common spam/abuse keywords.
+const SPAM_KEYWORD_PATTERNS: RegExp[] = [
+  /\b(viagra|casino|lottery|free money|work from home|earn money|loan|credit|porn|adult)\b/i,
+  /\b(bitcoin|crypto|ethereum|metamask|private key|seed phrase)\b/i,
+  /\b(click here|subscribe|cheap pills|buy now|order now)\b/i,
+  /https?:\/\//i, // quick catch for explicit URLs in content
+];
+
 // Minimum time (in milliseconds) a human would take to fill out the form
 // Set to 5 seconds - too fast is suspicious (increased from 3s to reduce false positives with autofill)
 const MIN_FORM_SUBMISSION_TIME = 5000;

@@ -62,3 +62,16 @@ The spam email example would be blocked because:
 2. Company "EQCLDLDXurjSqGqa" matches unusual character pattern → +25 points
 3. Message "pRrykiUIzqvXCebDhh" is short gibberish → +50 points
 4. **Total: 115 points (capped at 100)** → BLOCKED
+
+## Fix: build worker error (2025-12-04)
+
+After deployment we saw a Next.js build worker exit (code: 1, signal: null). Root cause:
+
+- A missing constant `SPAM_KEYWORD_PATTERNS` in `src/lib/botProtection.ts` caused a runtime/type error during the build.
+
+What I did:
+
+- Added a conservative `SPAM_KEYWORD_PATTERNS: RegExp[]` to `src/lib/botProtection.ts` and fixed tsconfig include to avoid stale .next types interfering with type checks.
+- Verified full production build (`npm run build`) succeeded and TypeScript checks pass.
+
+Result: Next.js production build no longer crashes with the worker exit error.

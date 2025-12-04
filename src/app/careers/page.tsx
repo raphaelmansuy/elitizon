@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { breadcrumbSchema, jobPostingSchema } from "@/lib/schema";
 
@@ -37,6 +37,19 @@ export const metadata: Metadata = {
     canonical: "https://elitizon.com/careers",
   },
 };
+
+// If we need per-route runtime viewport behaviour we can export `generateViewport`.
+// Here we return a viewport object tuned for the careers pages — slightly darker
+// themeColor to match the careers section styling.
+export function generateViewport(): Viewport {
+  return {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    themeColor: "#0f172a",
+    colorScheme: "dark",
+  };
+}
 
 export default function CareersPage() {
   // Create breadcrumb items
