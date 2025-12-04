@@ -17,6 +17,10 @@ const MIN_FORM_SUBMISSION_TIME = 3000;
 // Set to 1 hour - prevents replay attacks with stale tokens
 const MAX_FORM_SUBMISSION_TIME = 60 * 60 * 1000;
 
+// Maximum allowed clock skew between client and server (5 minutes)
+// This tolerance prevents false positives when a user's system clock is off
+const MAX_CLOCK_SKEW_TOLERANCE = 5 * 60 * 1000;
+
 export interface BotProtectionData {
   // Honeypot field - should always be empty for legitimate submissions
   honeypot?: string;
@@ -48,6 +52,7 @@ function checkHoneypot(honeypot?: string): {
 
 /**
  * Check if the form was submitted too quickly (indicates a bot)
+ * Includes tolerance for client-server clock synchronization differences
  */
 function checkSubmissionTime(formStartTime?: number): {
   isSuspicious: boolean;
@@ -65,24 +70,69 @@ function checkSubmissionTime(formStartTime?: number): {
   }
 
   const now = Date.now();
+
+  // Check if the timestamp is within a reasonable range of the current server time
+  // This handles cases where the client's clock is significantly ahead or behind
+  const clockDifference = formStartTime - now;
+
+  // If client timestamp is in the future by more than the tolerance, the clock is too far off
+  if (clockDifference > MAX_CLOCK_SKEW_TOLERANCE) {
+    logger.warn(
+      "Bot detection: Client timestamp too far in the future (clock skew)",
+      {
+        formStartTime,
+        serverTime: now,
+        clockDifference,
+        maxTolerance: MAX_CLOCK_SKEW_TOLERANCE,
+      }
+    );
+    // Don't flag as bot immediately - just add a moderate score
+    // This could be a legitimate user with a misconfigured clock
+    return {
+      isSuspicious: false,
+      score: 25,
+      reason: "Significant client-server clock difference detected",
+    };
+  }
+
+  // Calculate elapsed time with clock skew tolerance
+  // If the client clock is slightly ahead (negative elapsed), we allow up to MAX_CLOCK_SKEW_TOLERANCE
   const elapsedTime = now - formStartTime;
 
-  if (elapsedTime < MIN_FORM_SUBMISSION_TIME) {
+  // For timing checks, account for potential clock skew
+  // A client whose clock is behind will show a larger elapsed time (acceptable)
+  // A client whose clock is ahead will show a smaller or negative elapsed time (needs tolerance)
+  const adjustedElapsedTime =
+    elapsedTime < 0 ? 0 : elapsedTime;
+
+  if (adjustedElapsedTime < MIN_FORM_SUBMISSION_TIME) {
+    // Only flag as suspicious if we're confident there's no clock skew issue
+    // If elapsed time is negative or very small, it might just be clock skew
+    if (elapsedTime < -MAX_CLOCK_SKEW_TOLERANCE) {
+      // Extreme case: timestamp is way in the future beyond tolerance
+      return {
+        isSuspicious: false,
+        score: 25,
+        reason: "Timestamp appears to be from client with future clock",
+      };
+    }
+
     logger.warn("Bot detected: Form submitted too quickly", {
-      elapsedTime,
+      elapsedTime: adjustedElapsedTime,
       minRequired: MIN_FORM_SUBMISSION_TIME,
     });
     return {
       isSuspicious: true,
       score: 90,
-      reason: `Form submitted in ${elapsedTime}ms (minimum: ${MIN_FORM_SUBMISSION_TIME}ms)`,
+      reason: `Form submitted in ${adjustedElapsedTime}ms (minimum: ${MIN_FORM_SUBMISSION_TIME}ms)`,
     };
   }
 
-  if (elapsedTime > MAX_FORM_SUBMISSION_TIME) {
+  if (elapsedTime > MAX_FORM_SUBMISSION_TIME + MAX_CLOCK_SKEW_TOLERANCE) {
+    // Add clock skew tolerance to the maximum allowed time as well
     logger.warn("Bot detection: Form submission too old", {
       elapsedTime,
-      maxAllowed: MAX_FORM_SUBMISSION_TIME,
+      maxAllowed: MAX_FORM_SUBMISSION_TIME + MAX_CLOCK_SKEW_TOLERANCE,
     });
     return {
       isSuspicious: true,
@@ -281,6 +331,7 @@ export function generateFormStartTime(): number {
 
 /**
  * Validate that the form start time is a reasonable timestamp
+ * Includes tolerance for client-server clock synchronization differences
  */
 export function isValidFormStartTime(timestamp: unknown): timestamp is number {
   if (typeof timestamp !== "number") {
@@ -288,10 +339,13 @@ export function isValidFormStartTime(timestamp: unknown): timestamp is number {
   }
 
   const now = Date.now();
-  // Must be a timestamp from the past but not too far in the past
+  // Must be a reasonable timestamp:
+  // - Positive value
+  // - Not too far in the future (allow for clock skew)
+  // - Not too far in the past (max form submission time + clock skew tolerance)
   return (
     timestamp > 0 &&
-    timestamp < now &&
-    now - timestamp < MAX_FORM_SUBMISSION_TIME
+    timestamp < now + MAX_CLOCK_SKEW_TOLERANCE &&
+    now - timestamp < MAX_FORM_SUBMISSION_TIME + MAX_CLOCK_SKEW_TOLERANCE
   );
 }
