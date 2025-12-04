@@ -10,8 +10,8 @@
 import { logger } from "./logger";
 
 // Minimum time (in milliseconds) a human would take to fill out the form
-// Set to 3 seconds - too fast is suspicious
-const MIN_FORM_SUBMISSION_TIME = 3000;
+// Set to 5 seconds - too fast is suspicious (allows for autofill while still catching bots)
+const MIN_FORM_SUBMISSION_TIME = 5000;
 
 // Maximum time (in milliseconds) allowed for form submission
 // Set to 1 hour - prevents replay attacks with stale tokens
