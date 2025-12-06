@@ -246,8 +246,12 @@ export default function ServicesPage() {
               The Dual Engine Model
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto">
-              <strong>Engine A:</strong> AI Agent Factory delivers 80% of the work. <strong>Engine B:</strong> Deployed Engineers handle the 20%.
-              <span className="block mt-2 text-pink-300">Working AI Agents in days—not strategy decks in months.</span>
+              <strong>Engine A:</strong> AI Agent Factory delivers 80% of the
+              work. <strong>Engine B:</strong> Deployed Engineers handle the
+              20%.
+              <span className="block mt-2 text-pink-300">
+                Working AI Agents in days—not strategy decks in months.
+              </span>
             </p>
           </div>
         </div>
@@ -335,7 +339,8 @@ export default function ServicesPage() {
             Stop Paying for Advice. Start Buying Capacity.
           </h2>
           <p className="text-xl text-white/80 mb-8">
-            Deploy working AI Agents in days. Our Deployed Engineers wire them into your systems.
+            Deploy working AI Agents in days. Our Deployed Engineers wire them
+            into your systems.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

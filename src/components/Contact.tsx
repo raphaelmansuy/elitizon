@@ -345,11 +345,21 @@ export default function Contact() {
                   aria-label="Select what you want to build"
                 >
                   <option value="">Select a goal</option>
-                  <option value="build-agent">Build an AI Agent (Automation)</option>
-                  <option value="deploy-engineers">Hire Deployed Engineers (Implementation)</option>
-                  <option value="data-foundation">Build Data Infrastructure (RAG/Vector DB)</option>
-                  <option value="knowledge-graph">Knowledge Graph / KG Engineering</option>
-                  <option value="generative-saas">Generative AI / Agent Custom SaaS</option>
+                  <option value="build-agent">
+                    Build an AI Agent (Automation)
+                  </option>
+                  <option value="deploy-engineers">
+                    Hire Deployed Engineers (Implementation)
+                  </option>
+                  <option value="data-foundation">
+                    Build Data Infrastructure (RAG/Vector DB)
+                  </option>
+                  <option value="knowledge-graph">
+                    Knowledge Graph / KG Engineering
+                  </option>
+                  <option value="generative-saas">
+                    Generative AI / Agent Custom SaaS
+                  </option>
                   <option value="strategy">AI Strategy & Audit</option>
                 </select>
               </div>

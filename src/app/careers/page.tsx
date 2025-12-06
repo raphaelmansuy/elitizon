@@ -330,9 +330,10 @@ export default function CareersPage() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-100 mb-12 leading-relaxed">
-              You are the <strong>20%</strong> that makes AI Agents work. Our top 1% vetted engineers
-              don&apos;t just consult—they embed into client teams to wire AI agents into
-              legacy systems and handle complex edge cases.
+              You are the <strong>20%</strong> that makes AI Agents work. Our
+              top 1% vetted engineers don&apos;t just consult—they embed into
+              client teams to wire AI agents into legacy systems and handle
+              complex edge cases.
             </p>{" "}
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
@@ -360,8 +361,9 @@ export default function CareersPage() {
               Why Top Engineers Join the Expert Grid
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              We&apos;re not another consulting firm. We&apos;re the implementation layer
-              that makes AI Agents work. Join the 20% that delivers 100% of results.
+              We&apos;re not another consulting firm. We&apos;re the
+              implementation layer that makes AI Agents work. Join the 20% that
+              delivers 100% of results.
             </p>
           </div>
 

@@ -166,7 +166,8 @@ export default function ContactPage() {
               Build Your AI Agent Today
             </h1>
             <p className="text-xl md:text-2xl text-slate-100 max-w-4xl mx-auto">
-              Stop paying for advice. <strong>Start buying capacity.</strong> Tell us what you want to automate—we&apos;ll deploy{" "}
+              Stop paying for advice. <strong>Start buying capacity.</strong>{" "}
+              Tell us what you want to automate—we&apos;ll deploy{" "}
               <span className="bg-gradient-to-r from-pink-400 to-pink-300 bg-clip-text text-transparent">
                 working AI Agents in days.
               </span>
@@ -202,8 +203,9 @@ export default function ContactPage() {
                   Tell Us What You Want to Automate
                 </h2>
                 <p className="text-slate-600 mb-8">
-                  Describe your workflow challenge. We&apos;ll design a custom AI Agent
-                  and show you how our Deployed Engineers will wire it into your systems.
+                  Describe your workflow challenge. We&apos;ll design a custom
+                  AI Agent and show you how our Deployed Engineers will wire it
+                  into your systems.
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -286,9 +288,15 @@ export default function ContactPage() {
                         <option value="deploy-engineers">
                           Hire Deployed Engineers (Implementation)
                         </option>
-                        <option value="data-foundation">Build Data Infrastructure (RAG/Vector DB)</option>
-                        <option value="knowledge-graph">Knowledge Graph / KG Engineering</option>
-                        <option value="generative-saas">Generative AI / Agent Custom SaaS</option>
+                        <option value="data-foundation">
+                          Build Data Infrastructure (RAG/Vector DB)
+                        </option>
+                        <option value="knowledge-graph">
+                          Knowledge Graph / KG Engineering
+                        </option>
+                        <option value="generative-saas">
+                          Generative AI / Agent Custom SaaS
+                        </option>
                         <option value="strategy">AI Strategy & Audit</option>
                       </select>
                     </div>

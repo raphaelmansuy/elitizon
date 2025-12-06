@@ -3,8 +3,7 @@ import Link from "next/link";
 import { breadcrumbSchema, organizationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title:
-    "About ELITIZON | The AI Agent Studio & Builder Factory",
+  title: "About ELITIZON | The AI Agent Studio & Builder Factory",
   description:
     "Learn how ELITIZON evolved from AI consulting to the world's first AI Builder Factory. We combine AI Agents with Deployed Engineers to automate 80% of business logic instantly.",
   keywords:
@@ -156,8 +155,11 @@ export default function AboutPage() {
               The AI Agent Studio & Builder Factory
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto">
-              We don&apos;t sell advice—we build and deploy AI solutions that work from Day 1.
-              <span className="block mt-2 text-pink-300 font-semibold">80% AI Agents + 20% Deployed Experts = 100% Results</span>
+              We don&apos;t sell advice—we build and deploy AI solutions that
+              work from Day 1.
+              <span className="block mt-2 text-pink-300 font-semibold">
+                80% AI Agents + 20% Deployed Experts = 100% Results
+              </span>
             </p>
           </div>
         </div>
@@ -172,16 +174,17 @@ export default function AboutPage() {
                 Our Mission
               </h2>
               <p className="text-lg text-slate-600 mb-6">
-                <strong>Stop Paying for Advice. Start Buying Capacity.</strong> We operate
-                the world&apos;s first AI Builder Factory—a hybrid model that combines
-                autonomous AI Agents with top-tier Deployed Engineers to deliver
-                working solutions in days, not months.
+                <strong>Stop Paying for Advice. Start Buying Capacity.</strong>{" "}
+                We operate the world&apos;s first AI Builder Factory—a hybrid
+                model that combines autonomous AI Agents with top-tier Deployed
+                Engineers to deliver working solutions in days, not months.
               </p>
               <p className="text-lg text-slate-600">
-                While traditional consultants deliver PowerPoint decks, we deploy
-                AI agents that automate 80% of your business logic instantly. Our
-                vetted experts handle the remaining 20%—integration, governance,
-                and edge cases—ensuring you get results from Day 1.
+                While traditional consultants deliver PowerPoint decks, we
+                deploy AI agents that automate 80% of your business logic
+                instantly. Our vetted experts handle the remaining
+                20%—integration, governance, and edge cases—ensuring you get
+                results from Day 1.
               </p>
             </div>
             <div>
