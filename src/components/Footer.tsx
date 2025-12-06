@@ -8,13 +8,12 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-pink-300 bg-clip-text text-transparent">
-              Elitizon Ltd
+              ELITIZON - The AI Builder Factory
             </h3>
             <p className="text-white/80 mb-4 max-w-md">
-              Access experienced AI & data professionals who deliver measurable
-              ROI without the overhead. Our global network of skilled
-              consultants provides 24/7 coverage—connecting talented specialists
-              with ambitious businesses worldwide.
+              Stop paying for advice. Start buying capacity. We deploy working AI Agents
+              in days, not months. Our Dual Engine Model: 80% AI automation + 20% 
+              Deployed Engineers = Results from Day 1.
             </p>
             <div className="flex space-x-4">
               <a
@@ -53,7 +52,7 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-4 text-pink-300">
-              Services
+              The Factory
             </h4>
             <ul className="space-y-2">
               <li>
@@ -61,7 +60,7 @@ export default function Footer() {
                   href="/services"
                   className="text-white/70 hover:text-pink-400 transition-colors"
                 >
-                  Data Engineering
+                  AI Agent Factory
                 </Link>
               </li>
               <li>
@@ -69,7 +68,7 @@ export default function Footer() {
                   href="/services"
                   className="text-white/70 hover:text-pink-400 transition-colors"
                 >
-                  Machine Learning
+                  Deployed Engineers
                 </Link>
               </li>
               <li>
@@ -77,15 +76,15 @@ export default function Footer() {
                   href="/services"
                   className="text-white/70 hover:text-pink-400 transition-colors"
                 >
-                  Generative AI
+                  Data Foundation
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/contact"
                   className="text-white/70 hover:text-pink-400 transition-colors"
                 >
-                  AI Agents
+                  Build Your Agent
                 </Link>
               </li>
             </ul>
@@ -102,15 +101,15 @@ export default function Footer() {
                   href="/about"
                   className="text-white/70 hover:text-pink-400 transition-colors"
                 >
-                  About Us
+                  About the Factory
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/team"
+                  href="/careers"
                   className="text-white/70 hover:text-pink-400 transition-colors"
                 >
-                  Our Team
+                  Join Expert Grid
                 </Link>
               </li>
               <li>
@@ -123,10 +122,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/careers"
+                  href="/blog"
                   className="text-white/70 hover:text-pink-400 transition-colors"
                 >
-                  Careers
+                  Blog
                 </Link>
               </li>
             </ul>

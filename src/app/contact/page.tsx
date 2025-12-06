@@ -96,24 +96,24 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      question: "How do you ensure quality with a distributed team?",
+      question: "How fast can you deploy an AI Agent?",
       answer:
-        "All our experts are carefully vetted with proven track records. We maintain strict quality standards and provide continuous oversight throughout projects.",
+        "We deploy working AI Agents in days, not months. Our AI Builder Factory treats implementation like a manufacturing line—standardized, scalable, and robust.",
     },
     {
-      question: "What's your typical project timeline?",
+      question: "What's the Dual Engine Model?",
       answer:
-        "Project timelines vary from 2 weeks for consultations to 6+ months for major implementations. We'll provide a detailed timeline after understanding your requirements.",
+        "80% of work is done by our AI Agents (automation). 20% is handled by Deployed Engineers (integration, governance, edge cases). You get results faster at lower cost.",
     },
     {
-      question: "Do you provide ongoing support after project completion?",
+      question: "How is this different from traditional consulting?",
       answer:
-        "Yes, we offer comprehensive support packages including maintenance, training, and knowledge transfer to ensure long-term success.",
+        "We don't sell advice—we sell capacity. You pay for working AI solutions, not PowerPoint decks. Outcome-based pricing means we're aligned with your success.",
     },
     {
-      question: "Can you work within our existing budget constraints?",
+      question: "Can you integrate with our existing systems?",
       answer:
-        "We offer flexible engagement models and can work within various budget ranges. We'll discuss options that provide maximum value for your investment.",
+        "Yes. Our Deployed Engineers specialize in wiring AI Agents into legacy systems—CRM, ERP, databases, APIs. That's the 20% that makes everything work.",
     },
   ];
 
@@ -163,48 +163,28 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Start Your Transformation Today
+              Build Your AI Agent Today
             </h1>
             <p className="text-xl md:text-2xl text-slate-100 max-w-4xl mx-auto">
-              Get a <strong>free 30-minute strategy session</strong> with our AI
-              & Data experts. Discover how to unlock{" "}
+              Stop paying for advice. <strong>Start buying capacity.</strong> Tell us what you want to automate—we&apos;ll deploy{" "}
               <span className="bg-gradient-to-r from-pink-400 to-pink-300 bg-clip-text text-transparent">
-                measurable ROI
-              </span>{" "}
-              from your data.
+                working AI Agents in days.
+              </span>
             </p>
 
             {/* Trust indicators */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mt-8 text-slate-300">
               <div className="flex items-center">
-                <svg
-                  className="w-5 h-5 text-pink-400 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-                <span>Trusted by Fortune 500</span>
+                <span className="text-pink-400 mr-2 text-xl">🏭</span>
+                <span>80% Done by AI Agents</span>
               </div>
               <div className="flex items-center">
-                <svg
-                  className="w-5 h-5 text-pink-400 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>24hr Response Time</span>
+                <span className="text-pink-400 mr-2 text-xl">⚡</span>
+                <span>Results in Days</span>
               </div>
               <div className="flex items-center">
-                <svg
-                  className="w-5 h-5 text-pink-400 mr-2"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                <span>300% Average ROI</span>
+                <span className="text-pink-400 mr-2 text-xl">💰</span>
+                <span>Outcome-Based Pricing</span>
               </div>
             </div>
           </div>
@@ -219,11 +199,11 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-xl p-8">
                 <h2 className="text-3xl font-bold text-slate-900 mb-2">
-                  Get Your Free Strategy Session
+                  Tell Us What You Want to Automate
                 </h2>
                 <p className="text-slate-600 mb-8">
-                  Share your challenge and we&apos;ll show you exactly how our
-                  AI & Data experts can deliver results for your business.
+                  Describe your workflow challenge. We&apos;ll design a custom AI Agent
+                  and show you how our Deployed Engineers will wire it into your systems.
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -290,7 +270,7 @@ export default function ContactPage() {
                         htmlFor="service"
                         className="block text-sm font-medium text-slate-700 mb-2"
                       >
-                        Service of Interest
+                        What Do You Want to Build?
                       </label>
                       <select
                         id="service"
@@ -299,18 +279,17 @@ export default function ContactPage() {
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors"
                       >
-                        <option value="">Select a service</option>
-                        <option value="data-engineering">
-                          Data Engineering
+                        <option value="">Select a goal</option>
+                        <option value="build-agent">
+                          Build an AI Agent (Automation)
                         </option>
-                        <option value="machine-learning">
-                          Machine Learning
+                        <option value="deploy-engineers">
+                          Hire Deployed Engineers (Implementation)
                         </option>
-                        <option value="ai-agents">
-                          Generative AI & AI Agents
+                        <option value="data-foundation">
+                          Build Data Infrastructure (RAG/Vector DB)
                         </option>
-                        <option value="consulting">General Consulting</option>
-                        <option value="multiple">Multiple Services</option>
+                        <option value="strategy">AI Strategy & Audit</option>
                       </select>
                     </div>
 

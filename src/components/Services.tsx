@@ -3,52 +3,52 @@ import Link from "next/link";
 export default function Services() {
   const services = [
     {
-      title: "Data Engineering",
+      title: "Engine A: AI Agent Factory",
       description:
-        "Transform chaotic data into your competitive advantage. Our experts build enterprise-grade data infrastructure that scales with your business and delivers insights in real-time.",
+        "Don't hire more staff—deploy intelligent agents. We build and deploy autonomous agents for Sales, Support, and Operations that work 24/7 with zero overhead.",
       features: [
-        "Data Pipeline Architecture",
-        "Real-time Data Processing",
-        "Cloud Data Platforms",
-        "Data Quality & Governance",
-        "ETL/ELT Solutions",
+        "Custom Sales & Support Agents",
+        "Autonomous Data Analysts",
+        "HR & Recruiting Bots",
+        "Instant Capacity Scaling",
+        "Pay-for-Performance Models",
       ],
-      icon: "🏗️",
+      icon: "🏭",
       color: "from-secondary-600 to-secondary-500",
       bgColor: "from-secondary-50 to-secondary-100",
       iconBg: "from-secondary-600 to-secondary-500",
     },
     {
-      title: "Machine Learning",
+      title: "Engine B: Deployed Expert Grid",
       description:
-        "Turn data into profit with AI that actually works. Our ML solutions automate complex decisions, predict customer behavior, and optimize operations to drive measurable business growth.",
+        "The Human-in-the-Loop. Our top 1% vetted engineers don't just consult—they embed into your team to wire the agents into your legacy systems and handle complex edge cases.",
       features: [
-        "Predictive Analytics",
-        "Computer Vision",
-        "Natural Language Processing",
-        "Recommendation Systems",
-        "MLOps & Model Deployment",
+        "Deployed AI Engineers",
+        "Legacy System Integration",
+        "Strategic Governance",
+        "Human-in-the-Loop Oversight",
+        "Remote-First Elite Squads",
       ],
-      icon: "🤖",
+      icon: "⚡",
       color: "from-primary-700 to-primary-600",
       bgColor: "from-primary-50 to-primary-100",
       iconBg: "from-primary-700 to-primary-600",
     },
     {
-      title: "Generative AI & AI Agents",
+      title: "The Data Foundation",
       description:
-        "Deploy intelligent AI agents that work 24/7 for your business. From customer service to content creation, our GenAI solutions reduce costs while improving quality and speed.",
+        "Agents need fuel. We build the vector databases, RAG pipelines, and data infrastructure required to make your AI agents accurate, fast, and hallucination-free.",
       features: [
-        "Custom AI Agents",
-        "LLM Integration",
-        "Conversational AI",
-        "Content Generation",
-        "Process Automation",
+        "Vector Database Setup",
+        "RAG Pipeline Architecture",
+        "Real-time Data Streaming",
+        "Enterprise Data Governance",
+        "Knowledge Base Construction",
       ],
-      icon: "✨",
-      color: "from-secondary-600 to-secondary-500",
-      bgColor: "from-secondary-50 to-white",
-      iconBg: "from-secondary-600 to-secondary-500",
+      icon: "🏗️",
+      color: "from-blue-600 to-blue-500",
+      bgColor: "from-blue-50 to-white",
+      iconBg: "from-blue-600 to-blue-500",
     },
   ];
 
@@ -78,14 +78,13 @@ export default function Services() {
             id="services-heading"
             className="text-4xl md:text-5xl font-bold text-primary-900 mb-6"
           >
-            Transform Your Business. Drive Real Results.
+            The Dual Engine Model
           </h2>
           <p className="text-xl text-primary-800 max-w-4xl mx-auto leading-relaxed font-medium">
-            Our world-class experts deliver <strong>measurable ROI</strong>{" "}
-            through cutting-edge AI & Data solutions.
+            <strong>80% of the work</strong> is done by our AI Agents.{" "}
+            <strong>20%</strong> is handled by Deployed Experts.
             <span className="block mt-2 text-lg">
-              Join industry leaders and Fortune 500 companies who trust Elitizon
-              to transform their business with proven AI expertise.
+              Working AI Agents in Days—not strategy decks in months.
             </span>
           </p>
         </header>
@@ -204,17 +203,13 @@ export default function Services() {
                 id="cta-heading"
                 className="text-3xl md:text-4xl font-bold mb-6 text-white"
               >
-                Ready to 10X Your Business Growth?
+                Stop Paying for Advice. Start Buying Capacity.
               </h3>
               <p className="text-white mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
-                Join the ranks of Fortune 500 companies and innovative startups
-                who trust Elitizon to deliver{" "}
-                <strong>measurable results</strong> through world-class AI &
-                Data expertise.
-                <span className="block mt-2">
-                  Your competition is already using AI. Don&apos;t get left
-                  behind.
-                </span>
+                We deploy <strong>working AI Agents</strong> in days, not
+                months. Our Deployed Engineers wire them into your systems while
+                you focus on what matters most—
+                <span className="block mt-2">growing your business.</span>
               </p>
               <div
                 className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -224,7 +219,7 @@ export default function Services() {
                 <Link
                   href="/contact"
                   className="bg-white text-slate-800 px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 hover:text-slate-700 transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-white/30"
-                  aria-label="Start a conversation with our team"
+                  aria-label="Build your AI Agent now"
                 >
                   <svg
                     className="w-5 h-5 mr-2"
@@ -237,15 +232,15 @@ export default function Services() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
                     />
                   </svg>
-                  Start a Conversation
+                  Build Your AI Agent
                 </Link>
                 <Link
                   href="/services"
                   className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-slate-800 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-white/30"
-                  aria-label="View detailed information about all our services"
+                  aria-label="Explore the AI Factory"
                 >
                   <svg
                     className="w-5 h-5 mr-2"
@@ -258,10 +253,10 @@ export default function Services() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
                     />
                   </svg>
-                  View All Services
+                  Explore the Factory
                 </Link>
               </div>
             </div>

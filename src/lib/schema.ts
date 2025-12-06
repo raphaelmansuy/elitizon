@@ -2,10 +2,10 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
   name: "ELITIZON Ltd",
-  alternateName: "ELITIZON",
+  alternateName: "ELITIZON - The AI Agent Studio",
   legalName: "ELITIZON Ltd",
   description:
-    "Global AI consulting company specializing in Data Engineering, Machine Learning, and Generative AI solutions. Remote-first consulting with world-class experts delivering measurable ROI worldwide.",
+    "The world's first AI Builder Factory. We combine top-tier deployed engineers with autonomous AI Agents to automate 80% of your business logic instantly. Stop paying for advice—start buying capacity.",
   url: "https://elitizon.com",
   logo: {
     "@type": "ImageObject",
@@ -69,26 +69,26 @@ export const organizationSchema = {
     "https://linkedin.com/company/elitizon",
   ],
   knowsAbout: [
-    "Artificial Intelligence",
+    "AI Agent Development",
+    "Autonomous AI Agents",
+    "Deployed Engineers",
+    "RAG Pipelines",
+    "Vector Databases",
+    "Agentic Workflows",
+    "LangChain",
+    "OpenAI Assistants API",
+    "AI Builder Factory",
+    "Enterprise AI Automation",
     "Machine Learning",
-    "Data Engineering",
-    "Generative AI",
-    "AI Agents",
-    "Data Architecture",
-    "MLOps",
-    "Business Intelligence",
-    "Deep Learning",
     "Natural Language Processing",
-    "Computer Vision",
-    "Big Data Analytics",
   ],
   serviceType: [
-    "AI Consulting",
-    "Data Engineering",
-    "Machine Learning Consulting",
-    "Generative AI Development",
-    "AI Agent Development",
-    "Data Strategy Consulting",
+    "AI Agent Studio",
+    "AI Builder Factory",
+    "Deployed Engineers",
+    "RAG Pipeline Development",
+    "Vector Database Setup",
+    "Agentic Workflow Development",
   ],
   areaServed: ["Worldwide", "Global", "Remote Services"],
   // Adding aggregateRating for Rich Snippets
@@ -109,8 +109,8 @@ export const organizationSchema = {
       },
       datePublished: "2024-11-15",
       reviewBody:
-        "ELITIZON transformed our data infrastructure completely. Their remote-first approach delivered exceptional results faster than traditional consulting firms.",
-      name: "Exceptional AI Consulting Experience",
+        "ELITIZON deployed 3 AI agents for our customer support in just 2 weeks. They replaced 400 hours of manual labor per month. The ROI was immediate.",
+      name: "Exceptional AI Agent Deployment",
       reviewRating: {
         "@type": "Rating",
         bestRating: "5",
@@ -126,8 +126,8 @@ export const organizationSchema = {
       },
       datePublished: "2024-10-22",
       reviewBody:
-        "The machine learning solutions ELITIZON developed increased our predictive accuracy by 40%. Outstanding technical expertise and project management.",
-      name: "Outstanding ML Implementation",
+        "Their Deployed Engineers integrated our legacy systems with new AI agents seamlessly. The human-in-the-loop approach gave us confidence in the automation.",
+      name: "Outstanding Deployed Engineer Team",
       reviewRating: {
         "@type": "Rating",
         bestRating: "5",
@@ -138,16 +138,16 @@ export const organizationSchema = {
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "AI & Data Consulting Services",
+    name: "AI Agent Studio Services",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Data Engineering",
+          name: "AI Agent Factory",
           description:
-            "Comprehensive data engineering solutions including pipeline architecture, real-time processing, and cloud platforms",
-          serviceType: "Data Engineering",
+            "Pre-built, modular AI Agents for Sales, Support, and Operations. Instant deployment with Day 1 ROI.",
+          serviceType: "AI Agent Development",
           provider: {
             "@type": "Organization",
             name: "ELITIZON Ltd",
@@ -160,10 +160,10 @@ export const organizationSchema = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Machine Learning Consulting",
+          name: "Deployed Expert Grid",
           description:
-            "End-to-end ML solutions including predictive analytics, computer vision, NLP, and MLOps",
-          serviceType: "Machine Learning",
+            "Top 1% vetted engineers who embed into your team to wire AI agents into legacy systems and handle complex edge cases.",
+          serviceType: "Deployed Engineers",
           provider: {
             "@type": "Organization",
             name: "ELITIZON Ltd",
@@ -176,10 +176,10 @@ export const organizationSchema = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Generative AI & AI Agents",
+          name: "Data Foundation",
           description:
-            "Custom AI agents, LLM integration, conversational AI, and process automation solutions",
-          serviceType: "Generative AI",
+            "Vector databases, RAG pipelines, and data infrastructure to make AI agents accurate and hallucination-free.",
+          serviceType: "Data Infrastructure",
           provider: {
             "@type": "Organization",
             name: "ELITIZON Ltd",
@@ -202,10 +202,10 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "ELITIZON",
+  name: "ELITIZON - The AI Agent Studio",
   url: "https://elitizon.com",
   description:
-    "Global AI consulting company specializing in Data Engineering, Machine Learning, and Generative AI solutions.",
+    "The world's first AI Builder Factory. We combine top-tier deployed engineers with autonomous AI Agents to automate 80% of your business logic instantly.",
   inLanguage: "en-US",
   potentialAction: {
     "@type": "SearchAction",
@@ -233,9 +233,9 @@ export const breadcrumbSchema = (
 export const serviceSchema = {
   "@context": "https://schema.org",
   "@type": ["ProfessionalService", "Service"],
-  name: "ELITIZON AI & Data Engineering Services",
+  name: "ELITIZON AI Agent Studio Services",
   description:
-    "Expert AI consulting services including Data Engineering, Machine Learning, and Generative AI solutions for global enterprises.",
+    "The world's first AI Builder Factory. We combine top-tier deployed engineers with autonomous AI Agents to automate 80% of your business logic instantly.",
   provider: {
     "@type": "Organization",
     name: "ELITIZON Ltd",
@@ -245,16 +245,16 @@ export const serviceSchema = {
   areaServed: "Worldwide",
   availableChannel: {
     "@type": "ServiceChannel",
-    serviceType: "Remote Consulting",
+    serviceType: "AI Builder Factory",
     availableLanguage: ["English", "French", "Chinese"],
   },
-  category: "AI Consulting Services",
+  category: "AI Agent Development Services",
   serviceType: [
-    "AI Consulting",
-    "Data Engineering",
-    "Machine Learning Consulting",
-    "Generative AI Development",
-    "AI Agent Development",
+    "AI Agent Factory",
+    "Deployed Expert Grid",
+    "RAG Pipeline Development",
+    "Vector Database Setup",
+    "Agentic Workflows",
   ],
   // Adding aggregateRating for service reviews
   aggregateRating: {

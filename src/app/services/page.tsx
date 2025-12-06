@@ -4,15 +4,15 @@ import { serviceSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title:
-    "AI & Data Engineering Services | Machine Learning Consulting - ELITIZON",
+    "AI Agent Factory & Deployed Engineers | The Dual Engine Model - ELITIZON",
   description:
-    "Expert AI consulting services: Data Engineering, Machine Learning, and Generative AI solutions. Transform your business with our remote-first global team of AI specialists and data architects.",
+    "Stop paying for advice. Start buying capacity. Our Dual Engine Model: AI Agent Factory delivers 80% automation, Deployed Engineers handle 20% implementation. Results in days.",
   keywords:
-    "data engineering services, machine learning consulting, generative AI development, AI agent development, MLOps consulting, data pipeline architecture, enterprise AI transformation consulting, custom AI solutions development",
+    "AI Agent Factory, Deployed Engineers, Dual Engine Model, AI Agent Development, RAG Pipelines, Vector Databases, LangChain, AI Implementation, AI Automation, Enterprise AI Agents",
   openGraph: {
-    title: "AI & Data Engineering Services | ELITIZON",
+    title: "AI Agent Factory & Deployed Engineers | ELITIZON",
     description:
-      "Expert AI consulting services: Data Engineering, Machine Learning, and Generative AI solutions. Transform your business with our remote-first global team.",
+      "The Dual Engine Model: AI Agents + Deployed Engineers. 80% automation, 20% expert implementation. Deploy working AI solutions in days, not months.",
     url: "https://elitizon.com/services",
     siteName: "ELITIZON",
     images: [
@@ -243,12 +243,11 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Our Consulting Services
+              The Dual Engine Model
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto">
-              Expert solutions in Data Engineering, Machine Learning, Generative
-              AI, and AI-Powered Startup Studio that drive innovation and
-              business growth
+              <strong>Engine A:</strong> AI Agent Factory delivers 80% of the work. <strong>Engine B:</strong> Deployed Engineers handle the 20%.
+              <span className="block mt-2 text-pink-300">Working AI Agents in days—not strategy decks in months.</span>
             </p>
           </div>
         </div>
@@ -333,23 +332,23 @@ export default function ServicesPage() {
       <section className="bg-gradient-to-r from-slate-600 to-slate-700 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Transform Your Business?
+            Stop Paying for Advice. Start Buying Capacity.
           </h2>
           <p className="text-xl text-white/80 mb-8">
-            Let&apos;s discuss how our expertise can help you achieve your goals
+            Deploy working AI Agents in days. Our Deployed Engineers wire them into your systems.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="bg-pink-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-pink-700 transition-colors"
             >
-              Start Your Project
+              Build Your AI Agent
             </Link>
             <Link
-              href="/about"
+              href="/careers"
               className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-slate-700 transition-colors"
             >
-              Learn About Us
+              Join Our Expert Grid
             </Link>
           </div>
         </div>

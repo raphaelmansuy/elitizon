@@ -334,7 +334,7 @@ export default function Contact() {
                   htmlFor="service"
                   className="block text-sm font-semibold text-primary-900 mb-2"
                 >
-                  Service of Interest
+                  What Do You Want to Build?
                 </label>
                 <select
                   id="service"
@@ -342,13 +342,13 @@ export default function Contact() {
                   value={formData.service}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-primary-400 rounded-xl focus:ring-4 focus:ring-primary-200 focus:border-secondary-500 transition-all duration-200 focus:outline-none hover:shadow-md"
-                  aria-label="Select a service you're interested in"
+                  aria-label="Select what you want to build"
                 >
-                  <option value="">Select a service</option>
-                  <option value="data-engineering">Data Engineering</option>
-                  <option value="machine-learning">Machine Learning</option>
-                  <option value="ai-agents">Generative AI & AI Agents</option>
-                  <option value="consulting">General Consulting</option>
+                  <option value="">Select a goal</option>
+                  <option value="build-agent">Build an AI Agent (Automation)</option>
+                  <option value="deploy-engineers">Hire Deployed Engineers (Implementation)</option>
+                  <option value="data-foundation">Build Data Infrastructure (RAG/Vector DB)</option>
+                  <option value="strategy">AI Strategy & Audit</option>
                 </select>
               </div>
 

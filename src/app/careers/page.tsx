@@ -4,15 +4,15 @@ import { breadcrumbSchema, jobPostingSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title:
-    "Remote AI Jobs & Data Engineering Careers | Join ELITIZON Global Team",
+    "Join the Deployed Expert Grid | AI Engineers & Implementation Specialists - ELITIZON",
   description:
-    "Join ELITIZON's global network of AI & data experts. 100% remote-first careers in Machine Learning, Data Engineering, and AI consulting. Premium compensation, flexible engagement worldwide.",
+    "Join ELITIZON's Deployed Expert Grid. Work alongside AI Agents to implement cutting-edge solutions. Top 1% vetted engineers for AI Agent integration, legacy system wiring, and strategic governance.",
   keywords:
-    "remote AI jobs, data engineering careers, AI consultant jobs, machine learning remote work, remote data science jobs, global AI careers, remote-first AI consulting jobs",
+    "deployed engineers, AI implementation jobs, AI agent developer jobs, machine learning remote work, LangChain developer, RAG engineer, vector database specialist, AI automation jobs",
   openGraph: {
-    title: "Remote AI Jobs & Data Engineering Careers | ELITIZON",
+    title: "Join the Deployed Expert Grid | ELITIZON",
     description:
-      "Join ELITIZON's global network of AI & data experts. 100% remote-first careers with premium compensation and flexible engagement worldwide.",
+      "Be part of the 20% that makes AI Agents work. Deployed Engineers handle integration, governance, and edge cases in our Dual Engine Model.",
     url: "https://elitizon.com/careers",
     siteName: "ELITIZON",
     images: [
@@ -106,98 +106,99 @@ export default function CareersPage() {
 
   const benefits = [
     {
-      title: "100% Remote First",
+      title: "Work Alongside AI Agents",
       description:
-        "Work from anywhere in the world. No office politics, no commuting, just pure focus on what you do best.",
-      icon: "🌍",
+        "Be part of the AI revolution. You handle the 20% that AI can't—complex integrations, strategic governance, and edge cases.",
+      icon: "🤖",
     },
     {
-      title: "Premium Projects Only",
+      title: "Implementation, Not Consulting",
       description:
-        "Join exclusive projects with Fortune 500 companies and cutting-edge startups. Work on problems that matter.",
-      icon: "🚀",
+        "We don't sell PowerPoint decks. You embed into client teams to wire AI agents into real systems that deliver Day 1 ROI.",
+      icon: "🛠️",
     },
     {
       title: "Premium Compensation",
       description:
-        "Top-tier rates that reflect your expertise. We believe exceptional talent deserves exceptional compensation.",
-      icon: "💎",
+        "Top-tier rates that reflect your expertise. Outcome-based models mean your impact directly translates to rewards.",
+      icon: "💰",
     },
     {
-      title: "Flexible Engagement",
+      title: "100% Remote First",
       description:
-        "Choose your projects, set your schedule. Work when you're most productive, not when you're told to.",
+        "Work from anywhere in the world. No office politics, no commuting—just pure focus on building AI solutions.",
+      icon: "🌍",
+    },
+    {
+      title: "Cutting-Edge Stack",
+      description:
+        "LangChain, RAG pipelines, vector databases, agentic workflows. Work with the latest AI technologies.",
       icon: "⚡",
     },
     {
-      title: "Continuous Learning",
+      title: "Elite Network",
       description:
-        "Stay ahead with access to the latest tools, technologies, and training. We invest in your growth.",
-      icon: "📚",
-    },
-    {
-      title: "Global Network",
-      description:
-        "Connect with other world-class experts across Europe, Asia, and beyond. Build your professional network.",
+        "Connect with the world's top 1% AI implementation specialists. Build your professional network.",
       icon: "🤝",
     },
   ];
 
   const expertiseAreas = [
     {
-      title: "Data Engineering",
-      description: "Build the backbone of modern data infrastructure",
+      title: "AI Agent Engineers",
+      description: "Build and deploy autonomous AI agents",
       skills: [
-        "Apache Spark",
-        "Kafka",
-        "Airflow",
-        "dbt",
-        "Databricks",
-        "Snowflake",
-        "Cloud Platforms",
+        "LangChain",
+        "OpenAI Assistants",
+        "Anthropic Claude",
+        "Agentic Workflows",
+        "Tool Use",
+        "Function Calling",
+      ],
+      demand: "Extreme",
+      projects: "25+ active projects",
+    },
+    {
+      title: "RAG & Vector Database Specialists",
+      description: "Build the data foundation for intelligent agents",
+      skills: [
+        "Pinecone",
+        "Chroma",
+        "Weaviate",
+        "RAG Pipelines",
+        "Embeddings",
+        "Semantic Search",
+      ],
+      demand: "Very High",
+      projects: "18+ active projects",
+    },
+    {
+      title: "Integration Engineers",
+      description: "Wire AI agents into legacy systems",
+      skills: [
+        "API Development",
+        "Enterprise Integration",
+        "Salesforce",
+        "SAP",
+        "CRM/ERP",
+        "Webhooks",
       ],
       demand: "High",
       projects: "15+ active projects",
     },
     {
-      title: "Machine Learning Engineering",
-      description: "Transform models into production-ready systems",
+      title: "MLOps & AI Infrastructure",
+      description: "Scale and operate AI systems in production",
       skills: [
-        "MLOps",
-        "Model Deployment",
+        "MLflow",
         "Kubernetes",
         "Docker",
         "CI/CD",
-        "Monitoring",
-      ],
-      demand: "Very High",
-      projects: "12+ active projects",
-    },
-    {
-      title: "Generative AI & LLMs",
-      description: "Shape the future of AI-powered applications",
-      skills: [
-        "OpenAI APIs",
-        "RAG Systems",
-        "Fine-tuning",
-        "Prompt Engineering",
-        "AI Agents",
-      ],
-      demand: "Extreme",
-      projects: "20+ active projects",
-    },
-    {
-      title: "Data Science & Analytics",
-      description: "Extract insights that drive business decisions",
-      skills: [
-        "Python/R",
-        "Statistics",
-        "Deep Learning",
-        "Computer Vision",
-        "NLP",
+        "Model Monitoring",
+        "Cloud Platforms",
       ],
       demand: "High",
-      projects: "10+ active projects",
+      projects: "12+ active projects",
     },
   ];
 
@@ -323,15 +324,15 @@ export default function CareersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
-              Join the Professional Network of
+              Join the Deployed
               <span className="bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent block">
-                Remote-First Specialists
+                Expert Grid
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-100 mb-12 leading-relaxed">
-              Are you an experienced data engineer, ML engineer, or AI
-              specialist? Join a curated network of skilled freelancers working
-              on the most challenging and rewarding projects in the industry.
+              You are the <strong>20%</strong> that makes AI Agents work. Our top 1% vetted engineers
+              don&apos;t just consult—they embed into client teams to wire AI agents into
+              legacy systems and handle complex edge cases.
             </p>{" "}
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
@@ -356,11 +357,11 @@ export default function CareersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Why Top Experts Choose Elitizon
+              Why Top Engineers Join the Expert Grid
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              We&apos;re not just another consulting firm. We&apos;re a curated
-              network that puts your expertise, freedom, and growth first.
+              We&apos;re not another consulting firm. We&apos;re the implementation layer
+              that makes AI Agents work. Join the 20% that delivers 100% of results.
             </p>
           </div>
 
