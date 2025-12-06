@@ -155,7 +155,7 @@ test.describe("Elitizon AI Agent Studio - Contact Form", () => {
     await expect(select).toBeVisible();
 
     // Click to expand and check options
-    await expect(select.locator("option")).toHaveCount(5);
+    await expect(select.locator("option")).toHaveCount(7);
     await expect(select.locator('option[value="build-agent"]')).toHaveText(
       "Build an AI Agent (Automation)"
     );
@@ -164,6 +164,12 @@ test.describe("Elitizon AI Agent Studio - Contact Form", () => {
     );
     await expect(select.locator('option[value="data-foundation"]')).toHaveText(
       "Build Data Infrastructure (RAG/Vector DB)"
+    );
+    await expect(select.locator('option[value="knowledge-graph"]')).toHaveText(
+      "Knowledge Graph / KG Engineering"
+    );
+    await expect(select.locator('option[value="generative-saas"]')).toHaveText(
+      "Generative AI / Agent Custom SaaS"
     );
     await expect(select.locator('option[value="strategy"]')).toHaveText(
       "AI Strategy & Audit"

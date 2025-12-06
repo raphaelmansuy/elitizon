@@ -291,9 +291,9 @@ export default function Contact() {
                   <option value="deploy-engineers">
                     Hire Deployed Engineers (Implementation)
                   </option>
-                  <option value="data-foundation">
-                    Build Data Infrastructure (RAG/Vector DB)
-                  </option>
+                  <option value="data-foundation">Build Data Infrastructure (RAG/Vector DB)</option>
+                  <option value="knowledge-graph">Knowledge Graph / KG Engineering</option>
+                  <option value="generative-saas">Generative AI / Agent Custom SaaS</option>
                   <option value="strategy">AI Strategy & Audit</option>
                 </select>
               </div>

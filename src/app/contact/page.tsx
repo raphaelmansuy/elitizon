@@ -286,9 +286,9 @@ export default function ContactPage() {
                         <option value="deploy-engineers">
                           Hire Deployed Engineers (Implementation)
                         </option>
-                        <option value="data-foundation">
-                          Build Data Infrastructure (RAG/Vector DB)
-                        </option>
+                        <option value="data-foundation">Build Data Infrastructure (RAG/Vector DB)</option>
+                        <option value="knowledge-graph">Knowledge Graph / KG Engineering</option>
+                        <option value="generative-saas">Generative AI / Agent Custom SaaS</option>
                         <option value="strategy">AI Strategy & Audit</option>
                       </select>
                     </div>
@@ -308,6 +308,7 @@ export default function ContactPage() {
                         className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-colors"
                       >
                         <option value="">Select budget range</option>
+                        <option value="under-15k">Under $15,000</option>
                         <option value="under-50k">Under $50,000</option>
                         <option value="50k-100k">$50,000 - $100,000</option>
                         <option value="100k-250k">$100,000 - $250,000</option>
