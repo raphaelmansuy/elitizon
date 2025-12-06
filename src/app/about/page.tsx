@@ -3,16 +3,15 @@ import Link from "next/link";
 import { breadcrumbSchema, organizationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title:
-    "About ELITIZON | Global AI Consulting Company - Remote-First Excellence",
+  title: "About ELITIZON | The AI Agent Studio & Builder Factory",
   description:
-    "Learn about ELITIZON's journey from Hong Kong startup to global AI consulting leader. Our remote-first model connects world-class AI & data experts with businesses worldwide since 2020.",
+    "Learn how ELITIZON evolved from AI consulting to the world's first AI Builder Factory. We combine AI Agents with Deployed Engineers to automate 80% of business logic instantly.",
   keywords:
-    "ELITIZON global AI consulting company, remote-first AI consulting, international data engineering experts, worldwide AI transformation, AI consulting company history, remote AI experts",
+    "AI Agent Studio, AI Builder Factory, Deployed Engineers, Autonomous AI Agents, Dual Engine Model, AI Implementation, AI Automation, Enterprise AI",
   openGraph: {
-    title: "About ELITIZON | Global AI Consulting Company",
+    title: "About ELITIZON | The AI Agent Studio & Builder Factory",
     description:
-      "Learn about ELITIZON's journey from Hong Kong startup to global AI consulting leader. Remote-first excellence connecting top talent worldwide.",
+      "From AI consulting to AI Builder Factory. We deploy working AI Agents in days, not months. 80% automation + 20% expert implementation.",
     url: "https://elitizon.com/about",
     siteName: "ELITIZON",
     images: [
@@ -47,28 +46,28 @@ export default function AboutPage() {
 
   const values = [
     {
-      title: "Remote-First Excellence",
+      title: "AI-First Execution",
       description:
-        "We embrace the future of work, enabling our experts to deliver world-class solutions from anywhere while maintaining the highest standards of collaboration and quality.",
-      icon: "🌐",
+        "We deploy working AI Agents, not strategy decks. Our AI Builder Factory treats implementation like a manufacturing line—standardized, scalable, and robust.",
+      icon: "🏭",
     },
     {
-      title: "Unmatched Expertise",
+      title: "Deployed Expert Grid",
       description:
-        "Our network consists of carefully curated world-class specialists in AI & Data, ensuring clients access to the finest talent available globally.",
-      icon: "🎯",
+        "Our top 1% vetted engineers don't just consult—they embed into your team to wire AI agents into your systems and handle complex edge cases.",
+      icon: "⚡",
     },
     {
-      title: "Freedom & Flexibility",
+      title: "Day 1 ROI",
       description:
-        "We believe great work happens when people have the freedom to work where they thrive, fostering innovation and work-life balance for our consultants.",
-      icon: "🕊️",
+        "Stop paying for advice. Start buying capacity. We deliver measurable value from Day 1 with outcome-based models tied to actual business results.",
+      icon: "🚀",
     },
     {
-      title: "Global Impact",
+      title: "Counter-Consulting",
       description:
-        "By connecting the world's best AI & Data talent with businesses everywhere, we create transformative solutions that know no geographical boundaries.",
-      icon: "🌍",
+        "30-50% lower cost, 50% faster delivery than Big Consulting. We're the agile disruptor that delivers hybrid value—AI automation + expert implementation.",
+      icon: "💰",
     },
   ];
 
@@ -81,27 +80,27 @@ export default function AboutPage() {
     },
     {
       year: "2021",
-      title: "Venture Studio Creation Offer",
+      title: "Venture Studio & Data Foundations",
       description:
-        "Launched our venture studio services, helping startups build their data and AI foundations from the ground up.",
+        "Launched venture studio services, helping startups build data and AI foundations from the ground up.",
     },
     {
       year: "2022",
-      title: "Major Data Strategy & AI Consulting Contracts",
+      title: "Enterprise AI Consulting Expansion",
       description:
-        "Secured major contracts for Data Strategy and AI consulting with European startups and retail companies with worldwide reach.",
+        "Secured major contracts for Data Strategy and AI consulting with European enterprises and global retail companies.",
     },
     {
       year: "2023",
-      title: "Generative AI Consulting Offer",
+      title: "Generative AI & LLM Pioneers",
       description:
-        "Expanded into Generative AI consulting, becoming early adopters of cutting-edge AI technologies and LLM solutions.",
+        "Early adopters of cutting-edge AI technologies—LLMs, AI Agents, and RAG pipelines. Built first autonomous agents.",
     },
     {
       year: "2025",
-      title: "Remote-First Global Network of AI & Data Experts",
+      title: "AI Builder Factory Launch",
       description:
-        "Transformed into a remote-first organization, creating an unmatched network of world-class AI & Data experts working from across the globe, delivering exceptional value to clients worldwide.",
+        "Transformed into the world's first AI Builder Factory. Dual Engine Model: AI Agents handle 80% of work, Deployed Engineers handle 20%. Results in days, not months.",
     },
   ];
 
@@ -153,11 +152,14 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About Elitizon Ltd
+              The AI Agent Studio & Builder Factory
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto">
-              Creating the Unmatched Network of World-Class AI & Data Experts
-              with Remote-First Excellence
+              We don&apos;t sell advice—we build and deploy AI solutions that
+              work from Day 1.
+              <span className="block mt-2 text-pink-300 font-semibold">
+                80% AI Agents + 20% Deployed Experts = 100% Results
+              </span>
             </p>
           </div>
         </div>
@@ -172,17 +174,17 @@ export default function AboutPage() {
                 Our Mission
               </h2>
               <p className="text-lg text-slate-600 mb-6">
-                To create the unmatched network of world-class experts in AI &
-                Data, with a remote work first culture that empowers our
-                consultants to deliver exceptional value from anywhere in the
-                world.
+                <strong>Stop Paying for Advice. Start Buying Capacity.</strong>{" "}
+                We operate the world&apos;s first AI Builder Factory—a hybrid
+                model that combines autonomous AI Agents with top-tier Deployed
+                Engineers to deliver working solutions in days, not months.
               </p>
               <p className="text-lg text-slate-600">
-                We connect businesses with the finest AI and Data specialists
-                globally, while giving our experts the freedom to work from
-                where they thrive. This unique approach ensures our clients
-                receive unmatched expertise while our consultants enjoy ultimate
-                flexibility and work-life balance.
+                While traditional consultants deliver PowerPoint decks, we
+                deploy AI agents that automate 80% of your business logic
+                instantly. Our vetted experts handle the remaining
+                20%—integration, governance, and edge cases—ensuring you get
+                results from Day 1.
               </p>
             </div>
             <div>
@@ -190,14 +192,14 @@ export default function AboutPage() {
                 Our Vision
               </h2>
               <p className="text-lg text-slate-600 mb-6">
-                To become the world&apos;s premier network of AI & Data experts,
-                setting the gold standard for remote-first consulting
-                excellence. We envision a future where talent knows no
-                boundaries and expertise flows freely across continents.
+                To become the independent hybrid alternative to Big Consulting—
+                combining AI-first automation with elite human expertise. We
+                envision a future where clients don&apos;t pay for advice; they
+                invest in deployed capacity that delivers immediate ROI.
               </p>
               <p className="text-lg text-slate-600">
-                Our vision is a world where the best minds in AI and Data
-                collaborate seamlessly across time zones, delivering
+                In an era where AI handles 80% of consulting tasks, we lead the
+                shift from recommendations to execution. Our Dual Engine Model
                 transformative solutions while maintaining the perfect balance
                 between professional excellence and personal freedom.
               </p>
@@ -279,11 +281,11 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Why Everyone Wins With Elitizon
+              The Dual Engine Model Advantage
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Our remote-first approach creates exceptional value for both our
-              expert consultants and our clients
+              AI Agents + Deployed Engineers = Results in days, not months.
+              Here&apos;s how everyone wins.
             </p>
           </div>
 
@@ -292,32 +294,20 @@ export default function AboutPage() {
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
               <div className="text-center mb-8">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    className="w-8 h-8 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
-                    />
-                  </svg>
+                  <span className="text-3xl">⚡</span>
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                  For Expert Consultants
+                  For Deployed Engineers
                 </h3>
                 <p className="text-slate-600">
-                  Join the world&apos;s premier network of AI & Data specialists
+                  Join the world&apos;s top 1% AI implementation specialists
                 </p>
               </div>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-blue-600 rounded-full mt-3 mr-4 flex-shrink-0"></span>
                   <span className="text-slate-700">
-                    Work from anywhere in the world with complete flexibility
+                    Work alongside AI Agents on cutting-edge implementations
                   </span>
                 </li>
                 <li className="flex items-start">

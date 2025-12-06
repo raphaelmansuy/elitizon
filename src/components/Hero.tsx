@@ -17,35 +17,34 @@ export default function Hero() {
           {/* Brand Logo/Name */}
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            Transform Your Business with
+            Stop Paying for Advice.
             <span className="block bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mt-2">
-              Expert Data & AI Solutions
+              Start Buying Capacity.
             </span>
           </h1>
           <p className="text-xl md:text-2xl mb-10 text-white/90 max-w-4xl mx-auto font-light leading-relaxed">
-            Access world-class AI & Data experts who deliver{" "}
-            <strong className="text-white">measurable ROI</strong> while working
-            seamlessly with your team. Our remote-first consultants combine
-            cutting-edge technology with proven business impact—
+            Elitizon is the world&apos;s first{" "}
+            <strong className="text-white">AI Builder Factory</strong>. We
+            combine top-tier deployed engineers with autonomous AI Agents to
             <span className="bg-gradient-to-r from-pink-400 to-pink-300 bg-clip-text text-transparent font-semibold">
               {" "}
-              no overhead, just results.
+              automate 80% of your business logic instantly.
             </span>
           </p>
 
           {/* Enhanced Value Propositions */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-5xl mx-auto">
             <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-lg p-4 text-center">
-              <div className="text-2xl font-bold text-pink-400 mb-1">50%</div>
-              <div className="text-sm text-white/90">Faster Deployment</div>
+              <div className="text-2xl font-bold text-pink-400 mb-1">80%</div>
+              <div className="text-sm text-white/90">Work Done by Agents</div>
             </div>
             <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-lg p-4 text-center">
-              <div className="text-2xl font-bold text-pink-400 mb-1">0</div>
-              <div className="text-sm text-white/90">Setup Overhead</div>
+              <div className="text-2xl font-bold text-pink-400 mb-1">Days</div>
+              <div className="text-sm text-white/90">Time-to-Deployment</div>
             </div>
             <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-lg p-4 text-center">
-              <div className="text-2xl font-bold text-pink-400 mb-1">24/7</div>
-              <div className="text-sm text-white/90">Global Coverage</div>
+              <div className="text-2xl font-bold text-pink-400 mb-1">100%</div>
+              <div className="text-sm text-white/90">Outcome Based</div>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -53,13 +52,13 @@ export default function Hero() {
               href="/contact"
               className="bg-gradient-to-r from-pink-700 to-pink-600 hover:from-pink-600 hover:to-pink-500 text-white px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-pink-600/20 hover:shadow-pink-600/25"
             >
-              Get Free Strategy Session
+              Build Your AI Agent
             </Link>
             <Link
               href="/careers"
               className="border-2 border-white/30 backdrop-blur-sm bg-white/10 hover:bg-white hover:text-slate-700 text-white px-10 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
-              Join Our Network
+              Join Our Expert Grid
             </Link>
           </div>
 
@@ -69,7 +68,7 @@ export default function Hero() {
               href="/services"
               className="inline-flex items-center text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium"
             >
-              <span>View all services</span>
+              <span>Explore the AI Factory</span>
               <svg
                 className="w-4 h-4 ml-1"
                 fill="none"
@@ -93,35 +92,33 @@ export default function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-8 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 hover:shadow-xl group">
             <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
-              50+
+              🏭
             </div>
             <div className="text-white/90 font-medium text-lg">
-              AI & Data Professionals
+              AI Agent Factory
             </div>
             <div className="text-white/70 text-sm mt-2">
-              Experienced consultants from top tech companies
+              Pre-built, modular AI agents for instant deployment
             </div>
           </div>
           <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-8 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 hover:shadow-xl group">
             <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
-              200+
+              ⚡
             </div>
             <div className="text-white/90 font-medium text-lg">
-              Successful Transformations
+              Deployed Expert Grid
             </div>
             <div className="text-white/70 text-sm mt-2">
-              Across Fortune 500 & startups
+              Top 1% vetted engineers for complex integrations
             </div>
           </div>
           <div className="backdrop-blur-sm bg-white/10 border border-white/20 rounded-xl p-8 text-center transition-all duration-300 hover:bg-white/15 hover:scale-105 hover:shadow-xl group">
             <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-600 to-pink-400 bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform duration-300">
-              15+
+              🚀
             </div>
-            <div className="text-white/90 font-medium text-lg">
-              Countries & Time Zones
-            </div>
+            <div className="text-white/90 font-medium text-lg">Day 1 ROI</div>
             <div className="text-white/70 text-sm mt-2">
-              True global coverage
+              Working AI agents, not PowerPoint slides
             </div>
           </div>
         </div>

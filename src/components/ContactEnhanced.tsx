@@ -141,11 +141,11 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Ready to Transform Your Business?
+            Ready to Build Your AI Agent?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get in touch with our experts to discuss your data engineering, ML,
-            or AI project requirements
+            Tell us what you want to automate. Our team will design a custom AI
+            agent or deploy engineers to make it happen.
           </p>
         </div>
 
@@ -275,7 +275,7 @@ export default function Contact() {
                   htmlFor="service"
                   className="block text-sm font-semibold text-gray-700 mb-2"
                 >
-                  Service of Interest
+                  What Do You Want to Build?
                 </label>
                 <select
                   id="service"
@@ -284,11 +284,23 @@ export default function Contact() {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 focus-outline hover-lift"
                 >
-                  <option value="">Select a service</option>
-                  <option value="data-engineering">Data Engineering</option>
-                  <option value="machine-learning">Machine Learning</option>
-                  <option value="ai-agents">Generative AI & AI Agents</option>
-                  <option value="consulting">General Consulting</option>
+                  <option value="">Select a goal</option>
+                  <option value="build-agent">
+                    Build an AI Agent (Automation)
+                  </option>
+                  <option value="deploy-engineers">
+                    Hire Deployed Engineers (Implementation)
+                  </option>
+                  <option value="data-foundation">
+                    Build Data Infrastructure (RAG/Vector DB)
+                  </option>
+                  <option value="knowledge-graph">
+                    Knowledge Graph / KG Engineering
+                  </option>
+                  <option value="generative-saas">
+                    Generative AI / Agent Custom SaaS
+                  </option>
+                  <option value="strategy">AI Strategy & Audit</option>
                 </select>
               </div>
 

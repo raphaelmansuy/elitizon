@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Global AI Consultants | Get AI Consulting Quote - ELITIZON",
+  title: "Build Your AI Agent | AI Builder Factory - ELITIZON",
   description:
-    "Contact ELITIZON's AI experts for your next project. Get personalized AI consulting quotes, schedule consultations, and connect with our global team of data engineering specialists.",
+    "Stop paying for advice. Start buying capacity. Tell us what you want to automate and we'll deploy working AI Agents in days. 80% AI automation + 20% Deployed Engineers.",
   keywords:
-    "global AI consulting services, contact remote AI experts, hire international data consultants, get AI consulting quote, AI consulting contact form, hire remote AI consultants",
+    "build AI agent, AI automation factory, deploy AI agents, hire AI engineers, AI implementation, Deployed Engineers, outcome-based AI, custom AI solutions",
   openGraph: {
-    title: "Contact Global AI Consultants | ELITIZON",
+    title: "Build Your AI Agent | AI Builder Factory - ELITIZON",
     description:
-      "Contact ELITIZON's AI experts for your next project. Get personalized AI consulting quotes and connect with our global team.",
+      "Stop paying for advice. Start buying capacity. Tell us what you want to automate—we'll deploy working AI Agents in days.",
     url: "https://elitizon.com/contact",
     siteName: "ELITIZON",
     images: [
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         url: "https://elitizon.com/og-contact.jpg",
         width: 1200,
         height: 630,
-        alt: "Contact ELITIZON AI Consultants",
+        alt: "Build Your AI Agent with ELITIZON",
       },
     ],
     locale: "en_US",
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Global AI Consultants | ELITIZON",
+    title: "Build Your AI Agent | AI Builder Factory - ELITIZON",
     description:
-      "Contact ELITIZON's AI experts for your next project. Get personalized AI consulting quotes and connect with our global team.",
+      "Stop paying for advice. Start buying capacity. Tell us what you want to automate—we'll deploy working AI Agents in days.",
     images: ["https://elitizon.com/og-contact.jpg"],
   },
   alternates: {

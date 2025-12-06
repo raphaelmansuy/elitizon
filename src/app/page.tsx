@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import FactoryProcess from "@/components/FactoryProcess";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import AIOptimizedFAQ from "@/components/AIOptimizedFAQ";
@@ -14,27 +15,30 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "Global AI Consulting Services | ELITIZON - Expert Data Engineering & Machine Learning",
+    "AI Agent Studio & Builder Factory | ELITIZON - Deploy AI Agents in Days",
   description:
-    "Transform your business with world-class AI & data engineering experts. Remote-first consulting in Machine Learning, Generative AI, and Data Architecture. 300+ successful projects worldwide.",
+    "Stop paying for advice. Start buying capacity. Elitizon is the world's first AI Builder Factory. We combine top-tier deployed engineers with autonomous AI Agents to automate 80% of your business logic instantly.",
   keywords:
-    "AI consulting services global, remote data engineering consultants, machine learning consulting worldwide, generative AI experts, enterprise AI transformation consulting, remote-first AI consulting, global data strategy consulting, AI agents development, MLOps consulting, data pipeline architecture",
+    "AI Agent Studio, AI Builder Factory, Deployed Engineers, Autonomous AI Agents, AI Agent Development, RAG Pipelines, Vector Database, Agentic Workflows, LangChain, Enterprise AI Automation, AI Implementation",
   // AI-specific meta tags for enhanced discoverability
   other: {
-    "ai-purpose": "AI consulting and data engineering services",
-    "target-audience": "Enterprise CTO, Data Leaders, AI Decision Makers",
+    "ai-purpose":
+      "AI Agent Studio and Builder Factory - Deploy AI Agents instantly",
+    "target-audience":
+      "Enterprise CTO, Data Leaders, AI Decision Makers, Operations Leaders",
     "expertise-level": "Expert",
-    "service-model": "Remote-first global consulting",
+    "service-model": "AI Builder Factory: 80% Agents + 20% Deployed Engineers",
     "primary-services":
-      "Data Engineering, Machine Learning, Generative AI, AI Agents",
+      "AI Agent Development, Deployed Engineers, RAG Pipelines, Vector Databases, Agentic Workflows",
     "geographic-reach": "Global, Worldwide, Remote Services",
     "industry-focus": "Enterprise, Fortune 500, Startups, SMB",
-    "content-type": "Professional Services, Technical Consulting, AI Expertise",
+    "content-type":
+      "AI Builder Factory, AI Agent Studio, Technology Implementation",
   },
   openGraph: {
-    title: "Global AI Consulting Services | ELITIZON",
+    title: "AI Agent Studio & Builder Factory | ELITIZON",
     description:
-      "Transform your business with world-class AI & data engineering experts. Remote-first consulting delivering measurable ROI worldwide.",
+      "Stop paying for advice. Start buying capacity. We combine top-tier deployed engineers with autonomous AI Agents to automate 80% of your business logic instantly.",
     url: "https://elitizon.com",
     siteName: "ELITIZON",
     images: [
@@ -42,7 +46,7 @@ export const metadata: Metadata = {
         url: "https://elitizon.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "ELITIZON - Global AI Consulting Services",
+        alt: "ELITIZON - The AI Agent Studio & Builder Factory",
       },
     ],
     locale: "en_US",
@@ -50,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Global AI Consulting Services | ELITIZON",
+    title: "AI Agent Studio & Builder Factory | ELITIZON",
     description:
-      "Transform your business with world-class AI & data engineering experts. Remote-first consulting delivering measurable ROI worldwide.",
+      "Stop paying for advice. Start buying capacity. AI Builder Factory combining Deployed Engineers with Autonomous AI Agents.",
     images: ["https://elitizon.com/og-image.jpg"],
     creator: "@elitizon",
   },
@@ -110,6 +114,7 @@ export default function Home() {
       <main className="min-h-screen">
         <Hero />
         <Services />
+        <FactoryProcess />
         <About />
         <AIOptimizedFAQ />
         <Contact />

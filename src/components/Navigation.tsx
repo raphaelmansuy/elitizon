@@ -118,7 +118,7 @@ export default function Navigation() {
               className="text-slate-700 hover:text-pink-700 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
               role="menuitem"
             >
-              Services
+              Factory
             </Link>
             <Link
               href="/about"
@@ -132,7 +132,7 @@ export default function Navigation() {
               className="text-slate-700 hover:text-pink-700 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
               role="menuitem"
             >
-              Team
+              Engineers
             </Link>
             <Link
               href="/blog"
@@ -146,15 +146,15 @@ export default function Navigation() {
               className="text-slate-700 hover:text-pink-700 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-pink-50 focus:outline-none focus:ring-4 focus:ring-primary-200"
               role="menuitem"
             >
-              Careers
+              Join Us
             </Link>
             <Link
               href="/contact"
               className="bg-gradient-to-r from-pink-700 to-pink-600 text-white px-6 py-3 rounded-xl text-sm font-semibold hover:from-pink-600 hover:to-pink-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-primary-200"
               role="menuitem"
-              aria-label="Contact us to get started"
+              aria-label="Build your AI Agent now"
             >
-              Get Started
+              Build Now
             </Link>
           </div>
 
@@ -226,7 +226,7 @@ export default function Navigation() {
                 role="menuitem"
                 onClick={() => setIsOpen(false)}
               >
-                Services
+                Factory
               </Link>
               <Link
                 href="/about"
@@ -242,7 +242,7 @@ export default function Navigation() {
                 role="menuitem"
                 onClick={() => setIsOpen(false)}
               >
-                Team
+                Engineers
               </Link>
               <Link
                 href="/blog"
@@ -258,16 +258,16 @@ export default function Navigation() {
                 role="menuitem"
                 onClick={() => setIsOpen(false)}
               >
-                Careers
+                Join Us
               </Link>
               <Link
                 href="/contact"
                 className="bg-gradient-to-r from-pink-700 to-pink-600 text-white block px-4 py-3 rounded-xl text-base font-semibold mt-4 text-center transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/30"
                 role="menuitem"
                 onClick={() => setIsOpen(false)}
-                aria-label="Contact us to get started"
+                aria-label="Build your AI Agent now"
               >
-                Get Started
+                Build Now
               </Link>
             </div>
           </div>

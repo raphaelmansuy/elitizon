@@ -23,11 +23,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "ELITIZON - Expert Consulting in Data Engineering, ML & AI",
+  title: "ELITIZON - The AI Agent Studio & Builder Factory",
   description:
-    "Leading consulting firm specializing in Data Engineering, Machine Learning, and Generative AI solutions. Based in Hong Kong with a network of top European experts.",
+    "Stop paying for advice. Start buying capacity. Elitizon is the world's first AI Builder Factory. We combine top-tier deployed engineers with autonomous AI Agents to automate your business logic instantly.",
   keywords:
-    "data engineering, machine learning, AI consulting, generative AI, AI agents, Hong Kong, remote consulting, global AI services",
+    "AI Agent Studio, AI Builder Factory, Deployed Engineers, Autonomous AI Agents, Enterprise AI Automation, RAG Pipelines, Vector Database, AI Agent Development, Agentic Workflows, LangChain, AI Implementation",
   // Icon configuration using Elitizon logo
   icons: {
     icon: [
@@ -41,24 +41,24 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   // AI-specific meta tags for enhanced discoverability
   other: {
-    "ai-content-type": "Professional AI Consulting Services",
+    "ai-content-type": "AI Agent Studio & Implementation Factory",
     "expertise-areas":
-      "Data Engineering, Machine Learning, Generative AI, AI Agents",
-    "service-delivery": "Remote-first, Global Coverage, 24/7 Support",
+      "AI Agent Development, Deployed Engineers, RAG Pipelines, Vector Databases, Agentic Workflows",
+    "service-delivery": "Hybrid: AI Agents + Deployed Engineers, Outcome-Based",
     "target-market": "Enterprise, Fortune 500, Startups, SMB",
     "geographic-scope": "Global, International, Remote Services",
     "industry-expertise":
       "Technology, Healthcare, Finance, Manufacturing, Retail",
     "company-type":
-      "AI Consulting Firm, Professional Services, Technology Consultancy",
+      "AI Builder Factory, AI Agent Studio, Technology Implementation",
     "content-authority": "Expert, Professional, Industry-Leading",
     "update-frequency": "Regular Updates, Current Information, Fresh Content",
   },
   // Enhanced OpenGraph for Rich Snippets
   openGraph: {
-    title: "ELITIZON - Expert Consulting in Data Engineering, ML & AI",
+    title: "ELITIZON - The AI Agent Studio & Builder Factory",
     description:
-      "Leading consulting firm specializing in Data Engineering, Machine Learning, and Generative AI solutions. Based in Hong Kong with a network of top European experts.",
+      "Stop paying for advice. Start buying capacity. We combine top-tier deployed engineers with autonomous AI Agents to automate 80% of your business logic instantly.",
     url: "https://elitizon.com",
     siteName: "ELITIZON",
     images: [
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
         url: "https://elitizon.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "ELITIZON - AI & Data Engineering Consulting",
+        alt: "ELITIZON - The AI Agent Studio & Builder Factory",
       },
     ],
     locale: "en_US",
@@ -75,9 +75,9 @@ export const metadata: Metadata = {
   // Enhanced Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "ELITIZON - Expert Consulting in Data Engineering, ML & AI",
+    title: "ELITIZON - The AI Agent Studio & Builder Factory",
     description:
-      "Leading consulting firm specializing in Data Engineering, Machine Learning, and Generative AI solutions.",
+      "Stop paying for advice. Start buying capacity. AI Builder Factory combining Deployed Engineers with Autonomous AI Agents.",
     images: ["https://elitizon.com/og-image.jpg"],
     creator: "@ElitizonLtd",
     site: "@ElitizonLtd",
@@ -124,17 +124,20 @@ export default function RootLayout({
         {/* AI-specific meta tags for enhanced discoverability */}
         <meta
           name="ai-purpose"
-          content="AI consulting and data engineering services"
+          content="AI Agent Studio and Builder Factory - Deploy AI Agents instantly"
         />
         <meta
           name="target-audience"
-          content="Enterprise CTO, Data Leaders, AI Decision Makers"
+          content="Enterprise CTO, Data Leaders, AI Decision Makers, Operations Leaders"
         />
         <meta name="expertise-level" content="Expert" />
-        <meta name="service-model" content="Remote-first global consulting" />
+        <meta
+          name="service-model"
+          content="AI Builder Factory: 80% Agents + 20% Deployed Engineers"
+        />
         <meta
           name="primary-services"
-          content="Data Engineering, Machine Learning, Generative AI, AI Agents"
+          content="AI Agent Development, Deployed Engineers, RAG Pipelines, Vector Databases, Agentic Workflows"
         />
         <meta
           name="geographic-reach"
@@ -146,12 +149,15 @@ export default function RootLayout({
         />
         <meta
           name="content-type"
-          content="Professional Services, Technical Consulting, AI Expertise"
+          content="AI Builder Factory, AI Agent Studio, Technology Implementation"
         />
-        <meta name="company-size" content="Boutique consulting firm" />
+        <meta name="company-size" content="Elite AI implementation team" />
         <meta name="years-experience" content="10+ years" />
-        <meta name="project-count" content="300+ successful projects" />
-        <meta name="team-coverage" content="24/7 global coverage" />
+        <meta name="project-count" content="300+ successful AI deployments" />
+        <meta
+          name="team-coverage"
+          content="24/7 global coverage with AI Agents"
+        />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         {/* Skip Navigation Links for Accessibility */}
