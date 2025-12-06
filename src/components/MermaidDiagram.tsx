@@ -58,9 +58,12 @@ function initMermaid() {
       // Node border width
       nodeBorder: "#1e293b",
 
-      // Typography
+      // Typography: prefer the site's Inter variable and fall back to
+      // common system fonts. Using the CSS variable `--font-inter` ensures
+      // consistent metrics with the rest of the site when the font is loaded.
       fontSize: "14px",
-      fontFamily: "ui-sans-serif, system-ui, -apple-system, sans-serif",
+      fontFamily:
+        "var(--font-inter), Inter, ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif",
     },
   });
   initialized = true;
@@ -80,6 +83,27 @@ export default function MermaidDiagram({ children }: MermaidDiagramProps) {
       try {
         const diagramCode = String(children).trim();
         const id = `mermaid-${Math.random().toString(36).substring(2, 9)}`;
+        // Wait for document fonts to be ready so text measurement uses the
+        // intended webfont (Inter) instead of a fallback. This prevents
+        // text clipping or layout changes caused by FOIT/FOUT when the
+        // SVG is rendered before the font is available. Use a short
+        // timeout to avoid long waits in the rare case `document.fonts`
+        // is unavailable or takes too long.
+        if (typeof document !== "undefined") {
+          const fonts = (document as unknown as {
+            fonts?: { ready: Promise<void> };
+          }).fonts;
+          if (fonts) {
+            try {
+              await Promise.race([
+                fonts.ready,
+                new Promise((res) => setTimeout(res, 1500)),
+              ]);
+            } catch {
+              // Ignore font waiting errors — we still attempt render.
+            }
+          }
+        }
 
         // mermaid.render historically returned a string (the SVG) and in
         // some versions returns an object like { svg, bindFunctions }. Be
