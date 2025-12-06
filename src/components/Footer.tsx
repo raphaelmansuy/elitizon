@@ -11,9 +11,9 @@ export default function Footer() {
               ELITIZON - The AI Builder Factory
             </h3>
             <p className="text-white/80 mb-4 max-w-md">
-              Stop paying for advice. Start buying capacity. We deploy working AI Agents
-              in days, not months. Our Dual Engine Model: 80% AI automation + 20% 
-              Deployed Engineers = Results from Day 1.
+              Stop paying for advice. Start buying capacity. We deploy working
+              AI Agents in days, not months. Our Dual Engine Model: 80% AI
+              automation + 20% Deployed Engineers = Results from Day 1.
             </p>
             <div className="flex space-x-4">
               <a
