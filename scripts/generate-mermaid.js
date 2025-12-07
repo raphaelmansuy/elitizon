@@ -89,7 +89,7 @@ body{margin:0;padding:0;font-family:InterEmbedded,Inter,system-ui,Arial,sans-ser
 <script>
   (async()=>{
     try{
-      mermaid.initialize({startOnLoad:false,theme:'base',securityLevel:'loose',flowchart:{useMaxWidth:true,htmlLabels:true},themeVariables:{fontFamily:'InterEmbedded',fontSize:'16px'}});
+      mermaid.initialize({startOnLoad:false,theme:'base',securityLevel:'loose',flowchart:{useMaxWidth:true,htmlLabels:true},themeVariables:{fontFamily:'sans-serif',fontSize:'16px'}});
       const code = ${JSON.stringify(code)};
       const id = 'm'+Math.random().toString(36).slice(2,9);
       const result = await mermaid.render(id, code);
@@ -139,6 +139,12 @@ body{margin:0;padding:0;font-family:InterEmbedded,Inter,system-ui,Arial,sans-ser
 
         // Fix 2: Convert HTML-style <br> to XML-style <br/>
         cleanedSvg = cleanedSvg.replace(/<br>/g, "<br/>");
+
+        // Fix 3: Ensure sans-serif fonts by replacing InterEmbedded with sans-serif
+        cleanedSvg = cleanedSvg.replace(
+          /font-family:InterEmbedded/g,
+          "font-family:sans-serif"
+        );
 
         // Normalize multiple spaces to single space
         cleanedSvg = cleanedSvg.replace(/\s{2,}/g, " ");
