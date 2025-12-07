@@ -1,0 +1,392 @@
+/* eslint-disable @next/next/no-img-element */
+"use client";
+import React, { isValidElement, useEffect, useState } from "react";
+import MermaidDiagram from "@/components/MermaidDiagram";
+import CodeBlockWrapper from "@/components/blog/CodeBlockWrapper";
+
+interface CodeProps {
+  children?: React.ReactNode;
+  className?: string;
+  "data-language"?: string;
+  "data-theme"?: string;
+}
+
+interface PreProps {
+  children: React.ReactNode;
+  "data-language"?: string;
+  "data-theme"?: string;
+  style?: React.CSSProperties;
+}
+
+interface FigureProps {
+  children: React.ReactNode;
+  "data-rehype-pretty-code-figure"?: string;
+}
+
+// Mermaid diagram component with static fallback
+function MermaidBlock({ code }: { code: string }) {
+  const [staticSrc, setStaticSrc] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function checkManifest() {
+      try {
+        const res = await fetch("/diagrams/manifest.json");
+        if (!res.ok) return;
+        const manifest = await res.json();
+        // simple djb2 hash to match generator
+        function djb2(str: string) {
+          let h = 5381;
+          for (let i = 0; i < str.length; i++) h = (h * 33) ^ str.charCodeAt(i);
+          return (h >>> 0).toString(16);
+        }
+        const hash = djb2(code.trim());
+        const filename = manifest[hash];
+        if (filename && !cancelled) {
+          setStaticSrc("/diagrams/" + filename);
+        }
+      } catch {
+        // ignore; fallback will render interactive mermaid
+      }
+    }
+
+    checkManifest();
+    return () => {
+      cancelled = true;
+    };
+  }, [code]);
+
+  if (staticSrc) {
+    return (
+      <div className="not-prose my-8">
+        <img
+          src={staticSrc}
+          alt="Mermaid diagram"
+          style={{
+            width: "100%",
+            height: "auto",
+            display: "block",
+            margin: "0 auto",
+          }}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="not-prose my-8">
+      <MermaidDiagram>{code}</MermaidDiagram>
+    </div>
+  );
+}
+
+// Helper function to extract text content from React children
+function extractTextContent(node: React.ReactNode): string {
+  if (typeof node === "string") return node;
+  if (typeof node === "number") return String(node);
+  if (node === null || node === undefined) return "";
+  if (Array.isArray(node)) return node.map(extractTextContent).join("");
+  if (isValidElement(node)) {
+    const props = node.props as { children?: React.ReactNode } | undefined;
+    return extractTextContent(props?.children);
+  }
+  return "";
+}
+
+// Helper function to check if children contain a mermaid diagram
+function containsMermaid(node: React.ReactNode): boolean {
+  if (node === null || node === undefined) return false;
+  if (Array.isArray(node)) return node.some((n) => containsMermaid(n));
+  if (isValidElement(node)) {
+    const props = node.props as
+      | {
+          className?: string;
+          children?: React.ReactNode;
+          "data-language"?: string;
+          [key: string]: unknown;
+        }
+      | undefined;
+
+    // Check for mermaid language attribute (used by rehype-pretty-code)
+    if (props?.["data-language"] === "mermaid") return true;
+
+    // Check className patterns
+    const className = props?.className || "";
+    if (typeof className === "string") {
+      if (className.includes("not-prose")) return true;
+      if (/\b(?:language|lang)-?mermaid\b/.test(className)) return true;
+    }
+
+    // For pre/code elements, check all data attributes
+    if (typeof node === "object" && "type" in node) {
+      const nodeType = node.type;
+      if (nodeType === "pre" || nodeType === "code") {
+        // Check all props for data-language
+        for (const [key, value] of Object.entries(props || {})) {
+          if (key === "data-language" && value === "mermaid") return true;
+        }
+      }
+    }
+
+    // Recursively check children
+    return containsMermaid(props?.children);
+  }
+  if (typeof node === "string") {
+    const lower = node.toLowerCase();
+    const trimmed = lower.trim();
+    // Check for mermaid diagram keywords
+    if (
+      trimmed.startsWith("graph") ||
+      trimmed.startsWith("sequence") ||
+      trimmed.startsWith("state") ||
+      trimmed.startsWith("class") ||
+      trimmed.startsWith("classDiagram") ||
+      trimmed.startsWith("flowchart") ||
+      trimmed.startsWith("timeline")
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// Helper function to detect if text content is a mermaid diagram
+function isMermaidContent(text: string): boolean {
+  if (!text) return false;
+  const trimmed = text.trim().toLowerCase();
+  // Check for common mermaid diagram keywords
+  return (
+    trimmed.startsWith("graph") ||
+    trimmed.startsWith("sequence") ||
+    trimmed.startsWith("statediagram") ||
+    trimmed.startsWith("state") ||
+    trimmed.startsWith("class") ||
+    trimmed.startsWith("flowchart") ||
+    trimmed.startsWith("er ") ||
+    trimmed.startsWith("erdiagram") ||
+    trimmed.startsWith("journey") ||
+    trimmed.startsWith("gantt") ||
+    trimmed.startsWith("pie") ||
+    trimmed.startsWith("requirement") ||
+    trimmed.startsWith("gitgraph") ||
+    trimmed.startsWith("c4diagram") ||
+    trimmed.startsWith("mindmap") ||
+    trimmed.startsWith("timeline")
+  );
+}
+
+export const mdxComponents = {
+  // Figure component - handles rehype-pretty-code output
+  figure: ({ children, ...props }: FigureProps) => {
+    return (
+      <div className="bg-green-300 p-4 border-4 border-green-700">
+        <p>FIGURE COMPONENT IS RUNNING!</p>
+        <figure {...props}>{children}</figure>
+      </div>
+    );
+  },
+
+  // Custom code component with syntax highlighting
+  code: ({ children, className, ...props }: CodeProps) => {
+    // Check if this is a mermaid code block
+    const language =
+      props["data-language"] || className?.replace("language-", "") || "text";
+    
+    const codeString = typeof children === "string" ? children : extractTextContent(children);
+    
+    // If it's mermaid, render the MermaidDiagram component
+    if (language === "mermaid" || className === "language-mermaid") {
+      return (
+        <div className="my-8">
+          <MermaidBlock code={codeString} />
+        </div>
+      );
+    }
+
+    // If it's a Mermaid diagram
+    if (language === "mermaid") {
+      const code = extractTextContent(children);
+      return <MermaidBlock code={code} />;
+    }
+
+    // Also check the actual content for mermaid keywords (fallback)
+    const codeText = extractTextContent(children);
+    if (language === "mermaid" || isMermaidContent(codeText)) {
+      return <MermaidBlock code={codeText} />;
+    }
+
+    // If this code is inside a pre (has data-language from rehype-pretty-code),
+    // the highlighting is already applied, just pass through
+    if (props["data-language"]) {
+      return (
+        <code className={className} {...props}>
+          {children}
+        </code>
+      );
+    }
+
+    // Inline code (not in a pre block) - style it nicely
+    return (
+      <code
+        className={`
+          text-sm font-mono rounded-md px-2 py-1
+          bg-gray-100 text-secondary-700
+          border border-gray-200
+          ${className || ""}
+        `}
+      >
+        {children}
+      </code>
+    );
+  },
+
+  // Custom pre component for code blocks
+  pre: ({ children, ...props }: PreProps) => {
+    const language = props["data-language"];
+
+    // Check if this contains a mermaid diagram
+    if (containsMermaid(children)) {
+      return <>{children}</>;
+    }
+
+    // rehype-pretty-code provides pre with data-language and styling
+    // Wrap it in CodeBlockWrapper for the header and copy button
+    return (
+      <CodeBlockWrapper language={language} style={props.style}>
+        <pre
+          className="overflow-x-auto p-4 text-sm font-mono leading-relaxed"
+          style={props.style}
+          data-language={language}
+        >
+          {children}
+        </pre>
+      </CodeBlockWrapper>
+    );
+  },
+
+  // Headings
+  h1: ({ children }: { children: React.ReactNode }) => (
+    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-950 leading-snug tracking-normal mb-6 mt-12">
+      {children}
+    </h1>
+  ),
+
+  h2: ({ children }: { children: React.ReactNode }) => (
+    <h2 className="text-2xl sm:text-3xl font-bold text-primary-950 leading-snug tracking-tight border-l-4 border-secondary-400 pl-6 my-8">
+      {children}
+    </h2>
+  ),
+
+  h3: ({ children }: { children: React.ReactNode }) => (
+    <h3 className="text-xl sm:text-2xl font-bold text-primary-950 leading-snug tracking-tight my-6">
+      {children}
+    </h3>
+  ),
+
+  // Paragraphs
+  p: ({ children }: { children: React.ReactNode }) => (
+    <p className="text-gray-950 leading-8 mb-6 text-base font-normal tracking-normal">
+      {children}
+    </p>
+  ),
+
+  // Links
+  a: ({ href, children }: { href?: string; children: React.ReactNode }) => (
+    <a
+      href={href}
+      className="text-secondary-600 font-bold hover:text-secondary-700 underline underline-offset-4 transition-colors duration-200"
+    >
+      {children}
+    </a>
+  ),
+
+  // Lists
+  ul: ({ children }: { children: React.ReactNode }) => (
+    <ul className="space-y-3 my-6 pl-8 list-disc">{children}</ul>
+  ),
+
+  ol: ({ children }: { children: React.ReactNode }) => (
+    <ol className="space-y-3 my-6 pl-8 list-decimal">{children}</ol>
+  ),
+
+  li: ({ children }: { children: React.ReactNode }) => (
+    <li className="text-gray-950 leading-7 font-normal text-base">
+      {children}
+    </li>
+  ),
+
+  // Blockquotes
+  blockquote: ({ children }: { children: React.ReactNode }) => (
+    <blockquote className="border-l-4 border-secondary-400 pl-6 text-gray-800 italic font-medium bg-gradient-to-br from-gray-50 to-gray-100 py-6 pr-6 rounded-r-lg my-10 leading-8">
+      {children}
+    </blockquote>
+  ),
+
+  // Horizontal rule
+  hr: () => <hr className="my-10 border-t-2 border-gray-200" />,
+
+  // Images
+  img: ({
+    src,
+    alt,
+    ...props
+  }: {
+    src?: string;
+    alt?: string;
+    [key: string]: unknown;
+  }) => {
+    // For MDX, we'll use a regular img tag with fallback since Next.js Image
+    // requires width/height props which MDX doesn't provide
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className="rounded-xl shadow-xl my-10 border-2 border-gray-200 w-full h-auto"
+        style={{ width: "100%", height: "auto" }}
+        {...props}
+      />
+    );
+  },
+
+  // Tables
+  table: ({ children }: { children: React.ReactNode }) => (
+    <div className="overflow-x-auto my-8 rounded-lg shadow-sm">
+      <table className="w-full border-collapse">{children}</table>
+    </div>
+  ),
+
+  thead: ({ children }: { children: React.ReactNode }) => (
+    <thead className="bg-primary-50">{children}</thead>
+  ),
+
+  tbody: ({ children }: { children: React.ReactNode }) => (
+    <tbody className="divide-y divide-gray-200">{children}</tbody>
+  ),
+
+  tr: ({ children }: { children: React.ReactNode }) => (
+    <tr className="hover:bg-gray-50 transition-colors">{children}</tr>
+  ),
+
+  th: ({ children }: { children: React.ReactNode }) => (
+    <th className="bg-primary-100 border border-gray-300 px-6 py-4 text-left font-semibold text-primary-950 text-sm uppercase tracking-wide">
+      {children}
+    </th>
+  ),
+
+  td: ({ children }: { children: React.ReactNode }) => (
+    <td className="border border-gray-300 px-6 py-4 text-gray-800 font-normal">
+      {children}
+    </td>
+  ),
+
+  // Strong and emphasis
+  strong: ({ children }: { children: React.ReactNode }) => (
+    <strong className="text-primary-950 font-bold tracking-normal">
+      {children}
+    </strong>
+  ),
+
+  em: ({ children }: { children: React.ReactNode }) => (
+    <em className="text-gray-800 font-semibold italic">{children}</em>
+  ),
+};

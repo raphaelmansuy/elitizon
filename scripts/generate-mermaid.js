@@ -120,7 +120,30 @@ body{margin:0;padding:0;font-family:InterEmbedded,Inter,system-ui,Arial,sans-ser
       if (!svgText) {
         console.warn("Empty SVG for", filename);
       } else {
-        fs.writeFileSync(outPath, svgText, "utf8");
+        // Clean up SVG: The mermaid library has TWO issues:
+        // 1. Generates SVG with newlines embedded inside attribute values like viewBox="0 0 100 100\n"
+        // 2. Generates HTML-style <br> tags inside foreignObject which are invalid XML (need <br/>)
+        let cleanedSvg = svgText;
+
+        // Fix 1: Replace newlines that are inside double-quoted attribute values
+        cleanedSvg = cleanedSvg.replace(
+          /"([^"]*)\n([^"]*)"/g,
+          (match, before, after) => {
+            let cleaned = before + " " + after;
+            while (cleaned.includes("\n")) {
+              cleaned = cleaned.replace("\n", " ");
+            }
+            return '"' + cleaned + '"';
+          }
+        );
+
+        // Fix 2: Convert HTML-style <br> to XML-style <br/>
+        cleanedSvg = cleanedSvg.replace(/<br>/g, "<br/>");
+
+        // Normalize multiple spaces to single space
+        cleanedSvg = cleanedSvg.replace(/\s{2,}/g, " ");
+
+        fs.writeFileSync(outPath, cleanedSvg, "utf8");
         console.log("Wrote", outPath);
       }
 
