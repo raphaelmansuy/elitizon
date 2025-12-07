@@ -12,3 +12,4 @@ export { default as ImageZoom } from "./ImageZoom";
 export { default as RelatedPosts } from "./RelatedPosts";
 export { default as BlogCard } from "./BlogCard";
 export { default as BlogSearch } from "./BlogSearch";
+export { default as MermaidRenderer } from "./MermaidRenderer";

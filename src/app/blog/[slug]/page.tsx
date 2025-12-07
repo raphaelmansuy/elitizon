@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Script from "next/script";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import { getBlogPost, getAllBlogPosts } from "@/lib/blog/mdx";
 import { mdxComponents } from "@/lib/mdx-components";
 import { notFound } from "next/navigation";
@@ -238,35 +239,14 @@ export default async function BlogPost({
                 <MDXRemote
                   source={post.content as string}
                   components={mdxComponents}
+                  options={{
+                    mdxOptions: {
+                      remarkPlugins: [remarkMath],
+                      rehypePlugins: [rehypeKatex],
+                    },
+                  }}
                 />
               </div>
-              <Script
-                src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
-                strategy="lazyOnload"
-              />
-              <Script
-                id="mermaid-initialize"
-                strategy="lazyOnload"
-                dangerouslySetInnerHTML={{
-                  __html: `
-                  if (typeof mermaid !== 'undefined') {
-                    mermaid.initialize({ 
-                      startOnLoad: true, 
-                      theme: 'light',
-                      themeVariables: {
-                        primaryColor: '#ffffff',
-                        primaryBorderColor: '#cccccc',
-                        background: '#ffffff',
-                        mainBkg: '#ffffff',
-                        clusterBkg: '#ffffff',
-                        clusterBorder: '#cccccc'
-                      }
-                    });
-                    mermaid.contentLoaded();
-                  }
-                `,
-                }}
-              />
 
               {/* CTA Section - Enhanced with better visual design */}
               <div
@@ -340,12 +320,24 @@ export default async function BlogPost({
               {/* Author Bio - Enhanced */}
               {post.authorBio && (
                 <div className="mt-14 pt-10 border-t border-gray-200">
-                  <div className="bg-gradient-to-br from-gray-50 via-white to-secondary-50/30 rounded-2xl p-6 sm:p-8 border border-gray-200/60 shadow-sm">
-                    <div className="flex flex-col sm:flex-row items-start gap-5">
-                      {/* Author Avatar */}
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-secondary-400 to-secondary-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg ring-4 ring-white flex-shrink-0">
-                        {post.author.charAt(0)}
+                  <div className="bg-gradient-to-br from-gray-50 via-white to-secondary-50/30 rounded-2xl p-6 sm:p-8 border border-gray-200/60 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div className="flex flex-col sm:flex-row items-start gap-6">
+                      {/* Author Avatar - Enhanced */}
+                      <div className="flex-shrink-0">
+                        <div className="relative group">
+                          {/* Background glow effect */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-secondary-500 to-secondary-700 rounded-full opacity-0 group-hover:opacity-30 blur-lg transition-opacity duration-300"></div>
+
+                          {/* Main avatar circle */}
+                          <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-secondary-500 to-secondary-800 flex items-center justify-center text-white text-3xl font-bold shadow-lg ring-4 ring-white/90 group-hover:ring-secondary-300 group-hover:shadow-xl transition-all duration-300">
+                            {post.author.charAt(0)}
+                          </div>
+
+                          {/* Optional: Decorative accent ring */}
+                          <div className="absolute inset-0 rounded-full border-2 border-secondary-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
                       </div>
+
                       <div className="flex-1">
                         <p className="text-xs font-semibold text-secondary-600 uppercase tracking-widest mb-2">
                           Written by

@@ -109,11 +109,11 @@ export default function BlogSearch({ posts, allTags }: BlogSearchProps) {
                 aria-pressed={selectedTag === tag}
                 className={`
                   px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200
-                  focus:outline-none focus:ring-2 focus:ring-secondary-500/50 focus:ring-offset-1
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500/50 focus-visible:ring-offset-1
                   ${
                     selectedTag === tag
-                      ? "bg-secondary-600 text-white shadow-md shadow-secondary-600/25 ring-1 ring-secondary-500"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900"
+                      ? "bg-secondary-600 text-white shadow-md shadow-secondary-600/25"
+                      : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 hover:text-gray-900"
                   }
                 `}
               >

@@ -24,7 +24,7 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
     return (
       <Link
         href={`/blog/${post.slug}`}
-        className="group block focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2 rounded-xl"
+        className="group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500 focus-visible:ring-offset-2"
       >
         <article className="relative bg-white rounded-xl border border-gray-200 hover:border-secondary-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
           <div className="flex gap-4 p-5">
@@ -114,7 +114,7 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
     return (
       <Link
         href={`/blog/${post.slug}`}
-        className="group block h-full focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2 rounded-2xl"
+        className="group block h-full rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500 focus-visible:ring-offset-2"
       >
         <article
           className="relative h-full rounded-2xl overflow-hidden min-h-[360px] sm:min-h-[400px]"
@@ -270,7 +270,7 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group block h-full focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2 rounded-xl"
+      className="group block h-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500 focus-visible:ring-offset-2"
     >
       <article className="h-full rounded-xl overflow-hidden bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:border-secondary-200 transition-all duration-300 flex flex-col hover:-translate-y-1">
         {/* Image container with overlay effects */}

@@ -17,6 +17,10 @@
     "test:rich-snippets": "node scripts/test-rich-snippets.js",
     "test:contrast": "node scripts/test-color-contrast.js",
     "test:accessibility": "node scripts/test-accessibility.js",
+    "test:e2e": "npx playwright test",
+    "test:e2e:headed": "npx playwright test --headed",
+    "test:e2e:ui": "npx playwright test --ui",
+    "generate:mermaid": "node scripts/generate-mermaid.js",
     "validate:seo": "npm run test:rich-snippets",
     "validate:accessibility": "npm run test:contrast && node scripts/validate-accessibility.js",
     "validate:all": "npm run validate:seo && npm run validate:accessibility"
@@ -35,21 +39,26 @@
     "gray-matter": "^4.0.3",
     "joi": "^17.13.3",
     "jsdom": "^26.1.0",
+    "katex": "^0.16.25",
     "mermaid": "^11.12.0",
     "next": "15.5.7",
     "next-mdx-remote": "^5.0.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
-    "sharp": "^0.34.2"
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.57.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^24.0.3",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
+    "glob": "^10.3.0",
     "next-sitemap": "^4.2.3",
     "tailwindcss": "^4",
     "typescript": "5.8.3"

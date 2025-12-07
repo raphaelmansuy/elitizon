@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import MermaidDiagram from "@/components/MermaidDiagram";
+import React, { isValidElement } from "react";
+import MermaidRenderer from "@/components/blog/MermaidRenderer";
 import CodeBlockWrapper from "@/components/blog/CodeBlockWrapper";
 
 interface CodeProps {
@@ -32,12 +33,8 @@ export const mdxComponents = {
 
     // If it's a Mermaid diagram
     if (language === "mermaid") {
-      // Wrap mermaid in a div with prose-none to exclude it from prose styling
-      return (
-        <div className="not-prose">
-          <MermaidDiagram>{String(children || "").trim()}</MermaidDiagram>
-        </div>
-      );
+      const code = String(children || "").trim();
+      return <MermaidRenderer code={code} />;
     }
 
     // Regular code block with Dracula theme
@@ -63,6 +60,67 @@ export const mdxComponents = {
 
   // Custom pre component for code blocks with copy button
   pre: ({ children }: PreProps) => {
+    // If this pre contains a mermaid diagram component (rendered by our `code` handler)
+    // avoid wrapping it inside the CodeBlockWrapper which adds the codebox chrome.
+    // The `code` handler renders mermaid blocks as: <div className="not-prose"><MermaidDiagram>..</MermaidDiagram></div>
+    // so we detect the presence of a single child element with className containing 'not-prose'
+    // and return it directly so the diagram appears without the code header / copy UI.
+    // children may be a single React element or an array; handle both
+    // Walk children recursively looking for an element that marks a mermaid diagram
+    function containsNotProse(node: React.ReactNode): boolean {
+      if (node === null || node === undefined) return false;
+      if (Array.isArray(node)) return node.some((n) => containsNotProse(n));
+      if (isValidElement(node)) {
+        const props = node.props as
+          | { className?: string; children?: React.ReactNode }
+          | undefined;
+        const className = props?.className || "";
+        if (typeof className === "string") {
+          // Already handled path: rendered element explicitly marked not-prose
+          if (className.includes("not-prose")) return true;
+          // MDX/rehype often produces language classes on <code> elements like
+          // 'language-mermaid' or 'lang-mermaid'. Detect those so we can
+          // treat mermaid blocks as diagrams.
+          if (/\b(?:language|lang)-?mermaid\b/.test(className)) return true;
+        }
+        // Recurse into children
+        return containsNotProse(props?.children);
+      }
+
+      // MDX sometimes passes raw HTML as strings into `pre` children.
+      // Handle the case where the rendered output is a string that contains
+      // markup (e.g. `<div class="not-prose">` or `<div class="mermaid">`).
+      if (typeof node === "string") {
+        const lower = node.toLowerCase();
+        if (
+          lower.includes("not-prose") ||
+          lower.includes('class="mermaid"') ||
+          lower.includes("class='mermaid'")
+        )
+          return true;
+        // Quick heuristic: mermaid diagrams commonly start with keywords such as
+        // 'graph', 'sequenceDiagram', 'stateDiagram', 'classDiagram'. If the
+        // content begins with those keywords, it's probably a mermaid diagram.
+        const trimmed = lower.trim();
+        if (
+          trimmed.startsWith("graph") ||
+          trimmed.startsWith("sequence") ||
+          trimmed.startsWith("state") ||
+          trimmed.startsWith("class") ||
+          trimmed.startsWith("flowchart")
+        )
+          return true;
+        // also check for bare 'mermaid' tokens inside the code content
+        if (lower.includes("mermaid")) return true;
+      }
+
+      return false;
+    }
+
+    if (containsNotProse(children)) {
+      return <>{children}</>;
+    }
+
     return <CodeBlockWrapper>{children}</CodeBlockWrapper>;
   },
 
