@@ -117,31 +117,39 @@ export default function TableOfContents({
           </svg>
           On This Page
         </h3>
-        <ul className="space-y-1 max-h-[calc(100vh-220px)] overflow-y-auto pr-2 scrollbar-thin">
-          {headings.map((heading) => {
-            const isActive = activeId === heading.id;
-            const indent = (heading.level - 2) * 12;
+        <div
+          className="max-h-[calc(100vh-220px)] overflow-y-auto pl-3 pr-2 scrollbar-thin py-2"
+          role="presentation"
+        >
+          <ul className="space-y-1">
+            {headings.map((heading) => {
+              const isActive = activeId === heading.id;
+              const indent = (heading.level - 2) * 12;
 
-            return (
-              <li key={heading.id} style={{ paddingLeft: `${indent}px` }}>
-                <button
-                  onClick={() => scrollToHeading(heading.id)}
-                  className={`
-                    text-left text-[13px] leading-relaxed transition-all duration-200 w-full py-1.5 px-2.5 rounded-lg
-                    hover:bg-secondary-50 hover:text-secondary-600
-                    ${
-                      isActive
-                        ? "bg-secondary-50 text-secondary-600 font-semibold border-l-2 border-secondary-500 -ml-0.5"
-                        : "text-gray-600 hover:text-gray-800"
-                    }
-                  `}
-                >
-                  <span className="line-clamp-2">{heading.text}</span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+              return (
+                <li key={heading.id} style={{ paddingLeft: `${indent}px` }}>
+                  <button
+                    type="button"
+                    aria-current={isActive ? "page" : undefined}
+                    onClick={() => scrollToHeading(heading.id)}
+                    className={`
+                      text-left text-[13px] leading-relaxed transition-colors duration-200 w-full py-1.5 px-3.5 rounded-lg
+                      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500 focus-visible:ring-offset-2
+                      hover:bg-gray-100 hover:text-secondary-600
+                      ${
+                        isActive
+                          ? "bg-secondary-50 text-secondary-700 font-semibold"
+                          : "text-gray-600"
+                      }
+                    `}
+                  >
+                    <span className="line-clamp-2">{heading.text}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
         {/* Progress indicator */}
         <div className="mt-4 pt-3 border-t border-gray-100">
