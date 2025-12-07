@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Script from "next/script";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import { getBlogPost, getAllBlogPosts } from "@/lib/blog/mdx";
 import { mdxComponents } from "@/lib/mdx-components";
 import { notFound } from "next/navigation";
@@ -238,35 +239,14 @@ export default async function BlogPost({
                 <MDXRemote
                   source={post.content as string}
                   components={mdxComponents}
+                  options={{
+                    mdxOptions: {
+                      remarkPlugins: [remarkMath],
+                      rehypePlugins: [rehypeKatex],
+                    },
+                  }}
                 />
               </div>
-              <Script
-                src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"
-                strategy="lazyOnload"
-              />
-              <Script
-                id="mermaid-initialize"
-                strategy="lazyOnload"
-                dangerouslySetInnerHTML={{
-                  __html: `
-                  if (typeof mermaid !== 'undefined') {
-                    mermaid.initialize({ 
-                      startOnLoad: true, 
-                      theme: 'light',
-                      themeVariables: {
-                        primaryColor: '#ffffff',
-                        primaryBorderColor: '#cccccc',
-                        background: '#ffffff',
-                        mainBkg: '#ffffff',
-                        clusterBkg: '#ffffff',
-                        clusterBorder: '#cccccc'
-                      }
-                    });
-                    mermaid.contentLoaded();
-                  }
-                `,
-                }}
-              />
 
               {/* CTA Section - Enhanced with better visual design */}
               <div

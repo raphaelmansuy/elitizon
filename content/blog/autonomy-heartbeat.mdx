@@ -126,34 +126,49 @@ If the agent has drifted $2\%$ off course, we don't just patch the error; we rew
 **Figure 3: Trajectory Comparison - Cannon vs. Guided Missile**
 
 ```mermaid
-graph LR
-    subgraph Cannon["Traditional Agent (Cannon)"]
-        C1[Goal] --> C2[Step 1]
-        C2 --> C3[Step 5<br/>small error]
-        C3 -.drift.-> C4[Step 50<br/>false assumption]
-        C4 -.drift.-> C5[Step 500<br/>💥 Catastrophic Failure]
-        style C5 fill:#FF6347,color:#fff
+graph TD
+    subgraph Cannon["<b>Traditional Agent (Cannon)</b>"]
+        C1["🎯 Goal"]
+        C2["Step 1"]
+        C3["Step 5<br/><small>small error</small>"]
+        C4["Step 50<br/><small>false assumption</small>"]
+        C5["Step 500<br/>💥 Catastrophic"]
+
+        C1 --> C2
+        C2 --> C3
+        C3 -->|drift| C4
+        C4 -->|drift| C5
+
+        style C1 fill:#FFD700,stroke:#333,color:#000
+        style C5 fill:#FF6347,stroke:#900,color:#fff
+        style C3 fill:#FFA500,stroke:#333,color:#fff
+        style C4 fill:#FF8C00,stroke:#333,color:#fff
     end
 
-    subgraph Guided["Stabilized Agent (Guided Missile)"]
-        G1[Goal] --> G2[Step 1-10]
-        G2 --> G3[🔍 Checkpoint]
-        G3 --> G4[Step 11-20]
-        G4 --> G5[🔍 Checkpoint]
-        G5 --> G6[Step 21-30]
-        G6 --> G7[🔍 Checkpoint]
-        G7 --> G8[...]
-        G8 --> G9[✅ Success]
-        style G9 fill:#90EE90
-    end
+    subgraph Guided["<b>Stabilized Agent (Guided Missile)</b>"]
+        G1["🎯 Goal"]
+        G2["Step 1-10"]
+        G3["🔍 Checkpoint"]
+        G4["Step 11-20"]
+        G5["🔍 Checkpoint"]
+        G6["Step 21-30"]
+        G7["🔍 Checkpoint"]
+        G8["✅ Success"]
 
-    style C1 fill:#FFD700
-    style G1 fill:#FFD700
-    style C3 fill:#FFA500
-    style C4 fill:#FF8C00
-    style G3 fill:#87CEEB
-    style G5 fill:#87CEEB
-    style G7 fill:#87CEEB
+        G1 --> G2
+        G2 --> G3
+        G3 --> G4
+        G4 --> G5
+        G5 --> G6
+        G6 --> G7
+        G7 --> G8
+
+        style G1 fill:#FFD700,stroke:#333,color:#000
+        style G8 fill:#90EE90,stroke:#333,color:#000
+        style G3 fill:#87CEEB,stroke:#333,color:#000
+        style G5 fill:#87CEEB,stroke:#333,color:#000
+        style G7 fill:#87CEEB,stroke:#333,color:#000
+    end
 ```
 
 ### Building in Public
@@ -169,37 +184,31 @@ I am not claiming to have the magic bullet, but I have a hypothesis and an engin
 **Figure 4: State Machine - Error Detection and Recovery**
 
 ```mermaid
-stateDiagram-v2
-    [*] --> Executing
-    Executing --> Stabilizing: Checkpoint Interval
+graph TD
+    A["🎯 Executing<br/>Steps 1-N"] --> B{"⏱️ Checkpoint<br/>Reached?"}
+    B -->|No| A
+    B -->|Yes| C["🔍 Stabilization:<br/>Ground Truth Check"]
 
-    Stabilizing --> GroundTruthCheck: Save External State
-    GroundTruthCheck --> ValidationPass: All Constraints Met
-    GroundTruthCheck --> ValidationFail: Constraint Violated
+    C --> D{"✅ All Checks<br/>Pass?"}
+    D -->|Yes| E["💚 Valid State<br/>Continue"]
+    D -->|No| F["❌ Constraint Violated<br/>Rollback"]
 
-    ValidationPass --> Recalibrating
-    ValidationFail --> RollbackState: Restore Last Valid
-    RollbackState --> Recalibrating
+    F --> G["🔄 Recalibration:<br/>Replan Forward"]
+    E --> G
 
-    Recalibrating --> DriftAnalysis: Compare Goal vs Reality
-    DriftAnalysis --> TrajectoryCorrection: Replan Forward Path
-    TrajectoryCorrection --> Executing: Resume with New Plan
+    G --> H{"🎯 Task<br/>Done?"}
+    H -->|No| A
+    H -->|Yes| I["✅ Success"]
 
-    Executing --> [*]: Task Complete
-
-    note right of Stabilizing
-        External verification:
-        - Code compilation
-        - File system state
-        - API responses
-    end note
-
-    note right of Recalibrating
-        Trajectory realignment:
-        - Not just error patching
-        - Full forward replan
-        - Reality-based, not prediction-based
-    end note
+    style A fill:#87CEEB,stroke:#333,color:#000
+    style B fill:#FFD700,stroke:#333,color:#000
+    style C fill:#DDA0DD,stroke:#333,color:#000
+    style D fill:#FFD700,stroke:#333,color:#000
+    style E fill:#90EE90,stroke:#333,color:#000
+    style F fill:#FF6347,stroke:#900,color:#fff
+    style G fill:#DDA0DD,stroke:#333,color:#000
+    style H fill:#FFD700,stroke:#333,color:#000
+    style I fill:#90EE90,stroke:#333,color:#000
 ```
 
 ## Conclusion

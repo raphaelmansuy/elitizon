@@ -7,66 +7,89 @@ interface MermaidDiagramProps {
   children: string;
 }
 
-// Initialize mermaid once
+// Initialize mermaid once. Accept optional overrides for font family
+// and font size so we can reconfigure mermaid at render time after
+// waiting for the page webfont to load. This allows mermaid to compute
+// layout using the same font metrics as the page and prevents clipping.
 let initialized = false;
-function initMermaid() {
-  if (initialized) return;
-  mermaid.initialize({
-    startOnLoad: false,
-    theme: "base",
-    securityLevel: "loose",
-    flowchart: {
-      useMaxWidth: true,
-      htmlLabels: true,
-      curve: "basis",
-      padding: 15,
-      nodeSpacing: 50,
-      rankSpacing: 50,
-    },
-    themeVariables: {
-      // Node styling - clean white with dark borders
-      primaryColor: "#ffffff",
-      primaryBorderColor: "#1e293b",
-      primaryTextColor: "#1e293b",
+function initMermaid(overrides?: { fontFamily?: string; fontSize?: string }) {
+  if (!initialized) {
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: "base",
+      securityLevel: "loose",
+      flowchart: {
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: "basis",
+        padding: 15,
+        nodeSpacing: 50,
+        rankSpacing: 50,
+      },
+      themeVariables: {
+        // Node styling - clean white with dark borders
+        primaryColor: "#ffffff",
+        primaryBorderColor: "#1e293b",
+        primaryTextColor: "#1e293b",
 
-      // Secondary nodes
-      secondaryColor: "#f8fafc",
-      secondaryBorderColor: "#475569",
-      secondaryTextColor: "#1e293b",
+        // Secondary nodes
+        secondaryColor: "#f8fafc",
+        secondaryBorderColor: "#475569",
+        secondaryTextColor: "#1e293b",
 
-      // Tertiary nodes
-      tertiaryColor: "#f1f5f9",
-      tertiaryBorderColor: "#64748b",
-      tertiaryTextColor: "#1e293b",
+        // Tertiary nodes
+        tertiaryColor: "#f1f5f9",
+        tertiaryBorderColor: "#64748b",
+        tertiaryTextColor: "#1e293b",
 
-      // Background and general
-      background: "#ffffff",
-      mainBkg: "#ffffff",
+        // Background and general
+        background: "#ffffff",
+        mainBkg: "#ffffff",
 
-      // Lines and arrows - dark and visible
-      lineColor: "#334155",
-      arrowheadColor: "#334155",
+        // Lines and arrows - dark and visible
+        lineColor: "#334155",
+        arrowheadColor: "#334155",
 
-      // Cluster/subgraph styling
-      clusterBkg: "#f8fafc",
-      clusterBorder: "#94a3b8",
+        // Cluster/subgraph styling
+        clusterBkg: "#f8fafc",
+        clusterBorder: "#94a3b8",
 
-      // Text and labels
-      textColor: "#1e293b",
-      edgeLabelBackground: "#ffffff",
+        // Text and labels
+        textColor: "#1e293b",
+        edgeLabelBackground: "#ffffff",
 
-      // Node border width
-      nodeBorder: "#1e293b",
+        // Node border width
+        nodeBorder: "#1e293b",
 
-      // Typography: prefer the site's Inter variable and fall back to
-      // common system fonts. Using the CSS variable `--font-inter` ensures
-      // consistent metrics with the rest of the site when the font is loaded.
-      fontSize: "14px",
-      fontFamily:
-        "var(--font-inter), Inter, ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif",
-    },
-  });
-  initialized = true;
+        // Typography defaults; may be overridden at render time
+        fontSize: overrides?.fontSize ?? "14px",
+        fontFamily:
+          overrides?.fontFamily ??
+          "var(--font-inter), Inter, ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif",
+      },
+    });
+
+    initialized = true;
+    return;
+  }
+
+  // If mermaid is already initialized but we have font overrides, update
+  // the theme variables so subsequent renders use the correct metrics.
+  if (overrides) {
+    try {
+      mermaid.initialize({
+        themeVariables: {
+          fontSize: overrides.fontSize,
+          fontFamily: overrides.fontFamily,
+        },
+      });
+    } catch (e) {
+      // Non-fatal: some mermaid builds may not accept repeated initialize
+      // calls in exactly the same way — this is a best-effort attempt.
+      // eslint-disable-next-line no-console
+      console.warn("Mermaid: failed to reinitialize theme variables", e);
+    }
+  }
 }
 
 export default function MermaidDiagram({ children }: MermaidDiagramProps) {
@@ -90,9 +113,11 @@ export default function MermaidDiagram({ children }: MermaidDiagramProps) {
         // timeout to avoid long waits in the rare case `document.fonts`
         // is unavailable or takes too long.
         if (typeof document !== "undefined") {
-          const fonts = (document as unknown as {
-            fonts?: { ready: Promise<void> };
-          }).fonts;
+          const fonts = (
+            document as unknown as {
+              fonts?: { ready: Promise<void> };
+            }
+          ).fonts;
           if (fonts) {
             try {
               await Promise.race([
@@ -103,6 +128,21 @@ export default function MermaidDiagram({ children }: MermaidDiagramProps) {
               // Ignore font waiting errors — we still attempt render.
             }
           }
+        }
+
+        // After waiting for webfonts, compute the page font family and size
+        // and reinitialize mermaid theme variables so layout math (text
+        // measurement) matches the page. This is necessary because mermaid
+        // computes bounding boxes based on the configured `fontSize`.
+        try {
+          const computed = window.getComputedStyle(document.body);
+          const pageFontFamily = computed?.fontFamily || undefined;
+          const pageFontSize = computed?.fontSize || undefined;
+          if (pageFontFamily || pageFontSize) {
+            initMermaid({ fontFamily: pageFontFamily, fontSize: pageFontSize });
+          }
+        } catch {
+          // non-fatal
         }
 
         // mermaid.render historically returned a string (the SVG) and in
@@ -189,6 +229,32 @@ export default function MermaidDiagram({ children }: MermaidDiagramProps) {
       element.style.strokeWidth = "2px";
       element.style.fill = "#f8fafc";
     });
+
+    // Enforce the page's computed font on all SVG text elements so the
+    // exact Inter metrics are used. This avoids cases where CSS variables
+    // or external stylesheet rules aren't applied to the inline SVG text
+    // nodes, which can produce clipping or mismatched glyph metrics.
+    try {
+      const computedFont = window.getComputedStyle(document.body).fontFamily;
+      const computedFontSize = window.getComputedStyle(document.body).fontSize;
+
+      if (computedFont) {
+        // Apply to the root <svg> as a style and to all text/tspan elements
+        svgElement.style.fontFamily = computedFont;
+        svgElement.style.fontSize = computedFontSize;
+
+        const textNodes = svgElement.querySelectorAll("text, tspan");
+        textNodes.forEach((n) => {
+          const el = n as SVGElement & { style: CSSStyleDeclaration };
+          el.style.fontFamily = computedFont;
+          el.style.fontSize = computedFontSize;
+        });
+      }
+    } catch (e) {
+      // non-fatal — if this fails, rendering still falls back to mermaid's defaults
+      // eslint-disable-next-line no-console
+      console.warn("Mermaid: could not inline computed font into SVG", e);
+    }
   }, [svg]);
 
   if (error) {

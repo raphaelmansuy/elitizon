@@ -121,6 +121,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* KaTeX CSS for math rendering in blog posts */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css"
+          integrity="sha384-yPKl8j5G+xndK3AJ3fobePnPfwmCbMpRvZoE/5aQ/8lFWKBuL+eIlq3VgOHY5/TE"
+          crossOrigin="anonymous"
+        />
         {/* AI-specific meta tags for enhanced discoverability */}
         <meta
           name="ai-purpose"
