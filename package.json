@@ -26,8 +26,8 @@
     "validate:all": "npm run validate:seo && npm run validate:accessibility"
   },
   "dependencies": {
-    "@aws-sdk/client-ses": "^3.828.0",
-    "@aws-sdk/client-sts": "^3.828.0",
+    "@aws-sdk/client-ses": "^3.995.0",
+    "@aws-sdk/client-sts": "^3.995.0",
     "@mdx-js/mdx": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@types/dompurify": "^3.0.5",
